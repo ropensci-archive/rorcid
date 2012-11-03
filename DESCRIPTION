@@ -1,0 +1,13 @@
+Package: rorcid
+Date: 03-Nov-12
+Description: A programmatic interface the Orcid.org API.
+Authors@R: c(person("Scott", "Chamberlain", role = c("aut", "cre"),
+    email = "myrmecocystus@gmail.com"))
+Version: 0.1
+License: CC0
+Suggests:
+    testthat,
+    roxygen2
+Collate:
+    'orcid_id.r'
+    'orcid.r'
