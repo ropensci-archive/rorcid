@@ -9,11 +9,12 @@
 \arguments{
   \item{query}{Search terms}
 
-  \item{start}{Result number to start on.}
+  \item{start}{Result number to start on. Keep in mind that
+  pages start at 0.}
 
   \item{rows}{Numer of results to return.}
 
-  \item{qf}{??}
+  \item{qf}{}
 
   \item{defType}{Query syntax. See Details for more.}
 }
@@ -59,6 +60,11 @@ orcid("10.1087/20120404")
 
 # Search by text type
 orcid("text:English")
+
+# Use the Orcid ID to search ScienceCard (http://sciencecard.org/)
+fromJSON("http://sciencecard.org/api/v3/users/0000-0002-1642-628X?info=summary")
+
+# Use case of disambiguating names from a list of similar names
 }
 }
 

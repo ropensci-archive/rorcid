@@ -1,10 +1,10 @@
-#' Search for ORCID id's.
+#' Search for ORCID ID's.
 #' 
-#' @import RCurl XML plyr
+#' @import RCurl XML plyr RJSONIO
 #' @param query Search terms
-#' @param start Result number to start on.
+#' @param start Result number to start on. Keep in mind that pages start at 0.
 #' @param rows Numer of results to return.
-#' @param qf ??
+#' @param qf 
 #' @param defType Query syntax. See Details for more.
 #' @details You can use any of the following within the query statement: given-names,
 #' 		family-name, credit-name, other-names, email, grant-number, patent-number,
@@ -38,6 +38,19 @@
 #' 
 #' # Search by text type
 #' orcid("text:English")
+#' 
+#' # Use the Orcid ID to search ScienceCard (http://sciencecard.org/)
+#' fromJSON("http://sciencecard.org/api/v3/users/0000-0002-1642-628X?info=summary")
+#' 
+#' # Use case of disambiguating names from a list of similar names
+# safe_orcid <- plyr::failwith(NULL, orcid)
+# out <- plosauthor(terms = 'johnson', fields = 'title,author', limit = 100)
+# uniquenames <- unique(str_trim(unlist(sapply(as.character(out[,2]), function(x) strsplit(x, ",")[[1]], USE.NAMES=F))),"both")
+# registerDoMC(cores=4)
+# outnames <- llply(uniquenames, safe_orcid, .parallel=T)
+# outnames_df <- ldply(outnames)[,1:5]
+# str(outnames_df)
+# outnames_df[order(outnames_df$`given-names`),]
 #' }
 #' @export
 orcid <- function(query = NULL, qf = NULL, start = NULL, rows = NULL, defType = NULL,

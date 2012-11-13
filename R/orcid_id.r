@@ -1,9 +1,10 @@
-#' Search for ORCID ID's.
+#' Get data for particular known ORCID ID's.
 #' 
 #' @import RCurl XML plyr
 #' @param orcid Orcid identifier(s), of the form XXXX-XXXX-XXXX-XXXX.
 #' @param profile Bibliographic ("bio"), biographical ("works"), or 
 #' 		both ("both", the default).
+#' @param url Base url for the Orcid API.
 #' @examples \dontrun{
 #' orcid_id(orcid = "0000-0002-9341-7985")
 #' orcid_id(orcid = "0000-0003-1620-1408")

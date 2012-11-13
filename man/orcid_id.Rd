@@ -11,6 +11,8 @@
 
   \item{profile}{Bibliographic ("bio"), biographical
   ("works"), or both ("both", the default).}
+
+  \item{url}{Base url for the Orcid API.}
 }
 \description{
   Search for ORCID ID's.
