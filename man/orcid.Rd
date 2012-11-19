@@ -1,9 +1,9 @@
 \name{orcid}
 \alias{orcid}
-\title{Search for ORCID id's.}
+\title{Search for ORCID ID's.}
 \usage{
   orcid(query = NULL, qf = NULL, start = NULL, rows = NULL,
-    defType = NULL,
+    defType = NULL, recursive = FALSE,
     url = "http://pub.orcid.org/search/orcid-bio")
 }
 \arguments{
@@ -14,12 +14,17 @@
 
   \item{rows}{Numer of results to return.}
 
-  \item{qf}{}
+  \item{qf}{????}
 
   \item{defType}{Query syntax. See Details for more.}
+
+  \item{recursive}{Keep drilling down until all records are
+  retrieved for the given query, default FALSE (logical).
+  If recursive=TRUE, rows and start parameters are
+  ignored.}
 }
 \description{
-  Search for ORCID id's.
+  Search for ORCID ID's.
 }
 \details{
   You can use any of the following within the query
@@ -40,6 +45,10 @@
 }
 \examples{
 \dontrun{
+# Get a list of names and Orcid IDs matching a name query
+orcid(query="carl+boettiger")
+orcid(query="given-names:carl+AND+family-name:boettiger")
+
 # You can string together many search terms
 orcid(query="johnson+cardiology+houston")
 
@@ -65,6 +74,14 @@ orcid("text:English")
 fromJSON("http://sciencecard.org/api/v3/users/0000-0002-1642-628X?info=summary")
 
 # Use case of disambiguating names from a list of similar names
+# safe_orcid <- plyr::failwith(NULL, orcid)
+# out <- plosauthor(terms = 'johnson', fields = 'title,author', limit = 100)
+# uniquenames <- unique(str_trim(unlist(sapply(as.character(out[,2]), function(x) strsplit(x, ",")[[1]], USE.NAMES=F))),"both")
+# registerDoMC(cores=4)
+# outnames <- llply(uniquenames, safe_orcid, .parallel=T)
+# outnames_df <- ldply(outnames)[,1:5]
+# str(outnames_df)
+# outnames_df[order(outnames_df$`given-names`),]
 }
 }
 

@@ -4,8 +4,11 @@
 #' @param query Search terms
 #' @param start Result number to start on. Keep in mind that pages start at 0.
 #' @param rows Numer of results to return.
-#' @param qf 
+#' @param qf ????
 #' @param defType Query syntax. See Details for more.
+#' @param recursive Keep drilling down until all records are retrieved for the 
+#' 		given query, default FALSE (logical). If recursive=TRUE, rows and start
+#' 		parameters are ignored. 
 #' @details You can use any of the following within the query statement: given-names,
 #' 		family-name, credit-name, other-names, email, grant-number, patent-number,
 #' 		keyword, worktitle, digital-objectids, current-institution, affiliation-name,
@@ -18,6 +21,10 @@
 #' 		A range of sophisticated search engine features are available for those 
 #' 		who need them; several examples are shown below."
 #' @examples \dontrun{
+#' # Get a list of names and Orcid IDs matching a name query
+#' orcid(query="carl+boettiger")
+#' orcid(query="given-names:carl+AND+family-name:boettiger")
+#' 
 #' # You can string together many search terms
 #' orcid(query="johnson+cardiology+houston")
 #' 
@@ -43,23 +50,24 @@
 #' fromJSON("http://sciencecard.org/api/v3/users/0000-0002-1642-628X?info=summary")
 #' 
 #' # Use case of disambiguating names from a list of similar names
-# safe_orcid <- plyr::failwith(NULL, orcid)
-# out <- plosauthor(terms = 'johnson', fields = 'title,author', limit = 100)
-# uniquenames <- unique(str_trim(unlist(sapply(as.character(out[,2]), function(x) strsplit(x, ",")[[1]], USE.NAMES=F))),"both")
-# registerDoMC(cores=4)
-# outnames <- llply(uniquenames, safe_orcid, .parallel=T)
-# outnames_df <- ldply(outnames)[,1:5]
-# str(outnames_df)
-# outnames_df[order(outnames_df$`given-names`),]
+#' # safe_orcid <- plyr::failwith(NULL, orcid)
+#' # out <- plosauthor(terms = 'johnson', fields = 'title,author', limit = 100)
+#' # uniquenames <- unique(str_trim(unlist(sapply(as.character(out[,2]), function(x) strsplit(x, ",")[[1]], USE.NAMES=F))),"both")
+#' # registerDoMC(cores=4)
+#' # outnames <- llply(uniquenames, safe_orcid, .parallel=T)
+#' # outnames_df <- ldply(outnames)[,1:5]
+#' # str(outnames_df)
+#' # outnames_df[order(outnames_df$`given-names`),]
 #' }
 #' @export
 orcid <- function(query = NULL, qf = NULL, start = NULL, rows = NULL, defType = NULL,
-	url = "http://pub.orcid.org/search/orcid-bio")
+	recursive = FALSE, url = "http://pub.orcid.org/search/orcid-bio")
 {
+	url2 <- paste0(url, "/?q=", query)
 	args <- compact(list(httpAccept = 'application/orcid+xml',
-											 q = query, qf = qf, start = start, rows = rows, 
+											 qf = qf, start = start, rows = rows, 
 											 defType = defType))
-  out <- getForm(url, .params = args)
+  out <- getForm(url2, .params = args)
   tt <- xmlParse(out)
 	toget <- c("orcid", "creation-method", "completion-date", "submission-date",
 						 "claimed", "email-verified", "given-names", "family-name", "external-id-orcid",

@@ -24,7 +24,7 @@ orcid_id <- function(orcid = NULL, profile = NULL, url = "http://pub.orcid.org/"
 			temp <- match.arg(profile, choices=c("bio", "works", "profile"))
 			url2 <- paste(url, x, "/orcid-", temp, sep="")	
 		} else
-		{ url2 <- paste(url, x, "/orcid-profile", sep="") }
+			{ url2 <- paste(url, x, "/orcid-profile", sep="") }
 		out <- getURL(url2)
 		tt <- xmlParse(out)
 		

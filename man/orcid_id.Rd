@@ -1,6 +1,6 @@
 \name{orcid_id}
 \alias{orcid_id}
-\title{Search for ORCID ID's.}
+\title{Get data for particular known ORCID ID's.}
 \usage{
   orcid_id(orcid = NULL, profile = NULL,
     url = "http://pub.orcid.org/")
@@ -15,7 +15,7 @@
   \item{url}{Base url for the Orcid API.}
 }
 \description{
-  Search for ORCID ID's.
+  Get data for particular known ORCID ID's.
 }
 \examples{
 \dontrun{
