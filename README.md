@@ -1,3 +1,5 @@
+![image](https://raw.github.com/ropensci/rorcid/master/orcid_logo.png)
+
 # `rorcid`
 
 Install using `install_github` from [Hadley Wickham's devtools package](http://github.com/hadley/devtools).
