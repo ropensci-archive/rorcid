@@ -1,12 +1,12 @@
 #' A programmatic R interface the Orcid.org API.
 #' 
-#' @name taxize-package
-#' @aliases taxize
+#' @name rorcid-package
 #' @docType package
-#' @title Taxnomic search and phylogeny retrieval.
+#' @title A programmatic R interface the Orcid.org API.
 #' @author Scott Chamberlain \email{myrmecocystus@@gmail.com}
 #' @keywords package
 NULL
+
 
 #' Lookup-table for search fields
 #' @name fields

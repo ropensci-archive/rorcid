@@ -1,5 +1,5 @@
 Package: rorcid
-Date: 05-Nov-12
+Date: 11-Feb-13
 Title: Interface to Orcid API
 Description: A programmatic interface the Orcid API.
 Authors@R: c(person("Scott", "Chamberlain", role = c("aut", "cre"),

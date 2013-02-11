@@ -1,8 +1,7 @@
 \docType{package}
-\name{taxize-package}
-\alias{taxize}
-\alias{taxize-package}
-\title{Taxnomic search and phylogeny retrieval.}
+\name{rorcid-package}
+\alias{rorcid-package}
+\title{A programmatic R interface the Orcid.org API.}
 \description{
   A programmatic R interface the Orcid.org API.
 }
