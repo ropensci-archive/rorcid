@@ -1,10 +1,10 @@
-#' Get data for particular known ORCID ID's.
+#' Get data for particular ORCID ID's.
 #' 
 #' @import RCurl XML plyr
 #' @param orcid Orcid identifier(s), of the form XXXX-XXXX-XXXX-XXXX.
 #' @param profile Bibliographic ("bio"), biographical ("works"), or 
 #' 		both ("both", the default).
-#' @param url Base url for the Orcid API.
+#' @return A data.frame of results.
 #' @examples \dontrun{
 #' orcid_id(orcid = "0000-0002-9341-7985")
 #' orcid_id(orcid = "0000-0003-1620-1408")
@@ -13,8 +13,10 @@
 #' orcid_id(orcid = ids)
 #' }
 #' @export
-orcid_id <- function(orcid = NULL, profile = NULL, url = "http://pub.orcid.org/")
-{
+orcid_id <- function(orcid = NULL, profile = NULL)
+	{
+	url = "http://pub.orcid.org/"
+	
 	toget <- c("orcid", "creation-method", "completion-date", "submission-date",
 		"claimed", "email-verified", "given-names", "family-name", "external-id-orcid",
 		"external-id-common-name", "external-id-reference", "external-id-url")

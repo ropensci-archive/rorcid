@@ -60,9 +60,11 @@
 #' # outnames_df[order(outnames_df$`given-names`),]
 #' }
 #' @export
-orcid <- function(query = NULL, qf = NULL, start = NULL, rows = NULL, defType = NULL,
-	recursive = FALSE, url = "http://pub.orcid.org/search/orcid-bio")
+orcid <- function(query = NULL, qf = NULL, start = NULL, rows = NULL, 
+									defType = NULL, recursive = FALSE)
 {
+	url = "http://pub.orcid.org/search/orcid-bio"
+	
 	url2 <- paste0(url, "/?q=", query)
 	args <- compact(list(httpAccept = 'application/orcid+xml',
 											 qf = qf, start = start, rows = rows, 
