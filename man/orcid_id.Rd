@@ -1,9 +1,8 @@
 \name{orcid_id}
 \alias{orcid_id}
-\title{Get data for particular known ORCID ID's.}
+\title{Get data for particular ORCID ID's.}
 \usage{
-  orcid_id(orcid = NULL, profile = NULL,
-    url = "http://pub.orcid.org/")
+  orcid_id(orcid = NULL, profile = NULL)
 }
 \arguments{
   \item{orcid}{Orcid identifier(s), of the form
@@ -11,11 +10,12 @@
 
   \item{profile}{Bibliographic ("bio"), biographical
   ("works"), or both ("both", the default).}
-
-  \item{url}{Base url for the Orcid API.}
+}
+\value{
+  A data.frame of results.
 }
 \description{
-  Get data for particular known ORCID ID's.
+  Get data for particular ORCID ID's.
 }
 \examples{
 \dontrun{

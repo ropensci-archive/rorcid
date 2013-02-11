@@ -17,3 +17,4 @@ Suggests:
 Collate:
     'orcid_id.r'
     'orcid.r'
+    'rorcid-package.R'
