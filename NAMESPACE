@@ -1,3 +1,4 @@
+export(orcid_doi)
 export(orcid_id)
 export(orcid)
 import(plyr)

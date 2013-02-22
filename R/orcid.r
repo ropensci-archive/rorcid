@@ -51,6 +51,9 @@
 #' @param lowercaseOperators This param controls whether to try to interpret lowercase 
 #' 		words as boolean operators such as "and", "not" and "or". Set &lowercaseOperators=true 
 #' 		to allow this. Default is "false".
+#' @param fuzzy Use fuzzy matching on input DOIs. Defaults to FALSE. If FALSE, 
+#' 		we stick "digital-object-ids" before the DOI so that the search sent to 
+#' 		ORCID is for that exact DOI. If TRUE, we use some regex to find the DOI.
 #' @details You can use any of the following within the query statement: given-names,
 #' 		family-name, credit-name, other-names, email, grant-number, patent-number,
 #' 		keyword, worktitle, digital-objectids, current-institution, affiliation-name,
@@ -58,6 +61,7 @@
 #' 		
 #' 		For more complicated queries the ORCID API supports using ExtendedDisMax.
 #' 		See the documentation on the web here: \link{http://wiki.apache.org/solr/ExtendedDisMax}.
+#' @seealso \code{orcid_doi}
 #' @examples \dontrun{
 #' # Get a list of names and Orcid IDs matching a name query
 #' orcid(query="carl+boettiger")
@@ -82,8 +86,13 @@
 #' orcid(query="keyword:ecology")
 #' 
 #' # Search by DOI
-#' orcid("10.1087/20120404")
+#' orcid(query="10.1087/20120404")
 #' 
+#' # Note the difference between the first wrt the second and third
+#' orcid("10.1087/20120404")
+#' orcid("%2210.1087/20120404%22")
+#' orcid("digital-object-ids:%2210.1087/20120404%22")
+#'  
 #' # Search by text type
 #' orcid("text:English")
 #' 
@@ -107,10 +116,10 @@
 orcid <- function(query = NULL, start = NULL, rows = NULL, recursive = FALSE,
 	defType = NULL, q.alt = NULL, qf = NULL, mm = NULL, qs = NULL, pf = NULL,
 	ps = NULL, pf2 = NULL, ps2 = NULL, pf3 = NULL, ps3 = NULL, tie = NULL, 
-	bq = NULL, bf = NULL, boost = NULL, uf = NULL, lowercaseOperators = NULL)
+	bq = NULL, bf = NULL, boost = NULL, uf = NULL, lowercaseOperators = NULL, 
+	fuzzy = FALSE)
 {
-	url = "http://pub.orcid.org/search/orcid-bio"
-	
+	url = "http://pub.orcid.org/search/orcid-bio"	
 	url2 <- paste0(url, "/?q=", query)
 	args <- compact(list(httpAccept = 'application/orcid+xml',
 											 start = start, rows = rows, defType = defType, q.alt = q.alt,
@@ -119,11 +128,11 @@ orcid <- function(query = NULL, start = NULL, rows = NULL, recursive = FALSE,
 											 boost = boost, uf = uf, lowercaseOperators = lowercaseOperators))
   out <- getForm(url2, .params = args)
   tt <- xmlParse(out)
-	toget <- c("orcid", "creation-method", "completion-date", "submission-date",
+	toget <- c("relevancy-score","orcid", "creation-method", "completion-date", "submission-date",
 						 "claimed", "email-verified", "given-names", "family-name", "external-id-orcid",
 						 "external-id-common-name", "external-id-reference", "external-id-url")
 	all <- xmlToList(tt)[[1]]
-	out <- llply(all, function(x) unlist(x, recursive=T))
+	out <- llply(all, function(x) unlist(x, recursive=TRUE))
 	namefields <- function(x){
 		temp <- sapply(strsplit(names(x), "\\."), function(y) y[length(y)])
 		ttt <- data.frame(t(x))
@@ -132,5 +141,5 @@ orcid <- function(query = NULL, start = NULL, rows = NULL, recursive = FALSE,
 	}
 	out2 <- llply(out, namefields)
 	df <- do.call(rbind.fill, out2)
-	df[order(df$`relevancy-score`, decreasing=F),]
+	df[order(df$`relevancy-score`, decreasing=FALSE),c("relevancy-score","orcid","given-names","family-name")]
 }

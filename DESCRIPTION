@@ -18,3 +18,4 @@ Collate:
     'orcid_id.r'
     'orcid.r'
     'rorcid-package.R'
+    'orcid_doi.r'

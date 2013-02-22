@@ -19,6 +19,7 @@
 }
 \examples{
 \dontrun{
+orc(orcid = "0000-0002-9341-7985")
 orcid_id(orcid = "0000-0002-9341-7985")
 orcid_id(orcid = "0000-0003-1620-1408")
 orcid_id(orcid = "0000-0002-9341-7985", profile="works")

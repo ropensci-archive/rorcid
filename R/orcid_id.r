@@ -6,6 +6,7 @@
 #' 		both ("both", the default).
 #' @return A data.frame of results.
 #' @examples \dontrun{
+#' orc(orcid = "0000-0002-9341-7985")
 #' orcid_id(orcid = "0000-0002-9341-7985")
 #' orcid_id(orcid = "0000-0003-1620-1408")
 #' orcid_id(orcid = "0000-0002-9341-7985", profile="works")
@@ -14,10 +15,10 @@
 #' }
 #' @export
 orcid_id <- function(orcid = NULL, profile = NULL)
-	{
+{
 	url = "http://pub.orcid.org/"
 	
-	toget <- c("orcid", "creation-method", "completion-date", "submission-date",
+	toget <- c("orcid", "relevancy-score", "creation-method", "completion-date", "submission-date",
 		"claimed", "email-verified", "given-names", "family-name", "external-id-orcid",
 		"external-id-common-name", "external-id-reference", "external-id-url")
 	
@@ -44,5 +45,6 @@ orcid_id <- function(orcid = NULL, profile = NULL)
 		
 		data.frame(list_3)
 	}
-	ldply(orcid, doit)
+	out <- ldply(orcid, doit)
+	return( out )
 }

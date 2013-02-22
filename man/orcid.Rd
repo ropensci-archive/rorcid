@@ -7,7 +7,7 @@
     qf = NULL, mm = NULL, qs = NULL, pf = NULL, ps = NULL,
     pf2 = NULL, ps2 = NULL, pf3 = NULL, ps3 = NULL,
     tie = NULL, bq = NULL, bf = NULL, boost = NULL,
-    uf = NULL, lowercaseOperators = NULL)
+    uf = NULL, lowercaseOperators = NULL, fuzzy = FALSE)
 }
 \arguments{
   \item{query}{Search terms. You can do quite complicated
@@ -105,6 +105,11 @@
   such as "and", "not" and "or". Set
   &lowercaseOperators=true to allow this. Default is
   "false".}
+
+  \item{fuzzy}{Use fuzzy matching on input DOIs. Defaults
+  to FALSE. If FALSE, we stick "digital-object-ids" before
+  the DOI so that the search sent to ORCID is for that
+  exact DOI. If TRUE, we use some regex to find the DOI.}
 }
 \description{
   Search for ORCID ID's.
@@ -146,7 +151,12 @@ orcid(query="Raymond", start=0, rows=10, defType="edismax")
 orcid(query="keyword:ecology")
 
 # Search by DOI
+orcid(query="10.1087/20120404")
+
+# Note the difference between the first wrt the second and third
 orcid("10.1087/20120404")
+orcid("\%2210.1087/20120404\%22")
+orcid("digital-object-ids:\%2210.1087/20120404\%22")
 
 # Search by text type
 orcid("text:English")
@@ -167,5 +177,8 @@ orcid(query = "Raymond", start = 0, rows = 10)
 # 	\\link{http://lucene.apache.org/solr/4_1_0/solr-core/org/apache/solr/util/doc-files/min-should-match.html}
 orcid(defType = "edismax", query="keyword:ecology+OR+evolution+OR+conservation", mm = 2, rows = 20)
 }
+}
+\seealso{
+  \code{orcid_doi}
 }
 
