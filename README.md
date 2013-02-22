@@ -1,4 +1,4 @@
-![image](https://raw.github.com/ropensci/rorcid/master/orcid_64x64.png)
+[![image](https://raw.github.com/ropensci/rorcid/master/orcid_64x64.png)](http://orcid.org)
 
 # `rorcid`
 
