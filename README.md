@@ -1,6 +1,8 @@
-![image](https://raw.github.com/ropensci/rorcid/master/orcid_logo.png)
+![image](https://raw.github.com/ropensci/rorcid/master/orcid_64x64.png)
 
 # `rorcid`
+
+`rorcid` is an R programmatic interface to the Orcid public API. `rorcid` is not a product developed or distributed by ORCID®.
 
 Install using `install_github` from [Hadley Wickham's devtools package](http://github.com/hadley/devtools).
 
