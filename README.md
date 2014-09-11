@@ -1,3 +1,6 @@
+[![Build Status](https://api.travis-ci.org/ropensci/rorcid.png)](https://travis-ci.org/ropensci/rorcid)
+[![Build status](https://ci.appveyor.com/api/projects/status/vphls55n8h01o8fj/branch/master)](https://ci.appveyor.com/project/sckott/floras/branch/master)
+
 [![image](https://raw.github.com/ropensci/rorcid/master/orcid_64x64.png)](http://orcid.org)
 
 # `rorcid`
