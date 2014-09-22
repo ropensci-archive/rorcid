@@ -9,8 +9,6 @@
 #' 		given query, default FALSE (logical). If recursive=TRUE, rows and start
 #' 		parameters are ignored. 
 #' @param defType Query syntax. One of edismax or X. See Details for more.
-#' @param qf List of fields and the "boosts" to associate with each of them when 
-#' 		building DisMax and queries. 
 #' @param q.alt If specified, this query will be used (and parsed by default using 
 #' 		standard query parsing syntax) when the main query string is not specified 
 #' 		or blank. This comes in handy when you need something like a match-all-docs 
@@ -18,13 +16,15 @@
 #' 		faceting counts.
 #' @param qf (Query Fields) List of fields and the "boosts" to associate with each 
 #' 		of them when building DisjunctionMaxQueries from the user's query
-#' @param mm (Minimum 'Should' Match) See the wiki here \link{http://wiki.apache.org/solr/ExtendedDisMax#mm_.28Minimum_.27Should.27_Match.29}
+#' @param mm (Minimum 'Should' Match) See the wiki here 
+#'    \url{http://wiki.apache.org/solr/ExtendedDisMax#mm_.28Minimum_.27Should.27_Match.29}
 #' @param qs (Query Phrase Slop) Amount of slop on phrase queries explicitly 
 #' 		included in the user's query string (in qf fields; affects matching).
 #' @param pf (Phrase Fields) Once the list of matching documents has been identified 
 #' 		using the "fq" and "qf" params, the "pf" param can be used to "boost" the 
 #' 		score of documents in cases where all of the terms in the "q" param appear 
-#' 		in close proximity. Read more here link{http://wiki.apache.org/solr/ExtendedDisMax#pf_.28Phrase_Fields.29}
+#' 		in close proximity. Read more here 
+#'   	\url{http://wiki.apache.org/solr/ExtendedDisMax#pf_.28Phrase_Fields.29}
 #' @param ps (Phrase Slop) Default amount of slop on phrase queries built with "pf", 
 #' 		"pf2" and/or "pf3" fields (affects boosting).
 #' @param pf2 (Phrase bigram fields) As with 'pf' but chops the input into bi-grams, 
@@ -36,18 +36,21 @@
 #' @param ps3 (Phrase trigram slop) As with 'ps' but sets default slop factor for 'pf3'. 
 #' 		If not specified, 'ps' will be used.
 #' @param tie (Tie breaker) Float value to use as tiebreaker in DisjunctionMaxQueries 
-#' 		(should be something much less than 1). Read more here \link{http://wiki.apache.org/solr/ExtendedDisMax#tie_.28Tie_breaker.29}
+#' 		(should be something much less than 1). Read more here 
+#'   	\url{http://wiki.apache.org/solr/ExtendedDisMax#tie_.28Tie_breaker.29}
 #' @param bq (Boost Query) A raw query string (in the SolrQuerySyntax) that will 
 #' 		be included with the user's query to influence the score. Read more here 
-#' 		\link{http://wiki.apache.org/solr/ExtendedDisMax#bq_.28Boost_Query.29}
+#' 		\url{http://wiki.apache.org/solr/ExtendedDisMax#bq_.28Boost_Query.29}
 #' @param bf (Boost Function, additive) Functions (with optional boosts) that will 
 #' 		be included in the user's query to influence the score. Any function supported 
 #' 		natively by Solr can be used, along with a boost value, e.g.: recip(rord(myfield),1,2,3)^1.5
-#' 		Read more here \link{http://wiki.apache.org/solr/ExtendedDisMax#bf_.28Boost_Function.2C_additive.29}
-#' @param boost (Boost Function, multiplicative) As for 'bf' but multiplies the boost into the score.
+#' 		Read more here 
+#'   	\url{http://wiki.apache.org/solr/ExtendedDisMax#bf_.28Boost_Function.2C_additive.29}
+#' @param boost (Boost Function, multiplicative) As for 'bf' but multiplies the boost into the 
+#'    score
 #' @param uf (User Fields) Specifies which schema fields the end user shall be allowed 
 #' 		to query for explicitly. This parameter supports wildcards. Read more here
-#' 		\link{http://wiki.apache.org/solr/ExtendedDisMax#uf_.28User_Fields.29}
+#' 		\url{http://wiki.apache.org/solr/ExtendedDisMax#uf_.28User_Fields.29}
 #' @param lowercaseOperators This param controls whether to try to interpret lowercase 
 #' 		words as boolean operators such as "and", "not" and "or". Set &lowercaseOperators=true 
 #' 		to allow this. Default is "false".
@@ -60,7 +63,7 @@
 #' 		current-primary-institution, text, or past-institution. 
 #' 		
 #' 		For more complicated queries the ORCID API supports using ExtendedDisMax.
-#' 		See the documentation on the web here: \link{http://wiki.apache.org/solr/ExtendedDisMax}.
+#' 		See the documentation on the web here: \url{http://wiki.apache.org/solr/ExtendedDisMax}.
 #' @seealso \code{orcid_doi}
 #' @examples \dontrun{
 #' # Get a list of names and Orcid IDs matching a name query
@@ -100,14 +103,15 @@
 #' 
 #' # Use the qf parameter to "boost" query fields so they are ranked higher
 #' # 	See how it is different than the second query without using "qf"
-#' orcid(defType = "edismax", query = "Raymond", qf = "given-names^1.0 family-name^2.0", start = 0, rows = 10)
+#' orcid(defType = "edismax", query = "Raymond", qf = "given-names^1.0 family-name^2.0", 
+#'    start = 0, rows = 10)
 #' orcid(query = "Raymond", start = 0, rows = 10)
 #' 
 #' # Use other SOLR parameters as well, here mm. Using the "mm" param, 1 and 2 word 
 #' # 	queries require that all of the optional clauses match, but for queries with 
-#' # 	three or more clauses one missing clause is allowed...See for more: 
-#' # 	\link{http://lucene.apache.org/solr/4_1_0/solr-core/org/apache/solr/util/doc-files/min-should-match.html}
-#' orcid(defType = "edismax", query="keyword:ecology+OR+evolution+OR+conservation", mm = 2, rows = 20)
+#' # 	three or more clauses one missing clause is allowed...See for more: http://bit.ly/1uyMLDQ
+#' orcid(defType = "edismax", query="keyword:ecology+OR+evolution+OR+conservation", 
+#'    mm = 2, rows = 20)
 #' }
 #' @export
 orcid <- function(query = NULL, start = NULL, rows = NULL, recursive = FALSE,
