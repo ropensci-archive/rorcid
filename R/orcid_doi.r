@@ -1,6 +1,8 @@
 #' Search for ORCID ID's using just DOIs.
 #' 
 #' @import RCurl XML plyr
+#' @export
+#' 
 #' @param dois Digital object identifier (DOI), a vector fo DOIs.
 #' @param start Result number to start on. Keep in mind that pages start at 0.
 #' @param rows Numer of results to return.
@@ -23,7 +25,7 @@
 #' orcid_doi(dois="10.1087/20120404", fuzzy=FALSE) # works
 #' orcid_doi(dois="10.1371/journal.pone.0025995", fuzzy=FALSE) # doesn't work
 #' }
-#' @export
+
 orcid_doi <- function(dois = NULL, start = NULL, rows = NULL, fuzzy = FALSE)
 {
 	# verify doi's are given
@@ -44,8 +46,8 @@ orcid_doi <- function(dois = NULL, start = NULL, rows = NULL, fuzzy = FALSE)
 		toget <- c("relevancy-score","orcid", "creation-method", "completion-date", "submission-date",
 							 "claimed", "email-verified", "given-names", "family-name", "external-id-orcid",
 							 "external-id-common-name", "external-id-reference", "external-id-url")
-		all <- xmlToList(tt)[[1]]
-		out <- llply(all, function(x) unlist(x, recursive=TRUE))
+		all <- xmlToList(tt)
+		out <- llply(all[[2]], function(x) unlist(x, recursive=TRUE))
 		namefields <- function(x){
 			temp <- sapply(strsplit(names(x), "\\."), function(y) y[length(y)])
 			ttt <- data.frame(t(x))
@@ -54,7 +56,8 @@ orcid_doi <- function(dois = NULL, start = NULL, rows = NULL, fuzzy = FALSE)
 		}
 		out2 <- llply(out, namefields)
 		df <- do.call(rbind.fill, out2)
-		df[order(df$`relevancy-score`, decreasing=FALSE),c("relevancy-score","orcid","given-names","family-name")]
+    df <- df[order(df$`relevancy-score`, decreasing=FALSE),c("relevancy-score","path","given-names","family-name")]
+		df[complete.cases(df),]
 	}
 	
 	getdata_safe <- plyr::failwith(NULL,getdata)

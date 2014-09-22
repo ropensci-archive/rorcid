@@ -96,9 +96,6 @@
 #' # Search by text type
 #' orcid("text:English")
 #' 
-#' # Use the Orcid ID to search ScienceCard (http://sciencecard.org/)
-#' fromJSON("http://sciencecard.org/api/v3/users/0000-0002-1642-628X?info=summary")
-#' 
 #' ## Using more complicated SOLR queries
 #' 
 #' # Use the qf parameter to "boost" query fields so they are ranked higher
@@ -119,7 +116,7 @@ orcid <- function(query = NULL, start = NULL, rows = NULL, recursive = FALSE,
 	bq = NULL, bf = NULL, boost = NULL, uf = NULL, lowercaseOperators = NULL, 
 	fuzzy = FALSE)
 {
-	url = "http://pub.orcid.org/search/orcid-bio"	
+	url = "http://pub.orcid.org/search/orcid-bio"
 	url2 <- paste0(url, "/?q=", query)
 	args <- compact(list(httpAccept = 'application/orcid+xml',
 											 start = start, rows = rows, defType = defType, q.alt = q.alt,
@@ -131,8 +128,9 @@ orcid <- function(query = NULL, start = NULL, rows = NULL, recursive = FALSE,
 	toget <- c("relevancy-score","orcid", "creation-method", "completion-date", "submission-date",
 						 "claimed", "email-verified", "given-names", "family-name", "external-id-orcid",
 						 "external-id-common-name", "external-id-reference", "external-id-url")
-	all <- xmlToList(tt)[[1]]
-	out <- llply(all, function(x) unlist(x, recursive=TRUE))
+	all <- xmlToList(tt)
+# 	all <- xmlToList(tt)[[1]]
+	out <- llply(all$`orcid-search-results`, function(x) unlist(x, recursive=TRUE))
 	namefields <- function(x){
 		temp <- sapply(strsplit(names(x), "\\."), function(y) y[length(y)])
 		ttt <- data.frame(t(x))
@@ -140,6 +138,7 @@ orcid <- function(query = NULL, start = NULL, rows = NULL, recursive = FALSE,
 		ttt
 	}
 	out2 <- llply(out, namefields)
+	out2 <- out2[!names(out2) == ".attrs"]
 	df <- do.call(rbind.fill, out2)
-	df[order(df$`relevancy-score`, decreasing=FALSE),c("relevancy-score","orcid","given-names","family-name")]
+	df[order(df$`relevancy-score`, decreasing=FALSE),c("relevancy-score","path","given-names","family-name")]
 }

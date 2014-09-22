@@ -6,7 +6,7 @@
 #' 		both ("both", the default).
 #' @return A data.frame of results.
 #' @examples \dontrun{
-#' orc(orcid = "0000-0002-9341-7985")
+#' orcid_id(orcid = "0000-0002-9341-7985")
 #' orcid_id(orcid = "0000-0002-9341-7985")
 #' orcid_id(orcid = "0000-0003-1620-1408")
 #' orcid_id(orcid = "0000-0002-9341-7985", profile="works")
@@ -18,13 +18,13 @@ orcid_id <- function(orcid = NULL, profile = NULL)
 {
 	url = "http://pub.orcid.org/"
 	
-	toget <- c("orcid", "relevancy-score", "creation-method", "completion-date", "submission-date",
+	toget <- c("path", "relevancy-score", "creation-method", "completion-date", "submission-date",
 		"claimed", "email-verified", "given-names", "family-name", "external-id-orcid",
 		"external-id-common-name", "external-id-reference", "external-id-url")
 	
 	doit <- function(x) {
 		if(!is.null(profile)){
-			temp <- match.arg(profile, choices=c("bio", "works", "profile"))
+			temp <- match.arg(profile, choices=c("bio", "works", "profile", "record"))
 			url2 <- paste(url, x, "/orcid-", temp, sep="")	
 		} else
 			{ url2 <- paste(url, x, "/orcid-profile", sep="") }
