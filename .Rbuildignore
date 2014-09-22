@@ -7,3 +7,5 @@ Makefile
 inst/stuff/
 ^appveyor\.yml$
 *.png
+^.*\.Rproj$
+^\.Rproj\.user$
