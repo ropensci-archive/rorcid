@@ -3,8 +3,8 @@
 #' @export
 #' 
 #' @param orcid Orcid identifier(s), of the form XXXX-XXXX-XXXX-XXXX.
-#' @param profile Bibliographic ("bio"), biographical ("works"), or 
-#' 		both ("both", the default).
+#' @param profile Bibliographic ("bio"), biographical ("works"), profile ("profile"), or
+#' record ("record")
 #' @param ... Curl options passed on to \code{\link[httr]{GET}}
 #' 
 #' @return A list of results for each Orcid ID passed in, with each element named by the Orcid ID
@@ -30,7 +30,7 @@ orcid_id <- function(orcid = NULL, profile = NULL, ...){
 		  url2 <- file.path(orcid_base(), x, "orcid-profile") 
 		}
 		out <- orc_GET(url2, ...)
-		structure(jsonlite::fromJSON(out)$`orcid-profile`, class="orcid_profile")
+		jsonlite::fromJSON(out)$`orcid-profile`
 	}
 	setNames(lapply(orcid, doit), orcid)
 }

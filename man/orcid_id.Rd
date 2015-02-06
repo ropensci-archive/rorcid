@@ -9,8 +9,8 @@ orcid_id(orcid = NULL, profile = NULL, ...)
 \arguments{
 \item{orcid}{Orcid identifier(s), of the form XXXX-XXXX-XXXX-XXXX.}
 
-\item{profile}{Bibliographic ("bio"), biographical ("works"), or
-both ("both", the default).}
+\item{profile}{Bibliographic ("bio"), biographical ("works"), profile ("profile"), or
+record ("record")}
 
 \item{...}{Curl options passed on to \code{\link[httr]{GET}}}
 }

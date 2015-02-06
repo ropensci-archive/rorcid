@@ -35,8 +35,16 @@ orcid_doi <- function(dois = NULL, start = NULL, rows = NULL, fuzzy = FALSE, ...
 	getdata <- function(x){
 		args <- ocom(list(q=fuzzydoi(x, fuzzy), start=start, rows=rows))
 		out <- orc_GET(file.path(orcid_base(), "search/orcid-bio"), args, ...)
-		orc_parse(out)	
+		structure(orc_parse(out), class="orcid_doi", doi=x)
 	}
 	getdata_safe <- failwith(NULL, getdata)
-	lapply(dois, getdata_safe)
+	ocom(lapply(dois, getdata_safe))
+}
+
+#' @export
+print.orcid_doi <- function(x, ..., n = 10){
+  cat(sprintf("<Orcid DOI Search> %s", attr(x, "doi")), sep = "\n")
+  cat(sprintf("Found: %s", x$found), sep = "\n")
+  cat(sprintf("Size: %s X %s\n", NROW(x$data), NCOL(x$data)), sep = "\n")
+  trunc_mat_(x$data, n = n)
 }
