@@ -128,17 +128,13 @@ orcid <- function(query = NULL, start = NULL, rows = NULL, recursive = FALSE,
                     qf = qf, mm = mm, qs = qs, pf = pf, ps = ps, pf2 = pf2,
                     ps2 = ps2, pf3 = pf3, ps3 = ps3, tie = tie, bq = bq, bf = bf,
                     boost = boost, uf = uf, lowercaseOperators = lowercaseOperators))
-	res <- GET(orcid_base(), query=args, accept('application/orcid+json'), ...)
-  stop_for_status(res)
-	json <- content(res, "text")
-	out <- jsonlite::fromJSON(json, TRUE, flatten = TRUE)
+  res <- orc_GET(paste0(orcid_base(), "/search/orcid-bio"), args, ...)
+	out <- jsonlite::fromJSON(res, TRUE, flatten = TRUE)
 	obj <- list(found = out$`orcid-search-results`$`num-found`, 
 	            data = out$`orcid-search-results`$`orcid-search-result`)
 	obj$data <- setNames(obj$data, gsub("orcid-profile\\.|orcid-profile\\.orcid-bio\\.", "", names(obj$data)))
 	structure(obj, class="orcid")
 }
-
-orcid_base <- function() "http://pub.orcid.org/v1.1/search/orcid-bio"
 
 #' @export
 print.orcid <- function(x, ..., n = 10){

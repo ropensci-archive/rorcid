@@ -4,16 +4,18 @@
 \alias{orcid_id}
 \title{Get data for particular ORCID ID's.}
 \usage{
-orcid_id(orcid = NULL, profile = NULL)
+orcid_id(orcid = NULL, profile = NULL, ...)
 }
 \arguments{
 \item{orcid}{Orcid identifier(s), of the form XXXX-XXXX-XXXX-XXXX.}
 
 \item{profile}{Bibliographic ("bio"), biographical ("works"), or
 both ("both", the default).}
+
+\item{...}{Curl options passed on to \code{\link[httr]{GET}}}
 }
 \value{
-A data.frame of results.
+A list of results for each Orcid ID passed in, with each element named by the Orcid ID
 }
 \description{
 Get data for particular ORCID ID's.
