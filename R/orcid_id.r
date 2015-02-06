@@ -16,6 +16,9 @@
 #' orcid_id(orcid = "0000-0002-9341-7985", profile="works")
 #' ids <- c("0000-0003-1620-1408", "0000-0002-9341-7985")
 #' orcid_id(orcid = ids)
+#' 
+#' library("httr")
+#' orcid_id(orcid = "0000-0003-1620-1408", config=verbose())
 #' }
 
 orcid_id <- function(orcid = NULL, profile = NULL, ...){
@@ -26,7 +29,7 @@ orcid_id <- function(orcid = NULL, profile = NULL, ...){
 		} else { 
 		  url2 <- file.path(orcid_base(), x, "orcid-profile") 
 		}
-		out <- orc_GET(url2)
+		out <- orc_GET(url2, ...)
 		structure(jsonlite::fromJSON(out)$`orcid-profile`, class="orcid_profile")
 	}
 	setNames(lapply(orcid, doit), orcid)

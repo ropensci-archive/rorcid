@@ -8,9 +8,6 @@ Authors@R: c(person("Scott", "Chamberlain", role = c("aut", "cre"),
 License: MIT + file LICENSE
 Imports:
     httr,
-    jsonlite,
-    XML,
-    plyr
+    jsonlite
 Suggests:
-    testthat,
     roxygen2

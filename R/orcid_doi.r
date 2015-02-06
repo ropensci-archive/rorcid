@@ -8,7 +8,8 @@
 #' @param fuzzy Use fuzzy matching on input DOIs. Defaults to FALSE. If FALSE, 
 #' 		we stick "digital-object-ids" before the DOI so that the search sent to 
 #' 		ORCID is for that exact DOI. If TRUE, we use some regex to find the DOI.
-#' @details XXXX
+#' @param ... Curl options passed on to \code{\link[httr]{GET}}
+#' 		
 #' @examples \dontrun{
 #' orcid_doi(dois="10.1087/20120404", fuzzy=TRUE)
 #' orcid_doi(dois="10.1087/20120404", fuzzy=FALSE) # fuzzy is FALSE by default
@@ -27,8 +28,7 @@
 #' orcid_doi(dois="10.1371/journal.pone.0025995", fuzzy=FALSE) # doesn't work
 #' }
 
-orcid_doi <- function(dois = NULL, start = NULL, rows = NULL, fuzzy = FALSE)
-{
+orcid_doi <- function(dois = NULL, start = NULL, rows = NULL, fuzzy = FALSE){
 	# verify doi's are given
 	doi_pattern <- "\\b(10[.][0-9]{4,}(?:[.][0-9]+)*/(?:(?![\"&\'<>])\\S)+)\\b"
 	check <- sapply(dois, function(x) grepl(doi_pattern, x, perl=TRUE) )
