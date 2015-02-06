@@ -1,7 +1,7 @@
 #' Search for ORCID ID's.
 #' 
 #' @export
-#' @import httr XML plyr jsonlite
+#' @import httr jsonlite
 #' 
 #' @param query Search terms. You can do quite complicated queries using the SOLR 
 #' 		syntax. See examples below. For all possible fields to query, do data(fields).
@@ -129,11 +129,7 @@ orcid <- function(query = NULL, start = NULL, rows = NULL, recursive = FALSE,
                     ps2 = ps2, pf3 = pf3, ps3 = ps3, tie = tie, bq = bq, bf = bf,
                     boost = boost, uf = uf, lowercaseOperators = lowercaseOperators))
   res <- orc_GET(paste0(orcid_base(), "/search/orcid-bio"), args, ...)
-	out <- jsonlite::fromJSON(res, TRUE, flatten = TRUE)
-	obj <- list(found = out$`orcid-search-results`$`num-found`, 
-	            data = out$`orcid-search-results`$`orcid-search-result`)
-	obj$data <- setNames(obj$data, gsub("orcid-profile\\.|orcid-profile\\.orcid-bio\\.", "", names(obj$data)))
-	structure(obj, class="orcid")
+  structure(orc_parse(res), class="orcid")
 }
 
 #' @export

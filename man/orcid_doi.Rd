@@ -2,30 +2,32 @@
 % Please edit documentation in R/orcid_doi.r
 \name{orcid_doi}
 \alias{orcid_doi}
-\title{Search for ORCID ID's using just DOIs.}
+\title{Search for ORCID ID's using DOIs}
 \usage{
-orcid_doi(dois = NULL, start = NULL, rows = NULL, fuzzy = FALSE)
+orcid_doi(dois = NULL, start = NULL, rows = NULL, fuzzy = FALSE, ...)
 }
 \arguments{
-\item{dois}{Digital object identifier (DOI), a vector fo DOIs.}
+\item{dois}{(character) Digital object identifier (DOI), a vector fo DOIs.}
 
-\item{start}{Result number to start on. Keep in mind that pages start at 0.}
+\item{start}{(integer) Result number to start on. Keep in mind that pages start at 0.}
 
-\item{rows}{Numer of results to return.}
+\item{rows}{(integer) Numer of results to return.}
 
-\item{fuzzy}{Use fuzzy matching on input DOIs. Defaults to FALSE. If FALSE,
+\item{fuzzy}{(logical) Use fuzzy matching on input DOIs. Defaults to FALSE. If FALSE,
 we stick "digital-object-ids" before the DOI so that the search sent to
 ORCID is for that exact DOI. If TRUE, we use some regex to find the DOI.}
 
 \item{...}{Curl options passed on to \code{\link[httr]{GET}}}
 }
 \description{
-Search for ORCID ID's using just DOIs.
+Search for ORCID ID's using DOIs
 }
 \examples{
 \dontrun{
 orcid_doi(dois="10.1087/20120404", fuzzy=TRUE)
-orcid_doi(dois="10.1087/20120404", fuzzy=FALSE) # fuzzy is FALSE by default
+
+# fuzzy is FALSE by default
+orcid_doi(dois="10.1087/20120404", fuzzy=FALSE)
 
 # This DOI is not a real one, but a partial DOI, then we can fuzzy search
 orcid_doi(dois="10.1087/2", fuzzy=TRUE, rows=20) # get more than defualt 10 records (or rows)
@@ -38,7 +40,7 @@ dois=c("10.1016/j.medpal.2008.12.005","10.1080/00933104.2000.10505926","10.1037/
 orcid_doi(dois=dois)
 
 orcid_doi(dois="10.1087/20120404", fuzzy=FALSE) # works
-orcid_doi(dois="10.1371/journal.pone.0025995", fuzzy=FALSE) # doesn't work
+orcid_doi(dois="10.1371/journal.pone.0025995", fuzzy=FALSE)
 }
 }
 

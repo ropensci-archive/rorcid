@@ -1,18 +1,20 @@
-#' Search for ORCID ID's using just DOIs.
+#' Search for ORCID ID's using DOIs
 #' 
 #' @export
 #' 
-#' @param dois Digital object identifier (DOI), a vector fo DOIs.
-#' @param start Result number to start on. Keep in mind that pages start at 0.
-#' @param rows Numer of results to return.
-#' @param fuzzy Use fuzzy matching on input DOIs. Defaults to FALSE. If FALSE, 
+#' @param dois (character) Digital object identifier (DOI), a vector fo DOIs.
+#' @param start (integer) Result number to start on. Keep in mind that pages start at 0.
+#' @param rows (integer) Numer of results to return.
+#' @param fuzzy (logical) Use fuzzy matching on input DOIs. Defaults to FALSE. If FALSE, 
 #' 		we stick "digital-object-ids" before the DOI so that the search sent to 
 #' 		ORCID is for that exact DOI. If TRUE, we use some regex to find the DOI.
 #' @param ... Curl options passed on to \code{\link[httr]{GET}}
 #' 		
 #' @examples \dontrun{
 #' orcid_doi(dois="10.1087/20120404", fuzzy=TRUE)
-#' orcid_doi(dois="10.1087/20120404", fuzzy=FALSE) # fuzzy is FALSE by default
+#' 
+#' # fuzzy is FALSE by default
+#' orcid_doi(dois="10.1087/20120404", fuzzy=FALSE)
 #' 
 #' # This DOI is not a real one, but a partial DOI, then we can fuzzy search
 #' orcid_doi(dois="10.1087/2", fuzzy=TRUE, rows=20) # get more than defualt 10 records (or rows)
@@ -25,42 +27,16 @@
 #' orcid_doi(dois=dois)
 #' 
 #' orcid_doi(dois="10.1087/20120404", fuzzy=FALSE) # works
-#' orcid_doi(dois="10.1371/journal.pone.0025995", fuzzy=FALSE) # doesn't work
+#' orcid_doi(dois="10.1371/journal.pone.0025995", fuzzy=FALSE)
 #' }
 
-orcid_doi <- function(dois = NULL, start = NULL, rows = NULL, fuzzy = FALSE){
-	# verify doi's are given
-	doi_pattern <- "\\b(10[.][0-9]{4,}(?:[.][0-9]+)*/(?:(?![\"&\'<>])\\S)+)\\b"
-	check <- sapply(dois, function(x) grepl(doi_pattern, x, perl=TRUE) )
-	if(!all(check)){
-		stop(paste("The following are not DOIs:\n", paste(dois[!check],collapse="\n ")))
-	} else {NULL}
-	
-	url = "http://pub.orcid.org/search/orcid-bio"
-	
+orcid_doi <- function(dois = NULL, start = NULL, rows = NULL, fuzzy = FALSE, ...){
+  check_dois(dois)
 	getdata <- function(x){
-		if(fuzzy){x <- x} else {x <- paste("digital-object-ids:%22", x, "%22", sep="")}
-		url2 <- paste0(url, "/?q=", x)
-		args <- compact(list(httpAccept='application/orcid+xml',start=start,rows=rows))
-		out <- getForm(url2, .params = args)
-		tt <- xmlParse(out)
-		toget <- c("relevancy-score","orcid", "creation-method", "completion-date", "submission-date",
-							 "claimed", "email-verified", "given-names", "family-name", "external-id-orcid",
-							 "external-id-common-name", "external-id-reference", "external-id-url")
-		all <- xmlToList(tt)
-		out <- llply(all[[2]], function(x) unlist(x, recursive=TRUE))
-		namefields <- function(x){
-			temp <- sapply(strsplit(names(x), "\\."), function(y) y[length(y)])
-			ttt <- data.frame(t(x))
-			names(ttt) <- temp
-			ttt
-		}
-		out2 <- llply(out, namefields)
-		df <- do.call(rbind.fill, out2)
-    df <- df[order(df$`relevancy-score`, decreasing=FALSE),c("relevancy-score","path","given-names","family-name")]
-		df[complete.cases(df),]
+		args <- ocom(list(q=fuzzydoi(x, fuzzy), start=start, rows=rows))
+		out <- orc_GET(file.path(orcid_base(), "search/orcid-bio"), args, ...)
+		orc_parse(out)	
 	}
-	
-	getdata_safe <- plyr::failwith(NULL,getdata)
-	llply(dois, getdata_safe)
+	getdata_safe <- failwith(NULL, getdata)
+	lapply(dois, getdata_safe)
 }
