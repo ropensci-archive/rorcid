@@ -88,6 +88,8 @@ to allow this. Default is "false".}
 \item{fuzzy}{Use fuzzy matching on input DOIs. Defaults to FALSE. If FALSE,
 we stick "digital-object-ids" before the DOI so that the search sent to
 ORCID is for that exact DOI. If TRUE, we use some regex to find the DOI.}
+
+\item{...}{Curl options passed on to \code{\link[httr]{GET}}}
 }
 \description{
 Search for ORCID ID's.
@@ -152,6 +154,6 @@ orcid(defType = "edismax", query="keyword:ecology+OR+evolution+OR+conservation",
 }
 }
 \seealso{
-\code{orcid_doi}
+\code{\link{orcid_doi}}
 }
 

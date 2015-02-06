@@ -59,6 +59,8 @@
 #' @param fuzzy Use fuzzy matching on input DOIs. Defaults to FALSE. If FALSE, 
 #' 		we stick "digital-object-ids" before the DOI so that the search sent to 
 #' 		ORCID is for that exact DOI. If TRUE, we use some regex to find the DOI.
+#' @param ... Curl options passed on to \code{\link[httr]{GET}}
+#'
 #' @details You can use any of the following within the query statement: given-names,
 #' 		family-name, credit-name, other-names, email, grant-number, patent-number,
 #' 		keyword, worktitle, digital-objectids, current-institution, affiliation-name,
@@ -66,7 +68,7 @@
 #' 		
 #' 		For more complicated queries the ORCID API supports using ExtendedDisMax.
 #' 		See the documentation on the web here: \url{http://wiki.apache.org/solr/ExtendedDisMax}.
-#' @seealso \code{orcid_doi}
+#' @seealso \code{\link{orcid_doi}}
 #' @examples \dontrun{
 #' # Get a list of names and Orcid IDs matching a name query
 #' orcid(query="carl+boettiger")
@@ -126,7 +128,7 @@ orcid <- function(query = NULL, start = NULL, rows = NULL, recursive = FALSE,
                     qf = qf, mm = mm, qs = qs, pf = pf, ps = ps, pf2 = pf2,
                     ps2 = ps2, pf3 = pf3, ps3 = ps3, tie = tie, bq = bq, bf = bf,
                     boost = boost, uf = uf, lowercaseOperators = lowercaseOperators))
-	res <- GET(orcid_base(), query=args, accept('application/orcid+json'))
+	res <- GET(orcid_base(), query=args, accept('application/orcid+json'), ...)
   stop_for_status(res)
 	json <- content(res, "text")
 	out <- jsonlite::fromJSON(json, TRUE, flatten = TRUE)
