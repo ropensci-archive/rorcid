@@ -105,7 +105,7 @@ You can use any of the following within the query statement: given-names,
 \dontrun{
 # Get a list of names and Orcid IDs matching a name query
 orcid(query="carl+boettiger")
-orcid(query="given-names:carl+AND+family-name:boettiger")
+orcid(query="given-names:carl+AND+family-name:boettiger") # not working
 
 # You can string together many search terms
 orcid(query="johnson+cardiology+houston")

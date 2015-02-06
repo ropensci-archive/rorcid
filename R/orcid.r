@@ -70,7 +70,7 @@
 #' @examples \dontrun{
 #' # Get a list of names and Orcid IDs matching a name query
 #' orcid(query="carl+boettiger")
-#' orcid(query="given-names:carl+AND+family-name:boettiger")
+#' orcid(query="given-names:carl+AND+family-name:boettiger") # not working
 #' 
 #' # You can string together many search terms
 #' orcid(query="johnson+cardiology+houston")
@@ -122,30 +122,26 @@ orcid <- function(query = NULL, start = NULL, rows = NULL, recursive = FALSE,
 	bq = NULL, bf = NULL, boost = NULL, uf = NULL, lowercaseOperators = NULL, 
 	fuzzy = FALSE, ...)
 {
-	args <- compact(list(httpAccept = 'application/orcid+xml',
-											 start = start, rows = rows, defType = defType, q.alt = q.alt,
-											 qf = qf, mm = mm, qs = qs, pf = pf, ps = ps, pf2 = pf2,
-											 ps2 = ps2, pf3 = pf3, ps3 = ps3, tie = tie, bq = bq, bf = bf,
-											 boost = boost, uf = uf, lowercaseOperators = lowercaseOperators))
-	GET(paste0(orcid_base(), "/?q=", query), query=args)
-  out <- getForm(url2, .params = args)
-  tt <- xmlParse(out)
-	toget <- c("relevancy-score","orcid", "creation-method", "completion-date", "submission-date",
-						 "claimed", "email-verified", "given-names", "family-name", "external-id-orcid",
-						 "external-id-common-name", "external-id-reference", "external-id-url")
-	all <- xmlToList(tt)
-# 	all <- xmlToList(tt)[[1]]
-	out <- llply(all$`orcid-search-results`, function(x) unlist(x, recursive=TRUE))
-	namefields <- function(x){
-		temp <- sapply(strsplit(names(x), "\\."), function(y) y[length(y)])
-		ttt <- data.frame(t(x))
-		names(ttt) <- temp
-		ttt
-	}
-	out2 <- llply(out, namefields)
-	out2 <- out2[!names(out2) == ".attrs"]
-	df <- do.call(rbind.fill, out2)
-	df[order(df$`relevancy-score`, decreasing=FALSE),c("relevancy-score","path","given-names","family-name")]
+  args <- ocom(list(q=query, start = start, rows = rows, defType = defType, q.alt = q.alt,
+                    qf = qf, mm = mm, qs = qs, pf = pf, ps = ps, pf2 = pf2,
+                    ps2 = ps2, pf3 = pf3, ps3 = ps3, tie = tie, bq = bq, bf = bf,
+                    boost = boost, uf = uf, lowercaseOperators = lowercaseOperators))
+	res <- GET(orcid_base(), query=args, accept('application/orcid+json'))
+  stop_for_status(res)
+	json <- content(res, "text")
+	out <- jsonlite::fromJSON(json, TRUE, flatten = TRUE)
+	obj <- list(found = out$`orcid-search-results`$`num-found`, 
+	            data = out$`orcid-search-results`$`orcid-search-result`)
+	obj$data <- setNames(obj$data, gsub("orcid-profile\\.|orcid-profile\\.orcid-bio\\.", "", names(obj$data)))
+	structure(obj, class="orcid")
 }
 
-orcid_base <- function() "http://pub.orcid.org/search/orcid-bio"
+orcid_base <- function() "http://pub.orcid.org/v1.1/search/orcid-bio"
+
+#' @export
+print.orcid <- function(x, ..., n = 10){
+  cat("<Orcid Search>", sep = "\n")
+  cat(sprintf("Found: %s", x$found), sep = "\n")
+  cat(sprintf("Size: %s X %s\n", NROW(x$data), NCOL(x$data)), sep = "\n")
+  trunc_mat_(x$data, n = n)
+}
