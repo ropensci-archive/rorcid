@@ -6,15 +6,7 @@ rorcid
 
 `rorcid` is an R programmatic interface to the Orcid public API. `rorcid` is not a product developed or distributed by ORCID®.
 
-## Information
-
-+ [Orcid API docs](http://support.orcid.org/knowledgebase/articles/116874-orcid-api-guide)
-
-+ `rorcid` is part of the rOpenSci project, [click to find out more](http://ropensci.org/)
-
-+ Hopefully various web services will start integrating Orcid ID's into their API services so that e.g., you could disambiguate authors with similar names from the [Mendeley API](URL). We will keep a list of them here:
-	+ [ScienceCard](http://sciencecard.org)
-		+ An example call: [http://sciencecard.org/api/v3/users/0000-0002-1642-628X?info=summary](http://sciencecard.org/api/v3/users/0000-0002-1642-628X?info=summary)
+[Orcid API docs](http://support.orcid.org/knowledgebase/articles/132354-searching-with-the-public-api)
 
 ## Installation
 
@@ -27,10 +19,85 @@ devtools::install_github("ropensci/rorcid")
 library('rorcid')
 ```
 
+## Search Orcid
+
+Get a list of names and Orcid IDs matching a name query
+
+```{r}
+orcid(query="carl+boettiger")
+```
+
+You can string together many search terms
+
+```{r}
+orcid(query="johnson+cardiology+houston")
+```
+
+And use boolean operators
+
+```{r}
+orcid("johnson+AND(caltech+OR+'California+Institute+of+Technology')")
+```
+
+And you can use start and rows arguments to do pagination
+
+```{r}
+orcid("johnson+cardiology+houston", start = 2, rows = 3)
+```
+
+Search specific fields. here, by text type
+
+```{r}
+orcid("text:English")
+```
+
+## Search by Orcid ID
+
+```{r}
+out <- orcid_id(orcid = "0000-0002-9341-7985")
+out$`0000-0002-9341-7985`$`orcid-identifier`
+```
+
+Get specific thing, either bibliographic ("bio"), biographical ("works"), profile ("profile"), or record ("record")
+
+```{r}
+out <- orcid_id(orcid = "0000-0002-9341-7985", profile="works")
+out$`0000-0002-9341-7985`$`orcid-history`
+```
+
+The function is vectorized, so you can pass in many Orcids
+
+```{r}
+ids <- c("0000-0003-1620-1408", "0000-0002-9341-7985")
+lapply(orcid_id(orcid = ids), "[[", "orcid-identifier")
+```
+
+## Search by DOIs
+
+Basic search
+
+```{r}
+orcid_doi(dois="10.1087/20120404")
+```
+
+This DOI is not a real one, but a partial DOI, then we can fuzzy search
+
+```{r}
+orcid_doi(dois="10.1087/2", fuzzy=TRUE, rows=5)
+```
+
+Function is vectorized, search for many DOIs
+
+```{r}
+dois <- c("10.1371/journal.pone.0025995","10.1371/journal.pone.0053712",
+       "10.1371/journal.pone.0054608","10.1371/journal.pone.0055937")
+orcid_doi(dois=dois)
+```
+
 ## Meta
 
 * Please [report any issues or bugs](https://github.com/ropensci/rorcid/issues)
 * License: MIT
 * Get citation information for `rorcid` in R doing `citation(package = 'rorcid')`
 
-[![ropensci footer](http://ropensci.org/public_images/github_footer.png)](http://ropensci.org)
+[![ropensci_footer](http://ropensci.org/public_images/github_footer.png)](http://ropensci.org)
