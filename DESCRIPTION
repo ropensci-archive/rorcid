@@ -7,10 +7,10 @@ Authors@R: c(person("Scott", "Chamberlain", role = c("aut", "cre"),
     email = "myrmecocystus@gmail.com"))
 License: MIT + file LICENSE
 Imports:
-    RCurl,
+    httr,
+    jsonlite,
     XML,
-    plyr,
-    RJSONIO
+    plyr
 Suggests:
     testthat,
     roxygen2

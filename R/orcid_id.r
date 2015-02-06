@@ -1,6 +1,5 @@
 #' Get data for particular ORCID ID's.
 #' 
-#' @import RCurl XML plyr
 #' @param orcid Orcid identifier(s), of the form XXXX-XXXX-XXXX-XXXX.
 #' @param profile Bibliographic ("bio"), biographical ("works"), or 
 #' 		both ("both", the default).

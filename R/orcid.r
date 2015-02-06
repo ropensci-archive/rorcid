@@ -1,6 +1,8 @@
 #' Search for ORCID ID's.
 #' 
-#' @import RCurl XML plyr RJSONIO
+#' @export
+#' @import httr XML plyr jsonlite
+#' 
 #' @param query Search terms. You can do quite complicated queries using the SOLR 
 #' 		syntax. See examples below. For all possible fields to query, do data(fields).
 #' @param start Result number to start on. Keep in mind that pages start at 0.
@@ -113,20 +115,19 @@
 #' orcid(defType = "edismax", query="keyword:ecology+OR+evolution+OR+conservation", 
 #'    mm = 2, rows = 20)
 #' }
-#' @export
+
 orcid <- function(query = NULL, start = NULL, rows = NULL, recursive = FALSE,
 	defType = NULL, q.alt = NULL, qf = NULL, mm = NULL, qs = NULL, pf = NULL,
 	ps = NULL, pf2 = NULL, ps2 = NULL, pf3 = NULL, ps3 = NULL, tie = NULL, 
 	bq = NULL, bf = NULL, boost = NULL, uf = NULL, lowercaseOperators = NULL, 
-	fuzzy = FALSE)
+	fuzzy = FALSE, ...)
 {
-	url = "http://pub.orcid.org/search/orcid-bio"
-	url2 <- paste0(url, "/?q=", query)
 	args <- compact(list(httpAccept = 'application/orcid+xml',
 											 start = start, rows = rows, defType = defType, q.alt = q.alt,
 											 qf = qf, mm = mm, qs = qs, pf = pf, ps = ps, pf2 = pf2,
 											 ps2 = ps2, pf3 = pf3, ps3 = ps3, tie = tie, bq = bq, bf = bf,
 											 boost = boost, uf = uf, lowercaseOperators = lowercaseOperators))
+	GET(paste0(orcid_base(), "/?q=", query), query=args)
   out <- getForm(url2, .params = args)
   tt <- xmlParse(out)
 	toget <- c("relevancy-score","orcid", "creation-method", "completion-date", "submission-date",
@@ -146,3 +147,5 @@ orcid <- function(query = NULL, start = NULL, rows = NULL, recursive = FALSE,
 	df <- do.call(rbind.fill, out2)
 	df[order(df$`relevancy-score`, decreasing=FALSE),c("relevancy-score","path","given-names","family-name")]
 }
+
+orcid_base <- function() "http://pub.orcid.org/search/orcid-bio"

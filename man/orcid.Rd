@@ -8,7 +8,7 @@ orcid(query = NULL, start = NULL, rows = NULL, recursive = FALSE,
   defType = NULL, q.alt = NULL, qf = NULL, mm = NULL, qs = NULL,
   pf = NULL, ps = NULL, pf2 = NULL, ps2 = NULL, pf3 = NULL,
   ps3 = NULL, tie = NULL, bq = NULL, bf = NULL, boost = NULL,
-  uf = NULL, lowercaseOperators = NULL, fuzzy = FALSE)
+  uf = NULL, lowercaseOperators = NULL, fuzzy = FALSE, ...)
 }
 \arguments{
 \item{query}{Search terms. You can do quite complicated queries using the SOLR

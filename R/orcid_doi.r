@@ -1,6 +1,5 @@
 #' Search for ORCID ID's using just DOIs.
 #' 
-#' @import RCurl XML plyr
 #' @export
 #' 
 #' @param dois Digital object identifier (DOI), a vector fo DOIs.
