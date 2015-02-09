@@ -6,6 +6,9 @@ Date: 2015-02-06
 Authors@R: c(person("Scott", "Chamberlain", role = c("aut", "cre"),
     email = "myrmecocystus@gmail.com"))
 License: MIT + file LICENSE
+URL: https://github.com/ropensci/rorcid
+BugReports: https://github.com/ropensci/rorcid/issues
+LazyData: true
 Imports:
     httr,
     jsonlite
