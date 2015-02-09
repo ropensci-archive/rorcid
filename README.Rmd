@@ -24,25 +24,25 @@ library('rorcid')
 Get a list of names and Orcid IDs matching a name query
 
 ```{r}
-orcid(query="carl+boettiger")
+orcid(query="carl boettiger")
 ```
 
 You can string together many search terms
 
 ```{r}
-orcid(query="johnson+cardiology+houston")
+orcid(query="johnson cardiology houston")
 ```
 
 And use boolean operators
 
 ```{r}
-orcid("johnson+AND(caltech+OR+'California+Institute+of+Technology')")
+orcid("johnson AND(caltech OR 'California Institute of Technology')")
 ```
 
 And you can use start and rows arguments to do pagination
 
 ```{r}
-orcid("johnson+cardiology+houston", start = 2, rows = 3)
+orcid("johnson cardiology houston", start = 2, rows = 3)
 ```
 
 Search specific fields. here, by text type

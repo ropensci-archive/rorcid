@@ -1,4 +1,4 @@
-#' Get data for particular ORCID ID's.
+#' Get data for particular ORCID's
 #' 
 #' @export
 #' 

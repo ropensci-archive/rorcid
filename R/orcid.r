@@ -68,20 +68,26 @@
 #' 		
 #' 		For more complicated queries the ORCID API supports using ExtendedDisMax.
 #' 		See the documentation on the web here: \url{http://wiki.apache.org/solr/ExtendedDisMax}.
+#' 		
+#' 		Note that when constructing queries, you don't need to use syntax like \code{+}, 
+#' 		etc., \code{httr}, the curl client we use internally, will do that for you. For example,
+#' 		instead of writing \code{johnson+cardiology}, just write \code{johnson cardiology}, and 
+#' 		instead of writing \code{johnson+AND+cardiology}, write \code{johnson AND cardiology}. 
+#' 		Though, you still need to use \code{AND}, \code{OR}, etc. to join term/queries together.
 #' @seealso \code{\link{orcid_doi}}
 #' @examples \dontrun{
 #' # Get a list of names and Orcid IDs matching a name query
 #' orcid(query="carl+boettiger")
-#' orcid(query="given-names:carl+AND+family-name:boettiger") # not working
+#' orcid(query="given-names:carl AND family-name:boettiger")
 #' 
 #' # You can string together many search terms
-#' orcid(query="johnson+cardiology+houston")
+#' orcid(query="johnson cardiology houston")
 #' 
 #' # And use boolean operators
-#' orcid("johnson+AND(caltech+OR+'California+Institute+of+Technology')")
+#' orcid("johnson AND(caltech OR 'California Institute of Technology')")
 #' 
 #' # And you can use start and rows arguments to do pagination
-#' orcid("johnson+cardiology+houston", start = 2, rows = 3)
+#' orcid("johnson cardiology houston", start = 2, rows = 3)
 #' 
 #' # Use search terms, here family name
 #' orcid("family-name:Sanchez", start = 4, rows = 6)
@@ -96,9 +102,10 @@
 #' orcid(query="10.1087/20120404")
 #' 
 #' # Note the difference between the first wrt the second and third
+#' ## See also orcid_doi() function for searching by DOIs
 #' orcid("10.1087/20120404")
-#' orcid("%2210.1087/20120404%22")
-#' orcid("digital-object-ids:%2210.1087/20120404%22")
+#' orcid('"10.1087/20120404"')
+#' orcid('digital-object-ids:"10.1087/20120404"')
 #'  
 #' # Search by text type
 #' orcid("text:English")
@@ -114,7 +121,7 @@
 #' # Use other SOLR parameters as well, here mm. Using the "mm" param, 1 and 2 word 
 #' # 	queries require that all of the optional clauses match, but for queries with 
 #' # 	three or more clauses one missing clause is allowed...See for more: http://bit.ly/1uyMLDQ
-#' orcid(defType = "edismax", query="keyword:ecology+OR+evolution+OR+conservation", 
+#' orcid(defType = "edismax", query="keyword:ecology OR evolution OR conservation", 
 #'    mm = 2, rows = 20)
 #' }
 

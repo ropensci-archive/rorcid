@@ -27,25 +27,25 @@ Get a list of names and Orcid IDs matching a name query
 
 
 ```r
-orcid(query="carl+boettiger")
+orcid(query="carl boettiger")
 ```
 
 ```
 ## <Orcid Search>
-## Found: 1850
+## Found: 1852
 ## Size: 10 X 29
 ## 
 ##    relevancy-score.value orcid type group-type client-type
-## 1              0.9229747    NA   NA         NA          NA
-## 2              0.6673271    NA   NA         NA          NA
-## 3              0.5301709    NA   NA         NA          NA
-## 4              0.3360183    NA   NA         NA          NA
-## 5              0.3360183    NA   NA         NA          NA
-## 6              0.3360183    NA   NA         NA          NA
-## 7              0.3360183    NA   NA         NA          NA
-## 8              0.3180657    NA   NA         NA          NA
-## 9              0.3045918    NA   NA         NA          NA
-## 10             0.3002972    NA   NA         NA          NA
+## 1              0.9232098    NA   NA         NA          NA
+## 2              0.6675839    NA   NA         NA          NA
+## 3              0.5302841    NA   NA         NA          NA
+## 4              0.3359427    NA   NA         NA          NA
+## 5              0.3359427    NA   NA         NA          NA
+## 6              0.3359427    NA   NA         NA          NA
+## 7              0.3359427    NA   NA         NA          NA
+## 8              0.3179941    NA   NA         NA          NA
+## 9              0.3047090    NA   NA         NA          NA
+## 10             0.3004127    NA   NA         NA          NA
 ## Variables not shown: orcid-identifier.value (lgl), orcid-identifier.uri
 ##      (chr), orcid-identifier.path (chr), orcid-identifier.host (chr),
 ##      delegation (lgl), applications (lgl), scope (lgl),
@@ -68,25 +68,25 @@ You can string together many search terms
 
 
 ```r
-orcid(query="johnson+cardiology+houston")
+orcid(query="johnson cardiology houston")
 ```
 
 ```
 ## <Orcid Search>
-## Found: 14318
+## Found: 14336
 ## Size: 10 X 27
 ## 
 ##    relevancy-score.value orcid type group-type client-type
-## 1              0.4488893    NA   NA         NA          NA
-## 2              0.4265411    NA   NA         NA          NA
-## 3              0.4265411    NA   NA         NA          NA
-## 4              0.3764076    NA   NA         NA          NA
-## 5              0.3420439    NA   NA         NA          NA
-## 6              0.3226350    NA   NA         NA          NA
-## 7              0.3163673    NA   NA         NA          NA
-## 8              0.3156787    NA   NA         NA          NA
-## 9              0.2877839    NA   NA         NA          NA
-## 10             0.2847056    NA   NA         NA          NA
+## 1              0.4488344    NA   NA         NA          NA
+## 2              0.4264817    NA   NA         NA          NA
+## 3              0.4264817    NA   NA         NA          NA
+## 4              0.3762426    NA   NA         NA          NA
+## 5              0.3420991    NA   NA         NA          NA
+## 6              0.3224936    NA   NA         NA          NA
+## 7              0.3162280    NA   NA         NA          NA
+## 8              0.3155793    NA   NA         NA          NA
+## 9              0.2876258    NA   NA         NA          NA
+## 10             0.2845103    NA   NA         NA          NA
 ## Variables not shown: orcid-identifier.value (lgl), orcid-identifier.uri
 ##      (chr), orcid-identifier.path (chr), orcid-identifier.host (chr),
 ##      delegation (lgl), applications (lgl), scope (lgl),
@@ -107,58 +107,59 @@ And use boolean operators
 
 
 ```r
-orcid("johnson+AND(caltech+OR+'California+Institute+of+Technology')")
+orcid("johnson AND(caltech OR 'California Institute of Technology')")
 ```
 
 ```
 ## <Orcid Search>
-## Found: 292632
+## Found: 8083
 ## Size: 10 X 29
 ## 
 ##    relevancy-score.value orcid type group-type client-type
-## 1              0.7798383    NA   NA         NA          NA
-## 2              0.5778538    NA   NA         NA          NA
-## 3              0.4998676    NA   NA         NA          NA
-## 4              0.4480138    NA   NA         NA          NA
-## 5              0.4292507    NA   NA         NA          NA
-## 6              0.3984339    NA   NA         NA          NA
-## 7              0.3894921    NA   NA         NA          NA
-## 8              0.3602385    NA   NA         NA          NA
-## 9              0.3531607    NA   NA         NA          NA
-## 10             0.3520985    NA   NA         NA          NA
+## 1              0.4283037    NA   NA         NA          NA
+## 2              0.3922417    NA   NA         NA          NA
+## 3              0.3889824    NA   NA         NA          NA
+## 4              0.3758213    NA   NA         NA          NA
+## 5              0.3758213    NA   NA         NA          NA
+## 6              0.3503630    NA   NA         NA          NA
+## 7              0.3489999    NA   NA         NA          NA
+## 8              0.3305446    NA   NA         NA          NA
+## 9              0.3236298    NA   NA         NA          NA
+## 10             0.3205927    NA   NA         NA          NA
 ## Variables not shown: orcid-identifier.value (lgl), orcid-identifier.uri
 ##      (chr), orcid-identifier.path (chr), orcid-identifier.host (chr),
 ##      delegation (lgl), applications (lgl), scope (lgl),
 ##      personal-details.given-names.value (chr),
 ##      personal-details.family-name.value (chr),
-##      personal-details.credit-name.value (chr),
-##      personal-details.credit-name.visibility (lgl),
 ##      personal-details.other-names.other-name (list),
-##      personal-details.other-names.visibility (lgl), biography.value (chr),
-##      biography.visibility (lgl), researcher-urls.researcher-url (list),
-##      researcher-urls.visibility (lgl), keywords.keyword (list),
-##      keywords.visibility (lgl), external-identifiers.external-identifier
-##      (list), external-identifiers.visibility (lgl), contact-details.email
-##      (list), contact-details.address.country.value (chr),
-##      contact-details.address.country.visibility (lgl)
+##      personal-details.other-names.visibility (lgl),
+##      personal-details.credit-name.value (chr),
+##      personal-details.credit-name.visibility (lgl), keywords.keyword
+##      (list), keywords.visibility (lgl),
+##      external-identifiers.external-identifier (list),
+##      external-identifiers.visibility (lgl), contact-details.email (list),
+##      contact-details.address.country.value (chr),
+##      contact-details.address.country.visibility (lgl), biography.value
+##      (chr), biography.visibility (lgl), researcher-urls.researcher-url
+##      (list), researcher-urls.visibility (lgl)
 ```
 
 And you can use start and rows arguments to do pagination
 
 
 ```r
-orcid("johnson+cardiology+houston", start = 2, rows = 3)
+orcid("johnson cardiology houston", start = 2, rows = 3)
 ```
 
 ```
 ## <Orcid Search>
-## Found: 14318
+## Found: 14336
 ## Size: 3 X 20
 ## 
 ##   relevancy-score.value orcid type group-type client-type
-## 1             0.4265414    NA   NA         NA          NA
-## 2             0.3764078    NA   NA         NA          NA
-## 3             0.3420442    NA   NA         NA          NA
+## 1             0.4264817    NA   NA         NA          NA
+## 2             0.3762426    NA   NA         NA          NA
+## 3             0.3420991    NA   NA         NA          NA
 ## Variables not shown: orcid-identifier.value (lgl), orcid-identifier.uri
 ##      (chr), orcid-identifier.path (chr), orcid-identifier.host (chr),
 ##      delegation (lgl), applications (lgl), scope (lgl),
@@ -178,20 +179,20 @@ orcid("text:English")
 
 ```
 ## <Orcid Search>
-## Found: 7234
+## Found: 7251
 ## Size: 10 X 27
 ## 
 ##    relevancy-score.value orcid type group-type client-type
-## 1              1.1056643    NA   NA         NA          NA
-## 2              0.8618785    NA   NA         NA          NA
-## 3              0.8532162    NA   NA         NA          NA
-## 4              0.8241135    NA   NA         NA          NA
-## 5              0.8241135    NA   NA         NA          NA
-## 6              0.7979444    NA   NA         NA          NA
-## 7              0.7979444    NA   NA         NA          NA
-## 8              0.7979444    NA   NA         NA          NA
-## 9              0.7979444    NA   NA         NA          NA
-## 10             0.7979444    NA   NA         NA          NA
+## 1              1.1052549    NA   NA         NA          NA
+## 2              0.8615595    NA   NA         NA          NA
+## 3              0.8529003    NA   NA         NA          NA
+## 4              0.8238084    NA   NA         NA          NA
+## 5              0.8238084    NA   NA         NA          NA
+## 6              0.7976490    NA   NA         NA          NA
+## 7              0.7976490    NA   NA         NA          NA
+## 8              0.7976490    NA   NA         NA          NA
+## 9              0.7976490    NA   NA         NA          NA
+## 10             0.7976490    NA   NA         NA          NA
 ## Variables not shown: orcid-identifier.value (lgl), orcid-identifier.uri
 ##      (chr), orcid-identifier.path (chr), orcid-identifier.host (chr),
 ##      delegation (lgl), applications (lgl), scope (lgl),
@@ -323,13 +324,13 @@ orcid_doi(dois="10.1087/20120404")
 ## Size: 7 X 29
 ## 
 ##   relevancy-score.value orcid type group-type client-type
-## 1             15.660482    NA   NA         NA          NA
-## 2              7.830241    NA   NA         NA          NA
-## 3              5.536817    NA   NA         NA          NA
-## 4              3.460510    NA   NA         NA          NA
-## 5              2.422357    NA   NA         NA          NA
-## 6              2.076306    NA   NA         NA          NA
-## 7              1.211179    NA   NA         NA          NA
+## 1             15.598203    NA   NA         NA          NA
+## 2              7.799101    NA   NA         NA          NA
+## 3              5.514798    NA   NA         NA          NA
+## 4              3.446748    NA   NA         NA          NA
+## 5              2.412724    NA   NA         NA          NA
+## 6              2.068049    NA   NA         NA          NA
+## 7              1.206362    NA   NA         NA          NA
 ## Variables not shown: orcid-identifier.value (lgl), orcid-identifier.uri
 ##      (chr), orcid-identifier.path (chr), orcid-identifier.host (chr),
 ##      delegation (lgl), applications (lgl), scope (lgl),
@@ -358,15 +359,15 @@ orcid_doi(dois="10.1087/2", fuzzy=TRUE, rows=5)
 ```
 ## [[1]]
 ## <Orcid DOI Search> 10.1087/2
-## Found: 141993
+## Found: 142186
 ## Size: 5 X 23
 ## 
 ##   relevancy-score.value orcid type group-type client-type
-## 1             0.8776831    NA   NA         NA          NA
-## 2             0.7679728    NA   NA         NA          NA
-## 3             0.7322293    NA   NA         NA          NA
-## 4             0.7003119    NA   NA         NA          NA
-## 5             0.6811429    NA   NA         NA          NA
+## 1             0.8769926    NA   NA         NA          NA
+## 2             0.7673686    NA   NA         NA          NA
+## 3             0.7316575    NA   NA         NA          NA
+## 4             0.6997792    NA   NA         NA          NA
+## 5             0.6806173    NA   NA         NA          NA
 ## Variables not shown: orcid-identifier.value (lgl), orcid-identifier.uri
 ##      (chr), orcid-identifier.path (chr), orcid-identifier.host (chr),
 ##      delegation (lgl), applications (lgl), scope (lgl),
@@ -393,20 +394,20 @@ orcid_doi(dois=dois, fuzzy = TRUE)
 ```
 ## [[1]]
 ## <Orcid DOI Search> 10.1371/journal.pone.0025995
-## Found: 20217
+## Found: 20250
 ## Size: 10 X 29
 ## 
 ##    relevancy-score.value orcid type group-type client-type
-## 1              0.2388581    NA   NA         NA          NA
-## 2              0.2132302    NA   NA         NA          NA
-## 3              0.1846627    NA   NA         NA          NA
-## 4              0.1846627    NA   NA         NA          NA
-## 5              0.1846627    NA   NA         NA          NA
-## 6              0.1846627    NA   NA         NA          NA
-## 7              0.1846627    NA   NA         NA          NA
-## 8              0.1846627    NA   NA         NA          NA
-## 9              0.1741017    NA   NA         NA          NA
-## 10             0.1599226    NA   NA         NA          NA
+## 1              0.2388659    NA   NA         NA          NA
+## 2              0.2130148    NA   NA         NA          NA
+## 3              0.1844762    NA   NA         NA          NA
+## 4              0.1844762    NA   NA         NA          NA
+## 5              0.1844762    NA   NA         NA          NA
+## 6              0.1844762    NA   NA         NA          NA
+## 7              0.1844762    NA   NA         NA          NA
+## 8              0.1844762    NA   NA         NA          NA
+## 9              0.1739258    NA   NA         NA          NA
+## 10             0.1597611    NA   NA         NA          NA
 ## Variables not shown: orcid-identifier.value (lgl), orcid-identifier.uri
 ##      (chr), orcid-identifier.path (chr), orcid-identifier.host (chr),
 ##      delegation (lgl), applications (lgl), scope (lgl),
@@ -426,20 +427,20 @@ orcid_doi(dois=dois, fuzzy = TRUE)
 ## 
 ## [[2]]
 ## <Orcid DOI Search> 10.1371/journal.pone.0053712
-## Found: 20217
+## Found: 20250
 ## Size: 10 X 27
 ## 
 ##    relevancy-score.value orcid type group-type client-type
-## 1              0.2052012    NA   NA         NA          NA
-## 2              0.1777094    NA   NA         NA          NA
-## 3              0.1777094    NA   NA         NA          NA
-## 4              0.1777094    NA   NA         NA          NA
-## 5              0.1777094    NA   NA         NA          NA
-## 6              0.1777094    NA   NA         NA          NA
-## 7              0.1777094    NA   NA         NA          NA
-## 8              0.1675461    NA   NA         NA          NA
-## 9              0.1539009    NA   NA         NA          NA
-## 10             0.1539009    NA   NA         NA          NA
+## 1              0.2049937    NA   NA         NA          NA
+## 2              0.1775297    NA   NA         NA          NA
+## 3              0.1775297    NA   NA         NA          NA
+## 4              0.1775297    NA   NA         NA          NA
+## 5              0.1775297    NA   NA         NA          NA
+## 6              0.1775297    NA   NA         NA          NA
+## 7              0.1775297    NA   NA         NA          NA
+## 8              0.1673766    NA   NA         NA          NA
+## 9              0.1537453    NA   NA         NA          NA
+## 10             0.1537453    NA   NA         NA          NA
 ## Variables not shown: orcid-identifier.value (lgl), orcid-identifier.uri
 ##      (chr), orcid-identifier.path (chr), orcid-identifier.host (chr),
 ##      delegation (lgl), applications (lgl), scope (lgl),
@@ -457,20 +458,20 @@ orcid_doi(dois=dois, fuzzy = TRUE)
 ## 
 ## [[3]]
 ## <Orcid DOI Search> 10.1371/journal.pone.0054608
-## Found: 20217
+## Found: 20250
 ## Size: 10 X 27
 ## 
 ##    relevancy-score.value orcid type group-type client-type
-## 1              0.2052012    NA   NA         NA          NA
-## 2              0.1777095    NA   NA         NA          NA
-## 3              0.1777095    NA   NA         NA          NA
-## 4              0.1777095    NA   NA         NA          NA
-## 5              0.1777095    NA   NA         NA          NA
-## 6              0.1777095    NA   NA         NA          NA
-## 7              0.1777095    NA   NA         NA          NA
-## 8              0.1675461    NA   NA         NA          NA
-## 9              0.1539009    NA   NA         NA          NA
-## 10             0.1539009    NA   NA         NA          NA
+## 1              0.2049937    NA   NA         NA          NA
+## 2              0.1775297    NA   NA         NA          NA
+## 3              0.1775297    NA   NA         NA          NA
+## 4              0.1775297    NA   NA         NA          NA
+## 5              0.1775297    NA   NA         NA          NA
+## 6              0.1775297    NA   NA         NA          NA
+## 7              0.1775297    NA   NA         NA          NA
+## 8              0.1673766    NA   NA         NA          NA
+## 9              0.1537453    NA   NA         NA          NA
+## 10             0.1537453    NA   NA         NA          NA
 ## Variables not shown: orcid-identifier.value (lgl), orcid-identifier.uri
 ##      (chr), orcid-identifier.path (chr), orcid-identifier.host (chr),
 ##      delegation (lgl), applications (lgl), scope (lgl),
@@ -488,20 +489,20 @@ orcid_doi(dois=dois, fuzzy = TRUE)
 ## 
 ## [[4]]
 ## <Orcid DOI Search> 10.1371/journal.pone.0055937
-## Found: 20217
+## Found: 20250
 ## Size: 10 X 27
 ## 
 ##    relevancy-score.value orcid type group-type client-type
-## 1              0.2052014    NA   NA         NA          NA
-## 2              0.1777097    NA   NA         NA          NA
-## 3              0.1777097    NA   NA         NA          NA
-## 4              0.1777097    NA   NA         NA          NA
-## 5              0.1777097    NA   NA         NA          NA
-## 6              0.1777097    NA   NA         NA          NA
-## 7              0.1777097    NA   NA         NA          NA
-## 8              0.1675463    NA   NA         NA          NA
-## 9              0.1539011    NA   NA         NA          NA
-## 10             0.1539011    NA   NA         NA          NA
+## 1              0.2049937    NA   NA         NA          NA
+## 2              0.1775297    NA   NA         NA          NA
+## 3              0.1775297    NA   NA         NA          NA
+## 4              0.1775297    NA   NA         NA          NA
+## 5              0.1775297    NA   NA         NA          NA
+## 6              0.1775297    NA   NA         NA          NA
+## 7              0.1775297    NA   NA         NA          NA
+## 8              0.1673766    NA   NA         NA          NA
+## 9              0.1537453    NA   NA         NA          NA
+## 10             0.1537453    NA   NA         NA          NA
 ## Variables not shown: orcid-identifier.value (lgl), orcid-identifier.uri
 ##      (chr), orcid-identifier.path (chr), orcid-identifier.host (chr),
 ##      delegation (lgl), applications (lgl), scope (lgl),

@@ -2,7 +2,7 @@
 % Please edit documentation in R/orcid_id.r
 \name{orcid_id}
 \alias{orcid_id}
-\title{Get data for particular ORCID ID's.}
+\title{Get data for particular ORCID's}
 \usage{
 orcid_id(orcid = NULL, profile = NULL, ...)
 }
@@ -18,7 +18,7 @@ record ("record")}
 A list of results for each Orcid ID passed in, with each element named by the Orcid ID
 }
 \description{
-Get data for particular ORCID ID's.
+Get data for particular ORCID's
 }
 \examples{
 \dontrun{
