@@ -21,7 +21,7 @@ fuzzydoi <- function(x, fuzzy=FALSE){
   if(fuzzy){
     x
   } else {
-    paste("digital-object-ids:%22", x, "%22", sep="")
+    sprintf("digital-object-ids:\"%s\"", x)
   }
 }
 
