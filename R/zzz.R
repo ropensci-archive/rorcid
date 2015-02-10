@@ -49,3 +49,13 @@ try_default <- function (expr, default, quiet = FALSE) {
   }
   result
 }
+
+pluck <- function(x, name, type) {
+  if (missing(type)) {
+    lapply(x, "[[", name)
+  } else {
+    vapply(x, "[[", name, FUN.VALUE = type)
+  }
+}
+
+pop <- function(x, name) x[ !names(x) %in% name ]
