@@ -27,6 +27,12 @@ There's a function `as.orcid()` in this package to help coerce an Orcid ID to an
 as.orcid(x="0000-0002-1642-628X")
 ```
 
+You by default get the print method above, but you can use `summary()` as well to get more detailed information. 
+
+```{r}
+summary( as.orcid(x="0000-0002-1642-628X") )
+```
+
 Or you can pass in many IDs
 
 ```{r}
@@ -40,6 +46,21 @@ browse(as.orcid("0000-0002-1642-628X"))
 ```
 
 ![profile](http://f.cl.ly/items/3d1o0k1X3R1U110C0u1u/Screen%20Shot%202015-02-10%20at%207.21.57%20PM.png)
+
+## Get works
+
+The `works()` function helps get works data from an orcid data object. The output of `works()` uses a print method to just print citations for each work. 
+
+```{r}
+out <- works(orcid_id("0000-0002-0233-1757"))
+out
+```
+
+And you can easily get to the entire data.frame of works details
+
+```{r}
+head(out$data)
+```
 
 ## Search Orcid
 
