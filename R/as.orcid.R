@@ -34,6 +34,7 @@ as.orcid.list <- function(x, ...) structure(x, class="or_cid")
 as.orcid.or_cid <- function(x, ...) x
 
 #' @export
+#' @rdname as.orcid
 print.or_cid <- function(x, ...){
   ob <- x[[1]]$`orcid-bio`
   cat(sprintf('<ORCID> %s', names(x)), sep = "\n")
