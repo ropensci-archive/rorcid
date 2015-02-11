@@ -1,7 +1,8 @@
 #' Convert an ORCID or something like an ORCID to an object with metadata for that orcid
 #' 
 #' @export 
-#' @param x An ORCID id
+#' @param x An ORCID id, passed to \code{print}
+#' @param object An ORCID id, passed to \code{summary}
 #' @param ... Further args passed on to \code{\link{orcid_id}}
 #' @examples \dontrun{
 #' as.orcid(x="0000-0002-1642-628X")
@@ -46,9 +47,10 @@ print.or_cid <- function(x, ...){
 }
 
 #' @export
+#' @rdname as.orcid
 summary.or_cid <- function(object, ...){
   ob <- object[[1]]$`orcid-bio`
-  cat(sprintf('<ORCID Summary> %s', names(x)), sep = "\n")
+  cat(sprintf('<ORCID Summary> %s', names(object)), sep = "\n")
   cat(sprintf('  Name: %s, %s', 
               cn(ob$`personal-details`$`family-name`$value), 
               cn(ob$`personal-details`$`given-names`$value)), sep = "\n")
@@ -60,7 +62,7 @@ summary.or_cid <- function(object, ...){
   }
   cat(sprintf('  Country: %s', cn(ob$`contact-details`$address$country$value)), sep = "\n")
   cat(sprintf('  Keywords: %s', paste0(cn(ob$keywords$keyword$value), collapse = ", ") ), sep = "\n")
-  cat(sprintf('  Submission date: %s', cn(unixconv(x[[1]]$`orcid-history`$`submission-date`$value))), sep = "\n")
+  cat(sprintf('  Submission date: %s', cn(unixconv(ob[[1]]$`orcid-history`$`submission-date`$value))), sep = "\n")
 }
 
 unixconv <- function(y){

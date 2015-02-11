@@ -5,6 +5,7 @@
 \alias{as.orcid.character}
 \alias{as.orcid.list}
 \alias{as.orcid.or_cid}
+\alias{summary.or_cid}
 \title{Convert an ORCID or something like an ORCID to an object with metadata for that orcid}
 \usage{
 as.orcid(x, ...)
@@ -14,11 +15,15 @@ as.orcid(x, ...)
 \method{as.orcid}{list}(x, ...)
 
 \method{as.orcid}{or_cid}(x, ...)
+
+\method{summary}{or_cid}(object, ...)
 }
 \arguments{
-\item{x}{An ORCID id}
+\item{x}{An ORCID id, passed to \code{print}}
 
 \item{...}{Further args passed on to \code{\link{orcid_id}}}
+
+\item{object}{An ORCID id, passed to \code{summary}}
 }
 \description{
 Convert an ORCID or something like an ORCID to an object with metadata for that orcid
