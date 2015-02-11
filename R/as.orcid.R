@@ -26,6 +26,10 @@ as.orcid.character <- function(x, ...){
 
 #' @export
 #' @rdname as.orcid
+as.orcid.list <- function(x, ...) structure(x, class="or_cid")
+
+#' @export
+#' @rdname as.orcid
 as.orcid.or_cid <- function(x, ...) x
 
 #' @export

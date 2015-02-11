@@ -3,12 +3,15 @@
 \name{as.orcid}
 \alias{as.orcid}
 \alias{as.orcid.character}
+\alias{as.orcid.list}
 \alias{as.orcid.or_cid}
 \title{Convert an ORCID or something like an ORCID to an object with metadata for that orcid}
 \usage{
 as.orcid(x, ...)
 
 \method{as.orcid}{character}(x, ...)
+
+\method{as.orcid}{list}(x, ...)
 
 \method{as.orcid}{or_cid}(x, ...)
 }
