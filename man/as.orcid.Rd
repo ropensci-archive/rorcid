@@ -23,6 +23,7 @@ Convert an ORCID or something like an ORCID to an object with metadata for that 
 \examples{
 \dontrun{
 as.orcid(x="0000-0002-1642-628X")
+summary(as.orcid(x="0000-0002-1642-628X"))
 out <- orcid("text:English", rows = 20)
 as.orcid(out$data$`orcid-identifier.path`[1])
 

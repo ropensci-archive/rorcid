@@ -5,6 +5,7 @@
 #' @param ... Further args passed on to \code{\link{orcid_id}}
 #' @examples \dontrun{
 #' as.orcid(x="0000-0002-1642-628X")
+#' summary(as.orcid(x="0000-0002-1642-628X"))
 #' out <- orcid("text:English", rows = 20)
 #' as.orcid(out$data$`orcid-identifier.path`[1])
 #' 
@@ -35,6 +36,24 @@ print.or_cid <- function(x, ...){
               cn(ob$`personal-details`$`family-name`$value), 
               cn(ob$`personal-details`$`given-names`$value)), sep = "\n")
   cat(sprintf('  URL (first): %s', cn(ob$`researcher-urls`$`researcher-url`$url.value[1])), sep = "\n")
+  cat(sprintf('  Country: %s', cn(ob$`contact-details`$address$country$value)), sep = "\n")
+  cat(sprintf('  Keywords: %s', paste0(cn(ob$keywords$keyword$value), collapse = ", ") ), sep = "\n")
+  cat(sprintf('  Submission date: %s', cn(unixconv(x[[1]]$`orcid-history`$`submission-date`$value))), sep = "\n")
+}
+
+#' @export
+summary.or_cid <- function(object, ...){
+  ob <- object[[1]]$`orcid-bio`
+  cat(sprintf('<ORCID Summary> %s', names(x)), sep = "\n")
+  cat(sprintf('  Name: %s, %s', 
+              cn(ob$`personal-details`$`family-name`$value), 
+              cn(ob$`personal-details`$`given-names`$value)), sep = "\n")
+  cat('  URLs:', sep = "\n")
+  for(i in seq_along(apply(ob$`researcher-urls`$`researcher-url`, 1, as.list))){
+    cat(sprintf('     %s: %s', 
+                cn(ob$`researcher-urls`$`researcher-url`[i,'url-name.value']),
+                cn(ob$`researcher-urls`$`researcher-url`[i,'url.value'])), sep = "\n")
+  }
   cat(sprintf('  Country: %s', cn(ob$`contact-details`$address$country$value)), sep = "\n")
   cat(sprintf('  Keywords: %s', paste0(cn(ob$keywords$keyword$value), collapse = ", ") ), sep = "\n")
   cat(sprintf('  Submission date: %s', cn(unixconv(x[[1]]$`orcid-history`$`submission-date`$value))), sep = "\n")
