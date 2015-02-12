@@ -61,9 +61,11 @@ summary.or_cid <- function(object, ...){
                 cn(ob$`researcher-urls`$`researcher-url`[i,'url-name.value']),
                 cn(ob$`researcher-urls`$`researcher-url`[i,'url.value'])), sep = "\n")
   }
-  cat(sprintf('  Country: %s', cn(ob$`contact-details`$address$country$value)), sep = "\n")
-  cat(sprintf('  Keywords: %s', paste0(cn(ob$keywords$keyword$value), collapse = ", ") ), sep = "\n")
-  cat(sprintf('  Submission date: %s', cn(unixconv(ob[[1]]$`orcid-history`$`submission-date`$value))), sep = "\n")
+  catn(sprintf('  Country: %s', cn(ob$`contact-details`$address$country$value)))
+  catn(sprintf('  Keywords: %s', paste0(cn(ob$keywords$keyword$value), collapse = ", ") ))
+  catn(sprintf('  Submission date: %s', cn(unixconv(ob[[1]]$`orcid-history`$`submission-date`$value))))
+  cat('  Works:')
+  cat(strwrap(works(object)$data$`work-title.title.value`, indent = 8, prefix = "\n"))
 }
 
 unixconv <- function(y){
@@ -74,8 +76,15 @@ unixconv <- function(y){
 }
 
 cn <- function(x){
-  if(is.null(x)) 
-    ""
+  if(is.null(x) || length(x) == 0) 
+    NULL
   else
     x
+}
+
+catn <- function(x){
+  if(!is.null(x) && length(x) != 0)
+    cat(x, sep="\n")
+  else
+    NULL
 }
