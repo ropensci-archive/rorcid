@@ -22,6 +22,8 @@
 #' # If you don't input proper DOIs, the function will get mad
 #' dois=c("10.1371/journal.pone.0025995","10.1371/journal.pone.0053712",
 #'        "10.1371/journal.pone.0054608","10.1371/journal.pone.0055937")
+#' orcid_doi(dois=dois)
+#' 
 #' dois=c("10.1016/j.medpal.2008.12.005","10.1080/00933104.2000.10505926","10.1037/a0024480",
 #'        "10.1002/anie.196603172","2344","asdf","232","asdf","23dd")
 #' orcid_doi(dois=dois)
@@ -31,7 +33,7 @@
 #' }
 
 orcid_doi <- function(dois = NULL, start = NULL, rows = NULL, fuzzy = FALSE, ...){
-  check_dois(dois)
+  bad_dois(dois)
 	getdata <- function(x){
 		args <- ocom(list(q=fuzzydoi(x, fuzzy), start=start, rows=rows))
 		out <- orc_GET(file.path(orcid_base(), "search/orcid-bio"), args, ...)

@@ -8,15 +8,6 @@ orc_GET <- function(url, args=list(), ...){
   content(tt, "text")
 }
 
-# verify doi's are given
-check_dois <- function(x){
-  doi_pattern <- "\\b(10[.][0-9]{4,}(?:[.][0-9]+)*/(?:(?![\"&\'<>])\\S)+)\\b"
-  check <- sapply(x, function(y) grepl(doi_pattern, y, perl=TRUE))
-  if(!all(check)){
-    stop(paste("The following are not DOIs:\n", paste(x[!check],collapse="\n ")), call. = FALSE)
-  }
-}
-
 fuzzydoi <- function(x, fuzzy=FALSE){
   if(fuzzy){
     x

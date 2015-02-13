@@ -35,6 +35,8 @@ orcid_doi(dois="10.1087/2", fuzzy=TRUE, rows=20) # get more than defualt 10 reco
 # If you don't input proper DOIs, the function will get mad
 dois=c("10.1371/journal.pone.0025995","10.1371/journal.pone.0053712",
        "10.1371/journal.pone.0054608","10.1371/journal.pone.0055937")
+orcid_doi(dois=dois)
+
 dois=c("10.1016/j.medpal.2008.12.005","10.1080/00933104.2000.10505926","10.1037/a0024480",
        "10.1002/anie.196603172","2344","asdf","232","asdf","23dd")
 orcid_doi(dois=dois)
