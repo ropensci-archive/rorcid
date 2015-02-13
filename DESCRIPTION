@@ -1,8 +1,8 @@
 Package: rorcid
 Title: Interface to the Orcid.org API
 Description: A programmatic interface the Orcid.org API.
-Version: 0.1.8.99
-Date: 2015-02-10
+Version: 0.1.8.999
+Date: 2015-02-13
 Authors@R: c(person("Scott", "Chamberlain", role = c("aut", "cre"),
     email = "myrmecocystus@gmail.com"))
 License: MIT + file LICENSE
