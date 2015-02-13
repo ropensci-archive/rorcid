@@ -1,6 +1,15 @@
 rorcid
 ======
 
+```{r echo=FALSE}
+knitr::opts_chunk$set(
+  comment = "#>",
+  collapse = TRUE,
+  warning = FALSE, 
+  message = FALSE
+)
+```
+
 [![Build Status](https://api.travis-ci.org/ropensci/rorcid.png)](https://travis-ci.org/ropensci/rorcid)
 [![Build status](https://ci.appveyor.com/api/projects/status/29hanha8jfe4uen8/branch/master?svg=true)](https://ci.appveyor.com/project/sckott/rorcid/branch/master)
 
@@ -116,6 +125,24 @@ lapply(orcid_id(orcid = ids), "[[", "orcid-identifier")
 ```
 
 ## Search by DOIs
+
+There is a helper function `check_dois()` that uses a regex checker to see if your DOIs are likely good or likely bad:
+
+All good DOIs
+
+```{r}
+dois <- c("10.1371/journal.pone.0025995","10.1371/journal.pone.0053712",
+       "10.1371/journal.pone.0054608","10.1371/journal.pone.0055937")
+check_dois(dois)
+```
+
+Some good, some bad
+
+```{r}
+dois <- c("10.1016/j.medpal.2008.12.005","10.1080/00933104.2000.10505926","10.1037/a0024480",
+        "10.1002/anie.196603172","2344","asdf","232","asdf","23dd")
+check_dois(dois)
+```
 
 Basic search
 
