@@ -45,6 +45,10 @@ orcid_doi <- function(dois = NULL, start = NULL, rows = NULL, fuzzy = FALSE, ...
 print.orcid_doi <- function(x, ..., n = 10){
   cat(sprintf("<Orcid DOI Search> %s", attr(x, "doi")), sep = "\n")
   cat(sprintf("Found: %s", x$found), sep = "\n")
-  cat(sprintf("Size: %s X %s\n", NROW(x$data), NCOL(x$data)), sep = "\n")
-  trunc_mat_(x$data, n = n)
+  if(length(x$data) == 0){
+    NULL
+  } else {
+    cat(sprintf("Size: %s X %s\n", NROW(x$data), NCOL(x$data)), sep = "\n")
+    trunc_mat_(x$data, n = n)
+  }
 }

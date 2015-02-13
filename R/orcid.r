@@ -143,6 +143,10 @@ orcid <- function(query = NULL, start = NULL, rows = NULL, recursive = FALSE,
 print.orcid <- function(x, ..., n = 10){
   cat("<Orcid Search>", sep = "\n")
   cat(sprintf("Found: %s", x$found), sep = "\n")
-  cat(sprintf("Size: %s X %s\n", NROW(x$data), NCOL(x$data)), sep = "\n")
-  trunc_mat_(x$data, n = n)
+  if(length(x$data) == 0){
+    NULL
+  } else {
+    cat(sprintf("Size: %s X %s\n", NROW(x$data), NCOL(x$data)), sep = "\n")
+    trunc_mat_(x$data, n = n)
+  }
 }
