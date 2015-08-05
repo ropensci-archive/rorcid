@@ -5,13 +5,14 @@ rorcid
 knitr::opts_chunk$set(
   comment = "#>",
   collapse = TRUE,
-  warning = FALSE, 
+  warning = FALSE,
   message = FALSE
 )
 ```
 
 [![Build Status](https://api.travis-ci.org/ropensci/rorcid.png)](https://travis-ci.org/ropensci/rorcid)
 [![Build status](https://ci.appveyor.com/api/projects/status/29hanha8jfe4uen8/branch/master?svg=true)](https://ci.appveyor.com/project/sckott/rorcid/branch/master)
+[![codecov.io](https://codecov.io/github/ropensci/rorcid/coverage.svg?branch=master)](https://codecov.io/github/ropensci/rorcid?branch=master)
 
 `rorcid` is an R programmatic interface to the Orcid public API. `rorcid` is not a product developed or distributed by ORCID®.
 
@@ -36,7 +37,7 @@ There's a function `as.orcid()` in this package to help coerce an Orcid ID to an
 as.orcid(x="0000-0002-1642-628X")
 ```
 
-You by default get the print method above, but you can use `summary()` as well to get more detailed information. 
+You by default get the print method above, but you can use `summary()` as well to get more detailed information.
 
 ```{r}
 summary( as.orcid(x="0000-0002-1642-628X") )
@@ -58,7 +59,7 @@ browse(as.orcid("0000-0002-1642-628X"))
 
 ## Get works
 
-The `works()` function helps get works data from an orcid data object. The output of `works()` uses a print method to just print citations for each work. 
+The `works()` function helps get works data from an orcid data object. The output of `works()` uses a print method to just print citations for each work.
 
 ```{r}
 out <- works(orcid_id("0000-0002-0233-1757"))
