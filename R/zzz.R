@@ -1,15 +1,22 @@
-ocom <- function (l) Filter(Negate(is.null), l)
+ocom <- function(l) Filter(Negate(is.null), l)
 
 orcid_base <- function() "http://pub.orcid.org/v1.1"
 
 orc_GET <- function(url, args=list(), ...){
-  tt <- GET(url, query=args, accept('application/orcid+json'), ...)
+  tt <- GET(url, query = args, accept('application/orcid+json'), ...)
   stop_for_status(tt)
   content(tt, "text")
 }
 
-fuzzydoi <- function(x, fuzzy=FALSE){
-  if(fuzzy){
+# handle_error <- function(x) {
+#   if (x$status_code > 201) {
+#     msg <- fromJSON(content(x, "text"))
+#     warning(x$status_code, " - ", msg$`error-desc`$value, call. = FALSE)
+#   }
+# }
+
+fuzzydoi <- function(x, fuzzy = FALSE) {
+  if (fuzzy) {
     x
   } else {
     sprintf("digital-object-ids:\"%s\"", x)
@@ -24,12 +31,14 @@ orc_parse <- function(x){
   obj
 }
 
-failwith <- function (default = NULL, f, quiet = FALSE) {
+# From the plyr package
+failwith <- function(default = NULL, f, quiet = FALSE) {
   f <- match.fun(f)
   function(...) try_default(f(...), default, quiet = quiet)
 }
 
-try_default <- function (expr, default, quiet = FALSE) {
+# From the plyr package
+try_default <- function(expr, default, quiet = FALSE) {
   result <- default
   if (quiet) {
     tryCatch(result <- expr, error = function(e) {

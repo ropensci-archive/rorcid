@@ -24,9 +24,9 @@
 #'        "10.1371/journal.pone.0054608","10.1371/journal.pone.0055937")
 #' orcid_doi(dois=dois)
 #' 
-#' dois=c("10.1016/j.medpal.2008.12.005","10.1080/00933104.2000.10505926","10.1037/a0024480",
-#'        "10.1002/anie.196603172","2344","asdf","232","asdf","23dd")
-#' orcid_doi(dois=dois)
+#' # dois=c("10.1016/j.medpal.2008.12.005","10.1080/00933104.2000.10505926","10.1037/a0024480",
+#' #       "10.1002/anie.196603172","2344","asdf","232","asdf","23dd")
+#' # orcid_doi(dois=dois)
 #' 
 #' orcid_doi(dois="10.1087/20120404", fuzzy=FALSE) # works
 #' orcid_doi(dois="10.1371/journal.pone.0025995", fuzzy=FALSE)
@@ -35,9 +35,9 @@
 orcid_doi <- function(dois = NULL, start = NULL, rows = NULL, fuzzy = FALSE, ...){
   bad_dois(dois)
 	getdata <- function(x){
-		args <- ocom(list(q=fuzzydoi(x, fuzzy), start=start, rows=rows))
+		args <- ocom(list(q = fuzzydoi(x, fuzzy), start = start, rows = rows))
 		out <- orc_GET(file.path(orcid_base(), "search/orcid-bio"), args, ...)
-		structure(orc_parse(out), class="orcid_doi", doi=x)
+		structure(orc_parse(out), class = "orcid_doi", doi = x)
 	}
 	getdata_safe <- failwith(NULL, getdata)
 	ocom(lapply(dois, getdata_safe))
@@ -47,7 +47,7 @@ orcid_doi <- function(dois = NULL, start = NULL, rows = NULL, fuzzy = FALSE, ...
 print.orcid_doi <- function(x, ..., n = 10){
   cat(sprintf("<Orcid DOI Search> %s", attr(x, "doi")), sep = "\n")
   cat(sprintf("Found: %s", x$found), sep = "\n")
-  if(length(x$data) == 0){
+  if (length(x$data) == 0) {
     NULL
   } else {
     cat(sprintf("Size: %s X %s\n", NROW(x$data), NCOL(x$data)), sep = "\n")
