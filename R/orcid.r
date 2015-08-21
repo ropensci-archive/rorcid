@@ -1,7 +1,6 @@
 #' Search for ORCID ID's.
 #' 
 #' @export
-#' @import httr jsonlite
 #' 
 #' @param query Search terms. You can do quite complicated queries using the SOLR 
 #' 		syntax. See examples below. For all possible fields to query, do data(fields).

@@ -1,8 +1,9 @@
 #' A programmatic R interface the Orcid.org API.
 #' 
+#' @importFrom httr GET content stop_for_status accept
+#' @importFrom jsonlite fromJSON
 #' @name rorcid-package
 #' @docType package
-#' @title A programmatic R interface the Orcid.org API.
 #' @author Scott Chamberlain \email{myrmecocystus@@gmail.com}
 #' @keywords package
 NULL
