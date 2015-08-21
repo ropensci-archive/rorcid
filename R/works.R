@@ -22,22 +22,22 @@
 works <- function(x) {
   tmp <- as.orcid(x)
   works <- tmp[[1]]$works
-  if(is.null(works)){
-    structure(list(data="None"), class="works", orcid=names(tmp))
+  if (is.null(works)) {
+    structure(list(data = "None"), class = "works", orcid = names(tmp))
   } else {
-    structure(list(data=works), class="works", orcid=names(tmp))
+    structure(list(data = works), class = "works", orcid = names(tmp))
   }
 }
 
 #' @export
-print.works <- function(x, ...){
-  if(is(unclass(x)$data, "character")){
+print.works <- function(x, ...) {
+  if (is(unclass(x)$data, "character")) {
     y <- x
   } else {
     y <- x$data$`work-citation.citation`
   }
   cat(sprintf('<WORKS> %s', attr(x, "orcid")), sep = "\n\n")
-  for(i in seq_along(y)){
+  for (i in seq_along(y)) {
     cat(sprintf("- %s", y[i]), sep = "\n")
   }
 }

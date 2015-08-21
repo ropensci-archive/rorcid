@@ -11,7 +11,7 @@ rorcid
 
 `rorcid` is an R programmatic interface to the Orcid public API. `rorcid` is not a product developed or distributed by ORCID®.
 
-[Orcid API docs](http://support.orcid.org/knowledgebase/articles/132354-searching-with-the-public-api)
+[Orcid API docs](http://members.orcid.org/api)
 
 ## Installation
 

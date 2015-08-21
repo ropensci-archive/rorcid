@@ -73,7 +73,7 @@
 #' 		instead of writing \code{johnson+cardiology}, just write \code{johnson cardiology}, and 
 #' 		instead of writing \code{johnson+AND+cardiology}, write \code{johnson AND cardiology}. 
 #' 		Though, you still need to use \code{AND}, \code{OR}, etc. to join term/queries together.
-#' @seealso \code{\link{orcid_doi}}
+#' @seealso \code{\link{orcid_doi}} \code{\link{orcid_id}}
 #' @examples \dontrun{
 #' # Get a list of names and Orcid IDs matching a name query
 #' orcid(query="carl+boettiger")
@@ -128,21 +128,21 @@ orcid <- function(query = NULL, start = NULL, rows = NULL, recursive = FALSE,
 	defType = NULL, q.alt = NULL, qf = NULL, mm = NULL, qs = NULL, pf = NULL,
 	ps = NULL, pf2 = NULL, ps2 = NULL, pf3 = NULL, ps3 = NULL, tie = NULL, 
 	bq = NULL, bf = NULL, boost = NULL, uf = NULL, lowercaseOperators = NULL, 
-	fuzzy = FALSE, ...)
-{
-  args <- ocom(list(q=query, start = start, rows = rows, defType = defType, q.alt = q.alt,
+	fuzzy = FALSE, ...) {
+  
+  args <- ocom(list(q = query, start = start, rows = rows, defType = defType, q.alt = q.alt,
                     qf = qf, mm = mm, qs = qs, pf = pf, ps = ps, pf2 = pf2,
                     ps2 = ps2, pf3 = pf3, ps3 = ps3, tie = tie, bq = bq, bf = bf,
                     boost = boost, uf = uf, lowercaseOperators = lowercaseOperators))
-  res <- orc_GET(paste0(orcid_base(), "/search/orcid-bio"), args, ...)
-  structure(orc_parse(res), class="orcid")
+  res <- orc_GET_err(paste0(orcid_base(), "/search/orcid-bio"), args, ...)
+  structure(orc_parse(res), class = "orcid")
 }
 
 #' @export
 print.orcid <- function(x, ..., n = 10){
   cat("<Orcid Search>", sep = "\n")
   cat(sprintf("Found: %s", x$found), sep = "\n")
-  if(length(x$data) == 0){
+  if (length(x$data) == 0) {
     NULL
   } else {
     cat(sprintf("Size: %s X %s\n", NROW(x$data), NCOL(x$data)), sep = "\n")

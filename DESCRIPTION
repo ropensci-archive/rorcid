@@ -3,7 +3,7 @@ Title: Interface to the 'Orcid.org'
 Description: Client for the 'Orcid.org' 'API' (http://orcid.org/).
 		Funtions included for searching for people, searching by 'DOI',
 		searching by 'Orcid' ID, and more.
-Version: 0.1.9.9200
+Version: 0.1.9.9230
 Authors@R: c(person("Scott", "Chamberlain", role = c("aut", "cre"),
     email = "myrmecocystus@gmail.com"))
 License: MIT + file LICENSE
