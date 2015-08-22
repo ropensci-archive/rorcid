@@ -17,4 +17,4 @@ Imports:
     httr (>= 1.0.0),
     jsonlite
 Suggests:
-    roxygen2
+		testthat
