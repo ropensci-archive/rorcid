@@ -161,6 +161,6 @@ orcid(defType = "edismax", query="keyword:ecology OR evolution OR conservation",
 }
 }
 \seealso{
-\code{\link{orcid_doi}}
+\code{\link{orcid_doi}} \code{\link{orcid_id}}
 }
 
