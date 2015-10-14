@@ -1,6 +1,6 @@
 ocom <- function(l) Filter(Negate(is.null), l)
 
-orcid_base <- function() "http://pub.orcid.org/v1.1"
+orcid_base <- function() "http://pub.orcid.org/v1.2"
 
 orc_GET <- function(url, args=list(), ...) {
   tt <- GET(url, query = args, accept('application/orcid+json'), ...)
