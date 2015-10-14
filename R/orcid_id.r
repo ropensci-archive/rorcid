@@ -28,7 +28,7 @@ orcid_id <- function(orcid = NULL, profile = "profile", ...){
 	doit <- function(x) {
 	  temp <- match.arg(profile, choices = c("bio", "works", "profile"))
 	  url2 <- file.path(orcid_base(), x, paste0("orcid-", temp))
-		out <- orc_GET(url2, ...)
+		out <- orc_GET_err(url2, ...)
 		res <- jsonlite::fromJSON(out, flatten = TRUE)$`orcid-profile`
 		works <- get_works(res)
 		res <- pop(res, "orcid-activities")

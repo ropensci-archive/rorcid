@@ -36,7 +36,7 @@ orcid_doi <- function(dois = NULL, start = NULL, rows = NULL, fuzzy = FALSE, ...
   bad_dois(dois)
 	getdata <- function(x){
 		args <- ocom(list(q = fuzzydoi(x, fuzzy), start = start, rows = rows))
-		out <- orc_GET(file.path(orcid_base(), "search/orcid-bio"), args, ...)
+		out <- orc_GET_err(file.path(orcid_base(), "search/orcid-bio"), args, ...)
 		structure(orc_parse(out), class = "orcid_doi", doi = x)
 	}
 	getdata_safe <- failwith(NULL, getdata)
