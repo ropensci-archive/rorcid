@@ -11,7 +11,10 @@ rorcid
 
 `rorcid` is an R programmatic interface to the Orcid public API. `rorcid` is not a product developed or distributed by ORCID®.
 
-[Orcid API docs](http://members.orcid.org/api)
+Orcid API docs: 
+
+* http://members.orcid.org/api
+* https://github.com/ORCID/ORCID-Source/wiki/full-api-reference
 
 ## Installation
 
@@ -192,25 +195,25 @@ Get a list of names and Orcid IDs matching a name query
 ```r
 orcid(query="carl boettiger")
 #> <Orcid Search>
-#> Found: 2533
-#> Size: 10 X 37
+#> Found: 2776
+#> Size: 10 X 36
 #> 
 #>    relevancy-score.value orcid orcid-id orcid-deprecated orcid-preferences
-#> 1              0.9093047    NA       NA               NA                NA
-#> 2              0.6484340    NA       NA               NA                NA
-#> 3              0.5105501    NA       NA               NA                NA
-#> 4              0.3160906    NA       NA               NA                NA
-#> 5              0.3160906    NA       NA               NA                NA
-#> 6              0.3160906    NA       NA               NA                NA
-#> 7              0.3160906    NA       NA               NA                NA
-#> 8              0.3160906    NA       NA               NA                NA
-#> 9              0.2992027    NA       NA               NA                NA
-#> 10             0.2959683    NA       NA               NA                NA
+#> 1              0.9144474    NA       NA               NA                NA
+#> 2              0.6513379    NA       NA               NA                NA
+#> 3              0.5136184    NA       NA               NA                NA
+#> 4              0.3192722    NA       NA               NA                NA
+#> 5              0.3192722    NA       NA               NA                NA
+#> 6              0.3192722    NA       NA               NA                NA
+#> 7              0.3192722    NA       NA               NA                NA
+#> 8              0.3192722    NA       NA               NA                NA
+#> 9              0.3022143    NA       NA               NA                NA
+#> 10             0.2972937    NA       NA               NA                NA
 #> Variables not shown: orcid-history (lgl), orcid-internal (lgl), type
 #>      (lgl), group-type (lgl), client-type (lgl), orcid-identifier.value
 #>      (lgl), orcid-identifier.uri (chr), orcid-identifier.path (chr),
-#>      orcid-identifier.host (chr), delegation (lgl), applications (lgl),
-#>      scope (lgl), personal-details.given-names.value (chr),
+#>      orcid-identifier.host (chr), delegation (lgl), scope (lgl),
+#>      personal-details.given-names.value (chr),
 #>      personal-details.family-name.value (chr),
 #>      personal-details.credit-name.value (chr),
 #>      personal-details.credit-name.visibility (lgl),
@@ -233,26 +236,25 @@ You can string together many search terms
 ```r
 orcid(query="johnson cardiology houston")
 #> <Orcid Search>
-#> Found: 19855
-#> Size: 10 X 36
+#> Found: 21940
+#> Size: 10 X 35
 #> 
 #>    relevancy-score.value orcid orcid-id orcid-deprecated orcid-preferences
-#> 1              0.6424501    NA       NA               NA                NA
-#> 2              0.4300129    NA       NA               NA                NA
-#> 3              0.4086738    NA       NA               NA                NA
-#> 4              0.3617073    NA       NA               NA                NA
-#> 5              0.3583441    NA       NA               NA                NA
-#> 6              0.3274240    NA       NA               NA                NA
-#> 7              0.3195712    NA       NA               NA                NA
-#> 8              0.3100348    NA       NA               NA                NA
-#> 9              0.3100348    NA       NA               NA                NA
-#> 10             0.3029807    NA       NA               NA                NA
+#> 1              0.6441083    NA       NA               NA                NA
+#> 2              0.4313030    NA       NA               NA                NA
+#> 3              0.4098923    NA       NA               NA                NA
+#> 4              0.3691051    NA       NA               NA                NA
+#> 5              0.3626695    NA       NA               NA                NA
+#> 6              0.3294507    NA       NA               NA                NA
+#> 7              0.3108596    NA       NA               NA                NA
+#> 8              0.3108596    NA       NA               NA                NA
+#> 9              0.3038268    NA       NA               NA                NA
+#> 10             0.3035739    NA       NA               NA                NA
 #> Variables not shown: orcid-history (lgl), orcid-internal (lgl), type
 #>      (lgl), group-type (lgl), client-type (lgl), orcid-identifier.value
 #>      (lgl), orcid-identifier.uri (chr), orcid-identifier.path (chr),
 #>      orcid-identifier.host (chr), external-identifiers (lgl), delegation
-#>      (lgl), applications (lgl), scope (lgl),
-#>      personal-details.given-names.value (chr),
+#>      (lgl), scope (lgl), personal-details.given-names.value (chr),
 #>      personal-details.family-name.value (chr),
 #>      personal-details.credit-name.value (chr),
 #>      personal-details.credit-name.visibility (lgl),
@@ -273,25 +275,25 @@ And use boolean operators
 ```r
 orcid("johnson AND(caltech OR 'California Institute of Technology')")
 #> <Orcid Search>
-#> Found: 11266
-#> Size: 10 X 37
+#> Found: 12434
+#> Size: 10 X 36
 #> 
 #>    relevancy-score.value orcid orcid-id orcid-deprecated orcid-preferences
-#> 1              0.3946114    NA       NA               NA                NA
-#> 2              0.3604049    NA       NA               NA                NA
-#> 3              0.3571223    NA       NA               NA                NA
-#> 4              0.3452659    NA       NA               NA                NA
-#> 5              0.3452659    NA       NA               NA                NA
-#> 6              0.3237745    NA       NA               NA                NA
-#> 7              0.3227252    NA       NA               NA                NA
-#> 8              0.3192242    NA       NA               NA                NA
-#> 9              0.3021077    NA       NA               NA                NA
-#> 10             0.3015144    NA       NA               NA                NA
+#> 1              0.5956504    NA       NA               NA                NA
+#> 2              0.3978453    NA       NA               NA                NA
+#> 3              0.3647148    NA       NA               NA                NA
+#> 4              0.3599079    NA       NA               NA                NA
+#> 5              0.3493960    NA       NA               NA                NA
+#> 6              0.3493960    NA       NA               NA                NA
+#> 7              0.3265852    NA       NA               NA                NA
+#> 8              0.3259330    NA       NA               NA                NA
+#> 9              0.3237784    NA       NA               NA                NA
+#> 10             0.3226557    NA       NA               NA                NA
 #> Variables not shown: orcid-history (lgl), orcid-internal (lgl), type
 #>      (lgl), group-type (lgl), client-type (lgl), orcid-identifier.value
 #>      (lgl), orcid-identifier.uri (chr), orcid-identifier.path (chr),
-#>      orcid-identifier.host (chr), delegation (lgl), applications (lgl),
-#>      scope (lgl), personal-details.given-names.value (chr),
+#>      orcid-identifier.host (chr), delegation (lgl), scope (lgl),
+#>      personal-details.given-names.value (chr),
 #>      personal-details.family-name.value (chr),
 #>      personal-details.credit-name.value (chr),
 #>      personal-details.credit-name.visibility (lgl),
@@ -314,19 +316,19 @@ And you can use start and rows arguments to do pagination
 ```r
 orcid("johnson cardiology houston", start = 2, rows = 3)
 #> <Orcid Search>
-#> Found: 19855
-#> Size: 3 X 30
+#> Found: 21940
+#> Size: 3 X 29
 #> 
 #>   relevancy-score.value orcid orcid-id orcid-deprecated orcid-preferences
-#> 1             0.4086738    NA       NA               NA                NA
-#> 2             0.3617073    NA       NA               NA                NA
-#> 3             0.3583441    NA       NA               NA                NA
+#> 1             0.4098923    NA       NA               NA                NA
+#> 2             0.3691051    NA       NA               NA                NA
+#> 3             0.3626695    NA       NA               NA                NA
 #> Variables not shown: orcid-history (lgl), orcid-internal (lgl), type
 #>      (lgl), group-type (lgl), client-type (lgl), orcid-identifier.value
 #>      (lgl), orcid-identifier.uri (chr), orcid-identifier.path (chr),
 #>      orcid-identifier.host (chr), researcher-urls (lgl), contact-details
 #>      (lgl), keywords (lgl), external-identifiers (lgl), delegation (lgl),
-#>      applications (lgl), scope (lgl), personal-details.credit-name (lgl),
+#>      scope (lgl), personal-details.credit-name (lgl),
 #>      personal-details.other-names (lgl),
 #>      personal-details.given-names.value (chr),
 #>      personal-details.family-name.value (chr), biography.value (chr),
@@ -341,26 +343,25 @@ Search specific fields. here, by text type
 ```r
 orcid("text:English")
 #> <Orcid Search>
-#> Found: 11199
-#> Size: 10 X 36
+#> Found: 12631
+#> Size: 10 X 35
 #> 
 #>    relevancy-score.value orcid orcid-id orcid-deprecated orcid-preferences
-#> 1              1.0344370    NA       NA               NA                NA
-#> 2              0.8063560    NA       NA               NA                NA
-#> 3              0.7710238    NA       NA               NA                NA
-#> 4              0.7710238    NA       NA               NA                NA
-#> 5              0.7465405    NA       NA               NA                NA
-#> 6              0.7465405    NA       NA               NA                NA
-#> 7              0.7465405    NA       NA               NA                NA
-#> 8              0.7465405    NA       NA               NA                NA
-#> 9              0.7465405    NA       NA               NA                NA
-#> 10             0.7465405    NA       NA               NA                NA
+#> 1              1.0387812    NA       NA               NA                NA
+#> 2              0.8613118    NA       NA               NA                NA
+#> 3              0.8097423    NA       NA               NA                NA
+#> 4              0.7742617    NA       NA               NA                NA
+#> 5              0.7742617    NA       NA               NA                NA
+#> 6              0.7496757    NA       NA               NA                NA
+#> 7              0.7496757    NA       NA               NA                NA
+#> 8              0.7496757    NA       NA               NA                NA
+#> 9              0.7496757    NA       NA               NA                NA
+#> 10             0.7496757    NA       NA               NA                NA
 #> Variables not shown: orcid-history (lgl), orcid-internal (lgl), type
 #>      (lgl), group-type (lgl), client-type (lgl), orcid-identifier.value
 #>      (lgl), orcid-identifier.uri (chr), orcid-identifier.path (chr),
 #>      orcid-identifier.host (chr), external-identifiers (lgl), delegation
-#>      (lgl), applications (lgl), scope (lgl),
-#>      personal-details.given-names.value (chr),
+#>      (lgl), scope (lgl), personal-details.given-names.value (chr),
 #>      personal-details.family-name.value (chr),
 #>      personal-details.credit-name.value (chr),
 #>      personal-details.credit-name.visibility (lgl),
@@ -515,20 +516,20 @@ orcid_doi(dois="10.1087/20120404")
 #> [[1]]
 #> <Orcid DOI Search> 10.1087/20120404
 #> Found: 6
-#> Size: 6 X 37
+#> Size: 6 X 36
 #> 
 #>   relevancy-score.value orcid orcid-id orcid-deprecated orcid-preferences
-#> 1              7.744062    NA       NA               NA                NA
-#> 2              5.808046    NA       NA               NA                NA
-#> 3              5.475879    NA       NA               NA                NA
-#> 4              3.422424    NA       NA               NA                NA
-#> 5              2.053454    NA       NA               NA                NA
-#> 6              1.197848    NA       NA               NA                NA
+#> 1              9.650854    NA       NA               NA                NA
+#> 2              5.790513    NA       NA               NA                NA
+#> 3              5.459348    NA       NA               NA                NA
+#> 4              3.860342    NA       NA               NA                NA
+#> 5              2.047255    NA       NA               NA                NA
+#> 6              1.194232    NA       NA               NA                NA
 #> Variables not shown: orcid-history (lgl), orcid-internal (lgl), type
 #>      (lgl), group-type (lgl), client-type (lgl), orcid-identifier.value
 #>      (lgl), orcid-identifier.uri (chr), orcid-identifier.path (chr),
-#>      orcid-identifier.host (chr), delegation (lgl), applications (lgl),
-#>      scope (lgl), personal-details.given-names.value (chr),
+#>      orcid-identifier.host (chr), delegation (lgl), scope (lgl),
+#>      personal-details.given-names.value (chr),
 #>      personal-details.family-name.value (chr),
 #>      personal-details.credit-name.value (chr),
 #>      personal-details.credit-name.visibility (lgl),
@@ -552,31 +553,32 @@ This DOI is not a real one, but a partial DOI, then we can fuzzy search
 orcid_doi(dois="10.1087/2", fuzzy=TRUE, rows=5)
 #> [[1]]
 #> <Orcid DOI Search> 10.1087/2
-#> Found: 188032
-#> Size: 5 X 34
+#> Found: 206586
+#> Size: 5 X 35
 #> 
 #>   relevancy-score.value orcid orcid-id orcid-deprecated orcid-preferences
-#> 1             0.8529851    NA       NA               NA                NA
-#> 2             0.7463620    NA       NA               NA                NA
-#> 3             0.7104710    NA       NA               NA                NA
-#> 4             0.6756013    NA       NA               NA                NA
-#> 5             0.6594092    NA       NA               NA                NA
+#> 1             0.8613721    NA       NA               NA                NA
+#> 2             0.7537006    NA       NA               NA                NA
+#> 3             0.7175421    NA       NA               NA                NA
+#> 4             0.6946154    NA       NA               NA                NA
+#> 5             0.6826138    NA       NA               NA                NA
 #> Variables not shown: orcid-history (lgl), orcid-internal (lgl), type
 #>      (lgl), group-type (lgl), client-type (lgl), orcid-identifier.value
 #>      (lgl), orcid-identifier.uri (chr), orcid-identifier.path (chr),
-#>      orcid-identifier.host (chr), contact-details (lgl),
-#>      external-identifiers (lgl), delegation (lgl), applications (lgl),
-#>      scope (lgl), personal-details.given-names.value (chr),
+#>      orcid-identifier.host (chr), external-identifiers (lgl), delegation
+#>      (lgl), scope (lgl), personal-details.given-names.value (chr),
 #>      personal-details.family-name.value (chr),
 #>      personal-details.credit-name.value (chr),
 #>      personal-details.credit-name.visibility (lgl),
 #>      personal-details.other-names.other-name (list),
 #>      personal-details.other-names.visibility (lgl), biography.value (chr),
 #>      biography.visibility (lgl), researcher-urls.researcher-url (list),
-#>      researcher-urls.visibility (lgl), keywords.keyword (list),
-#>      keywords.visibility (lgl), orcid-activities.affiliations (lgl),
-#>      orcid-activities.orcid-works (lgl), orcid-activities.funding-list
-#>      (lgl)
+#>      researcher-urls.visibility (lgl), contact-details.email (list),
+#>      contact-details.address.country.value (chr),
+#>      contact-details.address.country.visibility (lgl), keywords.keyword
+#>      (list), keywords.visibility (lgl), orcid-activities.affiliations
+#>      (lgl), orcid-activities.orcid-works (lgl),
+#>      orcid-activities.funding-list (lgl)
 ```
 
 Function is vectorized, search for many DOIs
@@ -588,26 +590,26 @@ dois <- c("10.1371/journal.pone.0025995","10.1371/journal.pone.0053712",
 orcid_doi(dois=dois, fuzzy = TRUE)
 #> [[1]]
 #> <Orcid DOI Search> 10.1371/journal.pone.0025995
-#> Found: 28013
-#> Size: 10 X 36
+#> Found: 31061
+#> Size: 10 X 35
 #> 
 #>    relevancy-score.value orcid orcid-id orcid-deprecated orcid-preferences
-#> 1              0.2334920    NA       NA               NA                NA
-#> 2              0.1803136    NA       NA               NA                NA
-#> 3              0.1593762    NA       NA               NA                NA
-#> 4              0.1561562    NA       NA               NA                NA
-#> 5              0.1561562    NA       NA               NA                NA
-#> 6              0.1561562    NA       NA               NA                NA
-#> 7              0.1561562    NA       NA               NA                NA
-#> 8              0.1561562    NA       NA               NA                NA
-#> 9              0.1472254    NA       NA               NA                NA
-#> 10             0.1444104    NA       NA               NA                NA
+#> 1              0.2352983    NA       NA               NA                NA
+#> 2              0.1830770    NA       NA               NA                NA
+#> 3              0.1618187    NA       NA               NA                NA
+#> 4              0.1585493    NA       NA               NA                NA
+#> 5              0.1585493    NA       NA               NA                NA
+#> 6              0.1585493    NA       NA               NA                NA
+#> 7              0.1585493    NA       NA               NA                NA
+#> 8              0.1585493    NA       NA               NA                NA
+#> 9              0.1494817    NA       NA               NA                NA
+#> 10             0.1466326    NA       NA               NA                NA
 #> Variables not shown: orcid-history (lgl), orcid-internal (lgl), type
 #>      (lgl), group-type (lgl), client-type (lgl), orcid-identifier.value
 #>      (lgl), orcid-identifier.uri (chr), orcid-identifier.path (chr),
-#>      orcid-identifier.host (chr), keywords (lgl), delegation (lgl),
-#>      applications (lgl), scope (lgl), personal-details.given-names.value
-#>      (chr), personal-details.family-name.value (chr),
+#>      orcid-identifier.host (chr), keywords (lgl), delegation (lgl), scope
+#>      (lgl), personal-details.given-names.value (chr),
+#>      personal-details.family-name.value (chr),
 #>      personal-details.credit-name.value (chr),
 #>      personal-details.credit-name.visibility (lgl),
 #>      personal-details.other-names.other-name (list),
@@ -623,26 +625,25 @@ orcid_doi(dois=dois, fuzzy = TRUE)
 #> 
 #> [[2]]
 #> <Orcid DOI Search> 10.1371/journal.pone.0053712
-#> Found: 28013
+#> Found: 31061
 #> Size: 10 X 35
 #> 
 #>    relevancy-score.value orcid orcid-id orcid-deprecated orcid-preferences
-#> 1              0.1694850    NA       NA               NA                NA
-#> 2              0.1498049    NA       NA               NA                NA
-#> 3              0.1467783    NA       NA               NA                NA
-#> 4              0.1467783    NA       NA               NA                NA
-#> 5              0.1467783    NA       NA               NA                NA
-#> 6              0.1467783    NA       NA               NA                NA
-#> 7              0.1467783    NA       NA               NA                NA
-#> 8              0.1383839    NA       NA               NA                NA
-#> 9              0.1357379    NA       NA               NA                NA
-#> 10             0.1271137    NA       NA               NA                NA
+#> 1              0.3070936    NA       NA               NA                NA
+#> 2              0.1861446    NA       NA               NA                NA
+#> 3              0.1645301    NA       NA               NA                NA
+#> 4              0.1612059    NA       NA               NA                NA
+#> 5              0.1612059    NA       NA               NA                NA
+#> 6              0.1612059    NA       NA               NA                NA
+#> 7              0.1612059    NA       NA               NA                NA
+#> 8              0.1612059    NA       NA               NA                NA
+#> 9              0.1519864    NA       NA               NA                NA
+#> 10             0.1490895    NA       NA               NA                NA
 #> Variables not shown: orcid-history (lgl), orcid-internal (lgl), type
 #>      (lgl), group-type (lgl), client-type (lgl), orcid-identifier.value
 #>      (lgl), orcid-identifier.uri (chr), orcid-identifier.path (chr),
-#>      orcid-identifier.host (chr), keywords (lgl), external-identifiers
-#>      (lgl), delegation (lgl), applications (lgl), scope (lgl),
-#>      personal-details.given-names.value (chr),
+#>      orcid-identifier.host (chr), external-identifiers (lgl), delegation
+#>      (lgl), scope (lgl), personal-details.given-names.value (chr),
 #>      personal-details.family-name.value (chr),
 #>      personal-details.credit-name.value (chr),
 #>      personal-details.credit-name.visibility (lgl),
@@ -651,31 +652,32 @@ orcid_doi(dois=dois, fuzzy = TRUE)
 #>      biography.visibility (lgl), researcher-urls.researcher-url (list),
 #>      researcher-urls.visibility (lgl), contact-details.email (list),
 #>      contact-details.address.country.value (chr),
-#>      contact-details.address.country.visibility (lgl),
-#>      orcid-activities.affiliations (lgl), orcid-activities.orcid-works
-#>      (lgl), orcid-activities.funding-list (lgl)
+#>      contact-details.address.country.visibility (lgl), keywords.keyword
+#>      (list), keywords.visibility (lgl), orcid-activities.affiliations
+#>      (lgl), orcid-activities.orcid-works (lgl),
+#>      orcid-activities.funding-list (lgl)
 #> 
 #> [[3]]
 #> <Orcid DOI Search> 10.1371/journal.pone.0054608
-#> Found: 28013
-#> Size: 10 X 35
+#> Found: 31061
+#> Size: 10 X 34
 #> 
 #>    relevancy-score.value orcid orcid-id orcid-deprecated orcid-preferences
-#> 1              0.1694850    NA       NA               NA                NA
-#> 2              0.1498049    NA       NA               NA                NA
-#> 3              0.1467783    NA       NA               NA                NA
-#> 4              0.1467783    NA       NA               NA                NA
-#> 5              0.1467783    NA       NA               NA                NA
-#> 6              0.1467783    NA       NA               NA                NA
-#> 7              0.1467783    NA       NA               NA                NA
-#> 8              0.1383839    NA       NA               NA                NA
-#> 9              0.1357379    NA       NA               NA                NA
-#> 10             0.1271137    NA       NA               NA                NA
+#> 1              0.1721643    NA       NA               NA                NA
+#> 2              0.1521732    NA       NA               NA                NA
+#> 3              0.1490986    NA       NA               NA                NA
+#> 4              0.1490986    NA       NA               NA                NA
+#> 5              0.1490986    NA       NA               NA                NA
+#> 6              0.1490986    NA       NA               NA                NA
+#> 7              0.1490986    NA       NA               NA                NA
+#> 8              0.1405715    NA       NA               NA                NA
+#> 9              0.1378922    NA       NA               NA                NA
+#> 10             0.1291232    NA       NA               NA                NA
 #> Variables not shown: orcid-history (lgl), orcid-internal (lgl), type
 #>      (lgl), group-type (lgl), client-type (lgl), orcid-identifier.value
 #>      (lgl), orcid-identifier.uri (chr), orcid-identifier.path (chr),
 #>      orcid-identifier.host (chr), keywords (lgl), external-identifiers
-#>      (lgl), delegation (lgl), applications (lgl), scope (lgl),
+#>      (lgl), delegation (lgl), scope (lgl),
 #>      personal-details.given-names.value (chr),
 #>      personal-details.family-name.value (chr),
 #>      personal-details.credit-name.value (chr),
@@ -691,25 +693,25 @@ orcid_doi(dois=dois, fuzzy = TRUE)
 #> 
 #> [[4]]
 #> <Orcid DOI Search> 10.1371/journal.pone.0055937
-#> Found: 28013
-#> Size: 10 X 35
+#> Found: 31061
+#> Size: 10 X 34
 #> 
 #>    relevancy-score.value orcid orcid-id orcid-deprecated orcid-preferences
-#> 1              0.1694850    NA       NA               NA                NA
-#> 2              0.1498049    NA       NA               NA                NA
-#> 3              0.1467783    NA       NA               NA                NA
-#> 4              0.1467783    NA       NA               NA                NA
-#> 5              0.1467783    NA       NA               NA                NA
-#> 6              0.1467783    NA       NA               NA                NA
-#> 7              0.1467783    NA       NA               NA                NA
-#> 8              0.1383839    NA       NA               NA                NA
-#> 9              0.1357379    NA       NA               NA                NA
-#> 10             0.1271137    NA       NA               NA                NA
+#> 1              0.1721643    NA       NA               NA                NA
+#> 2              0.1521732    NA       NA               NA                NA
+#> 3              0.1490986    NA       NA               NA                NA
+#> 4              0.1490986    NA       NA               NA                NA
+#> 5              0.1490986    NA       NA               NA                NA
+#> 6              0.1490986    NA       NA               NA                NA
+#> 7              0.1490986    NA       NA               NA                NA
+#> 8              0.1405715    NA       NA               NA                NA
+#> 9              0.1378922    NA       NA               NA                NA
+#> 10             0.1291232    NA       NA               NA                NA
 #> Variables not shown: orcid-history (lgl), orcid-internal (lgl), type
 #>      (lgl), group-type (lgl), client-type (lgl), orcid-identifier.value
 #>      (lgl), orcid-identifier.uri (chr), orcid-identifier.path (chr),
 #>      orcid-identifier.host (chr), keywords (lgl), external-identifiers
-#>      (lgl), delegation (lgl), applications (lgl), scope (lgl),
+#>      (lgl), delegation (lgl), scope (lgl),
 #>      personal-details.given-names.value (chr),
 #>      personal-details.family-name.value (chr),
 #>      personal-details.credit-name.value (chr),
