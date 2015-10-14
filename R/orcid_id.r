@@ -26,14 +26,14 @@
 
 orcid_id <- function(orcid = NULL, profile = "profile", ...){
 	doit <- function(x) {
-	  temp <- match.arg(profile, choices=c("bio", "works", "profile"))
+	  temp <- match.arg(profile, choices = c("bio", "works", "profile"))
 	  url2 <- file.path(orcid_base(), x, paste0("orcid-", temp))
 		out <- orc_GET(url2, ...)
 		res <- jsonlite::fromJSON(out, flatten = TRUE)$`orcid-profile`
 		works <- get_works(res)
 		res <- pop(res, "orcid-activities")
 		res$works <- works
-		res
+		structure(res, class = "orcid_id", profile = profile)
 	}
 	setNames(lapply(orcid, doit), orcid)
 }

@@ -2,34 +2,70 @@
 % Please edit documentation in R/identifiers.R
 \name{identifiers}
 \alias{identifiers}
+\alias{identifiers.list}
+\alias{identifiers.orcid}
+\alias{identifiers.orcid_doi}
+\alias{identifiers.orcid_id}
+\alias{identifiers.works}
 \title{Get identifiers}
 \usage{
 identifiers(x, type = "doi", ...)
+
+\method{identifiers}{works}(x, type = "doi", ...)
+
+\method{identifiers}{list}(x, type = "doi", ...)
+
+\method{identifiers}{orcid_id}(x, type = "doi", ...)
+
+\method{identifiers}{orcid}(x, type = "doi", ...)
+
+\method{identifiers}{orcid_doi}(x, type = "doi", ...)
 }
 \arguments{
-\item{x}{An object of class works, other things in the future}
+\item{x}{An object of class works, orcid, orcid_id, orcid_doi, or a list that
+contains any number of the previous objects.}
 
-\item{type}{(character) One of doi (default), pmid, pmc, other_id}
+\item{type}{(character) One of doi (default), pmid, pmc, eid, other_id,
+orcid, scopus, researcherid. The orcid's here are for works, not individuals.}
 
 \item{...}{Ignored.}
 }
+\value{
+A vector of identifiers, or NULL if none found
+}
 \description{
-Get identifiers
+This function aims to pluck out just identifiers into a vector
+for easy use downstream (e.g., use DOIs to fetch article metadata). You can
+still manually fetch additional data from outputs of functions in this package.
 }
 \examples{
 \dontrun{
+# Result of call to works()
 x <- works(orcid_id("0000-0001-8607-8025"))
 # doi by default
 identifiers(x)
-
+# orcids
+identifiers(x, "orcid")
 # pmid
 identifiers(x, "pmid")
-
 # pmc
 identifiers(x, "pmc")
-
 # other_id
 identifiers(x, "other_id")
+
+# Result of call to orcid_id()
+x <- orcid_id(orcid = "0000-0002-9341-7985")
+identifiers(x, "doi")
+identifiers(x, "eid")
+
+# Result of call to orcid()
+x <- orcid(query="carl+boettiger")
+identifiers(x, "scopus")
+identifiers(x, "researcherid")
+
+# Result of call to orcid_doi()
+x <- orcid_doi(dois="10.1087/20120404", fuzzy=TRUE)
+identifiers(x, "scopus")
 }
 }
 
