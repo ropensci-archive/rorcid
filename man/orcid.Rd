@@ -19,7 +19,7 @@ syntax. See examples below. For all possible fields to query, do data(fields).}
 \item{rows}{Numer of results to return.}
 
 \item{recursive}{Keep drilling down until all records are retrieved for the
-given query, default FALSE (logical). If recursive=TRUE, rows and start
+given query, default FALSE (logical). If \code{recursive=TRUE}, rows and start
 parameters are ignored.}
 
 \item{defType}{Query syntax. One of edismax or X. See Details for more.}

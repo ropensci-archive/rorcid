@@ -7,7 +7,7 @@
 #' @param start Result number to start on. Keep in mind that pages start at 0.
 #' @param rows Numer of results to return.
 #' @param recursive Keep drilling down until all records are retrieved for the 
-#' 		given query, default FALSE (logical). If recursive=TRUE, rows and start
+#' 		given query, default FALSE (logical). If \code{recursive=TRUE}, rows and start
 #' 		parameters are ignored. 
 #' @param defType Query syntax. One of edismax or X. See Details for more.
 #' @param q.alt If specified, this query will be used (and parsed by default using 
