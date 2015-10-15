@@ -9,3 +9,6 @@ inst/stuff/
 ^.*\.Rproj$
 ^\.Rproj\.user$
 README.Rmd
+NEWS.md
+cran-comments.md
+^CONDUCT\.md$
