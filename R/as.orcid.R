@@ -1,4 +1,4 @@
-#' Convert an ORCID or something like an ORCID to an object with metadata for that orcid
+#' Convert an ORCID or something like an ORCID object
 #' 
 #' @export 
 #' @param x An ORCID id, passed to \code{print}
@@ -22,12 +22,8 @@ as.orcid <- function(x, ...) UseMethod("as.orcid")
 #' @export
 #' @rdname as.orcid
 as.orcid.character <- function(x, ...){
-  structure(orcid_id(x, ...), class="or_cid")
+  structure(orcid_id(x, ...), class = "or_cid")
 }
-
-#' @export
-#' @rdname as.orcid
-as.orcid.list <- function(x, ...) structure(x, class="or_cid")
 
 #' @export
 #' @rdname as.orcid
@@ -56,7 +52,7 @@ summary.or_cid <- function(object, ...){
               cn(ob$`personal-details`$`family-name`$value), 
               cn(ob$`personal-details`$`given-names`$value)), sep = "\n")
   cat('  URLs:', sep = "\n")
-  for(i in seq_along(apply(ob$`researcher-urls`$`researcher-url`, 1, as.list))){
+  for (i in seq_along(apply(ob$`researcher-urls`$`researcher-url`, 1, as.list))) {
     cat(sprintf('     %s: %s', 
                 cn(ob$`researcher-urls`$`researcher-url`[i,'url-name.value']),
                 cn(ob$`researcher-urls`$`researcher-url`[i,'url.value'])), sep = "\n")
@@ -70,21 +66,23 @@ summary.or_cid <- function(object, ...){
 
 unixconv <- function(y){
   origdig <- getOption("digits")
-  on.exit(options(digits=origdig))
-  options(digits=10)
-  as.POSIXct(as.numeric(substring(y, 1, 10)), origin="1970-01-01")
+  on.exit(options(digits = origdig))
+  options(digits = 10)
+  as.POSIXct(as.numeric(substring(y, 1, 10)), origin = "1970-01-01")
 }
 
 cn <- function(x){
-  if(is.null(x) || length(x) == 0) 
+  if (is.null(x) || length(x) == 0) {
     NULL
-  else
+  } else {
     x
+  }
 }
 
 catn <- function(x){
-  if(!is.null(x) && length(x) != 0)
-    cat(x, sep="\n")
-  else
+  if (!is.null(x) && length(x) != 0) {
+    cat(x, sep = "\n")
+  } else {
     NULL
+  }
 }

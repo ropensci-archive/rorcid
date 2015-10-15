@@ -3,17 +3,14 @@
 \name{as.orcid}
 \alias{as.orcid}
 \alias{as.orcid.character}
-\alias{as.orcid.list}
 \alias{as.orcid.or_cid}
 \alias{print.or_cid}
 \alias{summary.or_cid}
-\title{Convert an ORCID or something like an ORCID to an object with metadata for that orcid}
+\title{Convert an ORCID or something like an ORCID object}
 \usage{
 as.orcid(x, ...)
 
 \method{as.orcid}{character}(x, ...)
-
-\method{as.orcid}{list}(x, ...)
 
 \method{as.orcid}{or_cid}(x, ...)
 
@@ -29,7 +26,7 @@ as.orcid(x, ...)
 \item{object}{An ORCID id, passed to \code{summary}}
 }
 \description{
-Convert an ORCID or something like an ORCID to an object with metadata for that orcid
+Convert an ORCID or something like an ORCID object
 }
 \examples{
 \dontrun{
