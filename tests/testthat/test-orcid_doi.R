@@ -30,10 +30,10 @@ test_that("orcid_doi paging parameters works as expected", {
   pg2 <- orcid_doi("10.1087/20120404", rows = 3, start = 4)
   
   expect_false(identical(pg1[[1]], pg2[[1]]))
-  expect_equal(pg1[[1]]$found, 6)
-  expect_equal(pg2[[1]]$found, 6)
+  expect_is(pg1[[1]]$found, "integer")
+  expect_is(pg2[[1]]$found, "integer")
   expect_equal(NROW(pg1[[1]]$data), 3)
-  expect_equal(NROW(pg2[[1]]$data), 2)
+  expect_equal(NROW(pg2[[1]]$data), 3)
 })
 
 test_that("orcid_doi fails well", {
