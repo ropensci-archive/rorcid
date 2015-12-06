@@ -5,7 +5,6 @@
 \alias{as.orcid.character}
 \alias{as.orcid.list}
 \alias{as.orcid.or_cid}
-\alias{print.or_cid}
 \alias{summary.or_cid}
 \title{Convert an ORCID or something like an ORCID object}
 \usage{
@@ -16,8 +15,6 @@ as.orcid(x, ...)
 \method{as.orcid}{or_cid}(x, ...)
 
 \method{as.orcid}{list}(x, ...)
-
-\method{print}{or_cid}(x, ...)
 
 \method{summary}{or_cid}(object, ...)
 }
