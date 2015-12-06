@@ -50,10 +50,9 @@ to_or_cid <- function(x) {
 }
 
 #' @export
-#' @rdname as.orcid
 print.or_cid <- function(x, ...){
-  ob <- x$`orcid-bio`
-  cat(sprintf('<ORCID> %s', x$`orcid-identifier`$path), sep = "\n")
+  ob <- x[[1]]$`orcid-bio`
+  cat(sprintf('<ORCID> %s', x[[1]]$`orcid-identifier`$path), sep = "\n")
   cat(sprintf('  Name: %s, %s', 
               cn(ob$`personal-details`$`family-name`$value), 
               cn(ob$`personal-details`$`given-names`$value)), sep = "\n")
@@ -93,7 +92,7 @@ unixconv <- function(y){
 
 cn <- function(x){
   if (is.null(x) || length(x) == 0) {
-    NULL
+    ''
   } else {
     x
   }

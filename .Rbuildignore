@@ -4,7 +4,7 @@ man-roxygen/
 travis-tool.sh
 vignettes/margins.sty
 Makefile
-inst/stuff/
+inst/extra
 ^appveyor\.yml$
 ^.*\.Rproj$
 ^\.Rproj\.user$

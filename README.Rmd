@@ -24,6 +24,14 @@ Orcid API docs:
 
 ## Installation
 
+Stable version
+
+```{r eval=FALSE}
+install.packages("rorcid")
+```
+
+Development version
+
 ```{r eval=FALSE}
 install.packages("devtools")
 devtools::install_github("ropensci/rorcid")
