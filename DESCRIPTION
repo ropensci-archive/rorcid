@@ -1,8 +1,8 @@
 Package: rorcid
 Title: Interface to the 'Orcid.org' 'API'
 Description: Client for the 'Orcid.org' 'API' (http://orcid.org/).
-		Funtions included for searching for people, searching by 'DOI',
-		and searching by 'Orcid' 'ID'.
+    Funtions included for searching for people, searching by 'DOI',
+    and searching by 'Orcid' 'ID'.
 Version: 0.2.0
 Authors@R: c(person("Scott", "Chamberlain", role = c("aut", "cre"),
     email = "myrmecocystus@gmail.com"))
@@ -17,4 +17,5 @@ Imports:
     httr (>= 1.0.0),
     jsonlite
 Suggests:
-		testthat
+    testthat
+RoxygenNote: 5.0.1
