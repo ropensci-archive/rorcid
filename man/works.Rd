@@ -12,7 +12,7 @@ works(x)
 \item{...}{Ignored.}
 }
 \description{
-From a call to orcid_id or as.orcid
+Get works data
 }
 \examples{
 \dontrun{

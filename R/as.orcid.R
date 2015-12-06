@@ -17,7 +17,9 @@
 #' # Browse to a profile
 #' browse(as.orcid("0000-0002-1642-628X"))
 #' }
-as.orcid <- function(x, ...) UseMethod("as.orcid")
+as.orcid <- function(x, ...) {
+  UseMethod("as.orcid")
+}
 
 #' @export
 #' @rdname as.orcid
@@ -31,9 +33,27 @@ as.orcid.or_cid <- function(x, ...) x
 
 #' @export
 #' @rdname as.orcid
+as.orcid.list <- function(x, ...) {
+  if (length(x[[1]]) == 1) {
+    to_or_cid(x[[1]])
+  } else {
+    lapply(x, to_or_cid)
+  }
+}
+
+to_or_cid <- function(x) {
+  if (is(x, "orcid_id")) {
+    structure(x, class = "or_cid")
+  } else {
+    warning("input not coercable to an or_cid class", call. = FALSE)
+  }
+}
+
+#' @export
+#' @rdname as.orcid
 print.or_cid <- function(x, ...){
-  ob <- x[[1]]$`orcid-bio`
-  cat(sprintf('<ORCID> %s', names(x)), sep = "\n")
+  ob <- x$`orcid-bio`
+  cat(sprintf('<ORCID> %s', x$`orcid-identifier`$path), sep = "\n")
   cat(sprintf('  Name: %s, %s', 
               cn(ob$`personal-details`$`family-name`$value), 
               cn(ob$`personal-details`$`given-names`$value)), sep = "\n")

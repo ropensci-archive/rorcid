@@ -1,7 +1,5 @@
 #' Get works data 
 #' 
-#' From a call to orcid_id or as.orcid
-#' 
 #' @export
 #' @param x Input from a call to \code{\link{orcid_id}} or \code{\link{as.orcid}}
 #' @param ... Ignored.
@@ -30,13 +28,17 @@ works <- function(x) {
 }
 
 #' @export
-print.works <- function(x, ...) {
+print.works <- function(x, ..., n = 10) {
   if (is(unclass(x)$data, "character")) {
     y <- x
   } else {
-    y <- x$data$`work-citation.citation`
+    # y <- x$data$`work-citation.citation`
+    y <- x$data$`work-title.title.value`
   }
   cat(sprintf('<WORKS> %s', attr(x, "orcid")), sep = "\n\n")
+  cat(sprintf('  Count: %s - First %s', NROW(x$data), n), sep = "\n\n")
+  stopifnot(is.numeric(n))
+  y <- y[1:min(n, length(y))]
   for (i in seq_along(y)) {
     cat(sprintf("- %s", y[i]), sep = "\n")
   }
