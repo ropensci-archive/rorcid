@@ -24,7 +24,7 @@ test_that("as.orcid fails well", {
   skip_on_cran()
   
   expect_error(as.orcid(5), "no applicable method")
-  expect_error(as.orcid(list(a = 6)), "no applicable method")
+  expect_warning(as.orcid(list(a = 6)), "input not coercable to an or_cid class")
   
   # ok input class, but but ORCID
   expect_error(as.orcid("adfafadf"), "404 - Not found")
