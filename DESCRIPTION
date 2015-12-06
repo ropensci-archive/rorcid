@@ -1,7 +1,7 @@
 Package: rorcid
 Title: Interface to the 'Orcid.org' 'API'
 Description: Client for the 'Orcid.org' 'API' (http://orcid.org/).
-    Funtions included for searching for people, searching by 'DOI',
+    Functions included for searching for people, searching by 'DOI',
     and searching by 'Orcid' 'ID'.
 Version: 0.2.0
 Authors@R: c(person("Scott", "Chamberlain", role = c("aut", "cre"),
