@@ -5,18 +5,18 @@ orcid_base <- function() "http://pub.orcid.org/v1.2"
 orc_GET <- function(url, args=list(), ...) {
   tt <- GET(url, query = args, accept('application/orcid+json'), ...)
   stop_for_status(tt)
-  content(tt, "text")
+  content(tt, "text", encoding = "UTF-8")
 }
 
 orc_GET_err <- function(url, args=list(), ...) {
   tt <- GET(url, query = args, accept('application/orcid+json'), ...)
   handle_error(tt)
-  content(tt, "text")
+  content(tt, "text", encoding = "UTF-8")
 }
 
 handle_error <- function(x) {
   if (x$status_code > 201) {
-    msg <- fromJSON(content(x, "text"))
+    msg <- jsonlite::fromJSON(content(x, "text", encoding = "UTF-8"))
     stop(x$status_code, " - ", msg$`error-desc`$value, call. = FALSE)
   }
 }
