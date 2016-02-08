@@ -2,42 +2,12 @@
 % Please edit documentation in R/truncmat.R
 \name{type_summ}
 \alias{type_summ}
-\alias{type_summ.Date}
-\alias{type_summ.POSIXt}
-\alias{type_summ.array}
-\alias{type_summ.character}
-\alias{type_summ.default}
-\alias{type_summ.factor}
-\alias{type_summ.integer}
-\alias{type_summ.logical}
-\alias{type_summ.matrix}
-\alias{type_summ.numeric}
-\title{Type summary}
+\title{type_summ}
 \usage{
 type_summ(x)
-
-\method{type_summ}{default}(x)
-
-\method{type_summ}{character}(x)
-
-\method{type_summ}{Date}(x)
-
-\method{type_summ}{factor}(x)
-
-\method{type_summ}{integer}(x)
-
-\method{type_summ}{logical}(x)
-
-\method{type_summ}{array}(x)
-
-\method{type_summ}{matrix}(x)
-
-\method{type_summ}{numeric}(x)
-
-\method{type_summ}{POSIXt}(x)
 }
 \description{
-Type summary
+type_summ
 }
 \keyword{internal}
 
