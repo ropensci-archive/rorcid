@@ -29,3 +29,18 @@ test_that("as.orcid fails well", {
   # ok input class, but but ORCID
   expect_error(as.orcid("adfafadf"), "404 - Not found")
 })
+
+test_that("summary.or_cid works", {
+  skip_on_cran()
+  
+  aa <- capture.output(summary(as.orcid("0000-0002-1642-628X")))
+  
+  expect_is(aa, "character")
+  expect_true(any(grepl("ORCID", aa)))
+  
+  out <- orcid("text:English", rows = 20)
+  res <- capture.output(lapply(out$data$`orcid-identifier.path`, function(x) summary(as.orcid(x))))
+  
+  expect_is(res, "character")
+  expect_identical(length(res[grepl("Name:", res)]), length(out$data$`orcid-identifier.path`))
+})

@@ -71,16 +71,21 @@ summary.or_cid <- function(object, ...){
               cn(ob$`personal-details`$`family-name`$value), 
               cn(ob$`personal-details`$`given-names`$value)), sep = "\n")
   cat('  URLs:', sep = "\n")
-  for (i in seq_along(apply(ob$`researcher-urls`$`researcher-url`, 1, as.list))) {
-    cat(sprintf('     %s: %s', 
-                cn(ob$`researcher-urls`$`researcher-url`[i,'url-name.value']),
-                cn(ob$`researcher-urls`$`researcher-url`[i,'url.value'])), sep = "\n")
+  if (length(ob$`researcher-urls`$`researcher-url`) != 0) {
+    for (i in seq_along(apply(ob$`researcher-urls`$`researcher-url`, 1, as.list))) {
+      cat(sprintf('     %s: %s', 
+                  cn(ob$`researcher-urls`$`researcher-url`[i,'url-name.value']),
+                  cn(ob$`researcher-urls`$`researcher-url`[i,'url.value'])), sep = "\n")
+    }
   }
   catn(sprintf('  Country: %s', cn(ob$`contact-details`$address$country$value)))
   catn(sprintf('  Keywords: %s', paste0(cn(ob$keywords$keyword$value), collapse = ", ") ))
   catn(sprintf('  Submission date: %s', cn(unixconv(ob[[1]]$`orcid-history`$`submission-date`$value))))
   cat('  Works:')
-  cat(strwrap(works(object)$data$`work-title.title.value`, indent = 8, prefix = "\n"))
+  wks <- works(object)$data
+  if (is(wks, "data.frame")) {
+    cat(strwrap(works(object)$data$`work-title.title.value`, indent = 8, prefix = "\n"))
+  }
 }
 
 unixconv <- function(y){
