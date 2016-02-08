@@ -13,7 +13,7 @@ manually using `jsonlite` & to always set `encoding` explicitly in the same call
 
 ### BUG FIXES
 
-* Fix to `as.orcid()` and presumably other function calls by requiring 
+* Fix to `as.orcid()` and presumably other function calls by requiring
 `httr >= v1.1.0` because older versions cause a problem when parsing
 responses (#23) thanks @ericwatt
 
