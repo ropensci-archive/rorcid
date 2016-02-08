@@ -58,5 +58,5 @@ test_that("orcid fails well", {
   skip_on_cran()
   
   expect_error(orcid(start = "adsf"), "500 - For input string: \"adsf\"")
-  expect_error(orcid(rows = "er"), "500 - For input string: \"er\"")
+  expect_error(orcid(rows = "er"), "400 - The rows parameter must be an integer")
 })
