@@ -11,7 +11,7 @@ rorcid
 
 `rorcid` is an R programmatic interface to the Orcid public API. `rorcid` is not a product developed or distributed by ORCID®.
 
-Orcid API docs: 
+Orcid API docs:
 
 * http://members.orcid.org/api
 * https://github.com/ORCID/ORCID-Source/wiki/full-api-reference
@@ -214,37 +214,40 @@ Get a list of names and Orcid IDs matching a name query
 ```r
 orcid(query="carl boettiger")
 #> <Orcid Search>
-#> Found: 1227
-#> Size: 10 X 34
+#> Found: 3388
+#> Size: 10 X 36
 #> 
 #>    relevancy-score.value orcid orcid-id orcid-deprecated orcid-preferences
-#> 1              1.7673767    NA       NA               NA                NA
-#> 2              1.4102931    NA       NA               NA                NA
-#> 3              0.7355148    NA       NA               NA                NA
-#> 4              0.7355148    NA       NA               NA                NA
-#> 5              0.7355148    NA       NA               NA                NA
-#> 6              0.7355148    NA       NA               NA                NA
-#> 7              0.7077494    NA       NA               NA                NA
-#> 8              0.7006362    NA       NA               NA                NA
-#> 9              0.7006362    NA       NA               NA                NA
-#> 10             0.7006362    NA       NA               NA                NA
+#>                    (dbl) (lgl)    (lgl)            (lgl)             (lgl)
+#> 1              0.9250884    NA       NA               NA                NA
+#> 2              0.6547679    NA       NA               NA                NA
+#> 3              0.3718410    NA       NA               NA                NA
+#> 4              0.3305628    NA       NA               NA                NA
+#> 5              0.3305628    NA       NA               NA                NA
+#> 6              0.3305628    NA       NA               NA                NA
+#> 7              0.3305628    NA       NA               NA                NA
+#> 8              0.3129017    NA       NA               NA                NA
+#> 9              0.2988593    NA       NA               NA                NA
+#> 10             0.2946455    NA       NA               NA                NA
 #> Variables not shown: orcid-history (lgl), orcid-activities (lgl),
-#>      orcid-internal (lgl), type (lgl), group-type (lgl), client-type
-#>      (lgl), orcid-identifier.value (lgl), orcid-identifier.uri (chr),
-#>      orcid-identifier.path (chr), orcid-identifier.host (chr), delegation
-#>      (lgl), scope (lgl), personal-details.given-names.value (chr),
-#>      personal-details.family-name.value (chr),
-#>      personal-details.credit-name.value (chr),
-#>      personal-details.credit-name.visibility (lgl),
-#>      personal-details.other-names.other-name (list),
-#>      personal-details.other-names.visibility (lgl), biography.value (chr),
-#>      biography.visibility (lgl), researcher-urls.researcher-url (list),
-#>      researcher-urls.visibility (lgl), contact-details.email (list),
-#>      contact-details.address.country.value (chr),
-#>      contact-details.address.country.visibility (lgl), keywords.keyword
-#>      (list), keywords.visibility (lgl),
-#>      external-identifiers.external-identifier (list),
-#>      external-identifiers.visibility (lgl)
+#>   orcid-internal (lgl), type (lgl), group-type (lgl), client-type (lgl),
+#>   orcid-identifier.value (lgl), orcid-identifier.uri (chr),
+#>   orcid-identifier.path (chr), orcid-identifier.host (chr), delegation
+#>   (lgl), scope (lgl), personal-details.given-names.value (chr),
+#>   personal-details.given-names.visibility (lgl),
+#>   personal-details.family-name.value (chr),
+#>   personal-details.family-name.visibility (lgl),
+#>   personal-details.credit-name.value (chr),
+#>   personal-details.credit-name.visibility (lgl),
+#>   personal-details.other-names.other-name (list),
+#>   personal-details.other-names.visibility (lgl), biography.value (chr),
+#>   biography.visibility (lgl), researcher-urls.researcher-url (list),
+#>   researcher-urls.visibility (lgl), contact-details.email (list),
+#>   contact-details.address.country.value (chr),
+#>   contact-details.address.country.visibility (lgl), keywords.keyword
+#>   (list), keywords.visibility (lgl),
+#>   external-identifiers.external-identifier (list),
+#>   external-identifiers.visibility (lgl).
 ```
 
 You can string together many search terms
@@ -253,35 +256,37 @@ You can string together many search terms
 ```r
 orcid(query="johnson cardiology houston")
 #> <Orcid Search>
-#> Found: 9022
-#> Size: 10 X 32
+#> Found: 27028
+#> Size: 10 X 33
 #> 
 #>    relevancy-score.value orcid orcid-id orcid-deprecated orcid-preferences
-#> 1              0.7796425    NA       NA               NA                NA
-#> 2              0.5852846    NA       NA               NA                NA
-#> 3              0.5779504    NA       NA               NA                NA
-#> 4              0.5575301    NA       NA               NA                NA
-#> 5              0.5575301    NA       NA               NA                NA
-#> 6              0.5575301    NA       NA               NA                NA
-#> 7              0.5575301    NA       NA               NA                NA
-#> 8              0.5575301    NA       NA               NA                NA
-#> 9              0.5575301    NA       NA               NA                NA
-#> 10             0.5575301    NA       NA               NA                NA
+#>                    (dbl) (lgl)    (lgl)            (lgl)             (lgl)
+#> 1              0.4372813    NA       NA               NA                NA
+#> 2              0.4153811    NA       NA               NA                NA
+#> 3              0.3714895    NA       NA               NA                NA
+#> 4              0.3696327    NA       NA               NA                NA
+#> 5              0.3645557    NA       NA               NA                NA
+#> 6              0.3332218    NA       NA               NA                NA
+#> 7              0.3124763    NA       NA               NA                NA
+#> 8              0.3124763    NA       NA               NA                NA
+#> 9              0.3110496    NA       NA               NA                NA
+#> 10             0.3064326    NA       NA               NA                NA
 #> Variables not shown: orcid-history (lgl), orcid-activities (lgl),
-#>      orcid-internal (lgl), type (lgl), group-type (lgl), client-type
-#>      (lgl), orcid-identifier.value (lgl), orcid-identifier.uri (chr),
-#>      orcid-identifier.path (chr), orcid-identifier.host (chr),
-#>      external-identifiers (lgl), delegation (lgl), scope (lgl),
-#>      personal-details.credit-name (lgl),
-#>      personal-details.given-names.value (chr),
-#>      personal-details.family-name.value (chr),
-#>      personal-details.other-names.other-name (list),
-#>      personal-details.other-names.visibility (lgl), biography.value (chr),
-#>      biography.visibility (lgl), researcher-urls.researcher-url (list),
-#>      researcher-urls.visibility (lgl), contact-details.email (list),
-#>      contact-details.address.country.value (chr),
-#>      contact-details.address.country.visibility (lgl), keywords.keyword
-#>      (list), keywords.visibility (lgl)
+#>   orcid-internal (lgl), type (lgl), group-type (lgl), client-type (lgl),
+#>   orcid-identifier.value (lgl), orcid-identifier.uri (chr),
+#>   orcid-identifier.path (chr), orcid-identifier.host (chr),
+#>   researcher-urls (lgl), external-identifiers (lgl), delegation (lgl),
+#>   scope (lgl), personal-details.other-names (lgl),
+#>   personal-details.given-names.value (chr),
+#>   personal-details.given-names.visibility (lgl),
+#>   personal-details.family-name.value (chr),
+#>   personal-details.family-name.visibility (lgl),
+#>   personal-details.credit-name.value (chr),
+#>   personal-details.credit-name.visibility (lgl), biography.value (chr),
+#>   biography.visibility (lgl), contact-details.email (list),
+#>   contact-details.address.country.value (chr),
+#>   contact-details.address.country.visibility (lgl), keywords.keyword
+#>   (list), keywords.visibility (lgl).
 ```
 
 And use boolean operators
@@ -290,37 +295,40 @@ And use boolean operators
 ```r
 orcid("johnson AND(caltech OR 'California Institute of Technology')")
 #> <Orcid Search>
-#> Found: 3823
-#> Size: 10 X 34
+#> Found: 15473
+#> Size: 10 X 36
 #> 
 #>    relevancy-score.value orcid orcid-id orcid-deprecated orcid-preferences
-#> 1              0.8329726    NA       NA               NA                NA
-#> 2              0.8266119    NA       NA               NA                NA
-#> 3              0.7527418    NA       NA               NA                NA
-#> 4              0.7083171    NA       NA               NA                NA
-#> 5              0.6841044    NA       NA               NA                NA
-#> 6              0.6777437    NA       NA               NA                NA
-#> 7              0.6777437    NA       NA               NA                NA
-#> 8              0.6777437    NA       NA               NA                NA
-#> 9              0.6777437    NA       NA               NA                NA
-#> 10             0.6777437    NA       NA               NA                NA
+#>                    (dbl) (lgl)    (lgl)            (lgl)             (lgl)
+#> 1              0.6064259    NA       NA               NA                NA
+#> 2              0.4127287    NA       NA               NA                NA
+#> 3              0.3722699    NA       NA               NA                NA
+#> 4              0.3692747    NA       NA               NA                NA
+#> 5              0.3539956    NA       NA               NA                NA
+#> 6              0.3475673    NA       NA               NA                NA
+#> 7              0.3451672    NA       NA               NA                NA
+#> 8              0.3380194    NA       NA               NA                NA
+#> 9              0.3350665    NA       NA               NA                NA
+#> 10             0.3231154    NA       NA               NA                NA
 #> Variables not shown: orcid-history (lgl), orcid-activities (lgl),
-#>      orcid-internal (lgl), type (lgl), group-type (lgl), client-type
-#>      (lgl), orcid-identifier.value (lgl), orcid-identifier.uri (chr),
-#>      orcid-identifier.path (chr), orcid-identifier.host (chr), delegation
-#>      (lgl), scope (lgl), personal-details.given-names.value (chr),
-#>      personal-details.family-name.value (chr),
-#>      personal-details.credit-name.value (chr),
-#>      personal-details.credit-name.visibility (lgl),
-#>      personal-details.other-names.other-name (list),
-#>      personal-details.other-names.visibility (lgl), biography.value (chr),
-#>      biography.visibility (lgl), researcher-urls.researcher-url (list),
-#>      researcher-urls.visibility (lgl), contact-details.email (list),
-#>      contact-details.address.country.value (chr),
-#>      contact-details.address.country.visibility (lgl), keywords.keyword
-#>      (list), keywords.visibility (lgl),
-#>      external-identifiers.external-identifier (list),
-#>      external-identifiers.visibility (lgl)
+#>   orcid-internal (lgl), type (lgl), group-type (lgl), client-type (lgl),
+#>   orcid-identifier.value (lgl), orcid-identifier.uri (chr),
+#>   orcid-identifier.path (chr), orcid-identifier.host (chr), delegation
+#>   (lgl), scope (lgl), personal-details.given-names.value (chr),
+#>   personal-details.given-names.visibility (lgl),
+#>   personal-details.family-name.value (chr),
+#>   personal-details.family-name.visibility (lgl),
+#>   personal-details.credit-name.value (chr),
+#>   personal-details.credit-name.visibility (lgl),
+#>   personal-details.other-names.other-name (list),
+#>   personal-details.other-names.visibility (lgl), biography.value (chr),
+#>   biography.visibility (lgl), researcher-urls.researcher-url (list),
+#>   researcher-urls.visibility (lgl), contact-details.email (list),
+#>   contact-details.address.country.value (chr),
+#>   contact-details.address.country.visibility (lgl), keywords.keyword
+#>   (list), keywords.visibility (lgl),
+#>   external-identifiers.external-identifier (list),
+#>   external-identifiers.visibility (lgl).
 ```
 
 And you can use start and rows arguments to do pagination
@@ -329,27 +337,26 @@ And you can use start and rows arguments to do pagination
 ```r
 orcid("johnson cardiology houston", start = 2, rows = 3)
 #> <Orcid Search>
-#> Found: 9022
-#> Size: 3 X 31
+#> Found: 27028
+#> Size: 3 X 29
 #> 
 #>   relevancy-score.value orcid orcid-id orcid-deprecated orcid-preferences
-#> 1             0.5779504    NA       NA               NA                NA
-#> 2             0.5575302    NA       NA               NA                NA
-#> 3             0.5575302    NA       NA               NA                NA
+#>                   (dbl) (lgl)    (lgl)            (lgl)             (lgl)
+#> 1             0.3714895    NA       NA               NA                NA
+#> 2             0.3696327    NA       NA               NA                NA
+#> 3             0.3645557    NA       NA               NA                NA
 #> Variables not shown: orcid-history (lgl), orcid-activities (lgl),
-#>      orcid-internal (lgl), type (lgl), group-type (lgl), client-type
-#>      (lgl), orcid-identifier.value (lgl), orcid-identifier.uri (chr),
-#>      orcid-identifier.path (chr), orcid-identifier.host (chr), keywords
-#>      (lgl), external-identifiers (lgl), delegation (lgl), scope (lgl),
-#>      personal-details.credit-name (lgl),
-#>      personal-details.given-names.value (chr),
-#>      personal-details.family-name.value (chr),
-#>      personal-details.other-names.other-name (list),
-#>      personal-details.other-names.visibility (lgl), biography.value (chr),
-#>      biography.visibility (lgl), researcher-urls.researcher-url (list),
-#>      researcher-urls.visibility (lgl), contact-details.email (list),
-#>      contact-details.address.country.value (chr),
-#>      contact-details.address.country.visibility (lgl)
+#>   orcid-internal (lgl), type (lgl), group-type (lgl), client-type (lgl),
+#>   orcid-identifier.value (lgl), orcid-identifier.uri (chr),
+#>   orcid-identifier.path (chr), orcid-identifier.host (chr),
+#>   researcher-urls (lgl), contact-details (lgl), keywords (lgl),
+#>   external-identifiers (lgl), delegation (lgl), scope (lgl),
+#>   personal-details.credit-name (lgl), personal-details.other-names (lgl),
+#>   personal-details.given-names.value (chr),
+#>   personal-details.given-names.visibility (lgl),
+#>   personal-details.family-name.value (chr),
+#>   personal-details.family-name.visibility (lgl), biography.value (chr),
+#>   biography.visibility (lgl).
 ```
 
 Search specific fields. here, by text type
@@ -358,31 +365,39 @@ Search specific fields. here, by text type
 ```r
 orcid("text:English")
 #> <Orcid Search>
-#> Found: 6514
-#> Size: 10 X 28
+#> Found: 16117
+#> Size: 10 X 35
 #> 
 #>    relevancy-score.value orcid orcid-id orcid-deprecated orcid-preferences
-#> 1               2.166564    NA       NA               NA                NA
-#> 2               2.166564    NA       NA               NA                NA
-#> 3               2.166564    NA       NA               NA                NA
-#> 4               2.166564    NA       NA               NA                NA
-#> 5               2.166564    NA       NA               NA                NA
-#> 6               2.166564    NA       NA               NA                NA
-#> 7               2.166564    NA       NA               NA                NA
-#> 8               2.166564    NA       NA               NA                NA
-#> 9               2.166564    NA       NA               NA                NA
-#> 10              2.166564    NA       NA               NA                NA
+#>                    (dbl) (lgl)    (lgl)            (lgl)             (lgl)
+#> 1              0.9140396    NA       NA               NA                NA
+#> 2              0.8142912    NA       NA               NA                NA
+#> 3              0.7786113    NA       NA               NA                NA
+#> 4              0.7786113    NA       NA               NA                NA
+#> 5              0.7538872    NA       NA               NA                NA
+#> 6              0.7538872    NA       NA               NA                NA
+#> 7              0.7538872    NA       NA               NA                NA
+#> 8              0.7538872    NA       NA               NA                NA
+#> 9              0.7538872    NA       NA               NA                NA
+#> 10             0.7538872    NA       NA               NA                NA
 #> Variables not shown: orcid-history (lgl), orcid-activities (lgl),
-#>      orcid-internal (lgl), type (lgl), group-type (lgl), client-type
-#>      (lgl), orcid-identifier.value (lgl), orcid-identifier.uri (chr),
-#>      orcid-identifier.path (chr), orcid-identifier.host (chr), biography
-#>      (lgl), researcher-urls (lgl), keywords (lgl), external-identifiers
-#>      (lgl), delegation (lgl), scope (lgl), personal-details.credit-name
-#>      (lgl), personal-details.other-names (lgl),
-#>      personal-details.given-names.value (chr),
-#>      personal-details.family-name.value (chr), contact-details.email
-#>      (list), contact-details.address.country.value (chr),
-#>      contact-details.address.country.visibility (lgl)
+#>   orcid-internal (lgl), type (lgl), group-type (lgl), client-type (lgl),
+#>   orcid-identifier.value (lgl), orcid-identifier.uri (chr),
+#>   orcid-identifier.path (chr), orcid-identifier.host (chr),
+#>   external-identifiers (lgl), delegation (lgl), scope (lgl),
+#>   personal-details.given-names.value (chr),
+#>   personal-details.given-names.visibility (lgl),
+#>   personal-details.family-name.value (chr),
+#>   personal-details.family-name.visibility (lgl),
+#>   personal-details.credit-name.value (chr),
+#>   personal-details.credit-name.visibility (lgl),
+#>   personal-details.other-names.other-name (list),
+#>   personal-details.other-names.visibility (lgl), biography.value (chr),
+#>   biography.visibility (lgl), researcher-urls.researcher-url (list),
+#>   researcher-urls.visibility (lgl), contact-details.email (list),
+#>   contact-details.address.country.value (chr),
+#>   contact-details.address.country.visibility (lgl), keywords.keyword
+#>   (list), keywords.visibility (lgl).
 ```
 
 ## Search by Orcid ID
@@ -425,7 +440,7 @@ out$`0000-0002-9341-7985`$`orcid-history`
 #> 
 #> $`last-modified-date`
 #> $`last-modified-date`$value
-#> [1] 1.437748e+12
+#> [1] 1.453659e+12
 #> 
 #> 
 #> $claimed
@@ -528,34 +543,38 @@ Basic search
 orcid_doi(dois="10.1087/20120404")
 #> [[1]]
 #> <Orcid DOI Search> 10.1087/20120404
-#> Found: 7
-#> Size: 7 X 34
+#> Found: 8
+#> Size: 8 X 36
 #> 
 #>   relevancy-score.value orcid orcid-id orcid-deprecated orcid-preferences
-#> 1              9.090059    NA       NA               NA                NA
-#> 2              6.560185    NA       NA               NA                NA
-#> 3              6.427642    NA       NA               NA                NA
-#> 4              6.060040    NA       NA               NA                NA
-#> 5              5.248148    NA       NA               NA                NA
-#> 6              1.893762    NA       NA               NA                NA
-#> 7              1.325634    NA       NA               NA                NA
+#>                   (dbl) (lgl)    (lgl)            (lgl)             (lgl)
+#> 1             14.390273    NA       NA               NA                NA
+#> 2              7.195137    NA       NA               NA                NA
+#> 3              6.231171    NA       NA               NA                NA
+#> 4              6.105276    NA       NA               NA                NA
+#> 5              5.756109    NA       NA               NA                NA
+#> 6              4.984937    NA       NA               NA                NA
+#> 7              1.798784    NA       NA               NA                NA
+#> 8              1.259149    NA       NA               NA                NA
 #> Variables not shown: orcid-history (lgl), orcid-activities (lgl),
-#>      orcid-internal (lgl), type (lgl), group-type (lgl), client-type
-#>      (lgl), orcid-identifier.value (lgl), orcid-identifier.uri (chr),
-#>      orcid-identifier.path (chr), orcid-identifier.host (chr), delegation
-#>      (lgl), scope (lgl), personal-details.given-names.value (chr),
-#>      personal-details.family-name.value (chr),
-#>      personal-details.credit-name.value (chr),
-#>      personal-details.credit-name.visibility (lgl),
-#>      personal-details.other-names.other-name (list),
-#>      personal-details.other-names.visibility (lgl), biography.value (chr),
-#>      biography.visibility (lgl), researcher-urls.researcher-url (list),
-#>      researcher-urls.visibility (lgl), contact-details.email (list),
-#>      contact-details.address.country.value (chr),
-#>      contact-details.address.country.visibility (lgl), keywords.keyword
-#>      (list), keywords.visibility (lgl),
-#>      external-identifiers.external-identifier (list),
-#>      external-identifiers.visibility (lgl)
+#>   orcid-internal (lgl), type (lgl), group-type (lgl), client-type (lgl),
+#>   orcid-identifier.value (lgl), orcid-identifier.uri (chr),
+#>   orcid-identifier.path (chr), orcid-identifier.host (chr), delegation
+#>   (lgl), scope (lgl), personal-details.given-names.value (chr),
+#>   personal-details.given-names.visibility (lgl),
+#>   personal-details.family-name.value (chr),
+#>   personal-details.family-name.visibility (lgl),
+#>   personal-details.credit-name.value (chr),
+#>   personal-details.credit-name.visibility (lgl),
+#>   personal-details.other-names.other-name (list),
+#>   personal-details.other-names.visibility (lgl), biography.value (chr),
+#>   biography.visibility (lgl), researcher-urls.researcher-url (list),
+#>   researcher-urls.visibility (lgl), contact-details.email (list),
+#>   contact-details.address.country.value (chr),
+#>   contact-details.address.country.visibility (lgl), keywords.keyword
+#>   (list), keywords.visibility (lgl),
+#>   external-identifiers.external-identifier (list),
+#>   external-identifiers.visibility (lgl).
 ```
 
 This DOI is not a real one, but a partial DOI, then we can fuzzy search
@@ -565,30 +584,34 @@ This DOI is not a real one, but a partial DOI, then we can fuzzy search
 orcid_doi(dois="10.1087/2", fuzzy=TRUE, rows=5)
 #> [[1]]
 #> <Orcid DOI Search> 10.1087/2
-#> Found: 182412
-#> Size: 5 X 31
+#> Found: 252909
+#> Size: 5 X 35
 #> 
 #>   relevancy-score.value orcid orcid-id orcid-deprecated orcid-preferences
-#> 1              1.808037    NA       NA               NA                NA
-#> 2              1.592455    NA       NA               NA                NA
-#> 3              1.549746    NA       NA               NA                NA
-#> 4              1.517052    NA       NA               NA                NA
-#> 5              1.477154    NA       NA               NA                NA
+#>                   (dbl) (lgl)    (lgl)            (lgl)             (lgl)
+#> 1             0.9009679    NA       NA               NA                NA
+#> 2             0.7883469    NA       NA               NA                NA
+#> 3             0.7507699    NA       NA               NA                NA
+#> 4             0.7269728    NA       NA               NA                NA
+#> 5             0.7150497    NA       NA               NA                NA
 #> Variables not shown: orcid-history (lgl), orcid-activities (lgl),
-#>      orcid-internal (lgl), type (lgl), group-type (lgl), client-type
-#>      (lgl), orcid-identifier.value (lgl), orcid-identifier.uri (chr),
-#>      orcid-identifier.path (chr), orcid-identifier.host (chr),
-#>      researcher-urls (lgl), keywords (lgl), delegation (lgl), scope (lgl),
-#>      personal-details.other-names (lgl),
-#>      personal-details.given-names.value (chr),
-#>      personal-details.family-name.value (chr),
-#>      personal-details.credit-name.value (chr),
-#>      personal-details.credit-name.visibility (lgl), biography.value (chr),
-#>      biography.visibility (lgl), contact-details.email (list),
-#>      contact-details.address.country.value (chr),
-#>      contact-details.address.country.visibility (lgl),
-#>      external-identifiers.external-identifier (list),
-#>      external-identifiers.visibility (lgl)
+#>   orcid-internal (lgl), type (lgl), group-type (lgl), client-type (lgl),
+#>   orcid-identifier.value (lgl), orcid-identifier.uri (chr),
+#>   orcid-identifier.path (chr), orcid-identifier.host (chr),
+#>   external-identifiers (lgl), delegation (lgl), scope (lgl),
+#>   personal-details.given-names.value (chr),
+#>   personal-details.given-names.visibility (lgl),
+#>   personal-details.family-name.value (chr),
+#>   personal-details.family-name.visibility (lgl),
+#>   personal-details.credit-name.value (chr),
+#>   personal-details.credit-name.visibility (lgl),
+#>   personal-details.other-names.other-name (list),
+#>   personal-details.other-names.visibility (lgl), biography.value (chr),
+#>   biography.visibility (lgl), researcher-urls.researcher-url (list),
+#>   researcher-urls.visibility (lgl), contact-details.email (list),
+#>   contact-details.address.country.value (chr),
+#>   contact-details.address.country.visibility (lgl), keywords.keyword
+#>   (list), keywords.visibility (lgl).
 ```
 
 Function is vectorized, search for many DOIs
@@ -600,139 +623,146 @@ dois <- c("10.1371/journal.pone.0025995","10.1371/journal.pone.0053712",
 orcid_doi(dois=dois, fuzzy = TRUE)
 #> [[1]]
 #> <Orcid DOI Search> 10.1371/journal.pone.0025995
-#> Found: 34427
-#> Size: 10 X 33
+#> Found: 38495
+#> Size: 10 X 35
 #> 
 #>    relevancy-score.value orcid orcid-id orcid-deprecated orcid-preferences
-#> 1              0.7164614    NA       NA               NA                NA
-#> 2              0.4376320    NA       NA               NA                NA
-#> 3              0.4204632    NA       NA               NA                NA
-#> 4              0.4161506    NA       NA               NA                NA
-#> 5              0.3923506    NA       NA               NA                NA
-#> 6              0.3923506    NA       NA               NA                NA
-#> 7              0.3923506    NA       NA               NA                NA
-#> 8              0.3923506    NA       NA               NA                NA
-#> 9              0.3923506    NA       NA               NA                NA
-#> 10             0.3923506    NA       NA               NA                NA
+#>                    (dbl) (lgl)    (lgl)            (lgl)             (lgl)
+#> 1              0.2427311    NA       NA               NA                NA
+#> 2              0.1935129    NA       NA               NA                NA
+#> 3              0.1710429    NA       NA               NA                NA
+#> 4              0.1675871    NA       NA               NA                NA
+#> 5              0.1675871    NA       NA               NA                NA
+#> 6              0.1675871    NA       NA               NA                NA
+#> 7              0.1675871    NA       NA               NA                NA
+#> 8              0.1675871    NA       NA               NA                NA
+#> 9              0.1580027    NA       NA               NA                NA
+#> 10             0.1550260    NA       NA               NA                NA
 #> Variables not shown: orcid-history (lgl), orcid-activities (lgl),
-#>      orcid-internal (lgl), type (lgl), group-type (lgl), client-type
-#>      (lgl), orcid-identifier.value (lgl), orcid-identifier.uri (chr),
-#>      orcid-identifier.path (chr), orcid-identifier.host (chr), keywords
-#>      (lgl), delegation (lgl), scope (lgl),
-#>      personal-details.given-names.value (chr),
-#>      personal-details.family-name.value (chr),
-#>      personal-details.credit-name.value (chr),
-#>      personal-details.credit-name.visibility (lgl),
-#>      personal-details.other-names.other-name (list),
-#>      personal-details.other-names.visibility (lgl), biography.value (chr),
-#>      biography.visibility (lgl), researcher-urls.researcher-url (list),
-#>      researcher-urls.visibility (lgl), contact-details.email (list),
-#>      contact-details.address.country.value (chr),
-#>      contact-details.address.country.visibility (lgl),
-#>      external-identifiers.external-identifier (list),
-#>      external-identifiers.visibility (lgl)
+#>   orcid-internal (lgl), type (lgl), group-type (lgl), client-type (lgl),
+#>   orcid-identifier.value (lgl), orcid-identifier.uri (chr),
+#>   orcid-identifier.path (chr), orcid-identifier.host (chr), keywords
+#>   (lgl), delegation (lgl), scope (lgl), personal-details.given-names.value
+#>   (chr), personal-details.given-names.visibility (lgl),
+#>   personal-details.family-name.value (chr),
+#>   personal-details.family-name.visibility (lgl),
+#>   personal-details.credit-name.value (chr),
+#>   personal-details.credit-name.visibility (lgl),
+#>   personal-details.other-names.other-name (list),
+#>   personal-details.other-names.visibility (lgl), biography.value (chr),
+#>   biography.visibility (lgl), researcher-urls.researcher-url (list),
+#>   researcher-urls.visibility (lgl), contact-details.email (list),
+#>   contact-details.address.country.value (chr),
+#>   contact-details.address.country.visibility (lgl),
+#>   external-identifiers.external-identifier (list),
+#>   external-identifiers.visibility (lgl).
 #> 
 #> [[2]]
 #> <Orcid DOI Search> 10.1371/journal.pone.0053712
-#> Found: 34427
-#> Size: 10 X 34
+#> Found: 38495
+#> Size: 10 X 35
 #> 
 #>    relevancy-score.value orcid orcid-id orcid-deprecated orcid-preferences
-#> 1              0.4471896    NA       NA               NA                NA
-#> 2              0.4296459    NA       NA               NA                NA
-#> 3              0.4252392    NA       NA               NA                NA
-#> 4              0.4009193    NA       NA               NA                NA
-#> 5              0.4009193    NA       NA               NA                NA
-#> 6              0.4009193    NA       NA               NA                NA
-#> 7              0.4009193    NA       NA               NA                NA
-#> 8              0.4009193    NA       NA               NA                NA
-#> 9              0.4009193    NA       NA               NA                NA
-#> 10             0.4009193    NA       NA               NA                NA
+#>                    (dbl) (lgl)    (lgl)            (lgl)             (lgl)
+#> 1              0.3215808    NA       NA               NA                NA
+#> 2              0.1935129    NA       NA               NA                NA
+#> 3              0.1710429    NA       NA               NA                NA
+#> 4              0.1675871    NA       NA               NA                NA
+#> 5              0.1675871    NA       NA               NA                NA
+#> 6              0.1675871    NA       NA               NA                NA
+#> 7              0.1675871    NA       NA               NA                NA
+#> 8              0.1675871    NA       NA               NA                NA
+#> 9              0.1580027    NA       NA               NA                NA
+#> 10             0.1550260    NA       NA               NA                NA
 #> Variables not shown: orcid-history (lgl), orcid-activities (lgl),
-#>      orcid-internal (lgl), type (lgl), group-type (lgl), client-type
-#>      (lgl), orcid-identifier.value (lgl), orcid-identifier.uri (chr),
-#>      orcid-identifier.path (chr), orcid-identifier.host (chr), delegation
-#>      (lgl), scope (lgl), personal-details.given-names.value (chr),
-#>      personal-details.family-name.value (chr),
-#>      personal-details.credit-name.value (chr),
-#>      personal-details.credit-name.visibility (lgl),
-#>      personal-details.other-names.other-name (list),
-#>      personal-details.other-names.visibility (lgl), biography.value (chr),
-#>      biography.visibility (lgl), researcher-urls.researcher-url (list),
-#>      researcher-urls.visibility (lgl), contact-details.email (list),
-#>      contact-details.address.country.value (chr),
-#>      contact-details.address.country.visibility (lgl), keywords.keyword
-#>      (list), keywords.visibility (lgl),
-#>      external-identifiers.external-identifier (list),
-#>      external-identifiers.visibility (lgl)
+#>   orcid-internal (lgl), type (lgl), group-type (lgl), client-type (lgl),
+#>   orcid-identifier.value (lgl), orcid-identifier.uri (chr),
+#>   orcid-identifier.path (chr), orcid-identifier.host (chr),
+#>   external-identifiers (lgl), delegation (lgl), scope (lgl),
+#>   personal-details.given-names.value (chr),
+#>   personal-details.given-names.visibility (lgl),
+#>   personal-details.family-name.value (chr),
+#>   personal-details.family-name.visibility (lgl),
+#>   personal-details.credit-name.value (chr),
+#>   personal-details.credit-name.visibility (lgl),
+#>   personal-details.other-names.other-name (list),
+#>   personal-details.other-names.visibility (lgl), biography.value (chr),
+#>   biography.visibility (lgl), researcher-urls.researcher-url (list),
+#>   researcher-urls.visibility (lgl), contact-details.email (list),
+#>   contact-details.address.country.value (chr),
+#>   contact-details.address.country.visibility (lgl), keywords.keyword
+#>   (list), keywords.visibility (lgl).
 #> 
 #> [[3]]
 #> <Orcid DOI Search> 10.1371/journal.pone.0054608
-#> Found: 34427
+#> Found: 38495
 #> Size: 10 X 34
 #> 
 #>    relevancy-score.value orcid orcid-id orcid-deprecated orcid-preferences
-#> 1              0.4221016    NA       NA               NA                NA
-#> 2              0.4055421    NA       NA               NA                NA
-#> 3              0.4013826    NA       NA               NA                NA
-#> 4              0.3784271    NA       NA               NA                NA
-#> 5              0.3784271    NA       NA               NA                NA
-#> 6              0.3784271    NA       NA               NA                NA
-#> 7              0.3784271    NA       NA               NA                NA
-#> 8              0.3784271    NA       NA               NA                NA
-#> 9              0.3784271    NA       NA               NA                NA
-#> 10             0.3784271    NA       NA               NA                NA
+#>                    (dbl) (lgl)    (lgl)            (lgl)             (lgl)
+#> 1              0.1863107    NA       NA               NA                NA
+#> 2              0.1646769    NA       NA               NA                NA
+#> 3              0.1613498    NA       NA               NA                NA
+#> 4              0.1613498    NA       NA               NA                NA
+#> 5              0.1613498    NA       NA               NA                NA
+#> 6              0.1613498    NA       NA               NA                NA
+#> 7              0.1613498    NA       NA               NA                NA
+#> 8              0.1521221    NA       NA               NA                NA
+#> 9              0.1492562    NA       NA               NA                NA
+#> 10             0.1397330    NA       NA               NA                NA
 #> Variables not shown: orcid-history (lgl), orcid-activities (lgl),
-#>      orcid-internal (lgl), type (lgl), group-type (lgl), client-type
-#>      (lgl), orcid-identifier.value (lgl), orcid-identifier.uri (chr),
-#>      orcid-identifier.path (chr), orcid-identifier.host (chr), delegation
-#>      (lgl), scope (lgl), personal-details.given-names.value (chr),
-#>      personal-details.family-name.value (chr),
-#>      personal-details.credit-name.value (chr),
-#>      personal-details.credit-name.visibility (lgl),
-#>      personal-details.other-names.other-name (list),
-#>      personal-details.other-names.visibility (lgl), biography.value (chr),
-#>      biography.visibility (lgl), researcher-urls.researcher-url (list),
-#>      researcher-urls.visibility (lgl), contact-details.email (list),
-#>      contact-details.address.country.value (chr),
-#>      contact-details.address.country.visibility (lgl), keywords.keyword
-#>      (list), keywords.visibility (lgl),
-#>      external-identifiers.external-identifier (list),
-#>      external-identifiers.visibility (lgl)
+#>   orcid-internal (lgl), type (lgl), group-type (lgl), client-type (lgl),
+#>   orcid-identifier.value (lgl), orcid-identifier.uri (chr),
+#>   orcid-identifier.path (chr), orcid-identifier.host (chr), keywords
+#>   (lgl), external-identifiers (lgl), delegation (lgl), scope (lgl),
+#>   personal-details.given-names.value (chr),
+#>   personal-details.given-names.visibility (lgl),
+#>   personal-details.family-name.value (chr),
+#>   personal-details.family-name.visibility (lgl),
+#>   personal-details.credit-name.value (chr),
+#>   personal-details.credit-name.visibility (lgl),
+#>   personal-details.other-names.other-name (list),
+#>   personal-details.other-names.visibility (lgl), biography.value (chr),
+#>   biography.visibility (lgl), researcher-urls.researcher-url (list),
+#>   researcher-urls.visibility (lgl), contact-details.email (list),
+#>   contact-details.address.country.value (chr),
+#>   contact-details.address.country.visibility (lgl).
 #> 
 #> [[4]]
 #> <Orcid DOI Search> 10.1371/journal.pone.0055937
-#> Found: 34427
-#> Size: 10 X 34
+#> Found: 38495
+#> Size: 10 X 35
 #> 
 #>    relevancy-score.value orcid orcid-id orcid-deprecated orcid-preferences
-#> 1              0.4597591    NA       NA               NA                NA
-#> 2              0.4417222    NA       NA               NA                NA
-#> 3              0.4371917    NA       NA               NA                NA
-#> 4              0.4121882    NA       NA               NA                NA
-#> 5              0.4121882    NA       NA               NA                NA
-#> 6              0.4121882    NA       NA               NA                NA
-#> 7              0.4121882    NA       NA               NA                NA
-#> 8              0.4121882    NA       NA               NA                NA
-#> 9              0.4121882    NA       NA               NA                NA
-#> 10             0.4121882    NA       NA               NA                NA
+#>                    (dbl) (lgl)    (lgl)            (lgl)             (lgl)
+#> 1              0.1979634    NA       NA               NA                NA
+#> 2              0.1749766    NA       NA               NA                NA
+#> 3              0.1714413    NA       NA               NA                NA
+#> 4              0.1714413    NA       NA               NA                NA
+#> 5              0.1714413    NA       NA               NA                NA
+#> 6              0.1714413    NA       NA               NA                NA
+#> 7              0.1714413    NA       NA               NA                NA
+#> 8              0.1616364    NA       NA               NA                NA
+#> 9              0.1585914    NA       NA               NA                NA
+#> 10             0.1500076    NA       NA               NA                NA
 #> Variables not shown: orcid-history (lgl), orcid-activities (lgl),
-#>      orcid-internal (lgl), type (lgl), group-type (lgl), client-type
-#>      (lgl), orcid-identifier.value (lgl), orcid-identifier.uri (chr),
-#>      orcid-identifier.path (chr), orcid-identifier.host (chr), delegation
-#>      (lgl), scope (lgl), personal-details.given-names.value (chr),
-#>      personal-details.family-name.value (chr),
-#>      personal-details.credit-name.value (chr),
-#>      personal-details.credit-name.visibility (lgl),
-#>      personal-details.other-names.other-name (list),
-#>      personal-details.other-names.visibility (lgl), biography.value (chr),
-#>      biography.visibility (lgl), researcher-urls.researcher-url (list),
-#>      researcher-urls.visibility (lgl), contact-details.email (list),
-#>      contact-details.address.country.value (chr),
-#>      contact-details.address.country.visibility (lgl), keywords.keyword
-#>      (list), keywords.visibility (lgl),
-#>      external-identifiers.external-identifier (list),
-#>      external-identifiers.visibility (lgl)
+#>   orcid-internal (lgl), type (lgl), group-type (lgl), client-type (lgl),
+#>   orcid-identifier.value (lgl), orcid-identifier.uri (chr),
+#>   orcid-identifier.path (chr), orcid-identifier.host (chr), keywords
+#>   (lgl), delegation (lgl), scope (lgl), personal-details.given-names.value
+#>   (chr), personal-details.given-names.visibility (lgl),
+#>   personal-details.family-name.value (chr),
+#>   personal-details.family-name.visibility (lgl),
+#>   personal-details.credit-name.value (chr),
+#>   personal-details.credit-name.visibility (lgl),
+#>   personal-details.other-names.other-name (list),
+#>   personal-details.other-names.visibility (lgl), biography.value (chr),
+#>   biography.visibility (lgl), researcher-urls.researcher-url (list),
+#>   researcher-urls.visibility (lgl), contact-details.email (list),
+#>   contact-details.address.country.value (chr),
+#>   contact-details.address.country.visibility (lgl),
+#>   external-identifiers.external-identifier (list),
+#>   external-identifiers.visibility (lgl).
 ```
 
 ## Meta
