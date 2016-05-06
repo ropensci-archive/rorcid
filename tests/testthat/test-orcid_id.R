@@ -31,8 +31,8 @@ test_that("orcid_id profile parameter works as expected", {
   expect_false(identical(bb1[[1]], bb2[[1]]))
   expect_named(bb1[[1]], 
                c('orcid', 'orcid-id', 'orcid-identifier', 'orcid-deprecated', 
-                 'orcid-preferences', 'orcid-history', 'orcid-bio', 'orcid-internal', 
-                 'type', 'group-type', 'client-type', 'works'))
+                 'orcid-preferences', 'orcid-history', 'orcid-bio', 'orcid-activities',
+                 'orcid-internal', 'type', 'group-type', 'client-type', 'works'))
   expect_true("works" %in% names(bb1[[1]]))
   expect_true("works" %in% names(bb2[[1]]))
   expect_false("works" %in% names(bb3[[1]]))

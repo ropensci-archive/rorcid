@@ -49,9 +49,9 @@ test_that("orcid qf param works", {
   expect_is(ee_boost_fam, "orcid")
   expect_is(ee_boost_given, "orcid")
   
-  expect_more_than(ee$found, ee_boost_fam$found)
-  expect_more_than(ee$found, ee_boost_given$found)
-  expect_more_than(ee_boost_given$found, ee_boost_fam$found)
+  expect_gt(ee$found, ee_boost_fam$found)
+  expect_gt(ee$found, ee_boost_given$found)
+  expect_gt(ee_boost_given$found, ee_boost_fam$found)
 })
 
 test_that("orcid fails well", {

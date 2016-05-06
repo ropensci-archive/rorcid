@@ -20,8 +20,8 @@ knitr::opts_chunk$set(
 
 Orcid API docs:
 
-* http://members.orcid.org/api
-* https://github.com/ORCID/ORCID-Source/wiki/full-api-reference
+* [http://members.orcid.org/api](http://members.orcid.org/api)
+* [https://github.com/ORCID/ORCID-Source/wiki/full-api-reference](https://github.com/ORCID/ORCID-Source/wiki/full-api-reference)
 
 ## Installation
 

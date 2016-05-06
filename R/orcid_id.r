@@ -31,7 +31,7 @@ orcid_id <- function(orcid = NULL, profile = "profile", ...){
 		out <- orc_GET_err(url2, ...)
 		res <- jsonlite::fromJSON(out, flatten = TRUE)$`orcid-profile`
 		works <- get_works(res)
-		res <- pop(res, "orcid-activities")
+		#res <- pop(res, "orcid-activities")
 		res$works <- works
 		structure(res, class = "orcid_id", profile = profile)
 	}
