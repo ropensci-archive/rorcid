@@ -57,3 +57,33 @@ test_that("orcid_id - curl options work", {
   expect_error(orcid_id("0000-0002-9341-7985", config=timeout(0.1)), 
                "Timeout was reached")
 })
+
+test_that("orcid_id - can get employment and education data [affilitation data]", {
+  skip_on_cran()
+  
+  aa <- orcid_id('0000-0003-1444-9135')
+    
+  expect_is(aa, "list")
+  expect_is(aa[[1]], "orcid_id")
+  expect_is(aa[[1]]$`orcid-activities`$affiliations$affiliation, "data.frame")
+  expect_equal(
+    unique(aa[[1]]$`orcid-activities`$affiliations$affiliation$type), 
+    c("EMPLOYMENT", "EDUCATION")
+  )
+})
+
+test_that("orcid_id - can get funding data", {
+  skip_on_cran()
+  
+  aa <- orcid_id('0000-0002-1642-628X')
+  
+  expect_is(aa, "list")
+  expect_is(aa[[1]], "orcid_id")
+  expect_is(aa[[1]]$`orcid-activities`$`funding-list`, "list")
+  expect_named(aa[[1]]$`orcid-activities`$`funding-list`, c('funding', 'scope'))
+  expect_is(aa[[1]]$`orcid-activities`$`funding-list`$funding, "data.frame")
+  expect_equal(
+    unique(aa[[1]]$`orcid-activities`$`funding-list`$funding$`source.source-name.value`), 
+    "Carl Boettiger"
+  )
+})
