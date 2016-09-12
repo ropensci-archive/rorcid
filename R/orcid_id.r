@@ -33,7 +33,7 @@
 #' ### education, employment, and funding
 #' res <- orcid_id('0000-0002-1642-628X')
 #' res[[1]]$`orcid-activities`$affiliations$affiliation
-#' res[[1]]$`orcid-activities`$`funding-list`
+#' res[[1]]$`orcid-activities`$`funding-list`$funding
 #' }
 
 orcid_id <- function(orcid = NULL, profile = "profile", ...){
