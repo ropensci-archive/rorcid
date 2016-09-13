@@ -7,5 +7,5 @@
 #' }
 browse <- function(orcid){
   orcid <- as.orcid(orcid)
-  browseURL(orcid[[1]]$`orcid-identifier`$uri)
+  utils::browseURL(orcid[[1]]$`orcid-identifier`$uri)
 }

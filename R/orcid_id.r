@@ -53,7 +53,7 @@ orcid_id <- function(orcid = NULL, profile = "profile", ...){
 		res$`orcid-activities`$`orcid-works`$`orcid-work` <- NULL
 		structure(res, class = "orcid_id", profile = profile)
 	}
-	setNames(lapply(orcid, doit), orcid)
+	stats::setNames(lapply(orcid, doit), orcid)
 }
 
 get_works <- function(x){

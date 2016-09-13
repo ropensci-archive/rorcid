@@ -10,8 +10,6 @@ as.orcid(x, ...)
 \item{x}{An ORCID id, passed to \code{print}}
 
 \item{...}{Further args passed on to \code{\link{orcid_id}}}
-
-\item{object}{An ORCID id, passed to \code{summary}}
 }
 \value{
 an S3 object of class \code{or_cid}, which pretty prints 

@@ -35,10 +35,6 @@ orc_parse <- function(x){
   names(df) <- gsub("orcid-profile\\.|orcid-profile\\.orcid-bio\\.", "", names(df))
   attr(df, "found") <- out$`orcid-search-results`$`num-found`
   df
-  # obj <- list(found = out$`orcid-search-results`$`num-found`, 
-  #             data = out$`orcid-search-results`$`orcid-search-result`)
-  # obj$data <- setNames(obj$data, gsub("orcid-profile\\.|orcid-profile\\.orcid-bio\\.", "", names(obj$data)))
-  # obj
 }
 
 # From the plyr package

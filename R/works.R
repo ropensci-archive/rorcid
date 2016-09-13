@@ -39,7 +39,7 @@ works <- function(x) {
 
 #' @export
 print.works <- function(x, ..., n = 10) {
-  if (is(unclass(x)$data, "character")) {
+  if (inherits(unclass(x)$data, "character")) {
     y <- x
   } else {
     y <- x$data$`work-title.title.value`

@@ -3,7 +3,6 @@
 #' @export 
 #' 
 #' @param x An ORCID id, passed to \code{print}
-#' @param object An ORCID id, passed to \code{summary}
 #' @param ... Further args passed on to \code{\link{orcid_id}}
 #' 
 #' @return an S3 object of class \code{or_cid}, which pretty prints 

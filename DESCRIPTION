@@ -3,7 +3,7 @@ Title: Interface to the 'Orcid.org' 'API'
 Description: Client for the 'Orcid.org' 'API' (http://orcid.org/).
     Functions included for searching for people, searching by 'DOI',
     and searching by 'Orcid' 'ID'.
-Version: 0.2.4.9100
+Version: 0.2.5.9100
 Authors@R: c(person("Scott", "Chamberlain", role = c("aut", "cre"),
     email = "myrmecocystus@gmail.com"))
 License: MIT + file LICENSE
@@ -11,12 +11,9 @@ URL: https://github.com/ropensci/rorcid
 BugReports: https://github.com/ropensci/rorcid/issues
 LazyData: true
 Imports:
-    methods,
-    stats,
-    utils,
     httr (>= 1.1.0),
     jsonlite (>= 1.0),
-    tibble (>= 1.2),
+    tibble (>= 1.2)
 Suggests:
     roxygen2 (>= 5.0.1),
     testthat
