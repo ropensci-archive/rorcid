@@ -61,6 +61,7 @@ identifiers(x, "eid")
 # Result of call to orcid()
 x <- orcid(query="carl+boettiger")
 identifiers(x, "scopus")
+identifiers(x, "orcid")
 identifiers(x, "researcherid")
 
 # Result of call to orcid_doi()

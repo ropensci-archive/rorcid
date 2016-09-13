@@ -31,10 +31,14 @@ fuzzydoi <- function(x, fuzzy = FALSE) {
 
 orc_parse <- function(x){
   out <- jsonlite::fromJSON(x, TRUE, flatten = TRUE)
-  obj <- list(found = out$`orcid-search-results`$`num-found`, 
-              data = out$`orcid-search-results`$`orcid-search-result`)
-  obj$data <- setNames(obj$data, gsub("orcid-profile\\.|orcid-profile\\.orcid-bio\\.", "", names(obj$data)))
-  obj
+  df <- tibble::as_data_frame(out$`orcid-search-results`$`orcid-search-result`)
+  names(df) <- gsub("orcid-profile\\.|orcid-profile\\.orcid-bio\\.", "", names(df))
+  attr(df, "found") <- out$`orcid-search-results`$`num-found`
+  df
+  # obj <- list(found = out$`orcid-search-results`$`num-found`, 
+  #             data = out$`orcid-search-results`$`orcid-search-result`)
+  # obj$data <- setNames(obj$data, gsub("orcid-profile\\.|orcid-profile\\.orcid-bio\\.", "", names(obj$data)))
+  # obj
 }
 
 # From the plyr package

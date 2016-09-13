@@ -47,19 +47,13 @@ library('rorcid')
 There's a function `as.orcid()` in this package to help coerce an Orcid ID to an object that holds details for that Orcid ID, prints a nice summary, and you can browse easily to that profile. E.g.
 
 ```{r}
-as.orcid(x="0000-0002-1642-628X")
-```
-
-You by default get the print method above, but you can use `summary()` as well to get more detailed information.
-
-```{r}
-summary( as.orcid(x="0000-0002-1642-628X") )
+as.orcid(x = "0000-0002-1642-628X")
 ```
 
 Or you can pass in many IDs
 
 ```{r}
-lapply(c("0000-0003-1620-1408", "0000-0002-9341-7985"), as.orcid)
+as.orcid(c("0000-0003-1620-1408", "0000-0002-9341-7985"))
 ```
 
 The `browse()` function lets you browser to a profile easily with a single function call
@@ -75,14 +69,13 @@ browse(as.orcid("0000-0002-1642-628X"))
 The `works()` function helps get works data from an orcid data object. The output of `works()` uses a print method to just print citations for each work.
 
 ```{r}
-out <- works(orcid_id("0000-0002-0233-1757"))
-out
+(out <- works(orcid_id("0000-0002-0233-1757")))
 ```
 
 And you can easily get to the entire data.frame of works details
 
 ```{r}
-out$data[1:5, 1:5]
+out$data
 ```
 
 ## Search Orcid
@@ -90,13 +83,13 @@ out$data[1:5, 1:5]
 Get a list of names and Orcid IDs matching a name query
 
 ```{r}
-orcid(query="carl boettiger")
+orcid(query = "carl boettiger")
 ```
 
 You can string together many search terms
 
 ```{r}
-orcid(query="johnson cardiology houston")
+orcid(query = "johnson cardiology houston")
 ```
 
 And use boolean operators
@@ -127,7 +120,7 @@ out$`0000-0002-9341-7985`$`orcid-identifier`
 Get specific thing, either bibliographic ("bio"), biographical ("works"), profile ("profile"), or record ("record")
 
 ```{r}
-out <- orcid_id(orcid = "0000-0002-9341-7985", profile="works")
+out <- orcid_id(orcid = "0000-0002-9341-7985", profile = "works")
 out$`0000-0002-9341-7985`$`orcid-history`
 ```
 
@@ -161,13 +154,13 @@ check_dois(dois)
 Basic search
 
 ```{r}
-orcid_doi(dois="10.1087/20120404")
+orcid_doi(dois = "10.1087/20120404")
 ```
 
 This DOI is not a real one, but a partial DOI, then we can fuzzy search
 
 ```{r}
-orcid_doi(dois="10.1087/2", fuzzy=TRUE, rows=5)
+orcid_doi(dois = "10.1087/2", fuzzy = TRUE, rows = 5)
 ```
 
 Function is vectorized, search for many DOIs

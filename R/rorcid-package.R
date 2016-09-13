@@ -17,3 +17,13 @@ NULL
 #' @docType data
 #' @keywords data
 NULL
+
+#' Defunct functions in rorcid
+#'
+#' \itemize{
+#'  \item \code{\link{summary.or_cid}}: Function is gone. Deemed not really 
+#'  that useful, and hard to maintain given other changes in the package.
+#' }
+#'
+#' @name rorcid-defunct
+NULL

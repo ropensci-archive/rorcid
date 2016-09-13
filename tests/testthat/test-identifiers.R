@@ -16,7 +16,7 @@ test_that("identifiers basic functionality works", {
   ee <- identifiers(x, "other_id")
 
   expect_is(aa, "character")
-  expect_null(bb)
+  expect_is(bb, "character")
   expect_is(cc, "character")
   expect_is(dd, "character")
   expect_is(ee, "character")
@@ -57,7 +57,7 @@ test_that("identifiers works with output from orcid_doi() call", {
   x <- orcid_doi(dois="10.1087/20120404", fuzzy=TRUE)
   aa <- identifiers(x, "scopus")
   
-  expect_is(aa, "list")
+  expect_is(aa, "character")
   expect_is(aa[[1]], "character")
   expect_identical(identifiers(x, "doi"), identifiers(x))
 })

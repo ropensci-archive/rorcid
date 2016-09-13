@@ -7,25 +7,39 @@
 works(x)
 }
 \arguments{
-\item{x}{Input from a call to \code{\link{orcid_id}} or \code{\link{as.orcid}}}
+\item{x}{Input from a call to \code{\link{orcid_id}} or 
+\code{\link{as.orcid}}}
 
 \item{...}{Ignored.}
 }
+\value{
+An S3 object of class \code{works}
+}
 \description{
 Get works data
+}
+\details{
+The goal of this function is to get a pretty printed quick sense
+of the works for 1 or more ORCID's. You can also access the complete
+data.frame of results. If an ORCID has works, this function prints the 
+titles of the first 10.
 }
 \examples{
 \dontrun{
 out <- works(orcid_id("0000-0002-9341-7985"))
 out
-head(out$data)
-works( orcid_id("0000-0003-1620-1408") )
+out$data
+
+#works( orcid_id("0000-0003-1620-1408") )
 works( orcid_id("0000-0002-1642-628X") )
 works( orcid_id("0000-0003-1444-9135") )
 works( orcid_id("0000-0003-1419-2405") )
 
 out <- orcid(query="keyword:ecology")
-works(orcid_id(out$data$`orcid-identifier.path`[10]))
+works(orcid_id(out$`orcid-identifier.path`[7]))
+works(orcid_id(out$`orcid-identifier.path`[8]))
+works(orcid_id(out$`orcid-identifier.path`[9]))
+works(orcid_id(out$`orcid-identifier.path`[10]))
 
 works(as.orcid("0000-0002-1642-628X"))
 }

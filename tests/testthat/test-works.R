@@ -21,7 +21,7 @@ test_that("basic works operations returns the correct...", {
 test_that("works fails well", {
   skip_on_cran()
   
-  expect_error(works(5), "no applicable method")
-  expect_error(works(mtcars), "no applicable method")
+  expect_error(works(5), "no 'as.orcid' method")
+  expect_error(works(mtcars), "no 'as.orcid' method")
   expect_error(works("Asfaf"), "404 - Not found")
 })

@@ -2,21 +2,9 @@
 % Please edit documentation in R/as.orcid.R
 \name{as.orcid}
 \alias{as.orcid}
-\alias{as.orcid.character}
-\alias{as.orcid.list}
-\alias{as.orcid.or_cid}
-\alias{summary.or_cid}
 \title{Convert an ORCID or something like an ORCID object}
 \usage{
 as.orcid(x, ...)
-
-\method{as.orcid}{character}(x, ...)
-
-\method{as.orcid}{or_cid}(x, ...)
-
-\method{as.orcid}{list}(x, ...)
-
-\method{summary}{or_cid}(object, ...)
 }
 \arguments{
 \item{x}{An ORCID id, passed to \code{print}}
@@ -25,22 +13,33 @@ as.orcid(x, ...)
 
 \item{object}{An ORCID id, passed to \code{summary}}
 }
+\value{
+an S3 object of class \code{or_cid}, which pretty prints 
+for brevity
+}
 \description{
 Convert an ORCID or something like an ORCID object
 }
 \examples{
 \dontrun{
 as.orcid(x="0000-0002-1642-628X")
-summary(as.orcid(x="0000-0002-1642-628X"))
 out <- orcid("text:English", rows = 20)
-as.orcid(out$data$`orcid-identifier.path`[1])
+as.orcid(out$`orcid-identifier.path`[1])
 
 # Passon further args to orcid_id()
 library("httr")
 as.orcid("0000-0002-1642-628X", config=verbose())
 
 # Browse to a profile
-browse(as.orcid("0000-0002-1642-628X"))
+# browse(as.orcid("0000-0002-1642-628X"))
+
+# many ORCIDs as a character vector
+ids <- c("0000-0002-1642-628X", "0000-0002-9341-7985")
+as.orcid(ids)
+
+# many in a list via orcid_id()
+(x <- orcid_id(orcid = ids))
+as.orcid(x)
 }
 }
 

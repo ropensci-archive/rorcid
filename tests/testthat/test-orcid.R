@@ -10,15 +10,15 @@ test_that("basic orcid operations returns the correct...", {
   
   # gives the right classes
   expect_is(aa, "orcid")
-  expect_is(aa$found, "integer")
-  expect_is(aa$data, "list")
+  expect_is(aa, "tbl_df")
+  expect_is(attr(aa, "found"), "integer")
   
   expect_is(bb, "orcid")
-  expect_is(bb$found, "integer")
-  expect_is(bb$data, "data.frame")
+  expect_is(bb, "tbl_df")
+  expect_is(attr(bb, 'found'), "integer")
   
   # gives the right values
-  expect_equal(aa$found, 0)
+  expect_equal(attr(aa, "found"), 0)
 })
 
 test_that("orcid paging works", {
@@ -30,9 +30,9 @@ test_that("orcid paging works", {
   # gives the right classes
   expect_is(cc, "orcid")
   expect_is(dd, "orcid")
-  expect_equal(NROW(cc$data), 3)
-  expect_false(identical(cc$data$`personal-details.given-names.value`, 
-               dd$data$`personal-details.given-names.value`))
+  expect_equal(NROW(cc), 3)
+  expect_false(identical(cc$`personal-details.given-names.value`, 
+               dd$`personal-details.given-names.value`))
 })
 
 test_that("orcid qf param works", {
@@ -49,9 +49,9 @@ test_that("orcid qf param works", {
   expect_is(ee_boost_fam, "orcid")
   expect_is(ee_boost_given, "orcid")
   
-  expect_gt(ee$found, ee_boost_fam$found)
-  expect_gt(ee$found, ee_boost_given$found)
-  expect_gt(ee_boost_given$found, ee_boost_fam$found)
+  expect_gt(attr(ee, "found"), attr(ee_boost_fam, 'found'))
+  expect_gt(attr(ee, "found"), attr(ee_boost_given, 'found'))
+  expect_gt(attr(ee_boost_given, 'found'), attr(ee_boost_fam, 'found'))
 })
 
 test_that("orcid fails well", {

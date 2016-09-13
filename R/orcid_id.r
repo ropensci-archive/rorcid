@@ -14,6 +14,13 @@
 #'
 #' @examples \dontrun{
 #' res <- orcid_id(orcid = "0000-0002-9341-7985")
+#' res$`0000-0002-9341-7985`
+#' res$`0000-0002-9341-7985`$`orcid-identifier`
+#' res$`0000-0002-9341-7985`$`orcid-preferences`
+#' res$`0000-0002-9341-7985`$`orcid-history`
+#' res$`0000-0002-9341-7985`$`orcid-bio`
+#' res$`0000-0002-9341-7985`$works
+#' 
 #' orcid_id(orcid = "0000-0002-9341-7985", "works")
 #' orcid_id(orcid = "0000-0002-9341-7985", "bio")
 #' orcid_id(orcid = "0000-0003-1620-1408")
@@ -42,13 +49,13 @@ orcid_id <- function(orcid = NULL, profile = "profile", ...){
 	  url2 <- file.path(orcid_base(), x, paste0("orcid-", temp))
 		out <- orc_GET_err(url2, ...)
 		res <- jsonlite::fromJSON(out, flatten = TRUE)$`orcid-profile`
-		works <- get_works(res)
-		res$works <- works
+		res$works <- get_works(res)
+		res$`orcid-activities`$`orcid-works`$`orcid-work` <- NULL
 		structure(res, class = "orcid_id", profile = profile)
 	}
 	setNames(lapply(orcid, doit), orcid)
 }
 
 get_works <- function(x){
-  x$`orcid-activities`$`orcid-works`$`orcid-work`
+  tibble::as_data_frame(x$`orcid-activities`$`orcid-works`$`orcid-work`)
 }

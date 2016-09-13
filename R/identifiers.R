@@ -33,6 +33,7 @@
 #' # Result of call to orcid()
 #' x <- orcid(query="carl+boettiger")
 #' identifiers(x, "scopus")
+#' identifiers(x, "orcid")
 #' identifiers(x, "researcherid")
 #' 
 #' # Result of call to orcid_doi()
@@ -48,7 +49,7 @@ identifiers <- function(x, type = "doi", ...) {
 identifiers.works <- function(x, type = "doi", ...) {
   type <- check_type(type)
   if (type == "orcid") {
-    x$data$`work-source.path`
+    x$data$`source.source-orcid.path`
   } else {
     tmp <- x$data$`work-external-identifiers.work-external-identifier`
     unlist(lapply(tmp, function(z) {
@@ -78,7 +79,7 @@ identifiers.orcid_id <- function(x, type = "doi", ...) {
 #' @export
 #' @rdname identifiers
 identifiers.orcid <- function(x, type = "doi", ...) {
-  tmp <- x$data$`external-identifiers.external-identifier`
+  tmp <- x$`external-identifiers.external-identifier`
   unlist(lapply(tmp, function(z) {
     z[grep(check_type(type), tolower(z$`external-id-common-name.value`)), 
       "external-id-reference.value"]
@@ -88,7 +89,7 @@ identifiers.orcid <- function(x, type = "doi", ...) {
 #' @export
 #' @rdname identifiers
 identifiers.orcid_doi <- function(x, type = "doi", ...) {
-  tmp <- x$data$`external-identifiers.external-identifier`
+  tmp <- x[[1]]$`external-identifiers.external-identifier`
   unlist(lapply(tmp, function(z) {
     z[grep(check_type(type), tolower(z$`external-id-common-name.value`)), 
       "external-id-reference.value"]

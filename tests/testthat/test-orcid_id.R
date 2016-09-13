@@ -35,7 +35,7 @@ test_that("orcid_id profile parameter works as expected", {
                  'orcid-internal', 'type', 'group-type', 'client-type', 'works'))
   expect_true("works" %in% names(bb1[[1]]))
   expect_true("works" %in% names(bb2[[1]]))
-  expect_false("works" %in% names(bb3[[1]]))
+  expect_true("works" %in% names(bb3[[1]]))
 })
 
 test_that("orcid_id fails well", {

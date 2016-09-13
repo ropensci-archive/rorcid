@@ -28,6 +28,13 @@ there's an element returned for each ORCID you put in.
 \examples{
 \dontrun{
 res <- orcid_id(orcid = "0000-0002-9341-7985")
+res$`0000-0002-9341-7985`
+res$`0000-0002-9341-7985`$`orcid-identifier`
+res$`0000-0002-9341-7985`$`orcid-preferences`
+res$`0000-0002-9341-7985`$`orcid-history`
+res$`0000-0002-9341-7985`$`orcid-bio`
+res$`0000-0002-9341-7985`$works
+
 orcid_id(orcid = "0000-0002-9341-7985", "works")
 orcid_id(orcid = "0000-0002-9341-7985", "bio")
 orcid_id(orcid = "0000-0003-1620-1408")
