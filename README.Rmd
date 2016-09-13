@@ -82,7 +82,7 @@ out
 And you can easily get to the entire data.frame of works details
 
 ```{r}
-head(out$data)
+out$data[1:5, 1:5]
 ```
 
 ## Search Orcid
@@ -175,7 +175,8 @@ Function is vectorized, search for many DOIs
 ```{r}
 dois <- c("10.1371/journal.pone.0025995","10.1371/journal.pone.0053712",
        "10.1371/journal.pone.0054608","10.1371/journal.pone.0055937")
-orcid_doi(dois=dois, fuzzy = TRUE)
+res <- orcid_doi(dois = dois, fuzzy = TRUE)
+res[[1]]
 ```
 
 ## Meta
