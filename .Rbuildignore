@@ -11,3 +11,4 @@ inst/extra
 README.Rmd
 cran-comments.md
 ^CONDUCT\.md$
+^\.httr-oauth$

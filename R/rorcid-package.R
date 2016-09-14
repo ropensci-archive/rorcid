@@ -1,6 +1,45 @@
-#' A programmatic R interface the Orcid.org API.
+#' @title A programmatic R interface the Orcid.org API
 #' 
-#' @importFrom httr GET content stop_for_status accept
+#' @description 
+#' A R interface to the Orcid public API. \pkg{rorcid} is not a product 
+#' developed or distributed by ORCID.
+#' 
+#' Orcid API docs:
+#' \itemize{
+#'  \item \url{http://members.orcid.org/api}
+#'  \item \url{https://github.com/ORCID/ORCID-Source/wiki/full-api-reference}
+#' }
+#' 
+#' \pkg{rorcid} has the following main user facing methods:
+#' \itemize{
+#'  \item \code{\link{as.orcid}} - coerce various inputs to ORCID class 
+#'  \item \code{\link{browse}} - browse to a profile in your default browser
+#'  \item \code{\link{check_dois}} - check that strings are likely to be DOIs
+#'  \item \code{\link{identifiers}} - grab identifiers out of various objects
+#'  \item \code{\link{orcid}} - Search for ORCID id's
+#'  \item \code{\link{orcid_doi}} - Search by DOI
+#'  \item \code{\link{orcid_id}} - Search by ORCID id, and get either bio, 
+#'  profile, or works
+#'  \item \code{\link{works}} - Parse out works from various objects
+#' }
+#' 
+#' @section Rate Limits:
+#' Definitions:
+#' \itemize{
+#'  \item Request a second - Number of request that can be made a second. 
+#'  Value: 8 per second (24 with API v2rc+)
+#'  \item Burst - Number of request we will allow to be queued before rejecting.
+#'  The request in the queue are slowed down at the request a second rate.
+#'  Value: 40 (same with API v2rc+)
+#' }
+#' 
+#' If you exceed the burst, you'll get a 503 responses. Developers should do
+#' their best to avoid approaching those limits.
+#' 
+#' @seealso rorcid-auth for Authentication information
+#' 
+#' @importFrom httr GET content stop_for_status accept oauth_app
+#' oauth_endpoint oauth2.0_token add_headers
 #' @importFrom jsonlite fromJSON
 #' @name rorcid-package
 #' @docType package
@@ -10,6 +49,7 @@ NULL
 
 
 #' Lookup-table for search fields
+#' 
 #' @name fields
 #' @docType data
 #' @keywords data

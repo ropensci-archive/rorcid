@@ -2,16 +2,54 @@ ocom <- function(l) Filter(Negate(is.null), l)
 
 orcid_base <- function() "https://pub.orcid.org/v1.2"
 
-orc_GET <- function(url, args=list(), ...) {
-  tt <- GET(url, query = args, accept('application/orcid+json'), ...)
+orc_GET <- function(url, args = list(), ...) {
+  tt <- GET(
+    url, 
+    query = args, 
+    accept('application/orcid+json'), 
+    ...
+  )
   stop_for_status(tt)
   content(tt, "text", encoding = "UTF-8")
 }
 
-orc_GET_err <- function(url, args=list(), ...) {
-  tt <- GET(url, query = args, accept('application/orcid+json'), ...)
+orc_GET_err <- function(url, args = list(), ...) {
+  tt <- GET(
+    url, 
+    query = args,
+    accept('application/orcid+json'), 
+    ...
+  )
   handle_error(tt)
   content(tt, "text", encoding = "UTF-8")
+}
+
+# make_auth <- function(scope = "/authenticate") {
+#   key <- check_key()
+#   if (is.null(key)) {
+#     message("no ORCID token found; attempting OAuth authentication")
+#     endpt <- oauth_endpoint(
+#       authorize = "https://orcid.org/oauth/authorize",
+#       access = "https://pub.orcid.org/oauth/token")
+#     myapp <- oauth_app(
+#       appname = "rorcid",
+#       key = "APP-7E02XXWNQBFNMG1B",
+#       secret = "152526b1-c2e8-47d0-9cb0-4f7849310c8b")
+#     tok <- oauth2.0_token(
+#       endpt, 
+#       myapp, 
+#       scope = scope)
+#     key <- tok$credentials$access_token
+#   }
+#   add_headers(Authorization = paste0('Bearer ', key))
+# }
+
+check_key <- function() {
+  x <- Sys.getenv("ORCID_TOKEN", "")
+  if (x == "") {
+    x <- getOption("orcid_token", "")
+  }
+  if (x == "") NULL else x
 }
 
 handle_error <- function(x) {

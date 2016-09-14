@@ -2,3 +2,4 @@
 .DS_Store
 .Rproj.user
 inst/ignore/auth.R
+.httr-oauth
