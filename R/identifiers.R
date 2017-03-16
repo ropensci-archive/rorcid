@@ -44,6 +44,10 @@ identifiers <- function(x, type = "doi", ...) {
   UseMethod("identifiers")
 }
 
+identifiers.default <- function(x, type = "doi", ...) {
+  stop("no 'identifiers' method for ", class(x), call. = FALSE)
+}
+
 #' @export
 #' @rdname identifiers
 identifiers.works <- function(x, type = "doi", ...) {
@@ -79,7 +83,7 @@ identifiers.orcid_id <- function(x, type = "doi", ...) {
 #' @export
 #' @rdname identifiers
 identifiers.orcid <- function(x, type = "doi", ...) {
-  tmp <- x$`external-identifiers.external-identifier`
+  tmp <- suppressWarnings(x$`external-identifiers.external-identifier`)
   unlist(lapply(tmp, function(z) {
     z[grep(check_type(type), tolower(z$`external-id-common-name.value`)), 
       "external-id-reference.value"]

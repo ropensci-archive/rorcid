@@ -41,23 +41,34 @@ test_that("identifiers works with output from or_cid() call", {
 test_that("identifiers works with output from orcid() call", {
   skip_on_cran()
   
-  x <- orcid(query="carl+boettiger")
+  x <- orcid(query = "carl+boettiger")
   aa <- identifiers(x, "scopus")
-  bb <- identifiers(x, "researcherid")
   
   expect_is(aa, "character")
   expect_is(aa[[1]], "character")
   expect_identical(identifiers(x, "doi"), identifiers(x))
-  expect_true(grepl("G", bb))
+  
+  x <- orcid(query = "keyword:ecology")
+  
+  bb <- identifiers(x, "researcherid")
+  expect_match(bb, "^[A-Z]-[0-9]+-[0-9]+")
 })
 
 test_that("identifiers works with output from orcid_doi() call", {
   skip_on_cran()
   
-  x <- orcid_doi(dois="10.1087/20120404", fuzzy=TRUE)
+  x <- orcid_doi(dois = "10.1087/20120404", fuzzy = TRUE)
   aa <- identifiers(x, "scopus")
   
   expect_is(aa, "character")
   expect_is(aa[[1]], "character")
   expect_identical(identifiers(x, "doi"), identifiers(x))
+})
+
+test_that("identifiers fails well on disallowed inputs", {
+  skip_on_cran()
+  
+  expect_error(identifiers("adfadf"), "no 'identifiers' method for character")
+  expect_error(identifiers(mtars), "no 'identifiers' method for data.frame")
+  expect_error(identifiers(matrix()), "no 'identifiers' method for matrix")
 })
