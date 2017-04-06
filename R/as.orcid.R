@@ -2,10 +2,10 @@
 #' 
 #' @export 
 #' 
-#' @param x An ORCID id, passed to \code{print}
-#' @param ... Further args passed on to \code{\link{orcid_id}}
+#' @param x An ORCID id, passed to `print`
+#' @param ... Further args passed on to [orcid_id()]
 #' 
-#' @return an S3 object of class \code{or_cid}, which pretty prints 
+#' @return an S3 object of class `or_cid`, which pretty prints 
 #' for brevity
 #' 
 #' @examples \dontrun{
@@ -61,10 +61,16 @@ print.or_cid <- function(x, ...){
   cat(sprintf('  Name: %s, %s', 
               cn(ob$`personal-details`$`family-name`$value), 
               cn(ob$`personal-details`$`given-names`$value)), sep = "\n")
-  cat(sprintf('  URL (first): %s', cn(ob$`researcher-urls`$`researcher-url`$url.value[1])), sep = "\n")
-  cat(sprintf('  Country: %s', cn(ob$`contact-details`$address$country$value)), sep = "\n")
-  cat(sprintf('  Keywords: %s', paste0(cn(ob$keywords$keyword$value), collapse = ", ") ), sep = "\n")
-  cat(sprintf('  Submission date: %s', cn(unixconv(x$`orcid-history`$`submission-date`$value))), sep = "\n")
+  cat(sprintf('  URL (first): %s', 
+              cn(ob$`researcher-urls`$`researcher-url`$url.value[1])), 
+      sep = "\n")
+  cat(sprintf('  Country: %s', 
+              cn(ob$`contact-details`$address$country$value)), sep = "\n")
+  cat(sprintf('  Keywords: %s', paste0(cn(ob$keywords$keyword$value), 
+                                       collapse = ", ") ), sep = "\n")
+  cat(sprintf('  Submission date: %s', 
+              cn(unixconv(x$`orcid-history`$`submission-date`$value))), 
+      sep = "\n")
 }
 
 unixconv <- function(y){

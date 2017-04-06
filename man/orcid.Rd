@@ -11,109 +11,109 @@ orcid(query = NULL, start = NULL, rows = NULL, recursive = FALSE,
   uf = NULL, lowercaseOperators = NULL, fuzzy = FALSE, ...)
 }
 \arguments{
-\item{query}{Search terms. You can do quite complicated queries using the 
-SOLR syntax. See examples below. For all possible fields to query, do 
+\item{query}{Search terms. You can do quite complicated queries using the
+SOLR syntax. See examples below. For all possible fields to query, do
 \code{data(fields)}}
 
 \item{start}{Result number to start on. Keep in mind that pages start at 0.}
 
 \item{rows}{Numer of results to return.}
 
-\item{recursive}{Keep drilling down until all records are retrieved for the 
-given query, default FALSE (logical). If \code{recursive=TRUE}, rows and 
+\item{recursive}{Keep drilling down until all records are retrieved for the
+given query, default FALSE (logical). If \code{recursive=TRUE}, rows and
 start parameters are ignored.}
 
 \item{defType}{Query syntax. One of edismax or X. See Details for more.}
 
-\item{q.alt}{If specified, this query will be used (and parsed by default 
-using standard query parsing syntax) when the main query string is not 
-specified or blank. This comes in handy when you need something like a 
-match-all-docs query (don't forget &rows=0 for that one!) in order to get 
+\item{q.alt}{If specified, this query will be used (and parsed by default
+using standard query parsing syntax) when the main query string is not
+specified or blank. This comes in handy when you need something like a
+match-all-docs query (don't forget &rows=0 for that one!) in order to get
 collection-wise faceting counts.}
 
-\item{qf}{(Query Fields) List of fields and the "boosts" to associate with 
+\item{qf}{(Query Fields) List of fields and the "boosts" to associate with
 each of them when building DisjunctionMaxQueries from the user's query}
 
-\item{mm}{(Minimum 'Should' Match) See the wiki here 
+\item{mm}{(Minimum 'Should' Match) See the wiki here
 \url{http://wiki.apache.org/solr/ExtendedDisMax#mm_.28Minimum_.27Should.27_Match.29}}
 
-\item{qs}{(Query Phrase Slop) Amount of slop on phrase queries explicitly 
+\item{qs}{(Query Phrase Slop) Amount of slop on phrase queries explicitly
 included in the user's query string (in qf fields; affects matching).}
 
-\item{pf}{(Phrase Fields) Once the list of matching documents has been 
-identified using the "fq" and "qf" params, the "pf" param can be used to 
-"boost" the score of documents in cases where all of the terms in the "q" 
-param appear in close proximity. Read more here 
+\item{pf}{(Phrase Fields) Once the list of matching documents has been
+identified using the "fq" and "qf" params, the "pf" param can be used to
+"boost" the score of documents in cases where all of the terms in the "q"
+param appear in close proximity. Read more here
 \url{http://wiki.apache.org/solr/ExtendedDisMax#pf_.28Phrase_Fields.29}}
 
-\item{ps}{(Phrase Slop) Default amount of slop on phrase queries built with 
+\item{ps}{(Phrase Slop) Default amount of slop on phrase queries built with
 "pf", "pf2" and/or "pf3" fields (affects boosting).}
 
-\item{pf2}{(Phrase bigram fields) As with 'pf' but chops the input into 
-bi-grams, e.g. "the brown fox jumped" is queried as "the brown" "brown fox" 
+\item{pf2}{(Phrase bigram fields) As with 'pf' but chops the input into
+bi-grams, e.g. "the brown fox jumped" is queried as "the brown" "brown fox"
 "fox jumped"}
 
-\item{ps2}{(Phrase bigram slop) As with 'ps' but sets default slop factor for 
+\item{ps2}{(Phrase bigram slop) As with 'ps' but sets default slop factor for
 'pf2'. If not specified, 'ps' will be used.}
 
-\item{pf3}{(Phrase trigram fields) As with 'pf' but chops the input into 
-tri-grams, e.g. "the brown fox jumped" is queried as "the brown fox" 
+\item{pf3}{(Phrase trigram fields) As with 'pf' but chops the input into
+tri-grams, e.g. "the brown fox jumped" is queried as "the brown fox"
 "brown fox jumped"}
 
-\item{ps3}{(Phrase trigram slop) As with 'ps' but sets default slop factor 
+\item{ps3}{(Phrase trigram slop) As with 'ps' but sets default slop factor
 for 'pf3'. If not specified, 'ps' will be used.}
 
-\item{tie}{(Tie breaker) Float value to use as tiebreaker in 
-DisjunctionMaxQueries (should be something much less than 1). Read more here 
-      \url{http://wiki.apache.org/solr/ExtendedDisMax#tie_.28Tie_breaker.29}}
+\item{tie}{(Tie breaker) Float value to use as tiebreaker in
+DisjunctionMaxQueries (should be something much less than 1). Read more here
+\url{http://wiki.apache.org/solr/ExtendedDisMax#tie_.28Tie_breaker.29}}
 
-\item{bq}{(Boost Query) A raw query string (in the SolrQuerySyntax) that will 
-be included with the user's query to influence the score. Read more here 
+\item{bq}{(Boost Query) A raw query string (in the SolrQuerySyntax) that will
+be included with the user's query to influence the score. Read more here
 \url{http://wiki.apache.org/solr/ExtendedDisMax#bq_.28Boost_Query.29}}
 
-\item{bf}{(Boost Function, additive) Functions (with optional boosts) that 
-will be included in the user's query to influence the score. Any function 
-supported natively by Solr can be used, along with a boost value, e.g.: 
-recip(rord(myfield),1,2,3)^1.5.  Read more here 
+\item{bf}{(Boost Function, additive) Functions (with optional boosts) that
+will be included in the user's query to influence the score. Any function
+supported natively by Solr can be used, along with a boost value, e.g.:
+recip(rord(myfield),1,2,3)^1.5.  Read more here
 \url{http://wiki.apache.org/solr/ExtendedDisMax#bf_.28Boost_Function.2C_additive.29}}
 
-\item{boost}{(Boost Function, multiplicative) As for 'bf' but multiplies the 
+\item{boost}{(Boost Function, multiplicative) As for 'bf' but multiplies the
 boost into the  score}
 
-\item{uf}{(User Fields) Specifies which schema fields the end user shall be 
-allowed to query for explicitly. This parameter supports wildcards. Read 
+\item{uf}{(User Fields) Specifies which schema fields the end user shall be
+allowed to query for explicitly. This parameter supports wildcards. Read
 more here
 \url{http://wiki.apache.org/solr/ExtendedDisMax#uf_.28User_Fields.29}}
 
-\item{lowercaseOperators}{This param controls whether to try to interpret 
-lowercase words as boolean operators such as "and", "not" and "or". 
+\item{lowercaseOperators}{This param controls whether to try to interpret
+lowercase words as boolean operators such as "and", "not" and "or".
 Set &lowercaseOperators=true to allow this. Default is "false".}
 
-\item{fuzzy}{Use fuzzy matching on input DOIs. Defaults to FALSE. If FALSE, 
-we stick "digital-object-ids" before the DOI so that the search sent to 
+\item{fuzzy}{Use fuzzy matching on input DOIs. Defaults to FALSE. If FALSE,
+we stick "digital-object-ids" before the DOI so that the search sent to
 ORCID is for that exact DOI. If TRUE, we use some regex to find the DOI.}
 
-\item{...}{Curl options passed on to \code{\link[crul]{HttpClient}}}
+\item{...}{Curl options passed on to \code{\link[crul:HttpClient]{crul::HttpClient()}}}
 }
 \description{
 Search for ORCID ID's.
 }
 \details{
 You can use any of the following within the query statement:
-given-names, family-name, credit-name, other-names, email, grant-number, 
-patent-number, keyword, worktitle, digital-objectids, current-institution, 
-affiliation-name, current-primary-institution, text, or past-institution. 
-		
+given-names, family-name, credit-name, other-names, email, grant-number,
+patent-number, keyword, worktitle, digital-objectids, current-institution,
+affiliation-name, current-primary-institution, text, or past-institution.
+
 For more complicated queries the ORCID API supports using ExtendedDisMax.
-See the documentation on the web here: 
-\url{http://wiki.apache.org/solr/ExtendedDisMax}.
-		
+See the documentation on the web here:
+\url{http://wiki.apache.org/solr/ExtendedDisMax}
+
 Note that when constructing queries, you don't need to use syntax like
-\code{+}, etc., \code{crul}, the http client we use internally, will do that 
-for you. For example, instead of writing \code{johnson+cardiology}, just 
-write \code{johnson cardiology}, and instead of writing 
-\code{johnson+AND+cardiology}, write \code{johnson AND cardiology}. Though, 
-you still need to use \code{AND}, \code{OR}, etc. to join term/queries 
+\code{+}, etc., \code{crul}, the http client we use internally, will do that
+for you. For example, instead of writing \code{johnson+cardiology}, just
+write \code{johnson cardiology}, and instead of writing
+\code{johnson+AND+cardiology}, write \code{johnson AND cardiology}. Though,
+you still need to use \code{AND}, \code{OR}, etc. to join term/queries
 together.
 }
 \examples{
@@ -170,5 +170,5 @@ orcid(defType = "edismax",
 }
 }
 \seealso{
-\code{\link{orcid_doi}} \code{\link{orcid_id}}
+\code{\link[=orcid_doi]{orcid_doi()}} \code{\link[=orcid_id]{orcid_id()}}
 }

@@ -1,14 +1,16 @@
 #' @title Get identifiers
 #' 
 #' @description This function aims to pluck out just identifiers into a vector
-#' for easy use downstream (e.g., use DOIs to fetch article metadata). You can 
-#' still manually fetch additional data from outputs of functions in this package.
+#' for easy use downstream (e.g., use DOIs to fetch article metadata). You 
+#' can still manually fetch additional data from outputs of functions in 
+#' this package.
 #' 
 #' @export
-#' @param x An object of class works, orcid, orcid_id, orcid_doi, or a list that 
-#' contains any number of the previous objects.
+#' @param x An object of class works, orcid, orcid_id, orcid_doi, or a list 
+#' that contains any number of the previous objects.
 #' @param type (character) One of doi (default), pmid, pmc, eid, other_id, 
-#' orcid, scopus, researcherid. The orcid's here are for works, not individuals.
+#' orcid, scopus, researcherid. The orcid's here are for works, not 
+#' individuals.
 #' @param ... Ignored.
 #' @return A vector of identifiers, or NULL if none found
 #' @examples \dontrun{

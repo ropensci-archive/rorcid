@@ -9,17 +9,17 @@ orcid_doi(dois = NULL, start = NULL, rows = NULL, fuzzy = FALSE, ...)
 \arguments{
 \item{dois}{(character) Digital object identifier (DOI), a vector fo DOIs.}
 
-\item{start}{(integer) Result number to start on. Keep in mind that pages 
+\item{start}{(integer) Result number to start on. Keep in mind that pages
 start at 0.}
 
 \item{rows}{(integer) Numer of results to return.}
 
-\item{fuzzy}{(logical) Use fuzzy matching on input DOIs. Defaults to FALSE. 
-If FALSE, we stick "digital-object-ids" before the DOI so that the search 
-sent to ORCID is for that exact DOI. If TRUE, we use some regex to find 
+\item{fuzzy}{(logical) Use fuzzy matching on input DOIs. Defaults to FALSE.
+If FALSE, we stick "digital-object-ids" before the DOI so that the search
+sent to ORCID is for that exact DOI. If TRUE, we use some regex to find
 the DOI.}
 
-\item{...}{Curl options passed on to \code{\link[crul]{HttpClient}}}
+\item{...}{Curl options passed on to \code{\link[crul:HttpClient]{crul::HttpClient()}}}
 }
 \description{
 Search for ORCID ID's using DOIs

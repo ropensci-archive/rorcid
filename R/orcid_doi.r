@@ -10,7 +10,7 @@
 #' If FALSE, we stick "digital-object-ids" before the DOI so that the search 
 #' sent to ORCID is for that exact DOI. If TRUE, we use some regex to find 
 #' the DOI.
-#' @param ... Curl options passed on to \code{\link[crul]{HttpClient}}
+#' @param ... Curl options passed on to [crul::HttpClient()]
 #' 		
 #' @examples \dontrun{
 #' orcid_doi(dois="10.1087/20120404", fuzzy=TRUE)

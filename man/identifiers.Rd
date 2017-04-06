@@ -22,11 +22,12 @@ identifiers(x, type = "doi", ...)
 \method{identifiers}{orcid_doi}(x, type = "doi", ...)
 }
 \arguments{
-\item{x}{An object of class works, orcid, orcid_id, orcid_doi, or a list that 
-contains any number of the previous objects.}
+\item{x}{An object of class works, orcid, orcid_id, orcid_doi, or a list
+that contains any number of the previous objects.}
 
-\item{type}{(character) One of doi (default), pmid, pmc, eid, other_id, 
-orcid, scopus, researcherid. The orcid's here are for works, not individuals.}
+\item{type}{(character) One of doi (default), pmid, pmc, eid, other_id,
+orcid, scopus, researcherid. The orcid's here are for works, not
+individuals.}
 
 \item{...}{Ignored.}
 }
@@ -35,8 +36,9 @@ A vector of identifiers, or NULL if none found
 }
 \description{
 This function aims to pluck out just identifiers into a vector
-for easy use downstream (e.g., use DOIs to fetch article metadata). You can 
-still manually fetch additional data from outputs of functions in this package.
+for easy use downstream (e.g., use DOIs to fetch article metadata). You
+can still manually fetch additional data from outputs of functions in
+this package.
 }
 \examples{
 \dontrun{

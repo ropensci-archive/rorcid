@@ -9,20 +9,20 @@ orcid_id(orcid = NULL, profile = "profile", ...)
 \arguments{
 \item{orcid}{Orcid identifier(s), of the form XXXX-XXXX-XXXX-XXXX.}
 
-\item{profile}{Bibliographic ("bio"), biographical ("works"), or 
+\item{profile}{Bibliographic ("bio"), biographical ("works"), or
 profile ("profile"). Default: profile}
 
-\item{...}{Curl options passed on to \code{\link[crul]{HttpClient}}}
+\item{...}{Curl options passed on to \code{\link[crul:HttpClient]{crul::HttpClient()}}}
 }
 \value{
-A list of results for each Orcid ID passed in, with each element 
+A list of results for each Orcid ID passed in, with each element
 named by the Orcid ID
 }
 \description{
 Get data for particular ORCID's
 }
 \details{
-This function is vectorized, so you can pass in many ORCID's, and 
+This function is vectorized, so you can pass in many ORCID's, and
 there's an element returned for each ORCID you put in.
 }
 \examples{

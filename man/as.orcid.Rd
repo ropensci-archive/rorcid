@@ -9,10 +9,10 @@ as.orcid(x, ...)
 \arguments{
 \item{x}{An ORCID id, passed to \code{print}}
 
-\item{...}{Further args passed on to \code{\link{orcid_id}}}
+\item{...}{Further args passed on to \code{\link[=orcid_id]{orcid_id()}}}
 }
 \value{
-an S3 object of class \code{or_cid}, which pretty prints 
+an S3 object of class \code{or_cid}, which pretty prints
 for brevity
 }
 \description{

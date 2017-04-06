@@ -7,8 +7,7 @@
 works(x)
 }
 \arguments{
-\item{x}{Input from a call to \code{\link{orcid_id}} or 
-\code{\link{as.orcid}}}
+\item{x}{Input from a call to \code{\link[=orcid_id]{orcid_id()}} or \code{\link[=as.orcid]{as.orcid()}}}
 
 \item{...}{Ignored.}
 }
@@ -21,7 +20,7 @@ Get works data
 \details{
 The goal of this function is to get a pretty printed quick sense
 of the works for 1 or more ORCID's. You can also access the complete
-data.frame of results. If an ORCID has works, this function prints the 
+data.frame of results. If an ORCID has works, this function prints the
 titles of the first 10.
 }
 \examples{

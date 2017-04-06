@@ -5,7 +5,7 @@
 \title{Defunct functions in rorcid}
 \description{
 \itemize{
- \item \code{\link{summary.or_cid}}: Function is gone. Deemed not really 
- that useful, and hard to maintain given other changes in the package.
+\item \code{\link[=summary.or_cid]{summary.or_cid()}}: Function is gone. Deemed not really
+that useful, and hard to maintain given other changes in the package.
 }
 }

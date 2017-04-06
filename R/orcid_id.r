@@ -5,7 +5,7 @@
 #' @param orcid Orcid identifier(s), of the form XXXX-XXXX-XXXX-XXXX.
 #' @param profile Bibliographic ("bio"), biographical ("works"), or 
 #' profile ("profile"). Default: profile
-#' @param ... Curl options passed on to \code{\link[crul]{HttpClient}}
+#' @param ... Curl options passed on to [crul::HttpClient()]
 #'
 #' @details This function is vectorized, so you can pass in many ORCID's, and 
 #' there's an element returned for each ORCID you put in.
