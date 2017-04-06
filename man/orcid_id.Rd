@@ -12,7 +12,7 @@ orcid_id(orcid = NULL, profile = "profile", ...)
 \item{profile}{Bibliographic ("bio"), biographical ("works"), or 
 profile ("profile"). Default: profile}
 
-\item{...}{Curl options passed on to \code{\link[httr]{GET}}}
+\item{...}{Curl options passed on to \code{\link[crul]{HttpClient}}}
 }
 \value{
 A list of results for each Orcid ID passed in, with each element 
@@ -42,8 +42,7 @@ orcid_id(orcid = "0000-0002-9341-7985", profile="works")
 ids <- c("0000-0003-1620-1408", "0000-0002-9341-7985")
 orcid_id(orcid = ids)
 
-library("httr")
-orcid_id(orcid = "0000-0003-1620-1408", config=verbose())
+orcid_id(orcid = "0000-0003-1620-1408", verbose = TRUE)
 
 # only certain orcid's make employment/funding/eduction public
 ## some egs where it is public

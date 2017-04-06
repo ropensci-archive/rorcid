@@ -41,20 +41,19 @@ test_that("orcid_id profile parameter works as expected", {
 test_that("orcid_id fails well", {
   skip_on_cran()
   
-  expect_error(orcid_id(5), "404 - Not found")
-  expect_error(orcid_id(list(a = 6)), "404 - Not found")
+  expect_error(orcid_id(5), "Not found : No entity found for query")
+  expect_error(orcid_id(list(a = 6)), "Not found : No entity found for query")
   expect_error(orcid_id("0000-0002-9341-7985", "things"), 
                "'arg' should be one of")
   
   # ok input class, but but ORCID
-  expect_error(orcid_id("adfafadf"), "404 - Not found")
+  expect_error(orcid_id("adfafadf"),  "Not found : No entity found for query")
 })
 
 test_that("orcid_id - curl options work", {
   skip_on_cran()
   
-  library("httr")
-  expect_error(orcid_id("0000-0002-9341-7985", config=timeout(0.1)), 
+  expect_error(orcid_id("0000-0002-9341-7985", timeout_ms = 1), 
                "Timeout was reached")
 })
 

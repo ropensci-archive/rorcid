@@ -2,23 +2,51 @@ ocom <- function(l) Filter(Negate(is.null), l)
 
 orcid_base <- function() "https://pub.orcid.org/v1.2"
 
-orc_GET <- function(url, args=list(), ...) {
-  tt <- GET(url, query = args, accept('application/orcid+json'), ...)
-  stop_for_status(tt)
-  content(tt, "text", encoding = "UTF-8")
+orc_GET <- function(url, args = list(), ...) {
+  cli <- crul::HttpClient$new(
+    url = url,
+    opts = list(...),
+    headers = list(
+      Accept = "application/json",
+      `User-Agent` = orcid_ua(),
+      'X-USER-AGENT' = orcid_ua()
+    )
+  )
+  res <- cli$get(query = args)
+  errs(res)
+  res$parse("UTF-8") 
 }
 
-orc_GET_err <- function(url, args=list(), ...) {
-  tt <- GET(url, query = args, accept('application/orcid+json'), ...)
-  handle_error(tt)
-  content(tt, "text", encoding = "UTF-8")
+orcid_ua <- function() {
+  versions <- c(
+    paste0("r-curl/", utils::packageVersion("curl")),
+    paste0("crul/", utils::packageVersion("crul")),
+    sprintf("rOpenSci(rorcid/%s)", utils::packageVersion("rorcid"))
+  )
+  paste0(versions, collapse = " ")
 }
 
-handle_error <- function(x) {
+errs <- function(x) {
   if (x$status_code > 201) {
-    msg <- jsonlite::fromJSON(content(x, "text", encoding = "UTF-8"))
-    stop(x$status_code, " - ", msg$`error-desc`$value, call. = FALSE)
+    xx <- jsonlite::fromJSON(x$parse("UTF-8"))
+    if ("error-desc" %in% names(xx)) {
+      # match by status code
+      fun <- match_err(x$status_code)$new()
+      fun$mssg <- gsub("\\\"", "", xx$`error-desc`$value)
+      fun$do_verbose(x)
+    } else {
+      # if no error message in response, just general stop
+      fauxpas::http(x)
+    }
   }
+}
+
+match_err <- function(code) {
+  tmp <- paste0("fauxpas::",
+                grep("HTTP*", getNamespaceExports("fauxpas"), value = TRUE))
+  fxns <- lapply(tmp, function(x) eval(parse(text = x)))
+  codes <- vapply(fxns, function(z) z$public_fields$status_code, 1)
+  fxns[[which(code == codes)]]
 }
 
 fuzzydoi <- function(x, fuzzy = FALSE) {

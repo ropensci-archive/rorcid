@@ -19,8 +19,8 @@ test_that("as.orcid accepts itself, or_cid class", {
   
   expect_is(bb, "list")
   expect_is(bb[[1]], "or_cid")
-  expect_equal(bb, tmp)
-  expect_equal(bb[[1]], tmp[[1]])
+  expect_identical(bb, tmp)
+  expect_identical(bb[[1]], tmp[[1]])
 })
 
 test_that("as.orcid fails well", {
@@ -30,5 +30,5 @@ test_that("as.orcid fails well", {
   expect_error(as.orcid(list(a = 6)), "no 'as.orcid' method for numeric")
   
   # ok input class, but but ORCID
-  expect_error(as.orcid("adfafadf"), "404 - Not found")
+  expect_error(as.orcid("adfafadf"), "Not found : No entity found for query")
 })

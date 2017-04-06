@@ -62,7 +62,7 @@
 #' @param fuzzy Use fuzzy matching on input DOIs. Defaults to FALSE. If FALSE, 
 #' 		we stick "digital-object-ids" before the DOI so that the search sent to 
 #' 		ORCID is for that exact DOI. If TRUE, we use some regex to find the DOI.
-#' @param ... Curl options passed on to \code{\link[httr]{GET}}
+#' @param ... Curl options passed on to \code{\link[crul]{HttpClient}}
 #'
 #' @details You can use any of the following within the query statement:
 #' given-names, family-name, credit-name, other-names, email, grant-number, 
@@ -74,7 +74,7 @@
 #' \url{http://wiki.apache.org/solr/ExtendedDisMax}.
 #' 		
 #' Note that when constructing queries, you don't need to use syntax like
-#' \code{+}, etc., \code{httr}, the curl client we use internally, will do that 
+#' \code{+}, etc., \code{crul}, the http client we use internally, will do that 
 #' for you. For example, instead of writing \code{johnson+cardiology}, just 
 #' write \code{johnson cardiology}, and instead of writing 
 #' \code{johnson+AND+cardiology}, write \code{johnson AND cardiology}. Though, 
@@ -146,7 +146,7 @@ orcid <- function(query = NULL, start = NULL, rows = NULL, recursive = FALSE,
                     bq = bq, bf = bf, boost = boost, uf = uf, 
                     lowercaseOperators = lowercaseOperators))
   tmp <- orc_parse(
-    orc_GET_err(paste0(orcid_base(), "/search/orcid-bio"), args, ...)
+    orc_GET(paste0(orcid_base(), "/search/orcid-bio"), args, ...)
   )
   structure(tmp, class = c(class(tmp), "orcid"))
 }

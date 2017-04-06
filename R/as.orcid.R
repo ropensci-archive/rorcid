@@ -14,8 +14,7 @@
 #' as.orcid(out$`orcid-identifier.path`[1])
 #' 
 #' # Passon further args to orcid_id()
-#' library("httr")
-#' as.orcid("0000-0002-1642-628X", config=verbose())
+#' as.orcid("0000-0002-1642-628X", verbose = TRUE)
 #' 
 #' # Browse to a profile
 #' # browse(as.orcid("0000-0002-1642-628X"))

@@ -93,7 +93,7 @@ Set &lowercaseOperators=true to allow this. Default is "false".}
 we stick "digital-object-ids" before the DOI so that the search sent to 
 ORCID is for that exact DOI. If TRUE, we use some regex to find the DOI.}
 
-\item{...}{Curl options passed on to \code{\link[httr]{GET}}}
+\item{...}{Curl options passed on to \code{\link[crul]{HttpClient}}}
 }
 \description{
 Search for ORCID ID's.
@@ -109,7 +109,7 @@ See the documentation on the web here:
 \url{http://wiki.apache.org/solr/ExtendedDisMax}.
 		
 Note that when constructing queries, you don't need to use syntax like
-\code{+}, etc., \code{httr}, the curl client we use internally, will do that 
+\code{+}, etc., \code{crul}, the http client we use internally, will do that 
 for you. For example, instead of writing \code{johnson+cardiology}, just 
 write \code{johnson cardiology}, and instead of writing 
 \code{johnson+AND+cardiology}, write \code{johnson AND cardiology}. Though, 
