@@ -9,6 +9,7 @@ r:
 
 r_github_packages:
   - jimhester/covr
+  - ropensci/crul
 
 after_success:
   - Rscript -e 'covr::codecov()'
