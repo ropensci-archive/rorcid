@@ -13,3 +13,4 @@ cran-comments.md
 ^CONDUCT\.md$
 ^cran-comments\.md$
 ^\.httr-oauth$
+.github
