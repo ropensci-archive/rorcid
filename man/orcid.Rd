@@ -15,9 +15,10 @@ orcid(query = NULL, start = NULL, rows = NULL, recursive = FALSE,
 SOLR syntax. See examples below. For all possible fields to query, do
 \code{data(fields)}}
 
-\item{start}{Result number to start on. Keep in mind that pages start at 0.}
+\item{start}{Result number to start on. Keep in mind that pages start at 0.
+Deafult: 0}
 
-\item{rows}{Numer of results to return.}
+\item{rows}{Numer of results to return. Default: 10}
 
 \item{recursive}{Keep drilling down until all records are retrieved for the
 given query, default FALSE (logical). If \code{recursive=TRUE}, rows and
@@ -95,6 +96,10 @@ ORCID is for that exact DOI. If TRUE, we use some regex to find the DOI.}
 
 \item{...}{Curl options passed on to \code{\link[crul:HttpClient]{crul::HttpClient()}}}
 }
+\value{
+a data.frame (tibble). You can access number of results found like
+\code{attr(result, "found")}
+}
 \description{
 Search for ORCID ID's.
 }
@@ -147,10 +152,18 @@ orcid(query="10.1087/20120404")
 ## See also orcid_doi() function for searching by DOIs
 orcid("10.1087/20120404")
 orcid('"10.1087/20120404"')
+## doi
 orcid('digital-object-ids:"10.1087/20120404"')
+## doi prefix
+orcid('digital-object-ids:"10.1087/*"')
+## other identifiers
+orcid('digital-object-ids:"2-s2.0-84889654399"')
  
 # Search by text type
 orcid("text:English")
+
+# search by work titles
+orcid('work-titles:Modern developments in holography and its materials')
 
 ## Using more complicated SOLR queries
 

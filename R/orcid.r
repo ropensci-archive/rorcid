@@ -6,7 +6,8 @@
 #' SOLR syntax. See examples below. For all possible fields to query, do 
 #' `data(fields)`
 #' @param start Result number to start on. Keep in mind that pages start at 0.
-#' @param rows Numer of results to return.
+#' Deafult: 0
+#' @param rows Numer of results to return. Default: 10
 #' @param recursive Keep drilling down until all records are retrieved for the 
 #' given query, default FALSE (logical). If `recursive=TRUE`, rows and 
 #' start parameters are ignored. 
@@ -81,6 +82,9 @@
 #' you still need to use `AND`, `OR`, etc. to join term/queries 
 #' together.
 #' 
+#' @return a data.frame (tibble). You can access number of results found like
+#' `attr(result, "found")`
+#' 
 #' @seealso [orcid_doi()] [orcid_id()]
 #' @examples \dontrun{
 #' # Get a list of names and Orcid IDs matching a name query
@@ -112,10 +116,18 @@
 #' ## See also orcid_doi() function for searching by DOIs
 #' orcid("10.1087/20120404")
 #' orcid('"10.1087/20120404"')
+#' ## doi
 #' orcid('digital-object-ids:"10.1087/20120404"')
+#' ## doi prefix
+#' orcid('digital-object-ids:"10.1087/*"')
+#' ## other identifiers
+#' orcid('digital-object-ids:"2-s2.0-84889654399"')
 #'  
 #' # Search by text type
 #' orcid("text:English")
+#' 
+#' # search by work titles
+#' orcid('work-titles:Modern developments in holography and its materials')
 #' 
 #' ## Using more complicated SOLR queries
 #' 
