@@ -2,11 +2,11 @@
 % Please edit documentation in R/identifiers.R
 \name{identifiers}
 \alias{identifiers}
+\alias{identifiers.works}
 \alias{identifiers.list}
+\alias{identifiers.orcid_id}
 \alias{identifiers.orcid}
 \alias{identifiers.orcid_doi}
-\alias{identifiers.orcid_id}
-\alias{identifiers.works}
 \title{Get identifiers}
 \usage{
 identifiers(x, type = "doi", ...)
@@ -69,4 +69,3 @@ x <- orcid_doi(dois="10.1087/20120404", fuzzy=TRUE)
 identifiers(x, "scopus")
 }
 }
-

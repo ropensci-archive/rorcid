@@ -49,4 +49,3 @@ orcid_doi(dois="10.1087/20120404", fuzzy=FALSE)
 orcid_doi(dois="10.1371/journal.pone.0025995", fuzzy=FALSE)
 }
 }
-

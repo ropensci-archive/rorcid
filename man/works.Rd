@@ -44,4 +44,3 @@ works(orcid_id(out$`orcid-identifier.path`[10]))
 works(as.orcid("0000-0002-1642-628X"))
 }
 }
-

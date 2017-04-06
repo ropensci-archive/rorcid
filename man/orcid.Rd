@@ -172,4 +172,3 @@ orcid(defType = "edismax",
 \seealso{
 \code{\link{orcid_doi}} \code{\link{orcid_id}}
 }
-

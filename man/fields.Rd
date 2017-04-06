@@ -8,4 +8,3 @@
 Lookup-table for search fields
 }
 \keyword{data}
-

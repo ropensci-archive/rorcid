@@ -11,4 +11,3 @@ A programmatic R interface the Orcid.org API.
 Scott Chamberlain \email{myrmecocystus@gmail.com}
 }
 \keyword{package}
-

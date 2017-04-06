@@ -40,4 +40,3 @@ as.orcid(ids)
 as.orcid(x)
 }
 }
-

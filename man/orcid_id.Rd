@@ -57,4 +57,3 @@ res[[1]]$`orcid-activities`$affiliations$affiliation
 res[[1]]$`orcid-activities`$`funding-list`$funding
 }
 }
-

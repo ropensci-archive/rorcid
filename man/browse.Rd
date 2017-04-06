@@ -17,4 +17,3 @@ Navigate to an ORCID profile in your default browser
 browse(as.orcid("0000-0002-1642-628X"))
 }
 }
-
