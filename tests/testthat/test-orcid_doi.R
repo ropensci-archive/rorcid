@@ -35,7 +35,7 @@ test_that("orcid_doi paging parameters works as expected", {
   expect_type(attr(pg1[[1]], "found"), "integer")
   expect_type(attr(pg2[[1]], "found"), "integer")
   expect_equal(NROW(pg1[[1]]), 3)
-  expect_equal(NROW(pg2[[1]]), 3)
+  expect_gt(NROW(pg2[[1]]), 0)
 })
 
 test_that("orcid_doi fails well", {
