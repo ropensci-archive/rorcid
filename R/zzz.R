@@ -2,19 +2,30 @@ ocom <- function(l) Filter(Negate(is.null), l)
 
 orcid_base <- function() "https://pub.orcid.org/v2.0"
 
-orc_GET <- function(url, args = list(), ...) {
+orc_GET <- function(url, args = list(), ctype = "application/json", ...) {
+  # x <- orcid_auth()
+  # tok <- x$auth_token$credentials$access_token
   cli <- crul::HttpClient$new(
     url = url,
     opts = list(...),
     headers = list(
-      Accept = "application/json",
+      Accept = ctype,
       `User-Agent` = orcid_ua(),
       'X-USER-AGENT' = orcid_ua()
+      #Authorization = paste0("Bearer ", tok)
     )
   )
   res <- cli$get(query = args)
   errs(res)
   res$parse("UTF-8") 
+}
+
+check_key <- function() {
+  x <- Sys.getenv("ORCID_TOKEN", "")
+  if (x == "") {
+    x <- getOption("orcid_token", "")
+  }
+  if (x == "") NULL else x
 }
 
 orcid_ua <- function() {
@@ -93,3 +104,45 @@ pluck <- function(x, name, type) {
 }
 
 pop <- function(x, name) x[ !names(x) %in% name ]
+
+orcid_prof_helper <- function(x, path, ctype = "application/json", ...) {
+  url2 <- file.path(orcid_base(), x, path)
+  out <- orc_GET(url2, ctype = ctype, ...)
+  switch_parser(ctype, out)
+}
+
+switch_parser <- function(ctype, x) {
+  switch(
+    ctype,
+    `application/vnd.orcid+xml; qs=5` = px(x), 
+    `application/orcid+xml; qs=3` = px(x), 
+    `application/xml` = px(x), 
+    `application/vnd.orcid+json; qs=4` = pj(x), 
+    `application/orcid+json; qs=2` = pj(x), 
+    `application/json` = pj(x), 
+    `application/vnd.citationstyles.csl+json` = pj(x),
+    stop("no parser found for ", ctype)
+  )
+}
+
+pj <- function(z) jsonlite::fromJSON(z, flatten = TRUE)
+px <- function(z) xml2::read_xml(z)
+
+orcid_putcode_helper <- function(path, orcid, put_code, format, ...) {
+  if (!is.null(put_code)) {
+    if (length(orcid) > 1) {
+      stop("if 'put_code' is given, 'orcid' must be length 1")
+    }
+  }
+  pth <- if (is.null(put_code)) path else file.path(path, put_code)
+  if (length(pth) > 1) {
+    stats::setNames(
+      Map(function(z) orcid_prof_helper(orcid, z, ctype = format), pth), 
+      put_code)
+  } else {
+    nmd <- if (!is.null(put_code)) put_code else orcid
+    stats::setNames(
+      lapply(orcid, orcid_prof_helper, path = pth, ctype = format, ...), nmd)
+  }
+}
+

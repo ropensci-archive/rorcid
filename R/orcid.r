@@ -7,7 +7,7 @@
 #' `data(fields)`
 #' @param start Result number to start on. Keep in mind that pages start at 0.
 #' Deafult: 0
-#' @param rows Numer of results to return. Default: 10
+#' @param rows Numer of results to return. Default: 10. Max: 200
 #' @param recursive Keep drilling down until all records are retrieved for the 
 #' given query, default FALSE (logical). If `recursive=TRUE`, rows and 
 #' start parameters are ignored. 
@@ -64,8 +64,15 @@
 #' 		we stick "digital-object-ids" before the DOI so that the search sent to 
 #' 		ORCID is for that exact DOI. If TRUE, we use some regex to find the DOI.
 #' @param ... Curl options passed on to [crul::HttpClient()]
+#' 
+#' @references <https://members.orcid.org/api/tutorial/search-orcid-registry>
 #'
-#' @details You can use any of the following within the query statement:
+#' @details All query syntaxes available in SOLR 3.6 (
+#' <https://cwiki.apache.org/confluence/display/solr/The+Standard+Query+Parser>)
+#' are supported, including Lucene with Solr extensions (default), DisMax, 
+#' and Extended Dismax.
+#' 
+#' You can use any of the following within the query statement:
 #' given-names, family-name, credit-name, other-names, email, grant-number, 
 #' patent-number, keyword, worktitle, digital-objectids, current-institution, 
 #' affiliation-name, current-primary-institution, text, or past-institution. 
@@ -90,6 +97,9 @@
 #' # Get a list of names and Orcid IDs matching a name query
 #' orcid(query="carl+boettiger")
 #' orcid(query="given-names:carl AND family-name:boettiger")
+#' 
+#' # by email
+#' orcid(query="email:cboettig@berkeley.edu")
 #' 
 #' # You can string together many search terms
 #' orcid(query="johnson cardiology houston")
@@ -157,9 +167,7 @@ orcid <- function(query = NULL, start = NULL, rows = NULL, recursive = FALSE,
                     pf2 = pf2, ps2 = ps2, pf3 = pf3, ps3 = ps3, tie = tie, 
                     bq = bq, bf = bf, boost = boost, uf = uf, 
                     lowercaseOperators = lowercaseOperators))
-  tmp <- orc_parse(
-    #orc_GET(paste0(orcid_base(), "/search/orcid-bio"), args, ...)
-    orc_GET(paste0(orcid_base(), "/search"), args, ...)
-  )
-  structure(tmp, class = c(class(tmp), "orcid"))
+  tmp <- orc_GET(paste0(orcid_base(), "/search"), args, ...)
+  out <- jsonlite::fromJSON(tmp, TRUE, flatten = TRUE)
+  structure(out, class = "orcid")
 }
