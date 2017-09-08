@@ -13,8 +13,8 @@ rorcid
 
 Orcid API docs:
 
-* [http://members.orcid.org/api](http://members.orcid.org/api)
-* [https://github.com/ORCID/ORCID-Source/wiki/full-api-reference](https://github.com/ORCID/ORCID-Source/wiki/full-api-reference)
+* Public API docs: <http://members.orcid.org/api>
+* Full API reference: <https://github.com/ORCID/ORCID-Source/wiki/full-api-reference>
 
 ## Installation
 
