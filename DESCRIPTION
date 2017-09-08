@@ -13,6 +13,7 @@ LazyData: true
 Roxygen: list(markdown = TRUE)
 Imports:
     crul (>= 0.3.8),
+    httr,
     fauxpas,
     jsonlite (>= 1.5),
     xml2 (>= 1.1.1),
