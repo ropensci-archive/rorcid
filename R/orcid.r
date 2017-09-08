@@ -158,7 +158,8 @@ orcid <- function(query = NULL, start = NULL, rows = NULL, recursive = FALSE,
                     bq = bq, bf = bf, boost = boost, uf = uf, 
                     lowercaseOperators = lowercaseOperators))
   tmp <- orc_parse(
-    orc_GET(paste0(orcid_base(), "/search/orcid-bio"), args, ...)
+    #orc_GET(paste0(orcid_base(), "/search/orcid-bio"), args, ...)
+    orc_GET(paste0(orcid_base(), "/search"), args, ...)
   )
   structure(tmp, class = c(class(tmp), "orcid"))
 }

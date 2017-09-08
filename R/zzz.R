@@ -1,6 +1,6 @@
 ocom <- function(l) Filter(Negate(is.null), l)
 
-orcid_base <- function() "https://pub.orcid.org/v1.2"
+orcid_base <- function() "https://pub.orcid.org/v2.0"
 
 orc_GET <- function(url, args = list(), ...) {
   cli <- crul::HttpClient$new(
