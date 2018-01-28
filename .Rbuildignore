@@ -14,3 +14,4 @@ cran-comments.md
 ^cran-comments\.md$
 ^\.httr-oauth$
 .github
+^codemeta\.json$
