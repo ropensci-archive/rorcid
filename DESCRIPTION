@@ -12,7 +12,7 @@ BugReports: https://github.com/ropensci/rorcid/issues
 LazyData: true
 Roxygen: list(markdown = TRUE)
 Imports:
-    crul (>= 0.3.8),
+    crul (>= 0.4.0),
     httr,
     fauxpas,
     jsonlite (>= 1.5),
