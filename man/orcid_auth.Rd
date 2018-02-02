@@ -2,6 +2,7 @@
 % Please edit documentation in R/auth.R
 \name{orcid_auth}
 \alias{orcid_auth}
+\alias{rorcid-auth}
 \title{ORCID authorization}
 \usage{
 orcid_auth(scope = "/authenticate", reauth = FALSE)
@@ -10,6 +11,9 @@ orcid_auth(scope = "/authenticate", reauth = FALSE)
 \item{scope}{(character) one or more scopes. default: \code{"/authenticate"}}
 
 \item{reauth}{(logical) Force re-authorization?}
+}
+\value{
+a character string with the access token prefixed with "Bearer "
 }
 \description{
 ORCID authorization

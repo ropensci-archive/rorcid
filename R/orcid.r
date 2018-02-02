@@ -90,7 +90,9 @@
 #' together.
 #' 
 #' @return a data.frame (tibble). You can access number of results found like
-#' `attr(result, "found")`
+#' `attr(result, "found")`. Note that with ORCID API v2 and greater, 
+#' results here are only the identifiers. To get other metadata/data
+#' you can take the identifiers and use other functions in this package.
 #' 
 #' @seealso [orcid_doi()] [orcid_id()]
 #' @examples \dontrun{
@@ -167,7 +169,11 @@ orcid <- function(query = NULL, start = NULL, rows = NULL, recursive = FALSE,
                     pf2 = pf2, ps2 = ps2, pf3 = pf3, ps3 = ps3, tie = tie, 
                     bq = bq, bf = bf, boost = boost, uf = uf, 
                     lowercaseOperators = lowercaseOperators))
-  tmp <- orc_GET(paste0(orcid_base(), "/search"), args, ...)
+  tmp <- orc_GET(paste0(orcid_base(), "/search"), args, 
+    ctype = ojson, ...)
+
   out <- jsonlite::fromJSON(tmp, TRUE, flatten = TRUE)
-  structure(out, class = "orcid")
+  out$result <- tibble::as_tibble(out$result)
+  structure(out$result, class = c(class(out$result), "orcid"), 
+    found = out$`num-found`)
 }

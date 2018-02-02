@@ -11,5 +11,6 @@
 #' res$`0000-0002-1642-628X`$`email`
 #' }
 orcid_email <- function(orcid, ...) {
-  stats::setNames(lapply(orcid, orcid_prof_helper, path = "email", ...), orcid)
+  stats::setNames(lapply(orcid, orcid_prof_helper, path = "email", ...), 
+    orcid)
 }

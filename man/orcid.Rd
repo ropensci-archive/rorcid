@@ -98,7 +98,9 @@ ORCID is for that exact DOI. If TRUE, we use some regex to find the DOI.}
 }
 \value{
 a data.frame (tibble). You can access number of results found like
-\code{attr(result, "found")}
+\code{attr(result, "found")}. Note that with ORCID API v2 and greater,
+results here are only the identifiers. To get other metadata/data
+you can take the identifiers and use other functions in this package.
 }
 \description{
 Search for ORCID ID's.

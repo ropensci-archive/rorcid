@@ -1,18 +1,18 @@
 ocom <- function(l) Filter(Negate(is.null), l)
 
-orcid_base <- function() "https://pub.orcid.org/v2.0"
+orcid_base <- function() "https://pub.orcid.org/v2.1"
+
+ojson <- "application/vnd.orcid+json; qs=4"
 
 orc_GET <- function(url, args = list(), ctype = "application/json", ...) {
-  # x <- orcid_auth()
-  # tok <- x$auth_token$credentials$access_token
   cli <- crul::HttpClient$new(
     url = url,
     opts = list(...),
     headers = list(
       Accept = ctype,
       `User-Agent` = orcid_ua(),
-      'X-USER-AGENT' = orcid_ua()
-      #Authorization = paste0("Bearer ", tok)
+      'X-USER-AGENT' = orcid_ua(),
+      Authorization = orcid_auth()
     )
   )
   res <- cli$get(query = args)
@@ -70,10 +70,10 @@ fuzzydoi <- function(x, fuzzy = FALSE) {
 
 orc_parse <- function(x){
   out <- jsonlite::fromJSON(x, TRUE, flatten = TRUE)
-  df <- tibble::as_data_frame(out$`orcid-search-results`$`orcid-search-result`)
-  names(df) <- gsub("orcid-profile\\.|orcid-profile\\.orcid-bio\\.", "", names(df))
-  attr(df, "found") <- out$`orcid-search-results`$`num-found`
-  df
+  df <- tibble::as_data_frame(out$result)
+  # names(df) <- gsub("orcid-profile\\.|orcid-profile\\.orcid-bio\\.", "", names(df))
+  attr(df, "found") <- out$`num-found`
+  return(df)
 }
 
 # From the plyr package

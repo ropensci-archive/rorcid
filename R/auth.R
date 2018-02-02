@@ -1,8 +1,12 @@
 #' ORCID authorization
 #' 
 #' @export
+#' @aliases rorcid-auth
 #' @param scope (character) one or more scopes. default: \code{"/authenticate"}
 #' @param reauth (logical) Force re-authorization?
+#' 
+#' @return a character string with the access token prefixed with "Bearer " 
+#' 
 #' @details 
 #' There are two ways to authorise with \pkg{rorcid}:
 #' 
@@ -46,7 +50,7 @@ orcid_auth <- function(scope = "/authenticate", reauth = FALSE) {
   }
   key <- check_key()
   if (!is.null(key)) {
-    auth_config <- httr::add_headers(Authorization = paste0("Bearer ", key))
+    auth_config <- paste0("Bearer ", key)
   } else if (!interactive()) {
     stop("In non-interactive environments, please set ORCID_TOKEN env to a ORCID",
          " access token, see ?orcid_auth for details",
@@ -61,7 +65,9 @@ orcid_auth <- function(scope = "/authenticate", reauth = FALSE) {
       rorcid_app, 
       scope = scope, 
       cache = !reauth)
-    auth_config <- httr::config(token = tok)
+    # auth_config <- httr::config(token = tok)
+    auth_config <- paste0("Bearer ", 
+      tok$auth_token$credentials$access_token)
   }
   cache$auth_config <- auth_config
   auth_config

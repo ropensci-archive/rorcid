@@ -16,17 +16,29 @@ Orcid API docs:
 
 \pkg{rorcid} has the following main user facing methods:
 \itemize{
-\item \code{\link{as.orcid}} - coerce various inputs to ORCID class
-\item \code{\link{browse}} - browse to a profile in your default browser
-\item \code{\link{check_dois}} - check that strings are likely to be DOIs
-\item \code{\link{identifiers}} - grab identifiers out of various objects
-\item \code{\link{orcid}} - Search for ORCID id's
-\item \code{\link{orcid_doi}} - Search by DOI
-\item \code{\link{orcid_id}} - Search by ORCID id, and get either bio,
+\item \code{\link[=as.orcid]{as.orcid()}} - coerce various inputs to ORCID class
+\item \code{\link[=browse]{browse()}} - browse to a profile in your default browser
+\item \code{\link[=check_dois]{check_dois()}} - check that strings are likely to be DOIs
+\item \code{\link[=identifiers]{identifiers()}} - grab identifiers out of various objects
+\item \code{\link[=orcid]{orcid()}} - Search for ORCID id's
+\item \code{\link[=orcid_doi]{orcid_doi()}} - Search by DOI
+\item \code{\link[=orcid_id]{orcid_id()}} - Search by ORCID id, and get either bio,
 profile, or works
-\item \code{\link{works}} - Parse out works from various objects
+\item \code{\link[=works]{works()}} - Parse out works from various objects
 }
 }
+\section{API routes not implemented}{
+
+
+Not quite sure what these do so haven't messed with them.
+\itemize{
+\item \code{/{orcid}/notification-permission/{id}}
+\item \code{/client/{client_id}}
+\item \code{/group-id-record}
+\item \code{/group-id-record/{putCode}}
+}
+}
+
 \section{Rate Limits}{
 
 Definitions:
@@ -43,7 +55,7 @@ their best to avoid approaching those limits.
 }
 
 \seealso{
-rorcid-auth for Authentication information
+\link{rorcid-auth} for Authentication information
 }
 \author{
 Scott Chamberlain \email{myrmecocystus@gmail.com}

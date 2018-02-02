@@ -14,11 +14,10 @@
 #' res$`0000-0002-1642-628X`$`group`
 #' 
 #' # individual funding records
-#' orcid_fundings(orcid = "0000-0002-1642-628X", 2090)
-#' orcid_fundings(orcid = "0000-0002-1642-628X", 2091)
+#' orcid_fundings(orcid = "0000-0002-1642-628X", 385627)
 #' 
 #' # funding summary information
-#' orcid_fundings(orcid = "0000-0002-1642-628X", 2091, summary = TRUE)
+#' orcid_fundings(orcid = "0000-0002-1642-628X", 385627, summary = TRUE)
 #' }
 orcid_fundings <- function(orcid, put_code = NULL, 
                            format = "application/json", summary = FALSE, ...) {

@@ -21,7 +21,9 @@ knitr::opts_chunk$set(
 Orcid API docs:
 
 * Public API docs: <http://members.orcid.org/api>
-* Swagger docs: <https://pub.orcid.org/v2.0>
+* Swagger docs: <https://api.orcid.org/v2.1/>
+
+The package now works with the `v2.1` ORCID API now. It's too complicated to allow users to work with different versions of the API, so it's hard-coded to `v2.1`.
 
 ## Installation
 
@@ -179,4 +181,4 @@ res[[1]]
 * Get citation information for `rorcid` in R doing `citation(package = 'rorcid')`
 * Please note that this project is released with a [Contributor Code of Conduct](CONDUCT.md). By participating in this project you agree to abide by its terms.
 
-[![ropensci_footer](http://ropensci.org/public_images/github_footer.png)](http://ropensci.org)
+[![ropensci_footer](https://ropensci.org/public_images/github_footer.png)](https://ropensci.org)
