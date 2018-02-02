@@ -4,10 +4,10 @@ orcid_base <- function() "https://pub.orcid.org/v2.1"
 
 ojson <- "application/vnd.orcid+json; qs=4"
 
-orc_GET <- function(url, args = list(), ctype = "application/json", ...) {
+orc_GET <- function(url, args = list(), ctype = ojson, ...) {
   cli <- crul::HttpClient$new(
     url = url,
-    opts = list(...),
+    # opts = list(...),
     headers = list(
       Accept = ctype,
       `User-Agent` = orcid_ua(),
@@ -40,10 +40,10 @@ orcid_ua <- function() {
 errs <- function(x) {
   if (x$status_code > 201) {
     xx <- jsonlite::fromJSON(x$parse("UTF-8"))
-    if ("error-desc" %in% names(xx)) {
+    if ("error-code" %in% names(xx)) {
       # match by status code
       fun <- match_err(x$status_code)$new()
-      fun$mssg <- gsub("\\\"", "", xx$`error-desc`$value)
+      fun$mssg <- xx$`developer-message`
       fun$do_verbose(x)
     } else {
       # if no error message in response, just general stop
@@ -105,7 +105,7 @@ pluck <- function(x, name, type) {
 
 pop <- function(x, name) x[ !names(x) %in% name ]
 
-orcid_prof_helper <- function(x, path, ctype = "application/json", ...) {
+orcid_prof_helper <- function(x, path, ctype = ojson, ...) {
   url2 <- file.path(orcid_base(), x, path)
   out <- orc_GET(url2, ctype = ctype, ...)
   switch_parser(ctype, out)
