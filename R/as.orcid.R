@@ -24,7 +24,7 @@
 #' as.orcid(ids)
 #' 
 #' # many in a list via orcid_id()
-#' (x <- orcid_id(orcid = ids))
+#' (x <- lapply(ids, orcid_id))
 #' as.orcid(x)
 #' }
 as.orcid <- function(x, ...) {
@@ -38,6 +38,7 @@ as.orcid.default <- function(x, ...){
 
 #' @export
 as.orcid.character <- function(x, ...){
+  if (length(x) > 1) return(lapply(x, function(z) as.orcid(orcid_id(z, ...))))
   as.orcid(orcid_id(x, ...))
 }
 
@@ -56,28 +57,18 @@ as.orcid.list <- function(x, ...) {
 
 #' @export
 print.or_cid <- function(x, ...){
-  ob <- x$`orcid-bio`
-  cat(sprintf('<ORCID> %s', x$`orcid-identifier`$path), sep = "\n")
+  ob <- x[[1]]
+  cat(sprintf('<ORCID> %s', ob$name$path), sep = "\n")
   cat(sprintf('  Name: %s, %s', 
-              cn(ob$`personal-details`$`family-name`$value), 
-              cn(ob$`personal-details`$`given-names`$value)), sep = "\n")
+              cn(ob$name$`family-name`$value), 
+              cn(ob$name$`given-names`$value)), sep = "\n")
   cat(sprintf('  URL (first): %s', 
               cn(ob$`researcher-urls`$`researcher-url`$url.value[1])), 
       sep = "\n")
   cat(sprintf('  Country: %s', 
-              cn(ob$`contact-details`$address$country$value)), sep = "\n")
-  cat(sprintf('  Keywords: %s', paste0(cn(ob$keywords$keyword$value), 
+              cn(ob$addresses$address$country)), sep = "\n")
+  cat(sprintf('  Keywords: %s', paste0(cn(ob$keywords$keyword$content), 
                                        collapse = ", ") ), sep = "\n")
-  cat(sprintf('  Submission date: %s', 
-              cn(unixconv(x$`orcid-history`$`submission-date`$value))), 
-      sep = "\n")
-}
-
-unixconv <- function(y){
-  origdig <- getOption("digits")
-  on.exit(options(digits = origdig))
-  options(digits = 10)
-  as.POSIXct(as.numeric(substring(y, 1, 10)), origin = "1970-01-01")
 }
 
 cn <- function(x){

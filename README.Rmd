@@ -25,6 +25,12 @@ Orcid API docs:
 
 The package now works with the `v2.1` ORCID API now. It's too complicated to allow users to work with different versions of the API, so it's hard-coded to `v2.1`.
 
+## Package API
+
+```{r echo=FALSE, comment=NA, results='asis'}
+cat(paste(" -", paste(sprintf("`%s`", getNamespaceExports("rorcid")), collapse = "\n - ")))
+```
+
 ## Installation
 
 Stable version

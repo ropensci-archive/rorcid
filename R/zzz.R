@@ -7,7 +7,7 @@ ojson <- "application/vnd.orcid+json; qs=4"
 orc_GET <- function(url, args = list(), ctype = ojson, ...) {
   cli <- crul::HttpClient$new(
     url = url,
-    # opts = list(...),
+    opts = list(...),
     headers = list(
       Accept = ctype,
       `User-Agent` = orcid_ua(),

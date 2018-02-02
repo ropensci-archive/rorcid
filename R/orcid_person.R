@@ -14,6 +14,6 @@
 #' res$`0000-0002-9341-7985`$`biography`
 #' }
 orcid_person <- function(orcid, details = FALSE, ...) {
-  pth <- if (details) "person-details" else "person"
+  pth <- if (details) "personal-details" else "person"
   stats::setNames(lapply(orcid, orcid_prof_helper, path = pth, ...), orcid)
 }
