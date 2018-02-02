@@ -7,29 +7,28 @@
 works(x)
 }
 \arguments{
-\item{x}{Input from a call to \code{\link[=orcid_id]{orcid_id()}} or \code{\link[=as.orcid]{as.orcid()}}}
+\item{x}{Anything that can be coerced via \code{\link[=as.orcid]{as.orcid()}}, see
+\code{\link[=as.orcid]{as.orcid()}} for help}
 
-\item{...}{Ignored.}
+\item{...}{curl options passed on to \link[crul:HttpClient]{crul::HttpClient}}
 }
 \value{
-An S3 object of class \code{works}
+A tibble (data.frame)
 }
 \description{
 Get works data
 }
 \details{
-The goal of this function is to get a pretty printed quick sense
-of the works for 1 or more ORCID's. You can also access the complete
-data.frame of results. If an ORCID has works, this function prints the
-titles of the first 10.
+This function gets works using the function \link{orcid_works}
+and packages up the data in a data.frame for easier processing
 }
 \examples{
 \dontrun{
 out <- works(orcid_id("0000-0002-9341-7985"))
 out
-out$data
+out$type
+out$path
 
-#works( orcid_id("0000-0003-1620-1408") )
 works( orcid_id("0000-0002-1642-628X") )
 works( orcid_id("0000-0003-1444-9135") )
 works( orcid_id("0000-0003-1419-2405") )
@@ -39,7 +38,5 @@ works(orcid_id(out$`orcid-identifier.path`[7]))
 works(orcid_id(out$`orcid-identifier.path`[8]))
 works(orcid_id(out$`orcid-identifier.path`[9]))
 works(orcid_id(out$`orcid-identifier.path`[10]))
-
-works(as.orcid("0000-0002-1642-628X"))
 }
 }

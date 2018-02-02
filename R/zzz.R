@@ -146,3 +146,8 @@ orcid_putcode_helper <- function(path, orcid, put_code, format, ...) {
   }
 }
 
+as_dt <- function(x) {
+  tibble::as_tibble(data.table::setDF(
+    data.table::rbindlist(x, use.names = TRUE, fill = TRUE)
+  ))
+}

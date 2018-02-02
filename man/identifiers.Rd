@@ -27,12 +27,14 @@ that contains any number of the previous objects.}
 
 \item{type}{(character) One of doi (default), pmid, pmc, eid, other_id,
 orcid, scopus, researcherid. The orcid's here are for works, not
-individuals.}
+individuals. This parameter is ignored for classes \code{orcid} and \code{orcid_doi}
+both of which would go down a rabbit hole of getting works for all
+ORCIDs which could take a while.}
 
 \item{...}{Ignored.}
 }
 \value{
-A vector of identifiers, or NULL if none found
+(character) vector of identifiers, or NULL if none found
 }
 \description{
 This function aims to pluck out just identifiers into a vector
@@ -62,12 +64,10 @@ identifiers(x, "eid")
 
 # Result of call to orcid()
 x <- orcid(query="carl+boettiger")
-identifiers(x, "scopus")
-identifiers(x, "orcid")
-identifiers(x, "researcherid")
+identifiers(x)
 
 # Result of call to orcid_doi()
 x <- orcid_doi(dois="10.1087/20120404", fuzzy=TRUE)
-identifiers(x, "scopus")
+identifiers(x)
 }
 }

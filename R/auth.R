@@ -41,7 +41,9 @@
 #' orcid_auth(reauth = TRUE)
 #' #orcid_auth(scope = "/read-public", reauth = TRUE)
 #' }
-orcid_auth <- function(scope = "/authenticate", reauth = FALSE) {
+orcid_auth <- function(scope = "/authenticate", reauth = FALSE, 
+  redirect_uri = getOption("rorcid.redirect_uri")) {
+
   if (exists("auth_config", envir = cache) && !reauth) {
     return(cache$auth_config)
   }
@@ -54,6 +56,11 @@ orcid_auth <- function(scope = "/authenticate", reauth = FALSE) {
          call. = FALSE)
   } else  {
     message("no ORCID token found; attempting OAuth authentication\n")
+
+    # use user supplied redirect_uri if supplied
+    if (!is.null(redirect_uri)) rorcid_app$redirect_uri <- redirect_uri
+
+    # do oauth dance
     endpt <- oauth_endpoint(
       authorize = "https://orcid.org/oauth/authorize",
       access = "https://orcid.org/oauth/token")
@@ -62,9 +69,12 @@ orcid_auth <- function(scope = "/authenticate", reauth = FALSE) {
       rorcid_app, 
       scope = scope, 
       cache = !reauth)
+
+    # put token into a string with Bearer prefix
     auth_config <- paste0("Bearer ", 
       tok$credentials$access_token)
   }
+  
   cache$auth_config <- auth_config
   auth_config
 }

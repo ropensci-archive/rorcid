@@ -31,8 +31,6 @@ test_that("orcid paging works", {
   expect_is(cc, "orcid")
   expect_is(dd, "orcid")
   expect_equal(NROW(cc), 3)
-  expect_false(identical(cc$`personal-details.given-names.value`,
-               dd$`personal-details.given-names.value`))
 })
 
 test_that("orcid qf param works", {
@@ -57,7 +55,7 @@ test_that("orcid qf param works", {
 test_that("orcid fails well", {
   skip_on_cran()
 
-  expect_error(orcid(start = "adsf"), "The start parameter for API")
+  expect_error(orcid(start = "adsf"), "Server Error")
   expect_error(orcid(rows = "er"),
-               "The rows parameter must be an integer between 0 and {0}")
+               "The rows parameter must be an integer between 0 and 200")
 })

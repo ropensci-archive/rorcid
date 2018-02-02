@@ -10,9 +10,11 @@
 #' that contains any number of the previous objects.
 #' @param type (character) One of doi (default), pmid, pmc, eid, other_id, 
 #' orcid, scopus, researcherid. The orcid's here are for works, not 
-#' individuals.
+#' individuals. This parameter is ignored for classes `orcid` and `orcid_doi`
+#' both of which would go down a rabbit hole of getting works for all 
+#' ORCIDs which could take a while.
 #' @param ... Ignored.
-#' @return A vector of identifiers, or NULL if none found
+#' @return (character) vector of identifiers, or NULL if none found
 #' @examples \dontrun{
 #' # Result of call to works()
 #' x <- works(orcid_id("0000-0001-8607-8025"))
@@ -34,13 +36,11 @@
 #' 
 #' # Result of call to orcid()
 #' x <- orcid(query="carl+boettiger")
-#' identifiers(x, "scopus")
-#' identifiers(x, "orcid")
-#' identifiers(x, "researcherid")
+#' identifiers(x)
 #' 
 #' # Result of call to orcid_doi()
 #' x <- orcid_doi(dois="10.1087/20120404", fuzzy=TRUE)
-#' identifiers(x, "scopus")
+#' identifiers(x)
 #' }
 identifiers <- function(x, type = "doi", ...) {
   UseMethod("identifiers")
@@ -55,12 +55,12 @@ identifiers.default <- function(x, type = "doi", ...) {
 identifiers.works <- function(x, type = "doi", ...) {
   type <- check_type(type)
   if (type == "orcid") {
-    x$data$`source.source-orcid.path`
+    Filter(Negate(is.na), x$`source.source-orcid.path`)
   } else {
-    tmp <- x$data$`work-external-identifiers.work-external-identifier`
+    tmp <- x$`external-ids.external-id`
     unlist(lapply(tmp, function(z) {
-      z[tolower(z$`work-external-identifier-type`) %in% type, 
-        "work-external-identifier-id.value"]
+      z[tolower(z$`external-id-type`) %in% type, 
+        "external-id-value"]
     }))
   }
 }
@@ -74,32 +74,25 @@ identifiers.list <- function(x, type = "doi", ...) {
 #' @export
 #' @rdname identifiers
 identifiers.orcid_id <- function(x, type = "doi", ...) {
-  prof <- attr(x, "profile")
-  tmp <- x$works$`work-external-identifiers.work-external-identifier`
+  # prof <- attr(x, "profile")
+  wks <- works(x)
+  tmp <- wks$`external-ids.external-id`
   unlist(lapply(tmp, function(z) {
-    z[tolower(z$`work-external-identifier-type`) %in% check_type(type), 
-      "work-external-identifier-id.value"]
+    z[tolower(z$`external-id-type`) %in% check_type(type), 
+      "external-id-value"]
   }))
 }
 
 #' @export
 #' @rdname identifiers
 identifiers.orcid <- function(x, type = "doi", ...) {
-  tmp <- suppressWarnings(x$`external-identifiers.external-identifier`)
-  unlist(lapply(tmp, function(z) {
-    z[grep(check_type(type), tolower(z$`external-id-common-name.value`)), 
-      "external-id-reference.value"]
-  }))
+  x$`orcid-identifier.path`
 }
 
 #' @export
 #' @rdname identifiers
 identifiers.orcid_doi <- function(x, type = "doi", ...) {
-  tmp <- x[[1]]$`external-identifiers.external-identifier`
-  unlist(lapply(tmp, function(z) {
-    z[grep(check_type(type), tolower(z$`external-id-common-name.value`)), 
-      "external-id-reference.value"]
-  }))
+  x[[1]]$`orcid-identifier.path`
 }
 
 # helpers ------------------

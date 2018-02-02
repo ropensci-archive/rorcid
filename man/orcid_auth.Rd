@@ -5,7 +5,8 @@
 \alias{rorcid-auth}
 \title{ORCID authorization}
 \usage{
-orcid_auth(scope = "/authenticate", reauth = FALSE)
+orcid_auth(scope = "/authenticate", reauth = FALSE,
+  redirect_uri = getOption("rorcid.redirect_uri"))
 }
 \arguments{
 \item{scope}{(character) one or more scopes. default: \code{"/authenticate"}}
@@ -20,16 +21,14 @@ ORCID authorization
 }
 \details{
 There are two ways to authorise with \pkg{rorcid}:
-
 \itemize{
 \item Use a token as a result of a OAuth authentication process. The token
-is a alphanumeric UUID, e.g. \code{dc0a6b6b-b4d4-4276-bc89-78c1e9ede56e}.
-You can get this token by doing xxx.
-Then store it either as en environment variable in your \code{.Renviron}
-file in your home directory, or as an R option in your \code{.Rprofile}
-file. See \code{\link{Startup}} for more information. Either an environment
-variable or R option work. If we don't find either we do the next option.
-
+is a alphanumeric UUID, e.g. \code{dc0a6b6b-b4d4-4276-bc89-78c1e9ede56e}. You
+can get this token by doing xxx. Then store it either as en environment
+variable in your \code{.Renviron} file in your home directory, or as an R
+option in your \code{.Rprofile} file. See \link{Startup} for more information.
+Either an environment variable or R option work. If we don't find
+either we do the next option.
 \item Interactively login with OAuth. This doesn't require any input on
 your part. We use a client id and client secret key to ping ORCID.org;
 at which point you log in with your username/password; then we get back
@@ -47,7 +46,7 @@ If both options above fail, we proceed without using authentication.
 ORCID does not require authentication at this point, but may in the future -
 this prepares you for when that happens :)
 }
-\section{OAuth Scopes}{
+\section{ORCID OAuth Scopes}{
 
 See \url{https://members.orcid.org/api/orcid-scopes} for more
 }

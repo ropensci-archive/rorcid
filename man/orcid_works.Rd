@@ -19,6 +19,8 @@ XXXX-XXXX-XXXX-XXXX. required.}
 "application/vnd.citationstyles.csl+json". optional}
 
 \item{...}{Curl options passed on to \code{\link[crul:HttpClient]{crul::HttpClient()}}}
+
+\item{put_code}{(character/integer) one or more put codes. optional}
 }
 \value{
 A list of results for each Orcid ID passed in, with each element 

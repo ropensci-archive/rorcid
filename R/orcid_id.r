@@ -26,7 +26,7 @@
 #' vapply(res, function(x) x[[1]]$name$`family-name`$value, "")
 #' }
 orcid_id <- function(orcid, ...) {
-	stopifnot(is.character(orcid))
+  stopifnot(is.character(orcid))
 	stopifnot(length(orcid) == 1)
 	structure(orcid_person(orcid, ...), class = "orcid_id")
 }

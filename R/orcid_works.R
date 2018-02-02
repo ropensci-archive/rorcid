@@ -3,10 +3,10 @@
 #' @export
 #' @param orcid (character) Orcid identifier(s), of the form 
 #' XXXX-XXXX-XXXX-XXXX. required.
-#' @param put_code (character/integer) one or more put codes. required.
-#' @param format (character) Name of the content-type format. One of 
-#' "application/vnd.orcid+xml; qs=5", "application/orcid+xml; qs=3", 
-#' "application/xml", "application/vnd.orcid+json; qs=4", 
+#' @param put_code (character/integer) one or more put codes. optional
+#' @param format (character) Name of the content-type format. One of
+#' "application/vnd.orcid+xml; qs=5", "application/orcid+xml; qs=3",
+#' "application/xml", "application/vnd.orcid+json; qs=4",
 #' "application/orcid+json; qs=2", "application/json"
 #' "application/vnd.citationstyles.csl+json". optional
 #' @param ... Curl options passed on to [crul::HttpClient()]
@@ -34,8 +34,8 @@
 #'   "application/vnd.citationstyles.csl+json")
 #' }
 orcid_works <- function(orcid, put_code = NULL, format = "application/json", 
-                        ...) {
-  
+  ...) {
+
   if (!is.null(put_code)) {
     if (length(orcid) > 1) {
       stop("if 'put_code' is given, 'orcid' must be length 1")

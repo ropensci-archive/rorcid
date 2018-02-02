@@ -32,37 +32,32 @@ test_that("identifiers works with output from or_cid() call", {
   aa <- identifiers(x, "doi")
   bb <- identifiers(x, "eid")
 
-  expect_is(aa, "list")
-  expect_is(aa[[1]], "character")
+  expect_is(aa, "character")
+  expect_is(aa[1], "character")
   expect_identical(identifiers(x, "doi"), identifiers(x))
-  expect_is(bb, "list")
+  expect_is(bb, "character")
 })
 
 test_that("identifiers works with output from orcid() call", {
   skip_on_cran()
   
   x <- orcid(query = "carl+boettiger")
-  aa <- identifiers(x, "scopus")
+  aa <- identifiers(x)
   
   expect_is(aa, "character")
-  expect_is(aa[[1]], "character")
+  expect_is(aa[1], "character")
   expect_identical(identifiers(x, "doi"), identifiers(x))
-  
-  x <- orcid(query = "keyword:ecology")
-  
-  bb <- identifiers(x, "researcherid")
-  expect_match(bb, "^[A-Z]-[0-9]+-[0-9]+")
 })
 
 test_that("identifiers works with output from orcid_doi() call", {
   skip_on_cran()
   
   x <- orcid_doi(dois = "10.1087/20120404", fuzzy = TRUE)
-  aa <- identifiers(x, "scopus")
+  aa <- identifiers(x)
   
   expect_is(aa, "character")
-  expect_is(aa[[1]], "character")
-  expect_identical(identifiers(x, "doi"), identifiers(x))
+  expect_is(aa[1], "character")
+  expect_identical(identifiers(x), identifiers(x))
 })
 
 test_that("identifiers fails well on disallowed inputs", {
