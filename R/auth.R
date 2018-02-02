@@ -4,6 +4,7 @@
 #' @aliases rorcid-auth
 #' @param scope (character) one or more scopes. default: `"/authenticate"`
 #' @param reauth (logical) Force re-authorization?
+#' @param redirect_uri (character) a redirect URI. optional
 #' 
 #' @return a character string with the access token prefixed with "Bearer " 
 #' 

@@ -135,6 +135,7 @@
 #' 
 #' # search by work titles
 #' orcid('work-titles:Modern developments in holography and its materials')
+#' orcid('pmc:PMC3901677')
 #' 
 #' ## Using more complicated SOLR queries
 #' 

@@ -15,6 +15,8 @@
 #' ORCIDs which could take a while.
 #' @param ... Ignored.
 #' @return (character) vector of identifiers, or NULL if none found
+#' @references list of identifiers 
+#' <https://pub.qa.orcid.org/v2.0/identifiers?locale=en>
 #' @examples \dontrun{
 #' # Result of call to works()
 #' x <- works(orcid_id("0000-0001-8607-8025"))

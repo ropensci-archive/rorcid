@@ -12,6 +12,8 @@ orcid_auth(scope = "/authenticate", reauth = FALSE,
 \item{scope}{(character) one or more scopes. default: \code{"/authenticate"}}
 
 \item{reauth}{(logical) Force re-authorization?}
+
+\item{redirect_uri}{(character) a redirect URI. optional}
 }
 \value{
 a character string with the access token prefixed with "Bearer "

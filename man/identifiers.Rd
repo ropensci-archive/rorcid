@@ -71,3 +71,7 @@ x <- orcid_doi(dois="10.1087/20120404", fuzzy=TRUE)
 identifiers(x)
 }
 }
+\references{
+list of identifiers
+\url{https://pub.qa.orcid.org/v2.0/identifiers?locale=en}
+}
