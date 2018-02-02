@@ -74,8 +74,11 @@ There's a function `as.orcid()` in this package to help coerce an Orcid ID to an
 
 ```r
 as.orcid(x = "0000-0002-1642-628X")
-#> Error: Not Found (HTTP 404).
-#>  - 404 Not Found: The resource was not found. Full validation error: null for uri: http://pub.orcid.org/orcid-pub-web/v2.1/0000-0002-1642-628X/profile
+#> <ORCID> 0000-0002-1642-628X
+#>   Name: Boettiger, Carl
+#>   URL (first): 
+#>   Country: US
+#>   Keywords: Ecology, Evolution, Regime Shifts, Stochastic Dynamics
 ```
 
 Or you can pass in many IDs
@@ -83,8 +86,19 @@ Or you can pass in many IDs
 
 ```r
 as.orcid(c("0000-0003-1620-1408", "0000-0002-9341-7985"))
-#> Error: Not Found (HTTP 404).
-#>  - 404 Not Found: The resource was not found. Full validation error: null for uri: http://pub.orcid.org/orcid-pub-web/v2.1/0000-0003-1620-1408/profile
+#> [[1]]
+#> <ORCID> 0000-0003-1620-1408
+#>   Name: Johnson, Thomas
+#>   URL (first): 
+#>   Country: US
+#>   Keywords: 
+#> 
+#> [[2]]
+#> <ORCID> 0000-0002-9341-7985
+#>   Name: Binfield, Peter
+#>   URL (first): 
+#>   Country: US
+#>   Keywords:
 ```
 
 The `browse()` function lets you browser to a profile easily with a single function call
@@ -98,21 +112,34 @@ browse(as.orcid("0000-0002-1642-628X"))
 
 ## Get works
 
-The `works()` function helps get works data from an orcid data object. The output of `works()` uses a print method to just print citations for each work.
+The `works()` function helps get works data from an orcid data object. The output of `works()` is a data.frame
 
 
 ```r
 (out <- works(orcid_id("0000-0002-0233-1757")))
-#> Error: Not Found (HTTP 404).
-#>  - 404 Not Found: The resource was not found. Full validation error: null for uri: http://pub.orcid.org/orcid-pub-web/v2.1/0000-0002-0233-1757/profile
-```
-
-And you can easily get to the entire data.frame of works details
-
-
-```r
-out$data
-#> Error in eval(expr, envir, enclos): object 'out' not found
+#> # A tibble: 6 x 27
+#>   `put-code` type    visibility path      `display-index` `created-date.v…
+#> *      <int> <chr>   <chr>      <chr>     <chr>                      <dbl>
+#> 1    5296064 JOURNA… PUBLIC     /0000-00… 0                  1362713629019
+#> 2    5296065 JOURNA… PUBLIC     /0000-00… 0                  1362713629025
+#> 3    5296066 JOURNA… PUBLIC     /0000-00… 0                  1362713629032
+#> 4    9012984 JOURNA… PUBLIC     /0000-00… 0                  1369326854424
+#> 5    9012985 JOURNA… PUBLIC     /0000-00… 0                  1369326854429
+#> 6    9012986 JOURNA… PUBLIC     /0000-00… 0                  1369326854433
+#> # ... with 21 more variables: `last-modified-date.value` <dbl>,
+#> #   `source.source-client-id` <lgl>, `source.source-orcid.uri` <chr>,
+#> #   `source.source-orcid.path` <chr>, `source.source-orcid.host` <chr>,
+#> #   `source.source-name.value` <chr>, title.subtitle <lgl>,
+#> #   `title.translated-title` <lgl>, title.title.value <chr>,
+#> #   `external-ids.external-id` <list>,
+#> #   `publication-date.media-type` <lgl>,
+#> #   `publication-date.year.value` <chr>,
+#> #   `publication-date.month.value` <chr>,
+#> #   `publication-date.day.value` <chr>, `publication-date.day` <lgl>,
+#> #   `external-ids` <lgl>, `publication-date` <lgl>,
+#> #   `source.source-orcid` <lgl>, `source.source-client-id.uri` <chr>,
+#> #   `source.source-client-id.path` <chr>,
+#> #   `source.source-client-id.host` <chr>
 ```
 
 ## Search Orcid
@@ -193,55 +220,44 @@ orcid("johnson cardiology houston", start = 2, rows = 3)
 #> 3 https://orcid.org/0000-0003-0945-6138 0000-0003-0945-6… orcid.org
 ```
 
-Search specific fields. here, by text type
-
-
-```r
-orcid("text:English")
-#> # A tibble: 100 x 3
-#>    `orcid-identifier.uri`                `orcid-identifi… `orcid-identifi…
-#>  * <chr>                                 <chr>            <chr>           
-#>  1 https://orcid.org/0000-0001-8797-7698 0000-0001-8797-… orcid.org       
-#>  2 https://orcid.org/0000-0003-4866-655X 0000-0003-4866-… orcid.org       
-#>  3 https://orcid.org/0000-0002-1895-9143 0000-0002-1895-… orcid.org       
-#>  4 https://orcid.org/0000-0002-6836-1393 0000-0002-6836-… orcid.org       
-#>  5 https://orcid.org/0000-0003-3473-9324 0000-0003-3473-… orcid.org       
-#>  6 https://orcid.org/0000-0003-4814-3863 0000-0003-4814-… orcid.org       
-#>  7 https://orcid.org/0000-0003-2506-8960 0000-0003-2506-… orcid.org       
-#>  8 https://orcid.org/0000-0002-6013-1841 0000-0002-6013-… orcid.org       
-#>  9 https://orcid.org/0000-0001-7683-6064 0000-0001-7683-… orcid.org       
-#> 10 https://orcid.org/0000-0001-7567-2467 0000-0001-7567-… orcid.org       
-#> # ... with 90 more rows
-```
 
 ## Search by Orcid ID
 
 
 ```r
 out <- orcid_id(orcid = "0000-0002-9341-7985")
-#> Error: Not Found (HTTP 404).
-#>  - 404 Not Found: The resource was not found. Full validation error: null for uri: http://pub.orcid.org/orcid-pub-web/v2.1/0000-0002-9341-7985/profile
-out$`0000-0002-9341-7985`$`orcid-identifier`
-#> Error in eval(expr, envir, enclos): object 'out' not found
-```
-
-Get specific thing, either bibliographic ("bio"), biographical ("works"), profile ("profile"), or record ("record")
-
-
-```r
-out <- orcid_id(orcid = "0000-0002-9341-7985", profile = "works")
-out$`0000-0002-9341-7985`$`orcid-history`
+out$`0000-0002-9341-7985`$name
+#> $`created-date`
+#> $`created-date`$value
+#> [1] 1.460762e+12
+#> 
+#> 
+#> $`last-modified-date`
+#> $`last-modified-date`$value
+#> [1] 1.460762e+12
+#> 
+#> 
+#> $`given-names`
+#> $`given-names`$value
+#> [1] "Peter"
+#> 
+#> 
+#> $`family-name`
+#> $`family-name`$value
+#> [1] "Binfield"
+#> 
+#> 
+#> $`credit-name`
 #> NULL
-```
-
-The function is vectorized, so you can pass in many Orcids
-
-
-```r
-ids <- c("0000-0003-1620-1408", "0000-0002-9341-7985")
-lapply(orcid_id(orcid = ids), "[[", "orcid-identifier")
-#> Error: Not Found (HTTP 404).
-#>  - 404 Not Found: The resource was not found. Full validation error: null for uri: http://pub.orcid.org/orcid-pub-web/v2.1/0000-0003-1620-1408/profile
+#> 
+#> $source
+#> NULL
+#> 
+#> $visibility
+#> [1] "PUBLIC"
+#> 
+#> $path
+#> [1] "0000-0002-9341-7985"
 ```
 
 ## Search by DOIs
@@ -315,30 +331,6 @@ orcid_doi(dois = "10.1087/2", fuzzy = TRUE, rows = 5)
 #> 
 #> attr(,"class")
 #> [1] "orcid_doi"
-```
-
-Function is vectorized, search for many DOIs
-
-
-```r
-dois <- c("10.1371/journal.pone.0025995","10.1371/journal.pone.0053712",
-       "10.1371/journal.pone.0054608","10.1371/journal.pone.0055937")
-res <- orcid_doi(dois = dois, fuzzy = TRUE)
-res[[1]]
-#> # A tibble: 100 x 3
-#>    `orcid-identifier.uri`                `orcid-identifi… `orcid-identifi…
-#>  * <chr>                                 <chr>            <chr>           
-#>  1 https://orcid.org/0000-0002-0051-973X 0000-0002-0051-… orcid.org       
-#>  2 https://orcid.org/0000-0003-4683-9648 0000-0003-4683-… orcid.org       
-#>  3 https://orcid.org/0000-0002-5634-6145 0000-0002-5634-… orcid.org       
-#>  4 https://orcid.org/0000-0003-1655-9549 0000-0003-1655-… orcid.org       
-#>  5 https://orcid.org/0000-0002-2565-951X 0000-0002-2565-… orcid.org       
-#>  6 https://orcid.org/0000-0002-7630-7194 0000-0002-7630-… orcid.org       
-#>  7 https://orcid.org/0000-0003-3976-0923 0000-0003-3976-… orcid.org       
-#>  8 https://orcid.org/0000-0001-9733-2252 0000-0001-9733-… orcid.org       
-#>  9 https://orcid.org/0000-0002-3055-3920 0000-0002-3055-… orcid.org       
-#> 10 https://orcid.org/0000-0001-5442-6857 0000-0001-5442-… orcid.org       
-#> # ... with 90 more rows
 ```
 
 ## Meta

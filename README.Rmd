@@ -74,16 +74,10 @@ browse(as.orcid("0000-0002-1642-628X"))
 
 ## Get works
 
-The `works()` function helps get works data from an orcid data object. The output of `works()` uses a print method to just print citations for each work.
+The `works()` function helps get works data from an orcid data object. The output of `works()` is a data.frame
 
 ```{r}
 (out <- works(orcid_id("0000-0002-0233-1757")))
-```
-
-And you can easily get to the entire data.frame of works details
-
-```{r}
-out$data
 ```
 
 ## Search Orcid
@@ -112,31 +106,12 @@ And you can use start and rows arguments to do pagination
 orcid("johnson cardiology houston", start = 2, rows = 3)
 ```
 
-Search specific fields. here, by text type
-
-```{r}
-orcid("text:English")
-```
 
 ## Search by Orcid ID
 
 ```{r}
 out <- orcid_id(orcid = "0000-0002-9341-7985")
-out$`0000-0002-9341-7985`$`orcid-identifier`
-```
-
-Get specific thing, either bibliographic ("bio"), biographical ("works"), profile ("profile"), or record ("record")
-
-```{r}
-out <- orcid_id(orcid = "0000-0002-9341-7985", profile = "works")
-out$`0000-0002-9341-7985`$`orcid-history`
-```
-
-The function is vectorized, so you can pass in many Orcids
-
-```{r}
-ids <- c("0000-0003-1620-1408", "0000-0002-9341-7985")
-lapply(orcid_id(orcid = ids), "[[", "orcid-identifier")
+out$`0000-0002-9341-7985`$name
 ```
 
 ## Search by DOIs
@@ -169,15 +144,6 @@ This DOI is not a real one, but a partial DOI, then we can fuzzy search
 
 ```{r}
 orcid_doi(dois = "10.1087/2", fuzzy = TRUE, rows = 5)
-```
-
-Function is vectorized, search for many DOIs
-
-```{r}
-dois <- c("10.1371/journal.pone.0025995","10.1371/journal.pone.0053712",
-       "10.1371/journal.pone.0054608","10.1371/journal.pone.0055937")
-res <- orcid_doi(dois = dois, fuzzy = TRUE)
-res[[1]]
 ```
 
 ## Meta
