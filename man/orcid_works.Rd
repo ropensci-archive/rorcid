@@ -10,7 +10,7 @@ orcid_works(orcid, put_code = NULL, format = "application/json", ...)
 \item{orcid}{(character) Orcid identifier(s), of the form
 XXXX-XXXX-XXXX-XXXX. required.}
 
-\item{put_code}{(character/integer) one or more put codes. required.}
+\item{put_code}{(character/integer) one or more put codes. optional}
 
 \item{format}{(character) Name of the content-type format. One of
 "application/vnd.orcid+xml; qs=5", "application/orcid+xml; qs=3",
@@ -19,8 +19,6 @@ XXXX-XXXX-XXXX-XXXX. required.}
 "application/vnd.citationstyles.csl+json". optional}
 
 \item{...}{Curl options passed on to \code{\link[crul:HttpClient]{crul::HttpClient()}}}
-
-\item{put_code}{(character/integer) one or more put codes. optional}
 }
 \value{
 A list of results for each Orcid ID passed in, with each element 

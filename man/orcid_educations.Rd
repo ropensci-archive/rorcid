@@ -11,7 +11,7 @@ orcid_educations(orcid, put_code = NULL, format = "application/json",
 \item{orcid}{(character) Orcid identifier(s), of the form
 XXXX-XXXX-XXXX-XXXX. required.}
 
-\item{put_code}{(character/integer) one or more put codes. required.}
+\item{put_code}{(character/integer) one or more put codes. optional}
 
 \item{format}{(character) Name of the content-type format. One of
 "application/vnd.orcid+xml; qs=5", "application/orcid+xml; qs=3",

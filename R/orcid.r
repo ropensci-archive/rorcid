@@ -132,11 +132,6 @@
 #' orcid('digital-object-ids:"10.1087/20120404"')
 #' ## doi prefix
 #' orcid('digital-object-ids:"10.1087/*"')
-#' ## other identifiers
-#' orcid('digital-object-ids:"2-s2.0-84889654399"')
-#'  
-#' # Search by text type
-#' orcid("text:English")
 #' 
 #' # search by work titles
 #' orcid('work-titles:Modern developments in holography and its materials')
