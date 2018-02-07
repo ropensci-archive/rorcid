@@ -8,10 +8,12 @@
 A R interface to the Orcid public API. \pkg{rorcid} is not a product
 developed or distributed by ORCID.
 
+ORCID website: \url{https://orcid.org/}
+
 Orcid API docs:
 \itemize{
 \item \url{http://members.orcid.org/api}
-\item \url{https://github.com/ORCID/ORCID-Source/wiki/full-api-reference}
+\item \url{https://pub.orcid.org/v2.1/#/Public_API_v2.1}
 }
 
 \pkg{rorcid} has the following main user facing methods:
