@@ -20,7 +20,7 @@ There are no reverse dependencies.
 
 ---
 
-This version xxxx
+This version adds many new functions and changes existing ones slightly to work with a new version of the ORCID API.
 
 Sincerley, 
 Scott Chamberlain

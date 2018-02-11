@@ -3,7 +3,7 @@ Title: Interface to the 'Orcid.org' 'API'
 Description: Client for the 'Orcid.org' 'API' (<https://orcid.org/>).
     Functions included for searching for people, searching by 'DOI',
     and searching by 'Orcid' 'ID'.
-Version: 0.3.9.9910
+Version: 0.4.0
 Authors@R: c(person("Scott", "Chamberlain", role = c("aut", "cre"),
     email = "myrmecocystus@gmail.com", 
     comment = c(ORCID = "0000-0003-1444-9135")))
@@ -22,8 +22,7 @@ Imports:
     data.table
 Suggests:
     testthat,
-    knitr,
-    rmarkdown
+    knitr
 RoxygenNote: 6.0.1
 VignetteBuilder: knitr
 X-schema.org-applicationCategory: Literature
