@@ -1,0 +1,149 @@
+<!--
+%\VignetteEngine{knitr::knitr}
+%\VignetteIndexEntry{Introduction to the rorcid package}
+%\VignetteEncoding{UTF-8}
+-->
+
+```{r echo=FALSE}
+knitr::opts_chunk$set(
+	comment = "#>",
+	collapse = TRUE,
+	warning = FALSE,
+	message = FALSE
+)
+```
+
+`rorcid` is an R programmatic interface to the Orcid public API. `rorcid` is not a product developed or distributed by ORCID®.
+
+Orcid API docs:
+
+* Public API docs: <http://members.orcid.org/api>
+* Swagger docs: <https://api.orcid.org/v2.1/>
+
+The package now works with the `v2.1` ORCID API now. It's too complicated to allow users to work with different versions of the API, so it's hard-coded to `v2.1`.
+
+## Package API
+
+```{r echo=FALSE, comment=NA, results='asis'}
+cat(paste(" -", paste(sprintf("`%s`", getNamespaceExports("rorcid")), collapse = "\n - ")))
+```
+
+
+## Get rorcid
+
+Install from CRAN
+
+```{r eval=FALSE}
+install.packages("rorcid")
+```
+
+Or install the development version from GitHub
+
+```{r eval=FALSE}
+devtools::install_github("ropensci/rorcid")
+```
+
+Load rorcid
+
+```{r}
+library("rorcid")
+```
+
+## as.orcid
+
+There's a function `as.orcid()` in this package to help coerce an Orcid ID to an object that holds details for that Orcid ID, prints a nice summary, and you can browse easily to that profile. E.g.
+
+```{r}
+as.orcid(x = "0000-0002-1642-628X")
+```
+
+Or you can pass in many IDs
+
+```{r}
+as.orcid(c("0000-0003-1620-1408", "0000-0002-9341-7985"))
+```
+
+The `browse()` function lets you browser to a profile easily with a single function call
+
+```{r eval=FALSE}
+browse(as.orcid("0000-0002-1642-628X"))
+```
+
+![profile](http://f.cl.ly/items/3d1o0k1X3R1U110C0u1u/Screen%20Shot%202015-02-10%20at%207.21.57%20PM.png)
+
+## Get works
+
+The `works()` function helps get works data from an orcid data object. The output of `works()` uses a print method to just print citations for each work.
+
+```{r}
+(out <- works(orcid_id("0000-0002-0233-1757")))
+```
+
+## Search Orcid
+
+Get a list of names and Orcid IDs matching a name query
+
+```{r}
+orcid(query = "carl boettiger")
+```
+
+You can string together many search terms
+
+```{r}
+orcid(query = "johnson cardiology houston")
+```
+
+And you can use start and rows arguments to do pagination
+
+```{r}
+orcid("johnson cardiology houston", start = 2, rows = 3)
+```
+
+## Search by Orcid ID
+
+```{r}
+out <- orcid_id(orcid = "0000-0002-9341-7985")
+out$`0000-0002-9341-7985`$addresses
+```
+
+
+## Search by DOIs
+
+There is a helper function `check_dois()` that uses a regex checker to see if your DOIs are likely good or likely bad:
+
+All good DOIs
+
+```{r}
+dois <- c("10.1371/journal.pone.0025995","10.1371/journal.pone.0053712",
+       "10.1371/journal.pone.0054608","10.1371/journal.pone.0055937")
+check_dois(dois)
+```
+
+Some good, some bad
+
+```{r}
+dois <- c("10.1016/j.medpal.2008.12.005","10.1080/00933104.2000.10505926","10.1037/a0024480",
+        "10.1002/anie.196603172","2344","asdf","232","asdf","23dd")
+check_dois(dois)
+```
+
+Basic search
+
+```{r}
+orcid_doi(dois = "10.1087/20120404")
+```
+
+This DOI is not a real one, but a partial DOI, then we can fuzzy search
+
+```{r}
+orcid_doi(dois = "10.1087/2", fuzzy = TRUE, rows = 5)
+```
+
+Function is vectorized, search for many DOIs
+
+```{r}
+dois <- c("10.1371/journal.pone.0025995","10.1371/journal.pone.0053712",
+       "10.1371/journal.pone.0054608","10.1371/journal.pone.0055937")
+res <- orcid_doi(dois = dois, fuzzy = TRUE)
+res[[1]]
+```
