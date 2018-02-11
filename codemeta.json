@@ -1,13 +1,16 @@
 {
-  "@context": ["http://purl.org/codemeta/2.0", "http://schema.org"],
+  "@context": [
+    "http://purl.org/codemeta/2.0",
+    "http://schema.org"
+  ],
   "@type": "SoftwareSourceCode",
   "identifier": "rorcid",
-  "description": "Client for the 'Orcid.org' 'API' (http://orcid.org/).\n    Functions included for searching for people, searching by 'DOI',\n    and searching by 'Orcid' 'ID'.",
+  "description": "Client for the 'Orcid.org' 'API' (<https://orcid.org/>).\n    Functions included for searching for people, searching by 'DOI',\n    and searching by 'Orcid' 'ID'.",
   "name": "rorcid: Interface to the 'Orcid.org' 'API'",
   "codeRepository": "https://github.com/ropensci/rorcid",
   "issueTracker": "https://github.com/ropensci/rorcid/issues",
   "license": "https://spdx.org/licenses/MIT",
-  "version": "0.3.5.9100",
+  "version": "0.3.7.9210",
   "programmingLanguage": {
     "@type": "ComputerLanguage",
     "name": "R",
@@ -26,28 +29,18 @@
       "@type": "Person",
       "givenName": "Scott",
       "familyName": "Chamberlain",
-      "email": "myrmecocystus@gmail.com"
+      "email": "myrmecocystus@gmail.com",
+      "@id": "https://orcid.org/0000-0003-1444-9135"
     }
   ],
   "maintainer": {
     "@type": "Person",
     "givenName": "Scott",
     "familyName": "Chamberlain",
-    "email": "myrmecocystus@gmail.com"
+    "email": "myrmecocystus@gmail.com",
+    "@id": "https://orcid.org/0000-0003-1444-9135"
   },
   "softwareSuggestions": [
-    {
-      "@type": "SoftwareApplication",
-      "identifier": "roxygen2",
-      "name": "roxygen2",
-      "version": "6.0.1",
-      "provider": {
-        "@id": "https://cran.r-project.org",
-        "@type": "Organization",
-        "name": "Central R Archive Network (CRAN)",
-        "url": "https://cran.r-project.org"
-      }
-    },
     {
       "@type": "SoftwareApplication",
       "identifier": "testthat",
@@ -87,7 +80,18 @@
       "@type": "SoftwareApplication",
       "identifier": "crul",
       "name": "crul",
-      "version": "0.3.4.9415",
+      "version": "0.5.0",
+      "provider": {
+        "@id": "https://cran.r-project.org",
+        "@type": "Organization",
+        "name": "Central R Archive Network (CRAN)",
+        "url": "https://cran.r-project.org"
+      }
+    },
+    {
+      "@type": "SoftwareApplication",
+      "identifier": "httr",
+      "name": "httr",
       "provider": {
         "@id": "https://cran.r-project.org",
         "@type": "Organization",
@@ -110,7 +114,19 @@
       "@type": "SoftwareApplication",
       "identifier": "jsonlite",
       "name": "jsonlite",
-      "version": "1.0",
+      "version": "1.5",
+      "provider": {
+        "@id": "https://cran.r-project.org",
+        "@type": "Organization",
+        "name": "Central R Archive Network (CRAN)",
+        "url": "https://cran.r-project.org"
+      }
+    },
+    {
+      "@type": "SoftwareApplication",
+      "identifier": "xml2",
+      "name": "xml2",
+      "version": "1.1.1",
       "provider": {
         "@id": "https://cran.r-project.org",
         "@type": "Organization",
@@ -134,5 +150,8 @@
   "contIntegration": "https://travis-ci.org/ropensci/rorcid",
   "releaseNotes": "https://github.com/ropensci/rorcid/blob/master/NEWS.md",
   "readme": "https://github.com/ropensci/rorcid/blob/master/README.md",
-  "fileSize": "23.729KB"
+  "fileSize": "32.78KB",
+  "applicationCategory": "Literature",
+  "isPartOf": "https://ropensci.org",
+  "keywords": ["identifiers", "literature", "publications", "citations", "scholarly", "people"]
 }

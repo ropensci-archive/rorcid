@@ -35,7 +35,7 @@ ids <- c("0000-0002-1642-628X", "0000-0002-9341-7985")
 as.orcid(ids)
 
 # many in a list via orcid_id()
-(x <- orcid_id(orcid = ids))
+(x <- lapply(ids, orcid_id))
 as.orcid(x)
 }
 }

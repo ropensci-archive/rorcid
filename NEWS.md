@@ -1,3 +1,27 @@
+rorcid 0.4.0
+============
+
+Most changes in this version are to update the package to work with the new ORCID API (`v2.1`). 
+
+### NEW FEATURES
+
+* xxx (#xx)
+* xxx (#xx)
+* xxx (#xx)
+
+### MINOR IMPROVEMENTS
+
+* Fixes to `identifiers` (#34)
+* xxx (#xx)
+* xxx (#xx)
+
+## BUG FIXES
+
+* xxx (#xx)
+* xxx (#xx)
+* xxx (#xx)
+
+
 rorcid 0.3.0
 ============
 

@@ -8,14 +8,13 @@ test_that("basic works operations returns the correct...", {
   
   # gives the right classes
   expect_is(aa, "works")
-  expect_named(aa, "data")
-  expect_equal(aa$data, "None")
+  expect_named(aa, character(0))
+  expect_equal(NROW(aa), 0)
   
   expect_is(bb, "works")
-  expect_named(bb, "data")
-  expect_is(bb$data, "data.frame")
-  expect_is(bb$data$`source.source-orcid.path`, "character")
-  expect_true(any(grepl("taxize", bb$data$`work-title.title.value`)))
+  expect_is(bb, "data.frame")
+  expect_is(bb$`source.source-orcid.path`, "character")
+  expect_true(any(grepl("taxize", bb$`title.title.value`)))
 })
 
 test_that("works fails well", {
@@ -23,5 +22,5 @@ test_that("works fails well", {
   
   expect_error(works(5), "no 'as.orcid' method")
   expect_error(works(mtcars), "no 'as.orcid' method")
-  expect_error(works("Asfaf"), "Not found : No entity found for query")
+  expect_error(works("Asfaf"), "404 Not Found")
 })

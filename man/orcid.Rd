@@ -18,7 +18,7 @@ SOLR syntax. See examples below. For all possible fields to query, do
 \item{start}{Result number to start on. Keep in mind that pages start at 0.
 Deafult: 0}
 
-\item{rows}{Numer of results to return. Default: 10}
+\item{rows}{Numer of results to return. Default: 10. Max: 200}
 
 \item{recursive}{Keep drilling down until all records are retrieved for the
 given query, default FALSE (logical). If \code{recursive=TRUE}, rows and
@@ -98,12 +98,19 @@ ORCID is for that exact DOI. If TRUE, we use some regex to find the DOI.}
 }
 \value{
 a data.frame (tibble). You can access number of results found like
-\code{attr(result, "found")}
+\code{attr(result, "found")}. Note that with ORCID API v2 and greater,
+results here are only the identifiers. To get other metadata/data
+you can take the identifiers and use other functions in this package.
 }
 \description{
 Search for ORCID ID's.
 }
 \details{
+All query syntaxes available in SOLR 3.6 (
+\url{https://cwiki.apache.org/confluence/display/solr/The+Standard+Query+Parser})
+are supported, including Lucene with Solr extensions (default), DisMax,
+and Extended Dismax.
+
 You can use any of the following within the query statement:
 given-names, family-name, credit-name, other-names, email, grant-number,
 patent-number, keyword, worktitle, digital-objectids, current-institution,
@@ -126,6 +133,9 @@ together.
 # Get a list of names and Orcid IDs matching a name query
 orcid(query="carl+boettiger")
 orcid(query="given-names:carl AND family-name:boettiger")
+
+# by email
+orcid(query="email:cboettig@berkeley.edu")
 
 # You can string together many search terms
 orcid(query="johnson cardiology houston")
@@ -156,14 +166,10 @@ orcid('"10.1087/20120404"')
 orcid('digital-object-ids:"10.1087/20120404"')
 ## doi prefix
 orcid('digital-object-ids:"10.1087/*"')
-## other identifiers
-orcid('digital-object-ids:"2-s2.0-84889654399"')
- 
-# Search by text type
-orcid("text:English")
 
 # search by work titles
 orcid('work-titles:Modern developments in holography and its materials')
+orcid('pmc:PMC3901677')
 
 ## Using more complicated SOLR queries
 
@@ -181,6 +187,9 @@ orcid(defType = "edismax",
       query="keyword:ecology OR evolution OR conservation", 
       mm = 2, rows = 20)
 }
+}
+\references{
+\url{https://members.orcid.org/api/tutorial/search-orcid-registry}
 }
 \seealso{
 \code{\link[=orcid_doi]{orcid_doi()}} \code{\link[=orcid_id]{orcid_id()}}
