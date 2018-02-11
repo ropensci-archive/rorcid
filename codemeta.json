@@ -10,7 +10,7 @@
   "codeRepository": "https://github.com/ropensci/rorcid",
   "issueTracker": "https://github.com/ropensci/rorcid/issues",
   "license": "https://spdx.org/licenses/MIT",
-  "version": "0.3.7.9210",
+  "version": "0.4.0",
   "programmingLanguage": {
     "@type": "ComputerLanguage",
     "name": "R",
@@ -56,17 +56,6 @@
       "@type": "SoftwareApplication",
       "identifier": "knitr",
       "name": "knitr",
-      "provider": {
-        "@id": "https://cran.r-project.org",
-        "@type": "Organization",
-        "name": "Central R Archive Network (CRAN)",
-        "url": "https://cran.r-project.org"
-      }
-    },
-    {
-      "@type": "SoftwareApplication",
-      "identifier": "rmarkdown",
-      "name": "rmarkdown",
       "provider": {
         "@id": "https://cran.r-project.org",
         "@type": "Organization",
@@ -145,12 +134,23 @@
         "name": "Central R Archive Network (CRAN)",
         "url": "https://cran.r-project.org"
       }
+    },
+    {
+      "@type": "SoftwareApplication",
+      "identifier": "data.table",
+      "name": "data.table",
+      "provider": {
+        "@id": "https://cran.r-project.org",
+        "@type": "Organization",
+        "name": "Central R Archive Network (CRAN)",
+        "url": "https://cran.r-project.org"
+      }
     }
   ],
   "contIntegration": "https://travis-ci.org/ropensci/rorcid",
   "releaseNotes": "https://github.com/ropensci/rorcid/blob/master/NEWS.md",
   "readme": "https://github.com/ropensci/rorcid/blob/master/README.md",
-  "fileSize": "32.78KB",
+  "fileSize": "34.19KB",
   "applicationCategory": "Literature",
   "isPartOf": "https://ropensci.org",
   "keywords": ["identifiers", "literature", "publications", "citations", "scholarly", "people"]
