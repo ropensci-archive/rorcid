@@ -10,7 +10,7 @@ inst/extra
 ^\.Rproj\.user$
 README.Rmd
 cran-comments.md
-^CONDUCT\.md$
+^CODE_OF_CONDUCT\.md$
 ^cran-comments\.md$
 ^\.httr-oauth$
 .github
