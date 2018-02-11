@@ -10,8 +10,8 @@
 
 Orcid API docs:
 
-* Public API docs: <http://members.orcid.org/api>
-* Swagger docs: <https://api.orcid.org/v2.1/>
+* Public API docs: http://members.orcid.org/api
+* Swagger docs: https://api.orcid.org/v2.1/
 
 The package now works with the `v2.1` ORCID API now. It's too complicated to allow users to work with different versions of the API, so it's hard-coded to `v2.1`.
 

@@ -73,5 +73,5 @@ identifiers(x)
 }
 \references{
 list of identifiers
-\url{https://pub.qa.orcid.org/v2.0/identifiers?locale=en}
+https://pub.qa.orcid.org/v2.0/identifiers?locale=en
 }
