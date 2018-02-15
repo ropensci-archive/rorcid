@@ -3,7 +3,8 @@
 #' @export
 #' @param orcid (character) Orcid identifier(s), of the form 
 #' XXXX-XXXX-XXXX-XXXX. required.
-#' @param put_code (character/integer) one or more put codes. optional
+#' @param put_code (character/integer) one or more put codes. up to 
+#' 50. optional
 #' @param format (character) Name of the content-type format. One of
 #' "application/vnd.orcid+xml; qs=5", "application/orcid+xml; qs=3",
 #' "application/xml", "application/vnd.orcid+json; qs=4",
@@ -23,7 +24,7 @@
 #' 
 #' # get individual works
 #' orcid_works(orcid = "0000-0002-9341-7985", 5011717)
-#' orcid_works(orcid = "0000-0002-9341-7985", put_code = c(5011717, 15536016))
+#' orcid_works(orcid = "0000-0002-9341-7985", put_code = c(5011717, 15536016), verbose = TRUE)
 #' 
 #' # change formats
 #' orcid_works("0000-0002-9341-7985", 5011717, "application/json")
@@ -39,6 +40,11 @@
 #' vapply(x[[1]]$group$`work-summary`, function(z) {
 #'   orcid_works(id, put_code = z$`put-code`)[[1]]$citation$`citation-value`
 #'   }, "")
+#' ## or send many put codes at once, up to 50
+#' pcodes <- vapply(x[[1]]$group$`work-summary`, "[[", 1, "put-code")
+#' length(pcodes)
+#' res <- orcid_works(id, put_code = pcodes)
+#' res[[1]]$bulk$`work.citation.citation-value`
 #' }
 orcid_works <- function(orcid, put_code = NULL, format = "application/json", 
   ...) {
@@ -48,14 +54,23 @@ orcid_works <- function(orcid, put_code = NULL, format = "application/json",
       stop("if 'put_code' is given, 'orcid' must be length 1")
     }
   }
-  pth <- if (is.null(put_code)) "works" else file.path("work", put_code)
-  if (length(pth) > 1) {
-    stats::setNames(
-      Map(function(z) orcid_prof_helper(orcid, z, ctype = format), pth), 
-      put_code)
+  pth <- if (is.null(put_code)) {
+    "works" 
   } else {
-    nmd <- if (!is.null(put_code)) put_code else orcid
-    stats::setNames(
-      lapply(orcid, orcid_prof_helper, path = pth, ctype = format, ...), nmd)
+    if (length(put_code) > 1) {
+      if (length(put_code) > 50) stop("'put_code' can accept up to 50")
+      file.path("works", paste0(put_code, collapse = ","))
+    } else {
+      file.path("work", put_code)
+    }
   }
+  # if (length(pth) > 1) {
+  #   stats::setNames(
+  #     Map(function(z) orcid_prof_helper(orcid, z, ctype = format), pth), 
+  #     put_code)
+  # } else {
+    # nmd <- if (!is.null(put_code)) put_code else orcid
+    stats::setNames(
+      lapply(orcid, orcid_prof_helper, path = pth, ctype = format, ...), orcid)
+  # }
 }

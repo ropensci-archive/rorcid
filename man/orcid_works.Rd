@@ -10,7 +10,8 @@ orcid_works(orcid, put_code = NULL, format = "application/json", ...)
 \item{orcid}{(character) Orcid identifier(s), of the form
 XXXX-XXXX-XXXX-XXXX. required.}
 
-\item{put_code}{(character/integer) one or more put codes. optional}
+\item{put_code}{(character/integer) one or more put codes. up to
+50. optional}
 
 \item{format}{(character) Name of the content-type format. One of
 "application/vnd.orcid+xml; qs=5", "application/orcid+xml; qs=3",
@@ -43,7 +44,7 @@ str(res$`0000-0002-9341-7985`$group$`work-summary`[[1]])
 
 # get individual works
 orcid_works(orcid = "0000-0002-9341-7985", 5011717)
-orcid_works(orcid = "0000-0002-9341-7985", put_code = c(5011717, 15536016))
+orcid_works(orcid = "0000-0002-9341-7985", put_code = c(5011717, 15536016), verbose = TRUE)
 
 # change formats
 orcid_works("0000-0002-9341-7985", 5011717, "application/json")
@@ -59,5 +60,10 @@ x <- orcid_works(id)
 vapply(x[[1]]$group$`work-summary`, function(z) {
   orcid_works(id, put_code = z$`put-code`)[[1]]$citation$`citation-value`
   }, "")
+## or send many put codes at once, up to 50
+pcodes <- vapply(x[[1]]$group$`work-summary`, "[[", 1, "put-code")
+length(pcodes)
+res <- orcid_works(id, put_code = pcodes)
+res[[1]]$bulk$`work.citation.citation-value`
 }
 }
