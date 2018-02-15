@@ -52,5 +52,12 @@ orcid_works("0000-0002-9341-7985", 5011717,
   "application/vnd.orcid+xml; qs=5")
 orcid_works("0000-0002-9341-7985", 5011717, 
   "application/vnd.citationstyles.csl+json")
+
+# get citations
+id <- "0000-0001-7678-8656"
+x <- orcid_works(id)
+vapply(x[[1]]$group$`work-summary`, function(z) {
+  orcid_works(id, put_code = z$`put-code`)[[1]]$citation$`citation-value`
+  }, "")
 }
 }
