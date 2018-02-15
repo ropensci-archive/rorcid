@@ -64,13 +64,8 @@ orcid_works <- function(orcid, put_code = NULL, format = "application/json",
       file.path("work", put_code)
     }
   }
-  # if (length(pth) > 1) {
-  #   stats::setNames(
-  #     Map(function(z) orcid_prof_helper(orcid, z, ctype = format), pth), 
-  #     put_code)
-  # } else {
-    # nmd <- if (!is.null(put_code)) put_code else orcid
-    stats::setNames(
-      lapply(orcid, orcid_prof_helper, path = pth, ctype = format, ...), orcid)
-  # }
+  stats::setNames(
+    lapply(orcid, orcid_prof_helper, path = pth, ctype = format, ...), 
+    orcid
+  )
 }
