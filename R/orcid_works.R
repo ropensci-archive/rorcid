@@ -40,11 +40,16 @@
 #' vapply(x[[1]]$group$`work-summary`, function(z) {
 #'   orcid_works(id, put_code = z$`put-code`)[[1]]$citation$`citation-value`
 #'   }, "")
-#' ## or send many put codes at once, up to 50
-#' pcodes <- vapply(x[[1]]$group$`work-summary`, "[[", 1, "put-code")
+#' 
+#' ## or send many put codes at once, will be split into chunks of 50 each
+#' id <- "0000-0001-6758-5101"
+#' x <- orcid_works(id)
+#' pcodes <- unlist(lapply(x[[1]]$group$`work-summary`, "[[", "put-code"))
 #' length(pcodes)
 #' res <- orcid_works(id, put_code = pcodes)
-#' res[[1]]$bulk$`work.citation.citation-value`
+#' unname(unlist(
+#'   lapply(res, function(z) z$bulk$`work.citation.citation-value`)
+#' ))
 #' }
 orcid_works <- function(orcid, put_code = NULL, format = "application/json", 
   ...) {
@@ -58,14 +63,18 @@ orcid_works <- function(orcid, put_code = NULL, format = "application/json",
     "works" 
   } else {
     if (length(put_code) > 1) {
-      if (length(put_code) > 50) stop("'put_code' can accept up to 50")
-      file.path("works", paste0(put_code, collapse = ","))
+      chunks <- split(put_code, ceiling(seq_along(put_code) / 50))
+      lapply(chunks, function(z) file.path("works", paste0(z, collapse = ",")))
     } else {
       file.path("work", put_code)
     }
   }
-  stats::setNames(
-    lapply(orcid, orcid_prof_helper, path = pth, ctype = format, ...), 
-    orcid
-  )
+  if (length(pth) > 1) {
+    Map(function(z) orcid_prof_helper(orcid, z, ctype = format), pth)
+  } else {
+    stats::setNames(
+      lapply(orcid, orcid_prof_helper, path = pth, ctype = format, ...), 
+      orcid
+    )
+  }
 }

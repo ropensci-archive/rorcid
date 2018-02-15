@@ -60,10 +60,15 @@ x <- orcid_works(id)
 vapply(x[[1]]$group$`work-summary`, function(z) {
   orcid_works(id, put_code = z$`put-code`)[[1]]$citation$`citation-value`
   }, "")
-## or send many put codes at once, up to 50
-pcodes <- vapply(x[[1]]$group$`work-summary`, "[[", 1, "put-code")
+
+## or send many put codes at once, will be split into chunks of 50 each
+id <- "0000-0001-6758-5101"
+x <- orcid_works(id)
+pcodes <- unlist(lapply(x[[1]]$group$`work-summary`, "[[", "put-code"))
 length(pcodes)
 res <- orcid_works(id, put_code = pcodes)
-res[[1]]$bulk$`work.citation.citation-value`
+unname(unlist(
+  lapply(res, function(z) z$bulk$`work.citation.citation-value`)
+))
 }
 }
