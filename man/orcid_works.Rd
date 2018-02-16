@@ -44,7 +44,7 @@ str(res$`0000-0002-9341-7985`$group$`work-summary`[[1]])
 
 # get individual works
 orcid_works(orcid = "0000-0002-9341-7985", 5011717)
-orcid_works(orcid = "0000-0002-9341-7985", put_code = c(5011717, 15536016), verbose = TRUE)
+orcid_works(orcid = "0000-0002-9341-7985", put_code = c(5011717, 15536016))
 
 # change formats
 orcid_works("0000-0002-9341-7985", 5011717, "application/json")
@@ -67,8 +67,6 @@ x <- orcid_works(id)
 pcodes <- unlist(lapply(x[[1]]$group$`work-summary`, "[[", "put-code"))
 length(pcodes)
 res <- orcid_works(id, put_code = pcodes)
-unname(unlist(
-  lapply(res, function(z) z$bulk$`work.citation.citation-value`)
-))
+tibble::as_tibble(data.table::setDF(data.table::rbindlist(res, use.names = TRUE, fill = TRUE)))
 }
 }

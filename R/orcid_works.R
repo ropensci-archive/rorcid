@@ -24,7 +24,7 @@
 #' 
 #' # get individual works
 #' orcid_works(orcid = "0000-0002-9341-7985", 5011717)
-#' orcid_works(orcid = "0000-0002-9341-7985", put_code = c(5011717, 15536016), verbose = TRUE)
+#' orcid_works(orcid = "0000-0002-9341-7985", put_code = c(5011717, 15536016))
 #' 
 #' # change formats
 #' orcid_works("0000-0002-9341-7985", 5011717, "application/json")
@@ -47,9 +47,7 @@
 #' pcodes <- unlist(lapply(x[[1]]$group$`work-summary`, "[[", "put-code"))
 #' length(pcodes)
 #' res <- orcid_works(id, put_code = pcodes)
-#' unname(unlist(
-#'   lapply(res, function(z) z$bulk$`work.citation.citation-value`)
-#' ))
+#' tibble::as_tibble(data.table::setDF(data.table::rbindlist(res, use.names = TRUE, fill = TRUE)))
 #' }
 orcid_works <- function(orcid, put_code = NULL, format = "application/json", 
   ...) {
@@ -70,7 +68,8 @@ orcid_works <- function(orcid, put_code = NULL, format = "application/json",
     }
   }
   if (length(pth) > 1) {
-    Map(function(z) orcid_prof_helper(orcid, z, ctype = format), pth)
+    tmp <- Map(function(z) orcid_prof_helper(orcid, z, ctype = format), pth)
+    unname(lapply(tmp, function(z) z$bulk))
   } else {
     stats::setNames(
       lapply(orcid, orcid_prof_helper, path = pth, ctype = format, ...), 
