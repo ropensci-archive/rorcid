@@ -26,7 +26,8 @@ There are two ways to authorise with \pkg{rorcid}:
 \itemize{
 \item Use a token as a result of a OAuth authentication process. The token
 is a alphanumeric UUID, e.g. \code{dc0a6b6b-b4d4-4276-bc89-78c1e9ede56e}. You
-can get this token by doing xxx. Then store it either as en environment
+can get this token by running \code{orcid_auth()}, then storing that key
+(the uuid alone, not the "Bearer " part) either as en environment
 variable in your \code{.Renviron} file in your home directory, or as an R
 option in your \code{.Rprofile} file. See \link{Startup} for more information.
 Either an environment variable or R option work. If we don't find
