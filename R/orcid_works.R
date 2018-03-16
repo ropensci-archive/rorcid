@@ -17,13 +17,11 @@
 #' # get all works
 #' res <- orcid_works(orcid = "0000-0002-9341-7985")
 #' res$`0000-0002-9341-7985`
-#' res$`0000-0002-9341-7985`$group
-#' res$`0000-0002-9341-7985`$group$`work-summary`
-#' res$`0000-0002-9341-7985`$group$`work-summary`[[1]]
-#' str(res$`0000-0002-9341-7985`$group$`work-summary`[[1]])
+#' res$`0000-0002-9341-7985`$type
+#' str(res$`0000-0002-9341-7985`)
 #' 
 #' # get individual works
-#' orcid_works(orcid = "0000-0002-9341-7985", 5011717)
+#' orcid_works(orcid = "0000-0002-9341-7985", put_code = 5011717)
 #' orcid_works(orcid = "0000-0002-9341-7985", put_code = c(5011717, 15536016))
 #' 
 #' # change formats
@@ -37,17 +35,15 @@
 #' # get citations
 #' id <- "0000-0001-7678-8656"
 #' x <- orcid_works(id)
-#' vapply(x[[1]]$group$`work-summary`, function(z) {
-#'   orcid_works(id, put_code = z$`put-code`)[[1]]$citation$`citation-value`
-#'   }, "")
+#' orcid_works(id, put_code = x[[1]]$`put-code`)[[1]]$`work.citation.citation-value`
 #' 
 #' ## or send many put codes at once, will be split into chunks of 50 each
 #' id <- "0000-0001-6758-5101"
 #' x <- orcid_works(id)
-#' pcodes <- unlist(lapply(x[[1]]$group$`work-summary`, "[[", "put-code"))
+#' pcodes <- x[[1]]$`put-code`
 #' length(pcodes)
-#' res <- orcid_works(id, put_code = pcodes)
-#' tibble::as_tibble(data.table::setDF(data.table::rbindlist(res, use.names = TRUE, fill = TRUE)))
+#' res <- orcid_works(orcid = id, put_code = pcodes)
+#' lapply(res$`0000-0001-6758-5101`, head, n = 1)
 #' }
 orcid_works <- function(orcid, put_code = NULL, format = "application/json", 
   ...) {
@@ -57,6 +53,7 @@ orcid_works <- function(orcid, put_code = NULL, format = "application/json",
       stop("if 'put_code' is given, 'orcid' must be length 1")
     }
   }
+
   pth <- if (is.null(put_code)) {
     "works" 
   } else {
@@ -67,13 +64,35 @@ orcid_works <- function(orcid, put_code = NULL, format = "application/json",
       file.path("work", put_code)
     }
   }
+
   if (length(pth) > 1) {
     tmp <- Map(function(z) orcid_prof_helper(orcid, z, ctype = format), pth)
-    unname(lapply(tmp, function(z) z$bulk))
+    tt <- unname(lapply(tmp, function(z) z$bulk))
+    stats::setNames(list(tt), orcid)
   } else {
-    stats::setNames(
-      lapply(orcid, orcid_prof_helper, path = pth, ctype = format, ...), 
-      orcid
-    )
+    tmp <- lapply(orcid, orcid_prof_helper, path = pth, ctype = format, ...)
+    tt <- lapply(tmp, function(z) {
+      if (grepl("works", pth) || (is.list(pth) && grepl("works/", pth[[1]]))) {
+        if (is.null(put_code)) {
+          bb <- z$group$`work-summary`
+          if (is_json(format)) list(as_dt(bb, FALSE)) else list(bb)
+        } else {
+          list(z$bulk)
+        }
+      } else if (grepl("work/", pth)) {
+        if (is_json(format)) {
+          jsonlite::fromJSON(
+            jsonlite::toJSON(list(z, z), auto_unbox=TRUE)
+          )[1,]
+        } else {
+          z
+        }
+      } else {
+        z$bulk
+      }
+    })
+    stats::setNames(tt, orcid)
   }
 }
+
+is_json <- function(format) grepl("json", format)

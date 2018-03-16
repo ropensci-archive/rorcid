@@ -76,7 +76,6 @@ identifiers.list <- function(x, type = "doi", ...) {
 #' @export
 #' @rdname identifiers
 identifiers.orcid_id <- function(x, type = "doi", ...) {
-  # prof <- attr(x, "profile")
   wks <- works(x)
   tmp <- wks$`external-ids.external-id`
   unlist(lapply(tmp, function(z) {

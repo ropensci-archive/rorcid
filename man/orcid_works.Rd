@@ -37,13 +37,11 @@ there's an element returned for each ORCID you put in.
 # get all works
 res <- orcid_works(orcid = "0000-0002-9341-7985")
 res$`0000-0002-9341-7985`
-res$`0000-0002-9341-7985`$group
-res$`0000-0002-9341-7985`$group$`work-summary`
-res$`0000-0002-9341-7985`$group$`work-summary`[[1]]
-str(res$`0000-0002-9341-7985`$group$`work-summary`[[1]])
+res$`0000-0002-9341-7985`$type
+str(res$`0000-0002-9341-7985`)
 
 # get individual works
-orcid_works(orcid = "0000-0002-9341-7985", 5011717)
+orcid_works(orcid = "0000-0002-9341-7985", put_code = 5011717)
 orcid_works(orcid = "0000-0002-9341-7985", put_code = c(5011717, 15536016))
 
 # change formats
@@ -57,16 +55,14 @@ orcid_works("0000-0002-9341-7985", 5011717,
 # get citations
 id <- "0000-0001-7678-8656"
 x <- orcid_works(id)
-vapply(x[[1]]$group$`work-summary`, function(z) {
-  orcid_works(id, put_code = z$`put-code`)[[1]]$citation$`citation-value`
-  }, "")
+orcid_works(id, put_code = x[[1]]$`put-code`)[[1]]$`work.citation.citation-value`
 
 ## or send many put codes at once, will be split into chunks of 50 each
 id <- "0000-0001-6758-5101"
 x <- orcid_works(id)
-pcodes <- unlist(lapply(x[[1]]$group$`work-summary`, "[[", "put-code"))
+pcodes <- x[[1]]$`put-code`
 length(pcodes)
-res <- orcid_works(id, put_code = pcodes)
-tibble::as_tibble(data.table::setDF(data.table::rbindlist(res, use.names = TRUE, fill = TRUE)))
+res <- orcid_works(orcid = id, put_code = pcodes)
+lapply(res$`0000-0001-6758-5101`, head, n = 1)
 }
 }
