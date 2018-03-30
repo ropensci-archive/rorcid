@@ -59,7 +59,7 @@ identifiers.works <- function(x, type = "doi", ...) {
   if (type == "orcid") {
     Filter(Negate(is.na), x$`source.source-orcid.path`)
   } else {
-    tmp <- x$`external-ids.external-id`
+    tmp <- ocom2(x$`external-ids.external-id`)
     unlist(lapply(tmp, function(z) {
       z[tolower(z$`external-id-type`) %in% type, 
         "external-id-value"]
@@ -77,7 +77,7 @@ identifiers.list <- function(x, type = "doi", ...) {
 #' @rdname identifiers
 identifiers.orcid_id <- function(x, type = "doi", ...) {
   wks <- works(x)
-  tmp <- wks$`external-ids.external-id`
+  tmp <- ocom2(wks$`external-ids.external-id`)
   unlist(lapply(tmp, function(z) {
     z[tolower(z$`external-id-type`) %in% check_type(type), 
       "external-id-value"]

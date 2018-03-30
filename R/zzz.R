@@ -1,4 +1,5 @@
 ocom <- function(l) Filter(Negate(is.null), l)
+ocom2 <- function(l) Filter(function(l) !is.null(l) && length(l) > 0, l)
 
 orcid_base <- function() "https://pub.orcid.org/v2.1"
 
