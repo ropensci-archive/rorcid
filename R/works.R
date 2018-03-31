@@ -26,12 +26,12 @@
 works <- function(x) {
   tmp <- as.orcid(x)
   works <- orcid_works(tmp[[1]]$name$path)
-  if (is.null(works) || NROW(works[[1]][[1]]) == 0) {
+  if (is.null(works) || NROW(works[[1]]$works) == 0) {
     dat <- tibble::data_frame()
     structure(dat, class = c(class(dat), "works"), 
       orcid = names(tmp))
   } else {
-    dat <- tibble::as_tibble(works[[1]][[1]])
+    dat <- tibble::as_tibble(works[[1]]$works)
     structure(dat, class = c(class(dat), "works"), 
       orcid = names(tmp))
   }
