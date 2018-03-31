@@ -37,12 +37,17 @@ there's an element returned for each ORCID you put in.
 # get all works
 res <- orcid_works(orcid = "0000-0002-9341-7985")
 res$`0000-0002-9341-7985`
-res$`0000-0002-9341-7985`$type
+res$`0000-0002-9341-7985`$works
+res$`0000-0002-9341-7985`$works$type
 str(res$`0000-0002-9341-7985`)
 
 # get individual works
-orcid_works(orcid = "0000-0002-9341-7985", put_code = 5011717)
-orcid_works(orcid = "0000-0002-9341-7985", put_code = c(5011717, 15536016))
+a <- orcid_works(orcid = "0000-0002-9341-7985", put_code = 5011717)
+a$`0000-0002-9341-7985`
+a$`0000-0002-9341-7985`$works
+b <- orcid_works(orcid = "0000-0002-9341-7985", 
+   put_code = c(5011717, 15536016))
+b$`0000-0002-9341-7985`
 
 # change formats
 orcid_works("0000-0002-9341-7985", 5011717, "application/json")
@@ -55,14 +60,15 @@ orcid_works("0000-0002-9341-7985", 5011717,
 # get citations
 id <- "0000-0001-7678-8656"
 x <- orcid_works(id)
-orcid_works(id, put_code = x[[1]]$`put-code`)[[1]]$`work.citation.citation-value`
+wks <- orcid_works(id, put_code = x[[1]]$works$`put-code`)
+wks[[1]]$works$`work.citation.citation-value`
 
 ## or send many put codes at once, will be split into chunks of 50 each
 id <- "0000-0001-6758-5101"
-x <- orcid_works(id)
-pcodes <- x[[1]]$`put-code`
+z <- orcid_works(id)
+pcodes <- z[[1]]$works$`put-code`
 length(pcodes)
 res <- orcid_works(orcid = id, put_code = pcodes)
-lapply(res$`0000-0001-6758-5101`, head, n = 1)
+head(res$`0000-0001-6758-5101`$works)
 }
 }
