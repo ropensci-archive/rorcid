@@ -67,7 +67,6 @@ orcid_works <- function(orcid, put_code = NULL, format = "application/json",
       chunks <- split(put_code, ceiling(seq_along(put_code) / 50))
       lapply(chunks, function(z) file.path("works", paste0(z, collapse = ",")))
     } else {
-      # list(file.path("work", put_code))
       file.path("work", put_code)
     }
   }
