@@ -18,32 +18,42 @@ Orcid API docs:
 
 The package now works with the `v2.1` ORCID API now. It's too complicated to allow users to work with different versions of the API, so it's hard-coded to `v2.1`.
 
+## Computing evironments without browsers
+
+One pitfall is when you are using `rorcid` on a server, and you're ssh'ed
+in, so that there's no way to open a browser to do the OAuth browser
+flow. Similarly for any other situation in which a browser can not be
+opened. In this case, run `orcid_auth()` on another machine in which you do
+have the ability to open a browser, then collect the info that's ouptput
+from `orcid_auth()` and store it as an environment variable (see above).
+
 ## Package API
 
- - `orcid_educations`
- - `orcid_ping`
- - `orcid_bio`
- - `orcid_address`
- - `orcid_email`
- - `browse`
- - `orcid_employments`
- - `orcid_works`
- - `check_dois`
- - `orcid_researcher_urls`
- - `orcid_peer_reviews`
+ - `orcid_search`
  - `orcid_external_identifiers`
- - `orcid_doi`
- - `orcid`
- - `orcid_activities`
- - `identifiers`
  - `orcid_auth`
- - `as.orcid`
- - `orcid_fundings`
- - `orcid_person`
+ - `orcid`
+ - `identifiers`
+ - `orcid_activities`
+ - `orcid_employments`
+ - `orcid_bio`
  - `works`
+ - `orcid_fundings`
+ - `orcid_doi`
+ - `orcid_researcher_urls`
  - `orcid_id`
- - `orcid_other_names`
+ - `orcid_email`
  - `orcid_keywords`
+ - `orcid_peer_reviews`
+ - `orcid_ping`
+ - `browse`
+ - `orcid_person`
+ - `as.orcid`
+ - `check_dois`
+ - `orcid_address`
+ - `orcid_educations`
+ - `orcid_other_names`
+ - `orcid_works`
 
 ## Installation
 
@@ -76,7 +86,7 @@ There's a function `as.orcid()` in this package to help coerce an Orcid ID to an
 as.orcid(x = "0000-0002-1642-628X")
 #> <ORCID> 0000-0002-1642-628X
 #>   Name: Boettiger, Carl
-#>   URL (first): 
+#>   URL (first): http://www.carlboettiger.info
 #>   Country: US
 #>   Keywords: Ecology, Evolution, Regime Shifts, Stochastic Dynamics
 ```
@@ -174,15 +184,15 @@ orcid(query = "johnson cardiology houston")
 #>    `orcid-identifier.uri`                `orcid-identifi… `orcid-identifi…
 #>  * <chr>                                 <chr>            <chr>           
 #>  1 https://orcid.org/0000-0002-0897-2301 0000-0002-0897-… orcid.org       
-#>  2 https://orcid.org/0000-0002-4968-6272 0000-0002-4968-… orcid.org       
-#>  3 https://orcid.org/0000-0001-9667-1615 0000-0001-9667-… orcid.org       
-#>  4 https://orcid.org/0000-0003-0945-6138 0000-0003-0945-… orcid.org       
-#>  5 https://orcid.org/0000-0002-9503-6836 0000-0002-9503-… orcid.org       
-#>  6 https://orcid.org/0000-0003-2447-553X 0000-0003-2447-… orcid.org       
-#>  7 https://orcid.org/0000-0001-7724-5784 0000-0001-7724-… orcid.org       
-#>  8 https://orcid.org/0000-0002-5164-6296 0000-0002-5164-… orcid.org       
-#>  9 https://orcid.org/0000-0002-5078-9551 0000-0002-5078-… orcid.org       
-#> 10 https://orcid.org/0000-0002-9701-0568 0000-0002-9701-… orcid.org       
+#>  2 https://orcid.org/0000-0002-5281-4466 0000-0002-5281-… orcid.org       
+#>  3 https://orcid.org/0000-0001-8188-0078 0000-0001-8188-… orcid.org       
+#>  4 https://orcid.org/0000-0002-4968-6272 0000-0002-4968-… orcid.org       
+#>  5 https://orcid.org/0000-0001-9667-1615 0000-0001-9667-… orcid.org       
+#>  6 https://orcid.org/0000-0003-0945-6138 0000-0003-0945-… orcid.org       
+#>  7 https://orcid.org/0000-0002-9503-6836 0000-0002-9503-… orcid.org       
+#>  8 https://orcid.org/0000-0001-5156-0356 0000-0001-5156-… orcid.org       
+#>  9 https://orcid.org/0000-0003-2447-553X 0000-0003-2447-… orcid.org       
+#> 10 https://orcid.org/0000-0001-7724-5784 0000-0001-7724-… orcid.org       
 #> # ... with 90 more rows
 ```
 
@@ -199,11 +209,11 @@ orcid("johnson AND(caltech OR 'California Institute of Technology')")
 #>  3 https://orcid.org/0000-0001-5320-7003 0000-0001-5320-… orcid.org       
 #>  4 https://orcid.org/0000-0003-0533-6833 0000-0003-0533-… orcid.org       
 #>  5 https://orcid.org/0000-0003-0692-4178 0000-0003-0692-… orcid.org       
-#>  6 https://orcid.org/0000-0001-9837-9773 0000-0001-9837-… orcid.org       
-#>  7 https://orcid.org/0000-0002-1875-7007 0000-0002-1875-… orcid.org       
-#>  8 https://orcid.org/0000-0002-4207-6746 0000-0002-4207-… orcid.org       
-#>  9 https://orcid.org/0000-0002-7676-5347 0000-0002-7676-… orcid.org       
-#> 10 https://orcid.org/0000-0001-9761-1059 0000-0001-9761-… orcid.org       
+#>  6 https://orcid.org/0000-0002-1875-7007 0000-0002-1875-… orcid.org       
+#>  7 https://orcid.org/0000-0002-4207-6746 0000-0002-4207-… orcid.org       
+#>  8 https://orcid.org/0000-0003-3019-9658 0000-0003-3019-… orcid.org       
+#>  9 https://orcid.org/0000-0001-9761-1059 0000-0001-9761-… orcid.org       
+#> 10 https://orcid.org/0000-0002-7676-5347 0000-0002-7676-… orcid.org       
 #> # ... with 90 more rows
 ```
 
@@ -215,9 +225,9 @@ orcid("johnson cardiology houston", start = 2, rows = 3)
 #> # A tibble: 3 x 3
 #>   `orcid-identifier.uri`                `orcid-identifie… `orcid-identifi…
 #> * <chr>                                 <chr>             <chr>           
-#> 1 https://orcid.org/0000-0001-9667-1615 0000-0001-9667-1… orcid.org       
-#> 2 https://orcid.org/0000-0003-0945-6138 0000-0003-0945-6… orcid.org       
-#> 3 https://orcid.org/0000-0002-9503-6836 0000-0002-9503-6… orcid.org
+#> 1 https://orcid.org/0000-0001-8188-0078 0000-0001-8188-0… orcid.org       
+#> 2 https://orcid.org/0000-0002-4968-6272 0000-0002-4968-6… orcid.org       
+#> 3 https://orcid.org/0000-0001-9667-1615 0000-0001-9667-1… orcid.org
 ```
 
 
@@ -325,9 +335,9 @@ orcid_doi(dois = "10.1087/2", fuzzy = TRUE, rows = 5)
 #> * <chr>                                 <chr>             <chr>           
 #> 1 https://orcid.org/0000-0001-6081-0708 0000-0001-6081-0… orcid.org       
 #> 2 https://orcid.org/0000-0001-6971-1351 0000-0001-6971-1… orcid.org       
-#> 3 https://orcid.org/0000-0002-5528-4704 0000-0002-5528-4… orcid.org       
-#> 4 https://orcid.org/0000-0002-6298-6771 0000-0002-6298-6… orcid.org       
-#> 5 https://orcid.org/0000-0002-5360-2529 0000-0002-5360-2… orcid.org       
+#> 3 https://orcid.org/0000-0002-6298-6771 0000-0002-6298-6… orcid.org       
+#> 4 https://orcid.org/0000-0002-5360-2529 0000-0002-5360-2… orcid.org       
+#> 5 https://orcid.org/0000-0002-5528-4704 0000-0002-5528-4… orcid.org       
 #> 
 #> attr(,"class")
 #> [1] "orcid_doi"
