@@ -54,6 +54,16 @@ this prepares you for when that happens :)
 See \url{https://members.orcid.org/api/orcid-scopes} for more
 }
 
+\section{Computing evironments without browsers}{
+
+One pitfall is when you are using rorcid on a server, and you're ssh'ed
+in, so that there's no way to open a browser to do the OAuth browser
+flow. Similarly for any other situation in which a browser can not be
+opened. In this case, run \code{orcid_auth()} on another machine in which you do
+have the ability to open a browser, then collect the info that's ouptput
+from \code{orcid_auth()} and store it as an environment variable (see above).
+}
+
 \examples{
 \dontrun{
 x <- orcid_auth()
