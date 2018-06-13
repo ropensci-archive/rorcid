@@ -38,13 +38,17 @@ orcid_ua <- function() {
   paste0(versions, collapse = " ")
 }
 
+`%||%` <- function(x, y) {
+  if (is.null(x) || length(x) == 0) y else x
+}
+
 errs <- function(x) {
   if (x$status_code > 201) {
     xx <- jsonlite::fromJSON(x$parse("UTF-8"))
-    if ("error-code" %in% names(xx)) {
+    if (any(c("error-code", "errorCode") %in% names(xx))) {
       # match by status code
       fun <- match_err(x$status_code)$new()
-      fun$mssg <- xx$`developer-message`
+      fun$mssg <- xx$`developer-message` %||% xx$developerMessage
       fun$do_verbose(x)
     } else {
       # if no error message in response, just general stop
