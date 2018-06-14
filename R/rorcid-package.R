@@ -56,12 +56,20 @@
 NULL
 
 
-#' Lookup-table for search fields
+#' Lookup table for search fields
 #' 
 #' @name fields
 #' @docType data
 #' @keywords data
 NULL
+
+#' Lookup vector for journal titles by ISSN
+#' 
+#' @name issn_title
+#' @docType data
+#' @keywords data
+NULL
+
 
 #' Defunct functions in rorcid
 #'
