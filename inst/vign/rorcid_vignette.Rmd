@@ -29,7 +29,7 @@ cat(paste(" -", paste(sprintf("`%s`", getNamespaceExports("rorcid")), collapse =
 ```
 
 
-## Get rorcid
+## Installation
 
 Install from CRAN
 
@@ -146,4 +146,18 @@ dois <- c("10.1371/journal.pone.0025995","10.1371/journal.pone.0053712",
        "10.1371/journal.pone.0054608","10.1371/journal.pone.0055937")
 res <- orcid_doi(dois = dois, fuzzy = TRUE)
 res[[1]]
+```
+
+## Get formatted citations for an ORCID ID
+
+One workflow is to get publications associated with an ORCID profile. The following will extract all the works with a DOI, then use the `rcrossref` package to get nicely formatted references for each, and then export them to a bibtex file
+
+```{r cache = TRUE}
+my_dois <- rorcid::identifiers(rorcid::works("0000-0002-0337-5997"))
+pubs <- rcrossref::cr_cn(dois = my_dois, format = "bibtex")
+invisible(lapply(pubs, write, "pubs.bib", append=TRUE))
+```
+
+```{r echo=FALSE}
+unlink("pubs.bib", force = TRUE)
 ```

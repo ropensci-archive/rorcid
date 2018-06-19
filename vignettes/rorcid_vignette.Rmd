@@ -17,33 +17,34 @@ The package now works with the `v2.1` ORCID API now. It's too complicated to all
 
 ## Package API
 
- - `orcid_educations`
- - `orcid_ping`
- - `orcid_bio`
- - `orcid_address`
- - `orcid_email`
- - `browse`
- - `orcid_employments`
- - `orcid_works`
- - `check_dois`
- - `orcid_researcher_urls`
- - `orcid_peer_reviews`
+ - `orcid_search`
  - `orcid_external_identifiers`
- - `orcid_doi`
- - `orcid`
- - `orcid_activities`
- - `identifiers`
  - `orcid_auth`
- - `as.orcid`
- - `orcid_fundings`
- - `orcid_person`
+ - `orcid`
+ - `identifiers`
+ - `orcid_activities`
+ - `orcid_employments`
+ - `orcid_bio`
  - `works`
+ - `orcid_fundings`
+ - `orcid_doi`
+ - `orcid_researcher_urls`
  - `orcid_id`
- - `orcid_other_names`
+ - `orcid_email`
  - `orcid_keywords`
+ - `orcid_peer_reviews`
+ - `orcid_ping`
+ - `browse`
+ - `orcid_person`
+ - `as.orcid`
+ - `check_dois`
+ - `orcid_address`
+ - `orcid_educations`
+ - `orcid_other_names`
+ - `orcid_works`
 
 
-## Get rorcid
+## Installation
 
 Install from CRAN
 
@@ -75,7 +76,7 @@ There's a function `as.orcid()` in this package to help coerce an Orcid ID to an
 as.orcid(x = "0000-0002-1642-628X")
 #> <ORCID> 0000-0002-1642-628X
 #>   Name: Boettiger, Carl
-#>   URL (first): 
+#>   URL (first): http://www.carlboettiger.info
 #>   Country: US
 #>   Keywords: Ecology, Evolution, Regime Shifts, Stochastic Dynamics
 ```
@@ -158,9 +159,9 @@ orcid(query = "carl boettiger")
 #>  5 https://orcid.org/0000-0003-1021-5374 0000-0003-1021-… orcid.org       
 #>  6 https://orcid.org/0000-0002-8885-5438 0000-0002-8885-… orcid.org       
 #>  7 https://orcid.org/0000-0002-4791-6222 0000-0002-4791-… orcid.org       
-#>  8 https://orcid.org/0000-0002-2171-9124 0000-0002-2171-… orcid.org       
-#>  9 https://orcid.org/0000-0002-2683-5888 0000-0002-2683-… orcid.org       
-#> 10 https://orcid.org/0000-0002-3141-3057 0000-0002-3141-… orcid.org       
+#>  8 https://orcid.org/0000-0003-2119-4097 0000-0003-2119-… orcid.org       
+#>  9 https://orcid.org/0000-0002-3141-3057 0000-0002-3141-… orcid.org       
+#> 10 https://orcid.org/0000-0002-2171-9124 0000-0002-2171-… orcid.org       
 #> # ... with 90 more rows
 ```
 
@@ -173,15 +174,15 @@ orcid(query = "johnson cardiology houston")
 #>    `orcid-identifier.uri`                `orcid-identifi… `orcid-identifi…
 #>  * <chr>                                 <chr>            <chr>           
 #>  1 https://orcid.org/0000-0002-0897-2301 0000-0002-0897-… orcid.org       
-#>  2 https://orcid.org/0000-0002-4968-6272 0000-0002-4968-… orcid.org       
-#>  3 https://orcid.org/0000-0001-9667-1615 0000-0001-9667-… orcid.org       
-#>  4 https://orcid.org/0000-0003-0945-6138 0000-0003-0945-… orcid.org       
-#>  5 https://orcid.org/0000-0002-9503-6836 0000-0002-9503-… orcid.org       
-#>  6 https://orcid.org/0000-0003-2447-553X 0000-0003-2447-… orcid.org       
-#>  7 https://orcid.org/0000-0001-7724-5784 0000-0001-7724-… orcid.org       
-#>  8 https://orcid.org/0000-0002-5164-6296 0000-0002-5164-… orcid.org       
-#>  9 https://orcid.org/0000-0002-5078-9551 0000-0002-5078-… orcid.org       
-#> 10 https://orcid.org/0000-0002-9701-0568 0000-0002-9701-… orcid.org       
+#>  2 https://orcid.org/0000-0002-5281-4466 0000-0002-5281-… orcid.org       
+#>  3 https://orcid.org/0000-0001-8188-0078 0000-0001-8188-… orcid.org       
+#>  4 https://orcid.org/0000-0002-4968-6272 0000-0002-4968-… orcid.org       
+#>  5 https://orcid.org/0000-0002-1918-5792 0000-0002-1918-… orcid.org       
+#>  6 https://orcid.org/0000-0001-9667-1615 0000-0001-9667-… orcid.org       
+#>  7 https://orcid.org/0000-0003-0945-6138 0000-0003-0945-… orcid.org       
+#>  8 https://orcid.org/0000-0002-9503-6836 0000-0002-9503-… orcid.org       
+#>  9 https://orcid.org/0000-0001-5156-0356 0000-0001-5156-… orcid.org       
+#> 10 https://orcid.org/0000-0003-2447-553X 0000-0003-2447-… orcid.org       
 #> # ... with 90 more rows
 ```
 
@@ -193,9 +194,9 @@ orcid("johnson cardiology houston", start = 2, rows = 3)
 #> # A tibble: 3 x 3
 #>   `orcid-identifier.uri`                `orcid-identifie… `orcid-identifi…
 #> * <chr>                                 <chr>             <chr>           
-#> 1 https://orcid.org/0000-0001-9667-1615 0000-0001-9667-1… orcid.org       
-#> 2 https://orcid.org/0000-0003-0945-6138 0000-0003-0945-6… orcid.org       
-#> 3 https://orcid.org/0000-0002-9503-6836 0000-0002-9503-6… orcid.org
+#> 1 https://orcid.org/0000-0001-8188-0078 0000-0001-8188-0… orcid.org       
+#> 2 https://orcid.org/0000-0002-4968-6272 0000-0002-4968-6… orcid.org       
+#> 3 https://orcid.org/0000-0002-1918-5792 0000-0002-1918-5… orcid.org
 ```
 
 ## Search by Orcid ID
@@ -289,9 +290,9 @@ orcid_doi(dois = "10.1087/2", fuzzy = TRUE, rows = 5)
 #> * <chr>                                 <chr>             <chr>           
 #> 1 https://orcid.org/0000-0001-6081-0708 0000-0001-6081-0… orcid.org       
 #> 2 https://orcid.org/0000-0001-6971-1351 0000-0001-6971-1… orcid.org       
-#> 3 https://orcid.org/0000-0002-5528-4704 0000-0002-5528-4… orcid.org       
-#> 4 https://orcid.org/0000-0002-6298-6771 0000-0002-6298-6… orcid.org       
-#> 5 https://orcid.org/0000-0002-5360-2529 0000-0002-5360-2… orcid.org       
+#> 3 https://orcid.org/0000-0002-6298-6771 0000-0002-6298-6… orcid.org       
+#> 4 https://orcid.org/0000-0002-5360-2529 0000-0002-5360-2… orcid.org       
+#> 5 https://orcid.org/0000-0002-5528-4704 0000-0002-5528-4… orcid.org       
 #> 
 #> attr(,"class")
 #> [1] "orcid_doi"
@@ -309,14 +310,27 @@ res[[1]]
 #>    `orcid-identifier.uri`                `orcid-identifi… `orcid-identifi…
 #>  * <chr>                                 <chr>            <chr>           
 #>  1 https://orcid.org/0000-0002-0051-973X 0000-0002-0051-… orcid.org       
-#>  2 https://orcid.org/0000-0003-4683-9648 0000-0003-4683-… orcid.org       
-#>  3 https://orcid.org/0000-0002-5634-6145 0000-0002-5634-… orcid.org       
-#>  4 https://orcid.org/0000-0003-1655-9549 0000-0003-1655-… orcid.org       
-#>  5 https://orcid.org/0000-0002-2565-951X 0000-0002-2565-… orcid.org       
-#>  6 https://orcid.org/0000-0003-3976-0923 0000-0003-3976-… orcid.org       
-#>  7 https://orcid.org/0000-0001-9733-2252 0000-0001-9733-… orcid.org       
-#>  8 https://orcid.org/0000-0002-3055-3920 0000-0002-3055-… orcid.org       
-#>  9 https://orcid.org/0000-0001-5442-6857 0000-0001-5442-… orcid.org       
-#> 10 https://orcid.org/0000-0002-0649-3278 0000-0002-0649-… orcid.org       
+#>  2 https://orcid.org/0000-0002-5634-6145 0000-0002-5634-… orcid.org       
+#>  3 https://orcid.org/0000-0001-8887-5095 0000-0001-8887-… orcid.org       
+#>  4 https://orcid.org/0000-0002-3583-1248 0000-0002-3583-… orcid.org       
+#>  5 https://orcid.org/0000-0002-6840-2167 0000-0002-6840-… orcid.org       
+#>  6 https://orcid.org/0000-0003-4683-9648 0000-0003-4683-… orcid.org       
+#>  7 https://orcid.org/0000-0003-1655-9549 0000-0003-1655-… orcid.org       
+#>  8 https://orcid.org/0000-0002-3654-8137 0000-0002-3654-… orcid.org       
+#>  9 https://orcid.org/0000-0002-3584-9915 0000-0002-3584-… orcid.org       
+#> 10 https://orcid.org/0000-0001-9404-7069 0000-0001-9404-… orcid.org       
 #> # ... with 90 more rows
 ```
+
+## Get formatted citations for an ORCID ID
+
+One workflow is to get publications associated with an ORCID profile. The following will extract all the works with a DOI, then use the `rcrossref` package to get nicely formatted references for each, and then export them to a bibtex file
+
+
+```r
+my_dois <- rorcid::identifiers(rorcid::works("0000-0002-0337-5997"))
+pubs <- rcrossref::cr_cn(dois = my_dois, format = "bibtex")
+invisible(lapply(pubs, write, "pubs.bib", append=TRUE))
+```
+
+
