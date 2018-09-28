@@ -50,6 +50,7 @@ format. DOI.org supports this but not ORCID.
 \dontrun{
 (res <- orcid_citations(orcid = "0000-0002-9341-7985"))
 (res2 <- orcid_citations(orcid = "0000-0002-1642-628X"))
+(res2 <- orcid_citations(orcid = c("0000-0002-9341-7985", "0000-0002-1642-628X")))
 
 # get individual works
 ## a single put code

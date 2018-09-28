@@ -29,6 +29,7 @@
 #' @examples \dontrun{
 #' (res <- orcid_citations(orcid = "0000-0002-9341-7985"))
 #' (res2 <- orcid_citations(orcid = "0000-0002-1642-628X"))
+#' (res2 <- orcid_citations(orcid = c("0000-0002-9341-7985", "0000-0002-1642-628X")))
 #' 
 #' # get individual works
 #' ## a single put code
@@ -46,11 +47,20 @@ orcid_citations <- function(orcid, put_code = NULL, ...) {
 
   tmp <- orcid_works(orcid, put_code)
   dat <- if (!is.null(put_code)) {
-    list(tmp[[1]]$works)
+    list(list(tmp[[1]]$works))
   } else {
-    split(tmp[[1]]$works, tmp[[1]]$works$`put-code`)
+    # split(tmp[[1]]$works, tmp[[1]]$works$`put-code`)
+    lapply(tmp, function(w) split(w$works, w$works$`put-code`))
   }
-  cites <- lapply(dat, function(z) {
+  if (length(orcid) > 1) {
+    Map(function(a, b) each_orcid(a, b, put_code), dat, orcid) 
+  } else {
+    each_orcid(dat[[1]], orcid, put_code, ...)
+  }
+}
+
+each_orcid <- function(m, orcid, put_code, ...) {
+  cites <- lapply(m, function(z) {
     # fix for when > 1 put code to make column names more useable
     if (all(grepl("work", names(z)))) {
       names(z) <- gsub("^work\\.", "", names(z))
@@ -59,7 +69,8 @@ orcid_citations <- function(orcid, put_code = NULL, ...) {
     if (!is.null(put_code)) {
       if (length(put_code) == 1) {
         df <- z$`external-ids`$`external-id`[[1]]
-        process_cites(df, pc, orcid, ...)
+        # process_cites(df, pc, orcid, ...)
+        process_cites(df, pc, orcid)
       } else {
         # df <- as_dt(z$`external-ids`)
         df <- z$`external-ids`
@@ -67,7 +78,8 @@ orcid_citations <- function(orcid, put_code = NULL, ...) {
       } 
     } else {
       df <- z$`external-ids.external-id`[[1]]
-      process_cites(df, pc, orcid, ...)
+      # process_cites(df, pc, orcid, ...)
+      process_cites(df, pc, orcid)
     }
   })
   # unnest if no names at top level
