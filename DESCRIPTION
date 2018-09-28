@@ -23,8 +23,9 @@ Imports:
     data.table
 Suggests:
     testthat,
-    knitr
-RoxygenNote: 6.0.1
+    knitr,
+    rcrossref
+RoxygenNote: 6.1.0
 VignetteBuilder: knitr
 X-schema.org-applicationCategory: Literature
 X-schema.org-keywords: identifiers, literature, publications, citations, scholarly, people

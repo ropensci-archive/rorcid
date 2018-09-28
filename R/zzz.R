@@ -110,10 +110,10 @@ pluck <- function(x, name, type) {
 
 pop <- function(x, name) x[ !names(x) %in% name ]
 
-orcid_prof_helper <- function(x, path, ctype = ojson, ...) {
+orcid_prof_helper <- function(x, path, ctype = ojson, parse = TRUE, ...) {
   url2 <- file.path(orcid_base(), x, path)
   out <- orc_GET(url2, ctype = ctype, ...)
-  switch_parser(ctype, out)
+  if (parse) switch_parser(ctype, out) else out
 }
 
 switch_parser <- function(ctype, x) {
