@@ -38,7 +38,7 @@
 #' @section ORCID OAuth Scopes:
 #' See <https://members.orcid.org/api/orcid-scopes> for more
 #'
-#' @section Computing evironments without browsers:
+#' @section Computing environments without browsers:
 #' One pitfall is when you are using rorcid on a server, and you're ssh'ed
 #' in, so that there's no way to open a browser to do the OAuth browser
 #' flow. Similarly for any other situation in which a browser can not be

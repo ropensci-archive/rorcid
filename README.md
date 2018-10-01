@@ -19,7 +19,7 @@ Orcid API docs:
 
 The package now works with the `v2.1` ORCID API now. It's too complicated to allow users to work with different versions of the API, so it's hard-coded to `v2.1`.
 
-## Computing evironments without browsers
+## Computing environments without browsers
 
 One pitfall is when you are using `rorcid` on a server, and you're ssh'ed
 in, so that there's no way to open a browser to do the OAuth browser

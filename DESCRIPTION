@@ -4,9 +4,15 @@ Description: Client for the 'Orcid.org' 'API' (<https://orcid.org/>).
     Functions included for searching for people, searching by 'DOI',
     and searching by 'Orcid' 'ID'.
 Version: 0.4.2.9114
-Authors@R: c(person("Scott", "Chamberlain", role = c("aut", "cre"),
-    email = "myrmecocystus@gmail.com", 
-    comment = c(ORCID = "0000-0003-1444-9135")))
+Authors@R: 
+    c(person(given = "Scott",
+             family = "Chamberlain",
+             role = c("aut", "cre"),
+             email = "myrmecocystus@gmail.com",
+             comment = c(ORCID = "0000-0003-1444-9135")),
+      person(given = "rOpenSci",
+             role = "fnd",
+             comment = "https://ropensci.org/"))
 License: MIT + file LICENSE
 URL: https://github.com/ropensci/rorcid
 BugReports: https://github.com/ropensci/rorcid/issues
@@ -24,7 +30,7 @@ Imports:
 Suggests:
     testthat,
     knitr
-RoxygenNote: 6.0.1
+RoxygenNote: 6.1.0.9000
 VignetteBuilder: knitr
 X-schema.org-applicationCategory: Literature
 X-schema.org-keywords: identifiers, literature, publications, citations, scholarly, people
