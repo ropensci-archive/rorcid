@@ -16,7 +16,7 @@ SOLR syntax. See examples below. For all possible fields to query, do
 \code{data(fields)}}
 
 \item{start}{Result number to start on. Keep in mind that pages start at 0.
-Deafult: 0}
+Default: 0}
 
 \item{rows}{Numer of results to return. Default: 10. Max: 200}
 

@@ -4,7 +4,8 @@
 \alias{orcid_doi}
 \title{Search for ORCID ID's using DOIs}
 \usage{
-orcid_doi(dois = NULL, start = NULL, rows = NULL, fuzzy = FALSE, ...)
+orcid_doi(dois = NULL, start = NULL, rows = NULL, fuzzy = FALSE,
+  ...)
 }
 \arguments{
 \item{dois}{(character) Digital object identifier (DOI), a vector fo DOIs.}
