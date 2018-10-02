@@ -1,11 +1,11 @@
 #' Get citations
 #'
 #' @export
-#' @param orcid (character) Orcid identifier(s), of the form 
+#' @param orcid (character) Orcid identifier(s) of the form 
 #' XXXX-XXXX-XXXX-XXXX. required.
 #' @param put_code (character/integer) one or more put codes. up to 
 #' 50. optional
-#' @param ... Curl options passed on to [crul::HttpClient()]
+#' @param ... Curl options passed on to [crul::HttpClient]
 #' @template deets
 #' @details This function is focused on getting citations only.
 #' You can get all citations for an ORCID, or for certain works

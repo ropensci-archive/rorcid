@@ -7,13 +7,13 @@
 orcid_citations(orcid, put_code = NULL, ...)
 }
 \arguments{
-\item{orcid}{(character) Orcid identifier(s), of the form
+\item{orcid}{(character) Orcid identifier(s) of the form
 XXXX-XXXX-XXXX-XXXX. required.}
 
 \item{put_code}{(character/integer) one or more put codes. up to
 50. optional}
 
-\item{...}{Curl options passed on to \code{\link[crul:HttpClient]{crul::HttpClient()}}}
+\item{...}{Curl options passed on to \link[crul:HttpClient]{crul::HttpClient}}
 }
 \value{
 A list of results for each Orcid ID passed in, with each element
