@@ -65,6 +65,13 @@ NULL
 
 #' Lookup vector for journal titles by ISSN
 #' 
+#' named vector of journal titles. the values are journal titles and 
+#' the names are ISSN's.
+#' 
+#' length: 57,968
+#' 
+#' data collected on 2018-06-13 from Crossref
+#' 
 #' @name issn_title
 #' @docType data
 #' @keywords data

@@ -43,7 +43,7 @@ whenever possible as they are the most flexible and don't have as
 many mistakes in the text. If there is no DOI, we fetch the
 citation from ORCID.
 
-Right now we get JSON citation back. We'd like to support bibtex
+Right now we get JSON citations back. We'd like to support bibtex
 format. DOI.org supports this but not ORCID.
 }
 \examples{
