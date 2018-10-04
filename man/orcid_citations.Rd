@@ -4,7 +4,8 @@
 \alias{orcid_citations}
 \title{Get citations}
 \usage{
-orcid_citations(orcid, put_code = NULL, ...)
+orcid_citations(orcid, put_code = NULL, cr_format = "bibtex",
+  cr_style = "apa", cr_locale = "en-US", ...)
 }
 \arguments{
 \item{orcid}{(character) Orcid identifier(s) of the form
@@ -12,6 +13,20 @@ XXXX-XXXX-XXXX-XXXX. required.}
 
 \item{put_code}{(character/integer) one or more put codes. up to
 50. optional}
+
+\item{cr_format}{Used in Crossref queries only. Name of the format. One of
+"rdf-xml", "turtle",
+"citeproc-json", "citeproc-json-ish", "text", "ris", "bibtex" (default),
+"crossref-xml", "datacite-xml","bibentry", or "crossref-tdm". The format
+"citeproc-json-ish" is a format that is not quite proper citeproc-json.
+passed to \code{rcrossref::cr_cn}}
+
+\item{cr_style}{Used in Crossref queries only. A CSL style (for text
+format only). See ‘get_styles()’ for options. Default: apa.
+passed to \code{rcrossref::cr_cn}}
+
+\item{cr_locale}{Used in Crossref queries only. Language locale.
+See \link{Sys.getlocale}, passed to \code{rcrossref::cr_cn}}
 
 \item{...}{Curl options passed on to \link[crul:HttpClient]{crul::HttpClient}}
 }
@@ -24,6 +39,7 @@ data.frame, with the columns:
 \item put: ORCID PUT code, identifying the work identifier in ORCID's records
 \item id: the external identifier
 \item id_type: the type of external identifier
+\item format: the citation format retrieved
 \item citation: the citation as JSON
 }
 }
@@ -58,5 +74,19 @@ format. DOI.org supports this but not ORCID.
 ## many put codes
 (b <- orcid_citations(orcid = "0000-0002-9341-7985", 
    put_code = c(5011717, 15536016)))
+
+# request other formats, Crossref only
+orcid_citations(orcid = "0000-0002-9341-7985", cr_format = "turtle")
+
+# parse citation data if you wish
+# for parsing bibtex can use bibtex package or others
+(res <- orcid_citations(orcid = "0000-0002-9341-7985"))
+lapply(res[res$format == "csl-json", "citation"][[1]], jsonlite::fromJSON)
+
+# lots of citations
+orcid_citations(orcid = "0000-0001-8642-6325")
+
+# example with no external identifier, returns NA's
+orcid_citations(orcid = "0000-0001-8642-6325", 26222265)
 }
 }
