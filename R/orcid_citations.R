@@ -83,7 +83,7 @@ orcid_citations <- function(orcid, put_code = NULL, cr_format = "bibtex",
 
   if (length(orcid) > 1) {
     Map(function(a, b) each_orcid(a, b, put_code, cr_format, cr_style, cr_locale), 
-      dat, orcid) 
+      dat, orcid, ...) 
   } else {
     each_orcid(dat[[1]], orcid, put_code, cr_format, cr_style, cr_locale, ...)
   }
@@ -99,15 +99,15 @@ each_orcid <- function(m, orcid, put_code, cr_format, cr_style, cr_locale, ...) 
     if (!is.null(put_code)) {
       if (length(put_code) == 1) {
         df <- z$`external-ids`$`external-id`[[1]]
-        process_cites(df, pc, orcid, cr_format, cr_style, cr_locale)
+        process_cites(df, pc, orcid, cr_format, cr_style, cr_locale, ...)
       } else {
         df <- z$`external-ids`
         Map(process_cites, df, pc, orcid = orcid, cr_format = cr_format, 
-          cr_style = cr_style, cr_locale = cr_locale)
+          cr_style = cr_style, cr_locale = cr_locale, ...)
       } 
     } else {
       df <- z$`external-ids.external-id`[[1]]
-      process_cites(df, pc, orcid, cr_format, cr_style, cr_locale)
+      process_cites(df, pc, orcid, cr_format, cr_style, cr_locale, ...)
     }
   })
   # unnest if no names at top level
