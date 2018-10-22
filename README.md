@@ -19,6 +19,36 @@ Orcid API docs:
 
 The package now works with the `v2.1` ORCID API now. It's too complicated to allow users to work with different versions of the API, so it's hard-coded to `v2.1`.
 
+## Authentication
+
+There are two ways to authenticate with `rorcid`:
+
+- Use a token as a result of a OAuth authentication process. The token
+is a alphanumeric UUID, e.g. `dc0a6b6b-b4d4-4276-bc89-78c1e9ede56e`. You
+can get this token by running `orcid_auth()`, then storing that key
+(the uuid alone, not the "Bearer " part) either as en environment
+variable in your `.Renviron` file in your home directory, or as an R
+option in your `.Rprofile` file. See `?Startup` for more information.
+Either an environment variable or R option work. If we don't find
+either we do the next option.
+- Interactively login with OAuth. We use a client id and client secret 
+key to ping ORCID.org; at which point you log in with your username/password; 
+then we get back a token (same as the above option). We don't know your 
+username or password, only the token that we get back. We cache that 
+token locally in a hidden file in whatever working directory you're in. 
+If you delete that file, or run the code from a new working directory, 
+then we re-authorize.
+
+We recommend the former option. That is, get a token and store it as an
+environment variable.
+
+If both options above fail, we proceed without using authentication.
+ORCID does not require authentication at this point, but may in the future -
+this prepares you for when that happens :)
+
+See <https://members.orcid.org/api/orcid-scopes> for more about ORCID 
+OAuth Scopes.
+
 ## Computing environments without browsers
 
 One pitfall is when you are using `rorcid` on a server, and you're ssh'ed
@@ -129,14 +159,14 @@ The `works()` function helps get works data from an orcid data object. The outpu
 ```r
 (out <- works(orcid_id("0000-0002-0233-1757")))
 #> # A tibble: 6 x 27
-#>   `put-code` type    visibility path      `display-index` `created-date.v…
-#> *      <int> <chr>   <chr>      <chr>     <chr>                      <dbl>
-#> 1    5296064 JOURNA… PUBLIC     /0000-00… 0                  1362713629019
-#> 2    5296065 JOURNA… PUBLIC     /0000-00… 0                  1362713629025
-#> 3    5296066 JOURNA… PUBLIC     /0000-00… 0                  1362713629032
-#> 4    9012984 JOURNA… PUBLIC     /0000-00… 0                  1369326854424
-#> 5    9012985 JOURNA… PUBLIC     /0000-00… 0                  1369326854429
-#> 6    9012986 JOURNA… PUBLIC     /0000-00… 0                  1369326854433
+#>   `put-code` type  visibility path  `display-index` `created-date.v…
+#> *      <int> <chr> <chr>      <chr> <chr>                      <dbl>
+#> 1    5296064 JOUR… PUBLIC     /000… 0                  1362713629019
+#> 2    5296065 JOUR… PUBLIC     /000… 0                  1362713629025
+#> 3    5296066 JOUR… PUBLIC     /000… 0                  1362713629032
+#> 4    9012984 JOUR… PUBLIC     /000… 0                  1369326854424
+#> 5    9012985 JOUR… PUBLIC     /000… 0                  1369326854429
+#> 6    9012986 JOUR… PUBLIC     /000… 0                  1369326854433
 #> # ... with 21 more variables: `last-modified-date.value` <dbl>,
 #> #   `source.source-client-id` <lgl>, `source.source-orcid.uri` <chr>,
 #> #   `source.source-orcid.path` <chr>, `source.source-orcid.host` <chr>,
@@ -161,18 +191,18 @@ Get a list of names and Orcid IDs matching a name query
 ```r
 orcid(query = "carl boettiger")
 #> # A tibble: 100 x 3
-#>    `orcid-identifier.uri`                `orcid-identifi… `orcid-identifi…
-#>  * <chr>                                 <chr>            <chr>           
-#>  1 https://orcid.org/0000-0002-1642-628X 0000-0002-1642-… orcid.org       
-#>  2 https://orcid.org/0000-0002-3554-5196 0000-0002-3554-… orcid.org       
-#>  3 https://orcid.org/0000-0002-5951-4503 0000-0002-5951-… orcid.org       
-#>  4 https://orcid.org/0000-0002-7462-1956 0000-0002-7462-… orcid.org       
-#>  5 https://orcid.org/0000-0003-1021-5374 0000-0003-1021-… orcid.org       
-#>  6 https://orcid.org/0000-0002-8885-5438 0000-0002-8885-… orcid.org       
-#>  7 https://orcid.org/0000-0002-4791-6222 0000-0002-4791-… orcid.org       
-#>  8 https://orcid.org/0000-0002-2171-9124 0000-0002-2171-… orcid.org       
-#>  9 https://orcid.org/0000-0002-2683-5888 0000-0002-2683-… orcid.org       
-#> 10 https://orcid.org/0000-0002-3141-3057 0000-0002-3141-… orcid.org       
+#>    `orcid-identifier.uri`        `orcid-identifier.p… `orcid-identifier.h…
+#>  * <chr>                         <chr>                <chr>               
+#>  1 https://orcid.org/0000-0002-… 0000-0002-1642-628X  orcid.org           
+#>  2 https://orcid.org/0000-0002-… 0000-0002-3554-5196  orcid.org           
+#>  3 https://orcid.org/0000-0002-… 0000-0002-5951-4503  orcid.org           
+#>  4 https://orcid.org/0000-0002-… 0000-0002-7462-1956  orcid.org           
+#>  5 https://orcid.org/0000-0003-… 0000-0003-1021-5374  orcid.org           
+#>  6 https://orcid.org/0000-0002-… 0000-0002-7790-5102  orcid.org           
+#>  7 https://orcid.org/0000-0002-… 0000-0002-8885-5438  orcid.org           
+#>  8 https://orcid.org/0000-0002-… 0000-0002-4791-6222  orcid.org           
+#>  9 https://orcid.org/0000-0003-… 0000-0003-0471-9533  orcid.org           
+#> 10 https://orcid.org/0000-0003-… 0000-0003-3675-4042  orcid.org           
 #> # ... with 90 more rows
 ```
 
@@ -182,18 +212,18 @@ You can string together many search terms
 ```r
 orcid(query = "johnson cardiology houston")
 #> # A tibble: 100 x 3
-#>    `orcid-identifier.uri`                `orcid-identifi… `orcid-identifi…
-#>  * <chr>                                 <chr>            <chr>           
-#>  1 https://orcid.org/0000-0002-0897-2301 0000-0002-0897-… orcid.org       
-#>  2 https://orcid.org/0000-0002-5281-4466 0000-0002-5281-… orcid.org       
-#>  3 https://orcid.org/0000-0001-8188-0078 0000-0001-8188-… orcid.org       
-#>  4 https://orcid.org/0000-0002-4968-6272 0000-0002-4968-… orcid.org       
-#>  5 https://orcid.org/0000-0001-9667-1615 0000-0001-9667-… orcid.org       
-#>  6 https://orcid.org/0000-0003-0945-6138 0000-0003-0945-… orcid.org       
-#>  7 https://orcid.org/0000-0002-9503-6836 0000-0002-9503-… orcid.org       
-#>  8 https://orcid.org/0000-0001-5156-0356 0000-0001-5156-… orcid.org       
-#>  9 https://orcid.org/0000-0003-2447-553X 0000-0003-2447-… orcid.org       
-#> 10 https://orcid.org/0000-0001-7724-5784 0000-0001-7724-… orcid.org       
+#>    `orcid-identifier.uri`        `orcid-identifier.p… `orcid-identifier.h…
+#>  * <chr>                         <chr>                <chr>               
+#>  1 https://orcid.org/0000-0002-… 0000-0002-0897-2301  orcid.org           
+#>  2 https://orcid.org/0000-0002-… 0000-0002-5281-4466  orcid.org           
+#>  3 https://orcid.org/0000-0001-… 0000-0001-6172-5804  orcid.org           
+#>  4 https://orcid.org/0000-0001-… 0000-0001-8188-0078  orcid.org           
+#>  5 https://orcid.org/0000-0002-… 0000-0002-4968-6272  orcid.org           
+#>  6 https://orcid.org/0000-0002-… 0000-0002-1918-5792  orcid.org           
+#>  7 https://orcid.org/0000-0001-… 0000-0001-9667-1615  orcid.org           
+#>  8 https://orcid.org/0000-0003-… 0000-0003-0945-6138  orcid.org           
+#>  9 https://orcid.org/0000-0002-… 0000-0002-9503-6836  orcid.org           
+#> 10 https://orcid.org/0000-0001-… 0000-0001-5156-0356  orcid.org           
 #> # ... with 90 more rows
 ```
 
@@ -203,18 +233,18 @@ And use boolean operators
 ```r
 orcid("johnson AND(caltech OR 'California Institute of Technology')")
 #> # A tibble: 100 x 3
-#>    `orcid-identifier.uri`                `orcid-identifi… `orcid-identifi…
-#>  * <chr>                                 <chr>            <chr>           
-#>  1 https://orcid.org/0000-0002-0026-2516 0000-0002-0026-… orcid.org       
-#>  2 https://orcid.org/0000-0001-6495-9892 0000-0001-6495-… orcid.org       
-#>  3 https://orcid.org/0000-0001-5320-7003 0000-0001-5320-… orcid.org       
-#>  4 https://orcid.org/0000-0003-0533-6833 0000-0003-0533-… orcid.org       
-#>  5 https://orcid.org/0000-0003-0692-4178 0000-0003-0692-… orcid.org       
-#>  6 https://orcid.org/0000-0002-1875-7007 0000-0002-1875-… orcid.org       
-#>  7 https://orcid.org/0000-0002-4207-6746 0000-0002-4207-… orcid.org       
-#>  8 https://orcid.org/0000-0003-3019-9658 0000-0003-3019-… orcid.org       
-#>  9 https://orcid.org/0000-0001-9761-1059 0000-0001-9761-… orcid.org       
-#> 10 https://orcid.org/0000-0002-7676-5347 0000-0002-7676-… orcid.org       
+#>    `orcid-identifier.uri`        `orcid-identifier.p… `orcid-identifier.h…
+#>  * <chr>                         <chr>                <chr>               
+#>  1 https://orcid.org/0000-0002-… 0000-0002-0026-2516  orcid.org           
+#>  2 https://orcid.org/0000-0001-… 0000-0001-6495-9892  orcid.org           
+#>  3 https://orcid.org/0000-0002-… 0000-0002-7042-5739  orcid.org           
+#>  4 https://orcid.org/0000-0003-… 0000-0003-0533-6833  orcid.org           
+#>  5 https://orcid.org/0000-0002-… 0000-0002-3909-2294  orcid.org           
+#>  6 https://orcid.org/0000-0003-… 0000-0003-4021-2473  orcid.org           
+#>  7 https://orcid.org/0000-0002-… 0000-0002-7705-5670  orcid.org           
+#>  8 https://orcid.org/0000-0001-… 0000-0001-5320-7003  orcid.org           
+#>  9 https://orcid.org/0000-0002-… 0000-0002-4207-6746  orcid.org           
+#> 10 https://orcid.org/0000-0002-… 0000-0002-7676-5347  orcid.org           
 #> # ... with 90 more rows
 ```
 
@@ -224,11 +254,11 @@ And you can use start and rows arguments to do pagination
 ```r
 orcid("johnson cardiology houston", start = 2, rows = 3)
 #> # A tibble: 3 x 3
-#>   `orcid-identifier.uri`                `orcid-identifie… `orcid-identifi…
-#> * <chr>                                 <chr>             <chr>           
-#> 1 https://orcid.org/0000-0001-8188-0078 0000-0001-8188-0… orcid.org       
-#> 2 https://orcid.org/0000-0002-4968-6272 0000-0002-4968-6… orcid.org       
-#> 3 https://orcid.org/0000-0001-9667-1615 0000-0001-9667-1… orcid.org
+#>   `orcid-identifier.uri`         `orcid-identifier.p… `orcid-identifier.h…
+#> * <chr>                          <chr>                <chr>               
+#> 1 https://orcid.org/0000-0001-6… 0000-0001-6172-5804  orcid.org           
+#> 2 https://orcid.org/0000-0001-8… 0000-0001-8188-0078  orcid.org           
+#> 3 https://orcid.org/0000-0002-4… 0000-0002-4968-6272  orcid.org
 ```
 
 
@@ -311,15 +341,17 @@ Basic search
 ```r
 orcid_doi(dois = "10.1087/20120404")
 #> [[1]]
-#> # A tibble: 6 x 3
-#>   `orcid-identifier.uri`                `orcid-identifie… `orcid-identifi…
-#> * <chr>                                 <chr>             <chr>           
-#> 1 https://orcid.org/0000-0003-1603-8743 0000-0003-1603-8… orcid.org       
-#> 2 https://orcid.org/0000-0002-2123-6317 0000-0002-2123-6… orcid.org       
-#> 3 https://orcid.org/0000-0002-5993-8592 0000-0002-5993-8… orcid.org       
-#> 4 https://orcid.org/0000-0003-3188-6273 0000-0003-3188-6… orcid.org       
-#> 5 https://orcid.org/0000-0001-5109-3700 0000-0001-5109-3… orcid.org       
-#> 6 https://orcid.org/0000-0003-1419-2405 0000-0003-1419-2… orcid.org       
+#> # A tibble: 8 x 3
+#>   `orcid-identifier.uri`         `orcid-identifier.p… `orcid-identifier.h…
+#> * <chr>                          <chr>                <chr>               
+#> 1 https://orcid.org/0000-0001-5… 0000-0001-5727-2427  orcid.org           
+#> 2 https://orcid.org/0000-0001-7… 0000-0001-7343-9784  orcid.org           
+#> 3 https://orcid.org/0000-0003-1… 0000-0003-1603-8743  orcid.org           
+#> 4 https://orcid.org/0000-0002-2… 0000-0002-2123-6317  orcid.org           
+#> 5 https://orcid.org/0000-0003-3… 0000-0003-3188-6273  orcid.org           
+#> 6 https://orcid.org/0000-0002-5… 0000-0002-5993-8592  orcid.org           
+#> 7 https://orcid.org/0000-0001-5… 0000-0001-5109-3700  orcid.org           
+#> 8 https://orcid.org/0000-0003-1… 0000-0003-1419-2405  orcid.org           
 #> 
 #> attr(,"class")
 #> [1] "orcid_doi"
@@ -332,13 +364,13 @@ This DOI is not a real one, but a partial DOI, then we can fuzzy search
 orcid_doi(dois = "10.1087/2", fuzzy = TRUE, rows = 5)
 #> [[1]]
 #> # A tibble: 5 x 3
-#>   `orcid-identifier.uri`                `orcid-identifie… `orcid-identifi…
-#> * <chr>                                 <chr>             <chr>           
-#> 1 https://orcid.org/0000-0001-6081-0708 0000-0001-6081-0… orcid.org       
-#> 2 https://orcid.org/0000-0001-6971-1351 0000-0001-6971-1… orcid.org       
-#> 3 https://orcid.org/0000-0002-6298-6771 0000-0002-6298-6… orcid.org       
-#> 4 https://orcid.org/0000-0002-5360-2529 0000-0002-5360-2… orcid.org       
-#> 5 https://orcid.org/0000-0002-5528-4704 0000-0002-5528-4… orcid.org       
+#>   `orcid-identifier.uri`         `orcid-identifier.p… `orcid-identifier.h…
+#> * <chr>                          <chr>                <chr>               
+#> 1 https://orcid.org/0000-0001-6… 0000-0001-6971-1351  orcid.org           
+#> 2 https://orcid.org/0000-0001-5… 0000-0001-5919-8670  orcid.org           
+#> 3 https://orcid.org/0000-0001-6… 0000-0001-6081-0708  orcid.org           
+#> 4 https://orcid.org/0000-0001-6… 0000-0001-6555-0837  orcid.org           
+#> 5 https://orcid.org/0000-0002-5… 0000-0002-5360-2529  orcid.org           
 #> 
 #> attr(,"class")
 #> [1] "orcid_doi"
