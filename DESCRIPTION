@@ -1,6 +1,6 @@
 Package: rorcid
-Title: Interface to the 'Orcid.org' 'API'
-Description: Client for the 'Orcid.org' 'API' (<https://orcid.org/>).
+Title: Interface to the 'Orcid.org' API
+Description: Client for the 'Orcid.org' API (<https://orcid.org/>).
     Functions included for searching for people, searching by 'DOI',
     and searching by 'Orcid' 'ID'.
 Version: 0.4.3.9100
