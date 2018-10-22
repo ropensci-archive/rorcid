@@ -47,7 +47,8 @@ errs <- function(x) {
     xx <- jsonlite::fromJSON(x$parse("UTF-8"))
     if (any(c("error-code", "errorCode") %in% names(xx))) {
       # match by status code
-      fun <- match_err(x$status_code)$new()
+      # fun <- match_err(x$status_code)$new()
+      fun <- find_error_class(x$status_code)
       fun$mssg <- xx$`developer-message` %||% xx$developerMessage
       fun$do_verbose(x)
     } else {
