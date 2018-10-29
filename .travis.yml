@@ -9,8 +9,6 @@ matrix:
     - os: linux
       r: release
       env: R_CODECOV=true
-    - os: linux
-       r: devel
 
 r_binary_packages:
   - covr
