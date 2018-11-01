@@ -49,6 +49,7 @@
 #' @importFrom httr oauth_app oauth_endpoint oauth2.0_token add_headers
 #' @importFrom crul HttpClient
 #' @importFrom jsonlite fromJSON
+#' @importFrom handlr HandlrClient
 #' @name rorcid-package
 #' @docType package
 #' @author Scott Chamberlain \email{myrmecocystus@@gmail.com}

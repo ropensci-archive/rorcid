@@ -91,7 +91,7 @@ orcid_citations <- function(orcid, put_code = NULL, cr_format = "bibtex",
 
 each_orcid <- function(m, orcid, put_code, cr_format, cr_style, cr_locale, ...) {
   cites <- lapply(m, function(z) {
-    # fix for whenevern > 1 put code to make column names more useable
+    # fix for whenever > 1 put code to make column names more useable
     if (all(grepl("work", names(z)))) {
       names(z) <- gsub("^work\\.", "", names(z))
     }
@@ -125,7 +125,11 @@ process_cites <- function(df, pc, orcid, cr_format, cr_style, cr_locale, ...) {
     id <- df[df$`external-id-type` %in% "doi", "external-id-value"]
     type <- "doi"
     fmat <- cr_format
-    ct <- cite_doi(id, cr_format, cr_style, cr_locale, ...) %||% ""
+    # ct <- cite_doi(id, cr_format, cr_style, cr_locale, ...) %||% ""
+    ct <- cite_doi(id, "citeproc-json", cr_style, cr_locale, ...) %||% ""
+    cli <- handlr::HandlrClient$new(x = ct)
+    cli$read("citeproc")
+    ct <- paste0(cli$write("bibtex"), collapse = "\n")
   } else {
     id <- df[df$`external-id-type` %in% "eid", "external-id-value"]
     type <- "eid"
