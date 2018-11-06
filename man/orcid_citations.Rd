@@ -19,7 +19,9 @@ XXXX-XXXX-XXXX-XXXX. required.}
 "citeproc-json", "citeproc-json-ish", "text", "ris", "bibtex" (default),
 "crossref-xml", "datacite-xml","bibentry", or "crossref-tdm". The format
 "citeproc-json-ish" is a format that is not quite proper citeproc-json.
-passed to \code{rcrossref::cr_cn}}
+passed to \code{rcrossref::cr_cn}. The special "citeproc2bibtex" value asks
+for citeproc-json from Crossref, then converts it into bibtex format
+using \link[handlr:HandlrClient]{handlr::HandlrClient}}
 
 \item{cr_style}{Used in Crossref queries only. A CSL style (for text
 format only). See ‘get_styles()’ for options. Default: apa.

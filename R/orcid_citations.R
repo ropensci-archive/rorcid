@@ -10,7 +10,9 @@
 #' "citeproc-json", "citeproc-json-ish", "text", "ris", "bibtex" (default), 
 #' "crossref-xml", "datacite-xml","bibentry", or "crossref-tdm". The format 
 #' "citeproc-json-ish" is a format that is not quite proper citeproc-json.
-#' passed to `rcrossref::cr_cn`
+#' passed to `rcrossref::cr_cn`. The special "citeproc2bibtex" value asks
+#' for citeproc-json from Crossref, then converts it into bibtex format 
+#' using [handlr::HandlrClient]
 #' @param cr_style Used in Crossref queries only. A CSL style (for text 
 #' format only). See ‘get_styles()’ for options. Default: apa. 
 #' passed to `rcrossref::cr_cn`
@@ -124,12 +126,17 @@ process_cites <- function(df, pc, orcid, cr_format, cr_style, cr_locale, ...) {
   if ("doi" %in% df$`external-id-type`) {
     id <- df[df$`external-id-type` %in% "doi", "external-id-value"]
     type <- "doi"
-    fmat <- cr_format
-    # ct <- cite_doi(id, cr_format, cr_style, cr_locale, ...) %||% ""
-    ct <- cite_doi(id, "citeproc-json", cr_style, cr_locale, ...) %||% ""
-    cli <- handlr::HandlrClient$new(x = ct)
-    cli$read("citeproc")
-    ct <- paste0(cli$write("bibtex"), collapse = "\n")
+    if (cr_format == "citeproc2bibtex") {
+      cr_format = "citeproc-json"
+      fmat <- "bibtex"
+      ct <- cite_doi(id, cr_format, cr_style, cr_locale, ...) %||% ""
+      cli <- handlr::HandlrClient$new(x = ct)
+      cli$read("citeproc")
+      ct <- paste0(cli$write("bibtex"), collapse = "\n")
+    } else {
+      fmat <- cr_format
+      ct <- cite_doi(id, cr_format, cr_style, cr_locale, ...) %||% ""
+    }
   } else {
     id <- df[df$`external-id-type` %in% "eid", "external-id-value"]
     type <- "eid"
