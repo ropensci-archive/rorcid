@@ -6,7 +6,7 @@
 #' SOLR syntax. See examples below. For all possible fields to query, do 
 #' `data(fields)`
 #' @param start Result number to start on. Keep in mind that pages start at 0.
-#' Deafult: 0
+#' Default: 0
 #' @param rows Numer of results to return. Default: 10. Max: 200
 #' @param recursive Keep drilling down until all records are retrieved for the 
 #' given query, default FALSE (logical). If `recursive=TRUE`, rows and 

@@ -47,7 +47,7 @@ errs <- function(x) {
     xx <- jsonlite::fromJSON(x$parse("UTF-8"))
     if (any(c("error-code", "errorCode") %in% names(xx))) {
       # match by status code
-      fun <- match_err(x$status_code)$new()
+      fun <- fauxpas::find_error_class(x$status_code)$new()
       fun$mssg <- xx$`developer-message` %||% xx$developerMessage
       fun$do_verbose(x)
     } else {
@@ -55,14 +55,6 @@ errs <- function(x) {
       fauxpas::http(x)
     }
   }
-}
-
-match_err <- function(code) {
-  tmp <- paste0("fauxpas::",
-                grep("HTTP*", getNamespaceExports("fauxpas"), value = TRUE))
-  fxns <- lapply(tmp, function(x) eval(parse(text = x)))
-  codes <- vapply(fxns, function(z) z$public_fields$status_code, 1)
-  fxns[[which(code == codes)]]
 }
 
 fuzzydoi <- function(x, fuzzy = FALSE) {
