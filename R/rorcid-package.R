@@ -48,6 +48,7 @@
 #' 
 #' @importFrom httr oauth_app oauth_endpoint oauth2.0_token add_headers
 #' @importFrom crul HttpClient
+#' @importFrom fauxpas http find_error_class
 #' @importFrom jsonlite fromJSON
 #' @importFrom handlr HandlrClient
 #' @name rorcid-package
