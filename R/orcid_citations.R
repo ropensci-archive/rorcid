@@ -87,12 +87,13 @@ orcid_citations <- function(orcid, put_code = NULL, cr_format = "bibtex",
     Map(function(a, b) each_orcid(a, b, put_code, cr_format, cr_style, cr_locale), 
       dat, orcid, ...) 
   } else {
-    each_orcid(dat[[1]], orcid, put_code, cr_format, cr_style, cr_locale, ...)
+    # each_orcid(dat[[1]], orcid, put_code, cr_format, cr_style, cr_locale, ...)
+    do_all(dat[[1]], orcid, put_code, cr_format, cr_style, cr_locale)
   }
 }
 
 each_orcid <- function(m, orcid, put_code, cr_format, cr_style, cr_locale, ...) {
-  cites <- lapply(m, function(z) {
+  cites <- plyr::llply(m, function(z) {
     # fix for whenever > 1 put code to make column names more useable
     if (all(grepl("work", names(z)))) {
       names(z) <- gsub("^work\\.", "", names(z))
@@ -111,7 +112,7 @@ each_orcid <- function(m, orcid, put_code, cr_format, cr_style, cr_locale, ...) 
       df <- z$`external-ids.external-id`[[1]]
       process_cites(df, pc, orcid, cr_format, cr_style, cr_locale, ...)
     }
-  })
+  }, .inform = TRUE)
   # unnest if no names at top level
   if (is.null(names(cites[[1]])) && length(cites[[1]]) > 1) cites <- unlist(cites, FALSE)
   # combine
@@ -127,6 +128,7 @@ process_cites <- function(df, pc, orcid, cr_format, cr_style, cr_locale, ...) {
     id <- df[df$`external-id-type` %in% "doi", "external-id-value"]
     type <- "doi"
     if (cr_format == "citeproc2bibtex") {
+      chkpkg('handlr')
       cr_format = "citeproc-json"
       fmat <- "bibtex"
       ct <- cite_doi(id, cr_format, cr_style, cr_locale, ...) %||% ""
