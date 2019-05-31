@@ -50,7 +50,6 @@
 #' @importFrom crul HttpClient
 #' @importFrom fauxpas http find_error_class
 #' @importFrom jsonlite fromJSON
-#' @importFrom handlr HandlrClient
 #' @name rorcid-package
 #' @docType package
 #' @author Scott Chamberlain \email{myrmecocystus@@gmail.com}

@@ -78,7 +78,11 @@ orcid_citations <- function(orcid, put_code = NULL, cr_format = "bibtex",
   tmp <- orcid_works(orcid, put_code)
   
   dat <- if (!is.null(put_code)) {
-    list(list(tmp[[1]]$works))
+    if (NROW(tmp[[1]]$works) > 1) {
+      list(split(tmp[[1]]$works, tmp[[1]]$works$`work.put-code`))
+    } else {
+      list(list(tmp[[1]]$works))
+    }
   } else {
     lapply(tmp, function(w) split(w$works, w$works$`put-code`))
   }
@@ -87,13 +91,12 @@ orcid_citations <- function(orcid, put_code = NULL, cr_format = "bibtex",
     Map(function(a, b) each_orcid(a, b, put_code, cr_format, cr_style, cr_locale), 
       dat, orcid, ...) 
   } else {
-    # each_orcid(dat[[1]], orcid, put_code, cr_format, cr_style, cr_locale, ...)
-    do_all(dat[[1]], orcid, put_code, cr_format, cr_style, cr_locale)
+    do_all(dat[[1]], orcid, put_code, cr_format, cr_style, cr_locale, ...)
   }
 }
 
 each_orcid <- function(m, orcid, put_code, cr_format, cr_style, cr_locale, ...) {
-  cites <- plyr::llply(m, function(z) {
+  cites <- lapply(m, function(z) {
     # fix for whenever > 1 put code to make column names more useable
     if (all(grepl("work", names(z)))) {
       names(z) <- gsub("^work\\.", "", names(z))
@@ -112,7 +115,7 @@ each_orcid <- function(m, orcid, put_code, cr_format, cr_style, cr_locale, ...) 
       df <- z$`external-ids.external-id`[[1]]
       process_cites(df, pc, orcid, cr_format, cr_style, cr_locale, ...)
     }
-  }, .inform = TRUE)
+  })
   # unnest if no names at top level
   if (is.null(names(cites[[1]])) && length(cites[[1]]) > 1) cites <- unlist(cites, FALSE)
   # combine
@@ -166,4 +169,58 @@ cite_put <- function(orcid, pc, ...) {
     ctype = "application/vnd.citationstyles.csl+json", 
     # ctype = "application/x-bibtex", 
     parse = FALSE, ...)
+}
+
+has_doi <- function(x) {
+  "doi" %in% x$`external-ids.external-id`[[1]]$`external-id-type` ||
+  "doi" %in% vapply(x$`work.external-ids.external-id`, "[[", "", "external-id-type")
+}
+do_all <- function(m, orcid, put_code, cr_format, cr_style, cr_locale, ...) {
+  # separate by id type
+  bools <- vapply(m, has_doi, logical(1))
+  with_doi <- m[bools]
+  without_doi <- m[!bools]
+
+  # process DOI types
+  if (length(with_doi) == 0) with_doi_citations <- list()
+  if (length(with_doi) != 0) {
+    with_doi_ids <- vapply(with_doi, function(z) {
+      if (!is.null(put_code)) {
+        zzz <- z$`work.external-ids.external-id`[[1]]
+        zzz[zzz$`external-id-type` %in% "doi", "external-id-value"]
+      } else {
+        zzz <- z$`external-ids.external-id`[[1]]
+        zzz[zzz$`external-id-type` %in% "doi", "external-id-value"]
+      }
+    }, "")
+    if (cr_format == "citeproc2bibtex") {
+      chkpkg('handlr')
+      cr_format = "citeproc-json"
+      fmat <- "bibtex"
+      ct <- cite_doi(unname(with_doi_ids), cr_format, cr_style, cr_locale, ...) %||% ""
+      with_doi_citations <- vapply(ct, function(w) {
+        if (!is.character(w)) return(w$error)
+        cli <- handlr::HandlrClient$new(x = w)
+        cli$read("citeproc")
+        paste0(cli$write("bibtex"), collapse = "\n")
+      }, "")
+    } else {
+      fmat <- cr_format
+      with_doi_citations <- cite_doi(with_doi_ids, cr_format, cr_style, cr_locale)
+    }
+    with_doi_citations <- Map(function(w, z, cit) {
+      list(put = z$`put-code` %||% z$`work.put-code`, ids = w, type = "doi", format = fmat, citation = cit)
+    }, with_doi_ids, with_doi, with_doi_citations)
+  }
+
+  # process non-DOI types
+  without_doi_citations <- lapply(without_doi, function(z) {
+    zzz <- z$`external-ids.external-id`[[1]] %||% z$`work.external-ids.external-id`[[1]]
+    pc <- z$`put-code` %||% z$`work.put-code`
+    list(put = pc, ids = zzz$`external-id-value`, 
+      type = zzz$`external-id-type`, format = cr_format,
+      citation = cite_put(orcid, pc))
+  })
+  as_dt(c(with_doi_citations, without_doi_citations))
+  # return(c(with_doi_citations, without_doi_citations))
 }
