@@ -15,8 +15,9 @@
 #' is a alphanumeric UUID, e.g. `dc0a6b6b-b4d4-4276-bc89-78c1e9ede56e`. You
 #' can get this token by running `orcid_auth()`, then storing that key
 #' (the uuid alone, not the "Bearer " part) either as en environment
-#' variable in your `.Renviron` file in your home directory, or as an R
-#' option in your `.Rprofile` file. See [Startup] for more information.
+#' variable in your `.Renviron` file in your home directory (with the name
+#' `ORCID_TOKEN`), or as an R option in your `.Rprofile` file (with the name
+#' `orcid_token`). See [Startup] for more information.
 #' Either an environment variable or R option work. If we don't find
 #' either we do the next option.
 #' - Interactively login with OAuth. This doesn't require any input on

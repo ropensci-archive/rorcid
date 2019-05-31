@@ -31,7 +31,7 @@ Imports:
 Suggests:
     testthat,
     knitr
-RoxygenNote: 6.1.0.9000
+RoxygenNote: 6.1.1
 VignetteBuilder: knitr
 X-schema.org-applicationCategory: Literature
 X-schema.org-keywords: identifiers, literature, publications, citations, scholarly, people
