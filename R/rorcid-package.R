@@ -50,6 +50,7 @@
 #' @importFrom crul HttpClient
 #' @importFrom fauxpas http find_error_class
 #' @importFrom jsonlite fromJSON
+#' @importFrom handlr HandlrClient
 #' @name rorcid-package
 #' @docType package
 #' @author Scott Chamberlain \email{myrmecocystus@@gmail.com}
@@ -65,6 +66,13 @@ NULL
 NULL
 
 #' Lookup vector for journal titles by ISSN
+#' 
+#' named vector of journal titles. the values are journal titles and 
+#' the names are ISSN's.
+#' 
+#' length: 57,968
+#' 
+#' data collected on 2018-06-13 from Crossref
 #' 
 #' @name issn_title
 #' @docType data
