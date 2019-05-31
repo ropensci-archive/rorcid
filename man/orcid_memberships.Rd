@@ -20,6 +20,9 @@ XXXX-XXXX-XXXX-XXXX. required.}
 "application/orcid+json; qs=2", "application/json"
 "application/vnd.citationstyles.csl+json". optional}
 
+\item{summary}{(logical) get education summary for a put code.
+Default: \code{FALSE}}
+
 \item{...}{Curl options passed on to \code{\link[crul:HttpClient]{crul::HttpClient()}}}
 }
 \value{

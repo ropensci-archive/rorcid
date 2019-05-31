@@ -3,6 +3,8 @@
 #' @export
 #' @inheritParams orcid_works 
 #' @template deets
+#' @param summary (logical) get education summary for a put code. 
+#' Default: `FALSE`
 #'
 #' @examples \dontrun{
 #' res <- orcid_research_resources(orcid = "0000-0002-1642-628X")
