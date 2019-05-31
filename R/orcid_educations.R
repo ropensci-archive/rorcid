@@ -21,14 +21,6 @@
 #' }
 orcid_educations <- function(orcid, put_code = NULL, 
                           format = "application/json", summary = FALSE, ...) {
-  
-  pth <- if (!summary) {
-    if (is.null(put_code)) "educations" else "education"
-  } else {
-    if (is.null(put_code)) {
-      stop("if summary == TRUE, must give 1 or more put_code")
-    }
-    "education/summary"
-  }
+  pth <- path_picker(put_code, summary, "education")
   orcid_putcode_helper(pth, orcid, put_code, format, ...)
 }
