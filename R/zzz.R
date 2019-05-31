@@ -1,7 +1,7 @@
 ocom <- function(l) Filter(Negate(is.null), l)
 ocom2 <- function(l) Filter(function(l) !is.null(l) && length(l) > 0, l)
 
-orcid_base <- function() "https://pub.orcid.org/v2.1"
+orcid_base <- function() "https://pub.orcid.org/v3.0"
 
 ojson <- "application/vnd.orcid+json; qs=4"
 
@@ -149,4 +149,15 @@ as_dt <- function(x, tibble = TRUE) {
   )
   if (tibble) z <- tibble::as_tibble(z)
   return(z)
+}
+
+path_picker <- function(put_code, summary, pth_single) {
+  if (!summary) {
+    if (is.null(put_code)) paste0(pth_single, "s") else pth_single
+  } else {
+    if (is.null(put_code)) {
+      stop("if summary == TRUE, must give 1 or more put_code")
+    }
+    file.path(pth_single, "summary")
+  }
 }

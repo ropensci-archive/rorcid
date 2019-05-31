@@ -5,15 +5,13 @@
 #' @template deets
 #'
 #' @examples \dontrun{
-#' res <- orcid_bio(orcid = "0000-0002-9341-7985")
-#' res$`0000-0002-9341-7985`
-#' res$`0000-0002-9341-7985`$`created-date`
-#' res$`0000-0002-9341-7985`$`last-modified-date`
-#' res$`0000-0002-9341-7985`$`content`
-#' res$`0000-0002-9341-7985`$`visibility`
-#' res$`0000-0002-9341-7985`$path
-#' 
-#' orcid_bio(orcid = "0000-0003-1620-1408")
+#' res <- orcid_bio(orcid = "0000-0002-1642-628X")
+#' res$`0000-0002-1642-628X`
+#' res$`0000-0002-1642-628X`$`created-date`
+#' res$`0000-0002-1642-628X`$`last-modified-date`
+#' res$`0000-0002-1642-628X`$`content`
+#' res$`0000-0002-1642-628X`$`visibility`
+#' res$`0000-0002-1642-628X`$path
 #' }
 orcid_bio <- function(orcid, format = "application/json", ...) {
   stats::setNames(

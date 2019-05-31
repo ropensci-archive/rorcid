@@ -21,14 +21,6 @@
 #' }
 orcid_peer_reviews <- function(orcid, put_code = NULL, 
                           format = "application/json", summary = FALSE, ...) {
-  
-  pth <- if (!summary) {
-    if (is.null(put_code)) "peer-reviews" else "peer-review"
-  } else {
-    if (is.null(put_code)) {
-      stop("if summary == TRUE, must give 1 or more put_code")
-    }
-    "peer-review/summary"
-  }
+  pth <- path_picker(put_code, summary, "peer-review")
   orcid_putcode_helper(pth, orcid, put_code, format, ...)
 }
