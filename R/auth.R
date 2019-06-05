@@ -67,6 +67,8 @@ orcid_auth <- function(scope = "/authenticate", reauth = FALSE,
          call. = FALSE)
   } else  {
     message("no ORCID token found; attempting OAuth authentication\n")
+    # httpuv required to do oauth out of bounds (OOB) flow
+    chkpkg("httpuv")
 
     # use user supplied redirect_uri if supplied
     if (!is.null(redirect_uri)) rorcid_app$redirect_uri <- redirect_uri
