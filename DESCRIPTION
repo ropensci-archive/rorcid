@@ -16,6 +16,7 @@ Authors@R:
 License: MIT + file LICENSE
 URL: https://github.com/ropensci/rorcid
 BugReports: https://github.com/ropensci/rorcid/issues
+LazyLoad: yes
 LazyData: true
 Roxygen: list(markdown = TRUE)
 Encoding: UTF-8
