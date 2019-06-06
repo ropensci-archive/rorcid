@@ -3,3 +3,6 @@
 .Rproj.user
 inst/ignore/auth.R
 .httr-oauth
+revdep/checks.noindex
+revdep/data.sqlite
+revdep/library.noindex

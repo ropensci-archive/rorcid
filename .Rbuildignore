@@ -16,3 +16,4 @@ cran-comments.md
 .github
 ^codemeta\.json$
 inst/vign/cache
+^revdep$

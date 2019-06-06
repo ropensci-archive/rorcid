@@ -10,11 +10,12 @@
 
 ## Reverse dependencies
 
-There are no reverse dependencies.
+* I have run R CMD check on the 1 reverse dependency.
+  (Summary at <https://github.com/ropensci/rorcid/blob/master/revdep/README.md>). No problems were found.
 
 ---
 
 This version adds many new functions in response to the ORCID API updating to v3; many improvements and bug fixes.
 
-Sincerley, 
+Thanks!
 Scott Chamberlain
