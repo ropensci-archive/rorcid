@@ -17,3 +17,4 @@ cran-comments.md
 ^codemeta\.json$
 inst/vign/cache
 ^revdep$
+.circleci/config.yml
