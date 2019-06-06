@@ -29,5 +29,5 @@ test_that("as.orcid fails well", {
   expect_error(as.orcid(list(a = 6)), "no 'as.orcid' method for numeric")
   
   # ok input class, but but ORCID
-  expect_error(as.orcid("adfafadf"), "404 Not Found")
+  expect_error(as.orcid("adfafadf"))
 })

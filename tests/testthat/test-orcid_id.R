@@ -17,7 +17,7 @@ test_that("orcid_id fails well", {
   expect_error(orcid_id(list(a = 6)), "is.character\\(orcid\\) is not TRUE")
   
   # ok input class, but but ORCID
-  expect_error(orcid_id("asdfadf"), "404 Not Found")
+  expect_error(orcid_id("asdfadf"))
 
   # accepts only 1 ID
   ids <- c("0000-0003-1620-1408", "0000-0002-9341-7985")

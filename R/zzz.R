@@ -67,8 +67,7 @@ fuzzydoi <- function(x, fuzzy = FALSE) {
 
 orc_parse <- function(x){
   out <- jsonlite::fromJSON(x, TRUE, flatten = TRUE)
-  df <- tibble::as_data_frame(out$result)
-  # names(df) <- gsub("orcid-profile\\.|orcid-profile\\.orcid-bio\\.", "", names(df))
+  df <- tibble::as_tibble(out$result)
   attr(df, "found") <- out$`num-found`
   return(df)
 }

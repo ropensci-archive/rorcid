@@ -22,5 +22,5 @@ test_that("works fails well", {
   
   expect_error(works(5), "no 'as.orcid' method")
   expect_error(works(mtcars), "no 'as.orcid' method")
-  expect_error(works("Asfaf"), "404 Not Found")
+  expect_error(works("Asfaf"))
 })
