@@ -2,5 +2,4 @@
 .DS_Store
 .Rproj.user
 inst/ignore/auth.R
-inst/ignore/issn_title_collect.R
 .httr-oauth
