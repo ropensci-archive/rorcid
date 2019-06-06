@@ -18,6 +18,12 @@
 #' 
 #' # summary
 #' orcid_peer_reviews("0000-0003-1444-9135", 75565, summary = TRUE)
+#' 
+#' # get Journal titles via ISSN's provided in results, using the 
+#' # provided issn_title dataset
+#' x <- orcid_peer_reviews("0000-0001-7678-8656", put_code = "220419")
+#' issn <- strsplit(x[[1]]$`review-group-id`, ":")[[1]][[2]]
+#' issn_title[[issn]]
 #' }
 orcid_peer_reviews <- function(orcid, put_code = NULL, 
                           format = "application/json", summary = FALSE, ...) {
