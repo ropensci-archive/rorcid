@@ -206,10 +206,12 @@ do_all <- function(m, orcid, put_code, cr_format, cr_style, cr_locale, ...) {
       }, "")
     } else {
       fmat <- cr_format
-      with_doi_citations <- cite_doi(with_doi_ids, cr_format, cr_style, cr_locale)
+      with_doi_citations <-
+        cite_doi(with_doi_ids, cr_format, cr_style, cr_locale)
     }
     with_doi_citations <- Map(function(w, z, cit) {
-      list(put = z$`put-code` %||% z$`work.put-code`, ids = w, type = "doi", format = fmat, citation = cit)
+      list(put = z$`put-code` %||% z$`work.put-code`,
+        ids = w, type = "doi", format = fmat, citation = cit)
     }, with_doi_ids, with_doi, with_doi_citations)
   }
 
@@ -222,5 +224,4 @@ do_all <- function(m, orcid, put_code, cr_format, cr_style, cr_locale, ...) {
       citation = cite_put(orcid, pc))
   })
   as_dt(c(with_doi_citations, without_doi_citations))
-  # return(c(with_doi_citations, without_doi_citations))
 }
