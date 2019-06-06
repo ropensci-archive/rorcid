@@ -8,8 +8,8 @@
 #' 
 #' Orcid API docs:
 #' 
-#' - <http://members.orcid.org/api>
-#' - <https://pub.orcid.org/v2.1/#/Public_API_v2.1>
+#' - http://members.orcid.org/api
+#' - https://pub.orcid.org/v3.0/#/Development_Public_API_v3.0
 #' 
 #' \pkg{rorcid} has the following main user facing methods:
 #' 
