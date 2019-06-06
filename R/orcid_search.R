@@ -65,9 +65,9 @@ orcid_search <- function(given_name = NULL, family_name = NULL,
   # by default, combine with 'AND'
   query <- paste(names(query), unname(query), sep = ":", collapse = " AND ")
 
-  tt <- rorcid::orcid(query = query, rows = rows, start = start, ...)
+  tt <- orcid(query = query, rows = rows, start = start, ...)
   as_dt(lapply(tt$`orcid-identifier.path`, function(w) {
-    rr <- rorcid::orcid_id(w)
+    rr <- orcid_id(w)
     data.frame(
       first = rr[[1]]$name$`given-names`$value,
       last = rr[[1]]$name$`family-name`$value,
