@@ -8,6 +8,7 @@ rorcid 0.5.0
 * with ORCID v3 API, new functions added: `orcid_distinctions()`, `orcid_invited_positions()`, `orcid_memberships()`, `orcid_qualifications()`, `orcid_research_resources()`, and `orcid_services()`
 * gains new fxn `orcid_citations()` for getting citations for an ORCID ID in user specified formats - leverages `rcrossref` and `handlr` packages (#51) (#69)
 * new function added `orcid_search()`, a wrapper around `orcid()` function as an easier interface than `orcid()` - see https://github.com/ropensci/codemetar/issues/83 for discussion (#54)
+* requires R 3.5 or greater
 
 ### MINOR IMPROVEMENTS
 

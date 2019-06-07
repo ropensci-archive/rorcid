@@ -20,7 +20,7 @@ LazyLoad: yes
 LazyData: true
 Roxygen: list(markdown = TRUE)
 Encoding: UTF-8
-Depends: R (>= 2.10)
+Depends: R (>= 3.5.0)
 Imports:
     crul (>= 0.7.4),
     httr,
