@@ -4,12 +4,11 @@
 #' A R interface to the Orcid public API. \pkg{rorcid} is not a product 
 #' developed or distributed by ORCID.
 #' 
-#' ORCID website: <https://orcid.org/>
+#' ORCID website: https://orcid.org/
 #' 
 #' Orcid API docs:
 #' 
 #' - http://members.orcid.org/api
-#' - https://pub.orcid.org/v3.0/#/Development_Public_API_v3.0
 #' 
 #' \pkg{rorcid} has the following main user facing methods:
 #' 
