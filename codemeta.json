@@ -109,7 +109,7 @@
       "@type": "SoftwareApplication",
       "identifier": "R",
       "name": "R",
-      "version": ">= 2.10"
+      "version": ">= 3.5.0"
     },
     {
       "@type": "SoftwareApplication",
@@ -204,7 +204,7 @@
   "contIntegration": "https://travis-ci.org/ropensci/rorcid",
   "releaseNotes": "https://github.com/ropensci/rorcid/blob/master/NEWS.md",
   "readme": "https://github.com/ropensci/rorcid/blob/master/README.md",
-  "fileSize": "850.905KB",
+  "fileSize": "850.932KB",
   "applicationCategory": "Literature",
   "isPartOf": "https://ropensci.org",
   "keywords": ["identifiers", "literature", "publications", "citations", "scholarly", "people", "api-wrapper", "orcid", "doi", "scholarly-metadata", "rstats", "r", "orcid-api", "r-package"],
