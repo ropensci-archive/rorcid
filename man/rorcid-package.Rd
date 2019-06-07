@@ -10,18 +10,15 @@ developed or distributed by ORCID.
 
 ORCID website: https://orcid.org/
 
-Orcid API docs:
-\itemize{
-\item http://members.orcid.org/api
-}
+Orcid API docs: http://members.orcid.org/api
 
-\pkg{rorcid} has the following main user facing methods:
+Some key \pkg{rorcid} function:
 \itemize{
 \item \code{\link[=as.orcid]{as.orcid()}} - coerce various inputs to ORCID class
 \item \code{\link[=browse]{browse()}} - browse to a profile in your default browser
 \item \code{\link[=check_dois]{check_dois()}} - check that strings are likely to be DOIs
 \item \code{\link[=identifiers]{identifiers()}} - grab identifiers out of various objects
-\item \code{\link[=orcid]{orcid()}} - Search for ORCID id's
+\item \code{\link[=orcid]{orcid()}} and \code{\link[=orcid_search]{orcid_search()}} - Search for ORCID id's
 \item \code{\link[=orcid_doi]{orcid_doi()}} - Search by DOI
 \item \code{\link[=orcid_id]{orcid_id()}} - Search by ORCID id, and get either bio,
 profile, or works
@@ -45,10 +42,12 @@ Not quite sure what these do so haven't messed with them.
 Definitions:
 \itemize{
 \item Request a second - Number of request that can be made a second.
-Value: 8 per second (24 with API v2rc+)
+Value: 8 per second (24 with API v2rc+) - Haven't been able to find up
+to date values for API v3 (so assume they are the same I guess)
 \item Burst - Number of request we will allow to be queued before rejecting.
 The request in the queue are slowed down at the request a second rate.
-Value: 40 (same with API v2rc+)
+Value: 40 (same with API v2rc+) - Haven't been able to find up to date
+values for API v3 (so assume they are the same I guess)
 }
 
 If you exceed the burst, you'll get a 503 responses. Developers should do

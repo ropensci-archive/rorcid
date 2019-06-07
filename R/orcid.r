@@ -94,7 +94,7 @@
 #' results here are only the identifiers. To get other metadata/data
 #' you can take the identifiers and use other functions in this package.
 #' 
-#' @seealso [orcid_doi()] [orcid_id()]
+#' @seealso [orcid_doi()] [orcid_id()] [orcid_search()]
 #' @examples \dontrun{
 #' # Get a list of names and Orcid IDs matching a name query
 #' orcid(query="carl+boettiger")

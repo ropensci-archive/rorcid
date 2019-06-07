@@ -192,5 +192,5 @@ orcid(defType = "edismax",
 \url{https://members.orcid.org/api/tutorial/search-orcid-registry}
 }
 \seealso{
-\code{\link[=orcid_doi]{orcid_doi()}} \code{\link[=orcid_id]{orcid_id()}}
+\code{\link[=orcid_doi]{orcid_doi()}} \code{\link[=orcid_id]{orcid_id()}} \code{\link[=orcid_search]{orcid_search()}}
 }

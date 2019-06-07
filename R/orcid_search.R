@@ -18,7 +18,7 @@
 #' @param rows (integer) number of records to return
 #' @param start (integer) record number to start at
 #' @param ... curl options passed on to [crul::HttpClient]
-#' 
+#' @seealso [orcid()]
 #' @return a `data.frame` with three columns: 
 #' 
 #' - first: given name

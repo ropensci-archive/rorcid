@@ -81,3 +81,6 @@ orcid_search(given_name = "carl", rows = 2)
 orcid_search(given_name = "carl", verbose = TRUE)
 }
 }
+\seealso{
+\code{\link[=orcid]{orcid()}}
+}
