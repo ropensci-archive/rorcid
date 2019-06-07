@@ -18,3 +18,5 @@ cran-comments.md
 inst/vign/cache
 ^revdep$
 .circleci/config.yml
+^docs$
+
