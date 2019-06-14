@@ -27,8 +27,9 @@ There are two ways to authenticate with `rorcid`:
 is a alphanumeric UUID, e.g. `dc0a6b6b-b4d4-4276-bc89-78c1e9ede56e`. You
 can get this token by running `orcid_auth()`, then storing that key
 (the uuid alone, not the "Bearer " part) either as en environment
-variable in your `.Renviron` file in your home directory, or as an R
-option in your `.Rprofile` file. See `?Startup` for more information.
+variable called `ORCID_TOKEN` in your `.Renviron` file in your home directory,
+or as an R option in your `.Rprofile` file (called `orcid_token`).
+See `?Startup` for more information.
 Either an environment variable or R option work. If we don't find
 either we do the next option.
 - Interactively login with OAuth. We use a client id and client secret 
@@ -226,14 +227,14 @@ orcid(query = "johnson cardiology houston")
 #>  * <chr>                          <chr>                <chr>               
 #>  1 https://orcid.org/0000-0002-0… 0000-0002-0897-2301  orcid.org           
 #>  2 https://orcid.org/0000-0002-5… 0000-0002-5281-4466  orcid.org           
-#>  3 https://orcid.org/0000-0001-6… 0000-0001-6172-5804  orcid.org           
-#>  4 https://orcid.org/0000-0001-8… 0000-0001-8188-0078  orcid.org           
-#>  5 https://orcid.org/0000-0002-4… 0000-0002-4968-6272  orcid.org           
-#>  6 https://orcid.org/0000-0002-1… 0000-0002-1918-5792  orcid.org           
-#>  7 https://orcid.org/0000-0001-9… 0000-0001-9667-1615  orcid.org           
-#>  8 https://orcid.org/0000-0002-4… 0000-0002-4334-4001  orcid.org           
-#>  9 https://orcid.org/0000-0003-0… 0000-0003-0945-6138  orcid.org           
-#> 10 https://orcid.org/0000-0002-9… 0000-0002-9503-6836  orcid.org           
+#>  3 https://orcid.org/0000-0002-0… 0000-0002-0682-9982  orcid.org           
+#>  4 https://orcid.org/0000-0001-6… 0000-0001-6172-5804  orcid.org           
+#>  5 https://orcid.org/0000-0001-8… 0000-0001-8188-0078  orcid.org           
+#>  6 https://orcid.org/0000-0002-4… 0000-0002-4968-6272  orcid.org           
+#>  7 https://orcid.org/0000-0002-1… 0000-0002-1918-5792  orcid.org           
+#>  8 https://orcid.org/0000-0001-9… 0000-0001-9667-1615  orcid.org           
+#>  9 https://orcid.org/0000-0002-4… 0000-0002-4334-4001  orcid.org           
+#> 10 https://orcid.org/0000-0003-0… 0000-0003-0945-6138  orcid.org           
 #> # … with 90 more rows
 ```
 
@@ -266,9 +267,9 @@ orcid("johnson cardiology houston", start = 2, rows = 3)
 #> # A tibble: 3 x 3
 #>   `orcid-identifier.uri`         `orcid-identifier.pa… `orcid-identifier.h…
 #> * <chr>                          <chr>                 <chr>               
-#> 1 https://orcid.org/0000-0001-6… 0000-0001-6172-5804   orcid.org           
-#> 2 https://orcid.org/0000-0001-8… 0000-0001-8188-0078   orcid.org           
-#> 3 https://orcid.org/0000-0002-4… 0000-0002-4968-6272   orcid.org
+#> 1 https://orcid.org/0000-0002-0… 0000-0002-0682-9982   orcid.org           
+#> 2 https://orcid.org/0000-0001-6… 0000-0001-6172-5804   orcid.org           
+#> 3 https://orcid.org/0000-0001-8… 0000-0001-8188-0078   orcid.org
 ```
 
 
@@ -358,7 +359,7 @@ orcid_doi(dois = "10.1087/20120404")
 #>  2 https://orcid.org/0000-0003-4… 0000-0003-4293-0137  orcid.org           
 #>  3 https://orcid.org/0000-0001-7… 0000-0001-7343-9784  orcid.org           
 #>  4 https://orcid.org/0000-0001-5… 0000-0001-5727-2427  orcid.org           
-#>  5 https://orcid.org/0000-0003-0… 0000-0003-0187-9064  orcid.org           
+#>  5 https://orcid.org/0000-0002-9… 0000-0002-9297-0076  orcid.org           
 #>  6 https://orcid.org/0000-0002-2… 0000-0002-2123-6317  orcid.org           
 #>  7 https://orcid.org/0000-0003-1… 0000-0003-1603-8743  orcid.org           
 #>  8 https://orcid.org/0000-0003-3… 0000-0003-3188-6273  orcid.org           
@@ -380,8 +381,8 @@ orcid_doi(dois = "10.1087/2", fuzzy = TRUE, rows = 5)
 #>   `orcid-identifier.uri`         `orcid-identifier.pa… `orcid-identifier.h…
 #> * <chr>                          <chr>                 <chr>               
 #> 1 https://orcid.org/0000-0001-6… 0000-0001-6971-1351   orcid.org           
-#> 2 https://orcid.org/0000-0001-6… 0000-0001-6081-0708   orcid.org           
-#> 3 https://orcid.org/0000-0001-5… 0000-0001-5919-8670   orcid.org           
+#> 2 https://orcid.org/0000-0001-5… 0000-0001-5919-8670   orcid.org           
+#> 3 https://orcid.org/0000-0001-6… 0000-0001-6081-0708   orcid.org           
 #> 4 https://orcid.org/0000-0001-6… 0000-0001-6555-0837   orcid.org           
 #> 5 https://orcid.org/0000-0002-6… 0000-0002-6914-8682   orcid.org           
 #> 

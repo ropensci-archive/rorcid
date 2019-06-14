@@ -33,7 +33,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="index.html">rorcid</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.5.0</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.5.0.9100</span>
       </span>
     </div>
 
@@ -95,7 +95,7 @@
 <a href="#authentication" class="anchor"></a>Authentication</h2>
 <p>There are two ways to authenticate with <code>rorcid</code>:</p>
 <ul>
-<li>Use a token as a result of a OAuth authentication process. The token is a alphanumeric UUID, e.g. <code>dc0a6b6b-b4d4-4276-bc89-78c1e9ede56e</code>. You can get this token by running <code><a href="reference/orcid_auth.html">orcid_auth()</a></code>, then storing that key (the uuid alone, not the “Bearer” part) either as en environment variable in your <code>.Renviron</code> file in your home directory, or as an R option in your <code>.Rprofile</code> file. See <code><a href="https://rdrr.io/r/base/Startup.html">?Startup</a></code> for more information. Either an environment variable or R option work. If we don’t find either we do the next option.</li>
+<li>Use a token as a result of a OAuth authentication process. The token is a alphanumeric UUID, e.g. <code>dc0a6b6b-b4d4-4276-bc89-78c1e9ede56e</code>. You can get this token by running <code><a href="reference/orcid_auth.html">orcid_auth()</a></code>, then storing that key (the uuid alone, not the “Bearer” part) either as en environment variable called <code>ORCID_TOKEN</code> in your <code>.Renviron</code> file in your home directory, or as an R option in your <code>.Rprofile</code> file (called <code>orcid_token</code>). See <code><a href="https://rdrr.io/r/base/Startup.html">?Startup</a></code> for more information. Either an environment variable or R option work. If we don’t find either we do the next option.</li>
 <li>Interactively login with OAuth. We use a client id and client secret key to ping ORCID.org; at which point you log in with your username/password; then we get back a token (same as the above option). We don’t know your username or password, only the token that we get back. We cache that token locally in a hidden file in whatever working directory you’re in. If you delete that file, or run the code from a new working directory, then we re-authorize.</li>
 </ul>
 <p>We recommend the former option. That is, get a token and store it as an environment variable.</p>
@@ -244,14 +244,14 @@
 <a class="sourceLine" id="cb9-4" data-line-number="4"><span class="co">#&gt;  * &lt;chr&gt;                          &lt;chr&gt;                &lt;chr&gt;               </span></a>
 <a class="sourceLine" id="cb9-5" data-line-number="5"><span class="co">#&gt;  1 https://orcid.org/0000-0002-0… 0000-0002-0897-2301  orcid.org           </span></a>
 <a class="sourceLine" id="cb9-6" data-line-number="6"><span class="co">#&gt;  2 https://orcid.org/0000-0002-5… 0000-0002-5281-4466  orcid.org           </span></a>
-<a class="sourceLine" id="cb9-7" data-line-number="7"><span class="co">#&gt;  3 https://orcid.org/0000-0001-6… 0000-0001-6172-5804  orcid.org           </span></a>
-<a class="sourceLine" id="cb9-8" data-line-number="8"><span class="co">#&gt;  4 https://orcid.org/0000-0001-8… 0000-0001-8188-0078  orcid.org           </span></a>
-<a class="sourceLine" id="cb9-9" data-line-number="9"><span class="co">#&gt;  5 https://orcid.org/0000-0002-4… 0000-0002-4968-6272  orcid.org           </span></a>
-<a class="sourceLine" id="cb9-10" data-line-number="10"><span class="co">#&gt;  6 https://orcid.org/0000-0002-1… 0000-0002-1918-5792  orcid.org           </span></a>
-<a class="sourceLine" id="cb9-11" data-line-number="11"><span class="co">#&gt;  7 https://orcid.org/0000-0001-9… 0000-0001-9667-1615  orcid.org           </span></a>
-<a class="sourceLine" id="cb9-12" data-line-number="12"><span class="co">#&gt;  8 https://orcid.org/0000-0002-4… 0000-0002-4334-4001  orcid.org           </span></a>
-<a class="sourceLine" id="cb9-13" data-line-number="13"><span class="co">#&gt;  9 https://orcid.org/0000-0003-0… 0000-0003-0945-6138  orcid.org           </span></a>
-<a class="sourceLine" id="cb9-14" data-line-number="14"><span class="co">#&gt; 10 https://orcid.org/0000-0002-9… 0000-0002-9503-6836  orcid.org           </span></a>
+<a class="sourceLine" id="cb9-7" data-line-number="7"><span class="co">#&gt;  3 https://orcid.org/0000-0002-0… 0000-0002-0682-9982  orcid.org           </span></a>
+<a class="sourceLine" id="cb9-8" data-line-number="8"><span class="co">#&gt;  4 https://orcid.org/0000-0001-6… 0000-0001-6172-5804  orcid.org           </span></a>
+<a class="sourceLine" id="cb9-9" data-line-number="9"><span class="co">#&gt;  5 https://orcid.org/0000-0001-8… 0000-0001-8188-0078  orcid.org           </span></a>
+<a class="sourceLine" id="cb9-10" data-line-number="10"><span class="co">#&gt;  6 https://orcid.org/0000-0002-4… 0000-0002-4968-6272  orcid.org           </span></a>
+<a class="sourceLine" id="cb9-11" data-line-number="11"><span class="co">#&gt;  7 https://orcid.org/0000-0002-1… 0000-0002-1918-5792  orcid.org           </span></a>
+<a class="sourceLine" id="cb9-12" data-line-number="12"><span class="co">#&gt;  8 https://orcid.org/0000-0001-9… 0000-0001-9667-1615  orcid.org           </span></a>
+<a class="sourceLine" id="cb9-13" data-line-number="13"><span class="co">#&gt;  9 https://orcid.org/0000-0002-4… 0000-0002-4334-4001  orcid.org           </span></a>
+<a class="sourceLine" id="cb9-14" data-line-number="14"><span class="co">#&gt; 10 https://orcid.org/0000-0003-0… 0000-0003-0945-6138  orcid.org           </span></a>
 <a class="sourceLine" id="cb9-15" data-line-number="15"><span class="co">#&gt; # … with 90 more rows</span></a></code></pre></div>
 <p>And use boolean operators</p>
 <div class="sourceCode" id="cb10"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb10-1" data-line-number="1"><span class="kw"><a href="reference/orcid.html">orcid</a></span>(<span class="st">"johnson AND(caltech OR 'California Institute of Technology')"</span>)</a>
@@ -274,9 +274,9 @@
 <a class="sourceLine" id="cb11-2" data-line-number="2"><span class="co">#&gt; # A tibble: 3 x 3</span></a>
 <a class="sourceLine" id="cb11-3" data-line-number="3"><span class="co">#&gt;   `orcid-identifier.uri`         `orcid-identifier.pa… `orcid-identifier.h…</span></a>
 <a class="sourceLine" id="cb11-4" data-line-number="4"><span class="co">#&gt; * &lt;chr&gt;                          &lt;chr&gt;                 &lt;chr&gt;               </span></a>
-<a class="sourceLine" id="cb11-5" data-line-number="5"><span class="co">#&gt; 1 https://orcid.org/0000-0001-6… 0000-0001-6172-5804   orcid.org           </span></a>
-<a class="sourceLine" id="cb11-6" data-line-number="6"><span class="co">#&gt; 2 https://orcid.org/0000-0001-8… 0000-0001-8188-0078   orcid.org           </span></a>
-<a class="sourceLine" id="cb11-7" data-line-number="7"><span class="co">#&gt; 3 https://orcid.org/0000-0002-4… 0000-0002-4968-6272   orcid.org</span></a></code></pre></div>
+<a class="sourceLine" id="cb11-5" data-line-number="5"><span class="co">#&gt; 1 https://orcid.org/0000-0002-0… 0000-0002-0682-9982   orcid.org           </span></a>
+<a class="sourceLine" id="cb11-6" data-line-number="6"><span class="co">#&gt; 2 https://orcid.org/0000-0001-6… 0000-0001-6172-5804   orcid.org           </span></a>
+<a class="sourceLine" id="cb11-7" data-line-number="7"><span class="co">#&gt; 3 https://orcid.org/0000-0001-8… 0000-0001-8188-0078   orcid.org</span></a></code></pre></div>
 </div>
 <div id="search-by-orcid-id" class="section level2">
 <h2 class="hasAnchor">
@@ -349,7 +349,7 @@
 <a class="sourceLine" id="cb15-7" data-line-number="7"><span class="co">#&gt;  2 https://orcid.org/0000-0003-4… 0000-0003-4293-0137  orcid.org           </span></a>
 <a class="sourceLine" id="cb15-8" data-line-number="8"><span class="co">#&gt;  3 https://orcid.org/0000-0001-7… 0000-0001-7343-9784  orcid.org           </span></a>
 <a class="sourceLine" id="cb15-9" data-line-number="9"><span class="co">#&gt;  4 https://orcid.org/0000-0001-5… 0000-0001-5727-2427  orcid.org           </span></a>
-<a class="sourceLine" id="cb15-10" data-line-number="10"><span class="co">#&gt;  5 https://orcid.org/0000-0003-0… 0000-0003-0187-9064  orcid.org           </span></a>
+<a class="sourceLine" id="cb15-10" data-line-number="10"><span class="co">#&gt;  5 https://orcid.org/0000-0002-9… 0000-0002-9297-0076  orcid.org           </span></a>
 <a class="sourceLine" id="cb15-11" data-line-number="11"><span class="co">#&gt;  6 https://orcid.org/0000-0002-2… 0000-0002-2123-6317  orcid.org           </span></a>
 <a class="sourceLine" id="cb15-12" data-line-number="12"><span class="co">#&gt;  7 https://orcid.org/0000-0003-1… 0000-0003-1603-8743  orcid.org           </span></a>
 <a class="sourceLine" id="cb15-13" data-line-number="13"><span class="co">#&gt;  8 https://orcid.org/0000-0003-3… 0000-0003-3188-6273  orcid.org           </span></a>
@@ -366,8 +366,8 @@
 <a class="sourceLine" id="cb16-4" data-line-number="4"><span class="co">#&gt;   `orcid-identifier.uri`         `orcid-identifier.pa… `orcid-identifier.h…</span></a>
 <a class="sourceLine" id="cb16-5" data-line-number="5"><span class="co">#&gt; * &lt;chr&gt;                          &lt;chr&gt;                 &lt;chr&gt;               </span></a>
 <a class="sourceLine" id="cb16-6" data-line-number="6"><span class="co">#&gt; 1 https://orcid.org/0000-0001-6… 0000-0001-6971-1351   orcid.org           </span></a>
-<a class="sourceLine" id="cb16-7" data-line-number="7"><span class="co">#&gt; 2 https://orcid.org/0000-0001-6… 0000-0001-6081-0708   orcid.org           </span></a>
-<a class="sourceLine" id="cb16-8" data-line-number="8"><span class="co">#&gt; 3 https://orcid.org/0000-0001-5… 0000-0001-5919-8670   orcid.org           </span></a>
+<a class="sourceLine" id="cb16-7" data-line-number="7"><span class="co">#&gt; 2 https://orcid.org/0000-0001-5… 0000-0001-5919-8670   orcid.org           </span></a>
+<a class="sourceLine" id="cb16-8" data-line-number="8"><span class="co">#&gt; 3 https://orcid.org/0000-0001-6… 0000-0001-6081-0708   orcid.org           </span></a>
 <a class="sourceLine" id="cb16-9" data-line-number="9"><span class="co">#&gt; 4 https://orcid.org/0000-0001-6… 0000-0001-6555-0837   orcid.org           </span></a>
 <a class="sourceLine" id="cb16-10" data-line-number="10"><span class="co">#&gt; 5 https://orcid.org/0000-0002-6… 0000-0002-6914-8682   orcid.org           </span></a>
 <a class="sourceLine" id="cb16-11" data-line-number="11"><span class="co">#&gt; </span></a>
