@@ -69,8 +69,8 @@ orcid_search <- function(given_name = NULL, family_name = NULL,
   as_dt(lapply(tt$`orcid-identifier.path`, function(w) {
     rr <- orcid_id(w)
     data.frame(
-      first = rr[[1]]$name$`given-names`$value,
-      last = rr[[1]]$name$`family-name`$value,
+      first = rr[[1]]$name$`given-names`$value %||% NA_character_,
+      last = rr[[1]]$name$`family-name`$value %||% NA_character_,
       orcid = w,
       stringsAsFactors = FALSE
     )
