@@ -1,0 +1,119 @@
+http_interactions:
+- request:
+    method: get
+    uri: https://pub.orcid.org/v3.0/search?q=digital-object-ids%3A%2210.1087%2F20120404%22&rows=3
+    body:
+      encoding: ''
+      string: ''
+    headers:
+      Accept-Encoding: gzip, deflate
+      Accept: application/vnd.orcid+json; qs=4
+      User-Agent: r-curl/3.3 crul/0.8.0 rOpenSci(rorcid/0.5.0.9210)
+      X-USER-AGENT: r-curl/3.3 crul/0.8.0 rOpenSci(rorcid/0.5.0.9210)
+      Authorization: Bearer <<rorcid_bearer_token>>
+  response:
+    status:
+      status_code: '200'
+      message: OK
+      explanation: Request fulfilled, document follows
+    headers:
+      status: HTTP/1.1 200 OK
+      server: nginx/1.10.0
+      date: Fri, 12 Jul 2019 08:40:59 GMT
+      content-type: application/vnd.orcid+json; qs=4;charset=UTF-8
+      transfer-encoding: chunked
+      connection: keep-alive
+      access-control-allow-origin: '*'
+      cache-control: no-cache, no-store, max-age=0, must-revalidate
+      pragma: no-cache
+      expires: '0'
+      x-xss-protection: 1; mode=block
+      x-frame-options: DENY
+      x-content-type-options: nosniff
+      content-encoding: gzip
+    body:
+      encoding: UTF-8
+      string: |-
+        {
+          "result" : [ {
+            "orcid-identifier" : {
+              "uri" : "https://orcid.org/0000-0002-6914-8682",
+              "path" : "0000-0002-6914-8682",
+              "host" : "orcid.org"
+            }
+          }, {
+            "orcid-identifier" : {
+              "uri" : "https://orcid.org/0000-0001-7343-9784",
+              "path" : "0000-0001-7343-9784",
+              "host" : "orcid.org"
+            }
+          }, {
+            "orcid-identifier" : {
+              "uri" : "https://orcid.org/0000-0001-5727-2427",
+              "path" : "0000-0001-5727-2427",
+              "host" : "orcid.org"
+            }
+          } ],
+          "num-found" : 11
+        }
+  recorded_at: 2019-07-12 08:40:47 GMT
+  recorded_with: vcr/0.2.6, webmockr/0.3.4
+- request:
+    method: get
+    uri: https://pub.orcid.org/v3.0/search?q=digital-object-ids%3A%2210.1087%2F20120404%22&start=4&rows=3
+    body:
+      encoding: ''
+      string: ''
+    headers:
+      Accept-Encoding: gzip, deflate
+      Accept: application/vnd.orcid+json; qs=4
+      User-Agent: r-curl/3.3 crul/0.8.0 rOpenSci(rorcid/0.5.0.9210)
+      X-USER-AGENT: r-curl/3.3 crul/0.8.0 rOpenSci(rorcid/0.5.0.9210)
+      Authorization: Bearer <<rorcid_bearer_token>>
+  response:
+    status:
+      status_code: '200'
+      message: OK
+      explanation: Request fulfilled, document follows
+    headers:
+      status: HTTP/1.1 200 OK
+      server: nginx/1.10.0
+      date: Fri, 12 Jul 2019 08:40:59 GMT
+      content-type: application/vnd.orcid+json; qs=4;charset=UTF-8
+      transfer-encoding: chunked
+      connection: keep-alive
+      access-control-allow-origin: '*'
+      cache-control: no-cache, no-store, max-age=0, must-revalidate
+      pragma: no-cache
+      expires: '0'
+      x-xss-protection: 1; mode=block
+      x-frame-options: DENY
+      x-content-type-options: nosniff
+      content-encoding: gzip
+    body:
+      encoding: UTF-8
+      string: |-
+        {
+          "result" : [ {
+            "orcid-identifier" : {
+              "uri" : "https://orcid.org/0000-0003-0187-9064",
+              "path" : "0000-0003-0187-9064",
+              "host" : "orcid.org"
+            }
+          }, {
+            "orcid-identifier" : {
+              "uri" : "https://orcid.org/0000-0002-2123-6317",
+              "path" : "0000-0002-2123-6317",
+              "host" : "orcid.org"
+            }
+          }, {
+            "orcid-identifier" : {
+              "uri" : "https://orcid.org/0000-0003-1603-8743",
+              "path" : "0000-0003-1603-8743",
+              "host" : "orcid.org"
+            }
+          } ],
+          "num-found" : 11
+        }
+  recorded_at: 2019-07-12 08:40:47 GMT
+  recorded_with: vcr/0.2.6, webmockr/0.3.4

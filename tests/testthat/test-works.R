@@ -1,10 +1,10 @@
-context("works")
-
-test_that("basic works operations returns the correct...", {
+test_that("works", {
   skip_on_cran()
-  
-  aa <- works( orcid_id("0000-0003-1620-1408") )
-  bb <- works( orcid_id("0000-0003-1444-9135") )
+
+  vcr::use_cassette("works", {
+    aa <- works( orcid_id("0000-0003-1620-1408") )
+    bb <- works( orcid_id("0000-0003-1444-9135") )
+  })
   
   # gives the right classes
   expect_is(aa, "works")
@@ -18,9 +18,12 @@ test_that("basic works operations returns the correct...", {
 })
 
 test_that("works fails well", {
-  skip_on_cran()
-  
   expect_error(works(5), "no 'as.orcid' method")
   expect_error(works(mtcars), "no 'as.orcid' method")
-  expect_error(works("Asfaf"))
+
+  skip_on_cran()
+
+  vcr::use_cassette("works_error", {
+    expect_error(works("Asfaf"), "ORCID iD Asfaf not found", "error")
+  })
 })

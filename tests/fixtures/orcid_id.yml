@@ -1,0 +1,156 @@
+http_interactions:
+- request:
+    method: get
+    uri: https://pub.orcid.org/v3.0/0000-0002-9341-7985/person
+    body:
+      encoding: ''
+      string: ''
+    headers:
+      Accept-Encoding: gzip, deflate
+      Accept: application/vnd.orcid+json; qs=4
+      User-Agent: r-curl/3.3 crul/0.8.0 rOpenSci(rorcid/0.5.0.9210)
+      X-USER-AGENT: r-curl/3.3 crul/0.8.0 rOpenSci(rorcid/0.5.0.9210)
+      Authorization: Bearer <<rorcid_bearer_token>>
+  response:
+    status:
+      status_code: '200'
+      message: OK
+      explanation: Request fulfilled, document follows
+    headers:
+      status: HTTP/1.1 200 OK
+      server: nginx/1.10.0
+      date: Fri, 12 Jul 2019 08:40:59 GMT
+      content-type: application/vnd.orcid+json; qs=4;charset=UTF-8
+      transfer-encoding: chunked
+      connection: keep-alive
+      access-control-allow-origin: '*'
+      cache-control: no-cache, no-store, max-age=0, must-revalidate
+      pragma: no-cache
+      expires: '0'
+      x-xss-protection: 1; mode=block
+      x-frame-options: DENY
+      x-content-type-options: nosniff
+      content-encoding: gzip
+    body:
+      encoding: UTF-8
+      string: |-
+        {
+          "last-modified-date" : {
+            "value" : 1517873256636
+          },
+          "name" : {
+            "created-date" : {
+              "value" : 1460762407231
+            },
+            "last-modified-date" : {
+              "value" : 1460762407231
+            },
+            "given-names" : {
+              "value" : "Peter"
+            },
+            "family-name" : {
+              "value" : "Binfield"
+            },
+            "credit-name" : null,
+            "source" : null,
+            "visibility" : "public",
+            "path" : "0000-0002-9341-7985"
+          },
+          "other-names" : {
+            "last-modified-date" : null,
+            "other-name" : [ ],
+            "path" : "/0000-0002-9341-7985/other-names"
+          },
+          "biography" : null,
+          "researcher-urls" : {
+            "last-modified-date" : null,
+            "researcher-url" : [ ],
+            "path" : "/0000-0002-9341-7985/researcher-urls"
+          },
+          "emails" : {
+            "last-modified-date" : null,
+            "email" : [ ],
+            "path" : "/0000-0002-9341-7985/email"
+          },
+          "addresses" : {
+            "last-modified-date" : {
+              "value" : 1465226976952
+            },
+            "address" : [ {
+              "created-date" : {
+                "value" : 1453659051432
+              },
+              "last-modified-date" : {
+                "value" : 1465226976952
+              },
+              "source" : {
+                "source-orcid" : {
+                  "uri" : "https://orcid.org/0000-0002-9341-7985",
+                  "path" : "0000-0002-9341-7985",
+                  "host" : "orcid.org"
+                },
+                "source-client-id" : null,
+                "source-name" : {
+                  "value" : "Peter Binfield"
+                },
+                "assertion-origin-orcid" : null,
+                "assertion-origin-client-id" : null,
+                "assertion-origin-name" : null
+              },
+              "country" : {
+                "value" : "US"
+              },
+              "visibility" : "public",
+              "path" : "/0000-0002-9341-7985/address/89515",
+              "put-code" : 89515,
+              "display-index" : 0
+            } ],
+            "path" : "/0000-0002-9341-7985/address"
+          },
+          "keywords" : {
+            "last-modified-date" : null,
+            "keyword" : [ ],
+            "path" : "/0000-0002-9341-7985/keywords"
+          },
+          "external-identifiers" : {
+            "last-modified-date" : {
+              "value" : 1517873256636
+            },
+            "external-identifier" : [ {
+              "created-date" : {
+                "value" : 1362686830616
+              },
+              "last-modified-date" : {
+                "value" : 1517873256636
+              },
+              "source" : {
+                "source-orcid" : null,
+                "source-client-id" : {
+                  "uri" : "https://orcid.org/client/0000-0002-5982-8983",
+                  "path" : "0000-0002-5982-8983",
+                  "host" : "orcid.org"
+                },
+                "source-name" : {
+                  "value" : "Scopus - Elsevier"
+                },
+                "assertion-origin-orcid" : null,
+                "assertion-origin-client-id" : null,
+                "assertion-origin-name" : null
+              },
+              "external-id-type" : "Scopus Author ID",
+              "external-id-value" : "55224382400",
+              "external-id-url" : {
+                "value" : "http://www.scopus.com/inward/authorDetails.url?authorID=55224382400&partnerID=MN8TOARS"
+              },
+              "external-id-relationship" : "self",
+              "visibility" : "public",
+              "path" : "/0000-0002-9341-7985/external-identifiers/133347",
+              "put-code" : 133347,
+              "display-index" : 0
+            } ],
+            "path" : "/0000-0002-9341-7985/external-identifiers"
+          },
+          "path" : "/0000-0002-9341-7985/person"
+        }
+  recorded_at: 2019-07-12 08:40:47 GMT
+  recorded_with: vcr/0.2.6, webmockr/0.3.4

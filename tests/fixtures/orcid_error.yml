@@ -1,0 +1,87 @@
+http_interactions:
+- request:
+    method: get
+    uri: https://pub.orcid.org/v3.0/search?start=adsf
+    body:
+      encoding: ''
+      string: ''
+    headers:
+      Accept-Encoding: gzip, deflate
+      Accept: application/vnd.orcid+json; qs=4
+      User-Agent: r-curl/3.3 crul/0.8.0 rOpenSci(rorcid/0.5.0.9210)
+      X-USER-AGENT: r-curl/3.3 crul/0.8.0 rOpenSci(rorcid/0.5.0.9210)
+      Authorization: Bearer <<rorcid_bearer_token>>
+  response:
+    status:
+      status_code: '500'
+      message: Internal Server Error
+      explanation: Server got itself in trouble
+    headers:
+      status: HTTP/1.1 500 Internal Server Error
+      server: nginx/1.10.0
+      cache-control: no-cache, no-store, max-age=0, must-revalidate
+      content-type: application/vnd.orcid+json; qs=4;charset=UTF-8
+      date: Fri, 12 Jul 2019 08:40:28 GMT
+      expires: '0'
+      pragma: no-cache
+      x-xss-protection: 1; mode=block
+      transfer-encoding: chunked
+      access-control-allow-origin: '*'
+      x-content-type-options: nosniff
+      connection: close
+      x-frame-options: DENY
+    body:
+      encoding: UTF-8
+      string: |-
+        {
+          "response-code" : 500,
+          "developer-message" : "org.apache.solr.client.solrj.impl.HttpSolrServer.RemoteSolrException Full validation error: For input string: \"adsf\"",
+          "user-message" : "Something went wrong in ORCID.",
+          "error-code" : 9008,
+          "more-info" : "https://members.orcid.org/api/resources/troubleshooting"
+        }
+  recorded_at: 2019-07-12 08:40:17 GMT
+  recorded_with: vcr/0.2.6, webmockr/0.3.4
+- request:
+    method: get
+    uri: https://pub.orcid.org/v3.0/search?rows=er
+    body:
+      encoding: ''
+      string: ''
+    headers:
+      Accept-Encoding: gzip, deflate
+      Accept: application/vnd.orcid+json; qs=4
+      User-Agent: r-curl/3.3 crul/0.8.0 rOpenSci(rorcid/0.5.0.9210)
+      X-USER-AGENT: r-curl/3.3 crul/0.8.0 rOpenSci(rorcid/0.5.0.9210)
+      Authorization: Bearer <<rorcid_bearer_token>>
+  response:
+    status:
+      status_code: '400'
+      message: Bad Request
+      explanation: Bad request syntax or unsupported method
+    headers:
+      status: HTTP/1.1 400 Bad Request
+      server: nginx/1.10.0
+      cache-control: no-cache, no-store, max-age=0, must-revalidate
+      content-type: application/vnd.orcid+json; qs=4;charset=UTF-8
+      date: Fri, 12 Jul 2019 08:40:29 GMT
+      expires: '0'
+      pragma: no-cache
+      x-xss-protection: 1; mode=block
+      transfer-encoding: chunked
+      access-control-allow-origin: '*'
+      x-content-type-options: nosniff
+      connection: close
+      x-frame-options: DENY
+    body:
+      encoding: UTF-8
+      string: |-
+        {
+          "response-code" : 400,
+          "developer-message" : "The client application made a bad request to the ORCID API. Full validation error: The rows parameter must be an integer between 0 and 200",
+          "user-message" : "The client application made a bad request to the ORCID API.",
+          "error-code" : 9012,
+          "more-info" : "https://members.orcid.org/api/resources/troubleshooting"
+        }
+  recorded_at: 2019-07-12 08:40:17 GMT
+  recorded_with: vcr/0.2.6, webmockr/0.3.4

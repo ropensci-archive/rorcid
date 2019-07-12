@@ -1,12 +1,12 @@
-context("orcid")
-
-test_that("basic orcid operations returns the correct...", {
+test_that("orcid", {
   skip_on_cran()
 
-  # no results
-  aa <- orcid()
-  # normal simple query
-  bb <- orcid(query = "keyword:ecology")
+  vcr::use_cassette("orcid", {
+    # no results
+    aa <- orcid()
+    # normal simple query
+    bb <- orcid(query = "keyword:ecology")
+  })
 
   # gives the right classes
   expect_is(aa, "orcid")
@@ -24,8 +24,10 @@ test_that("basic orcid operations returns the correct...", {
 test_that("orcid paging works", {
   skip_on_cran()
 
-  cc <- orcid(query = "keyword:ecology", rows = 3)
-  dd <- orcid(query = "keyword:ecology", rows = 3, start = 3)
+  vcr::use_cassette("orcid_pagination", {
+    cc <- orcid(query = "keyword:ecology", rows = 3)
+    dd <- orcid(query = "keyword:ecology", rows = 3, start = 3)
+  })
 
   # gives the right classes
   expect_is(cc, "orcid")
@@ -36,11 +38,13 @@ test_that("orcid paging works", {
 test_that("orcid qf param works", {
   skip_on_cran()
 
-  ee <- orcid(query = "Raymond", rows = 3, defType = "edismax")
-  ee_boost_fam <- orcid(query = "Raymond", qf = "family-name^2.0",
-                   rows = 3, defType = "edismax")
-  ee_boost_given <- orcid(query = "Raymond", qf = "given-names^3.0",
-                   rows = 3, defType = "edismax")
+  vcr::use_cassette("orcid_qf_param", {
+    ee <- orcid(query = "Raymond", rows = 3, defType = "edismax")
+    ee_boost_fam <- orcid(query = "Raymond", qf = "family-name^2.0",
+                     rows = 3, defType = "edismax")
+    ee_boost_given <- orcid(query = "Raymond", qf = "given-names^3.0",
+                     rows = 3, defType = "edismax")
+  })
 
   # gives the right classes
   expect_is(ee, "orcid")
@@ -55,6 +59,8 @@ test_that("orcid qf param works", {
 test_that("orcid fails well", {
   skip_on_cran()
 
-  expect_error(orcid(start = "adsf"))
-  expect_error(orcid(rows = "er"))
+  vcr::use_cassette("orcid_error", {
+    expect_error(orcid(start = "adsf"), class = "error")
+    expect_error(orcid(rows = "er"), class = "error")
+  })
 })

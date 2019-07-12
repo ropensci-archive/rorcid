@@ -1,9 +1,9 @@
-context("orcid_id")
-
 test_that("orcid_id basic functionality works", {
   skip_on_cran()
   
-  aa <- orcid_id("0000-0002-9341-7985")
+  vcr::use_cassette("orcid_id", {
+    aa <- orcid_id("0000-0002-9341-7985")
+  })
   
   expect_is(aa, "orcid_id")
   expect_is(aa$`0000-0002-9341-7985`, "list")
@@ -17,24 +17,32 @@ test_that("orcid_id fails well", {
   expect_error(orcid_id(list(a = 6)), "is.character\\(orcid\\) is not TRUE")
   
   # ok input class, but but ORCID
-  expect_error(orcid_id("asdfadf"))
+  vcr::use_cassette("orcid_id_bad_orcid", {
+    expect_error(orcid_id("asdfadf"))
+  })
 
   # accepts only 1 ID
   ids <- c("0000-0003-1620-1408", "0000-0002-9341-7985")
-  expect_error(orcid_id(ids), "1 is not TRUE")
+  vcr::use_cassette("orcid_id_only_one_orcid", {
+    expect_error(orcid_id(ids), "1 is not TRUE")
+  })
 })
 
 test_that("orcid_id - curl options work", {
   skip_on_cran()
   
-  expect_error(orcid_id("0000-0002-9341-7985", timeout_ms = 1), 
-               "Timeout was reached")
+  vcr::use_cassette("orcid_id_timeout", {
+    expect_error(orcid_id("0000-0002-9341-7985", timeout_ms = 1), 
+                 "Timeout was reached")
+  })
 })
 
 test_that("orcid_id - can get addresss data", {
   skip_on_cran()
   
-  aa <- orcid_id('0000-0003-1444-9135')
+  vcr::use_cassette("orcid_id_address_data", {
+    aa <- orcid_id('0000-0003-1444-9135')
+  })
     
   expect_is(aa, "orcid_id")
   expect_is(aa[[1]], "list")
@@ -46,7 +54,9 @@ test_that("orcid_id - can get addresss data", {
 test_that("orcid_id - can get keywords data", {
   skip_on_cran()
   
-  aa <- orcid_id('0000-0002-1642-628X')
+  vcr::use_cassette("orcid_id_keywords_data", {
+    aa <- orcid_id('0000-0002-1642-628X')
+  })
   
   expect_is(aa, "orcid_id")
   expect_is(aa[[1]], "list")

@@ -1,0 +1,319 @@
+http_interactions:
+- request:
+    method: get
+    uri: https://pub.orcid.org/v3.0/0000-0002-9341-7985/person
+    body:
+      encoding: ''
+      string: ''
+    headers:
+      Accept-Encoding: gzip, deflate
+      Accept: application/vnd.orcid+json; qs=4
+      User-Agent: r-curl/3.3 crul/0.8.0 rOpenSci(rorcid/0.5.0.9210)
+      X-USER-AGENT: r-curl/3.3 crul/0.8.0 rOpenSci(rorcid/0.5.0.9210)
+      Authorization: Bearer <<rorcid_bearer_token>>
+  response:
+    status:
+      status_code: '200'
+      message: OK
+      explanation: Request fulfilled, document follows
+    headers:
+      status: HTTP/1.1 200 OK
+      server: nginx/1.10.0
+      date: Fri, 12 Jul 2019 08:40:50 GMT
+      content-type: application/vnd.orcid+json; qs=4;charset=UTF-8
+      transfer-encoding: chunked
+      connection: keep-alive
+      access-control-allow-origin: '*'
+      cache-control: no-cache, no-store, max-age=0, must-revalidate
+      pragma: no-cache
+      expires: '0'
+      x-xss-protection: 1; mode=block
+      x-frame-options: DENY
+      x-content-type-options: nosniff
+      content-encoding: gzip
+    body:
+      encoding: UTF-8
+      string: |-
+        {
+          "last-modified-date" : {
+            "value" : 1517873256636
+          },
+          "name" : {
+            "created-date" : {
+              "value" : 1460762407231
+            },
+            "last-modified-date" : {
+              "value" : 1460762407231
+            },
+            "given-names" : {
+              "value" : "Peter"
+            },
+            "family-name" : {
+              "value" : "Binfield"
+            },
+            "credit-name" : null,
+            "source" : null,
+            "visibility" : "public",
+            "path" : "0000-0002-9341-7985"
+          },
+          "other-names" : {
+            "last-modified-date" : null,
+            "other-name" : [ ],
+            "path" : "/0000-0002-9341-7985/other-names"
+          },
+          "biography" : null,
+          "researcher-urls" : {
+            "last-modified-date" : null,
+            "researcher-url" : [ ],
+            "path" : "/0000-0002-9341-7985/researcher-urls"
+          },
+          "emails" : {
+            "last-modified-date" : null,
+            "email" : [ ],
+            "path" : "/0000-0002-9341-7985/email"
+          },
+          "addresses" : {
+            "last-modified-date" : {
+              "value" : 1465226976952
+            },
+            "address" : [ {
+              "created-date" : {
+                "value" : 1453659051432
+              },
+              "last-modified-date" : {
+                "value" : 1465226976952
+              },
+              "source" : {
+                "source-orcid" : {
+                  "uri" : "https://orcid.org/0000-0002-9341-7985",
+                  "path" : "0000-0002-9341-7985",
+                  "host" : "orcid.org"
+                },
+                "source-client-id" : null,
+                "source-name" : {
+                  "value" : "Peter Binfield"
+                },
+                "assertion-origin-orcid" : null,
+                "assertion-origin-client-id" : null,
+                "assertion-origin-name" : null
+              },
+              "country" : {
+                "value" : "US"
+              },
+              "visibility" : "public",
+              "path" : "/0000-0002-9341-7985/address/89515",
+              "put-code" : 89515,
+              "display-index" : 0
+            } ],
+            "path" : "/0000-0002-9341-7985/address"
+          },
+          "keywords" : {
+            "last-modified-date" : null,
+            "keyword" : [ ],
+            "path" : "/0000-0002-9341-7985/keywords"
+          },
+          "external-identifiers" : {
+            "last-modified-date" : {
+              "value" : 1517873256636
+            },
+            "external-identifier" : [ {
+              "created-date" : {
+                "value" : 1362686830616
+              },
+              "last-modified-date" : {
+                "value" : 1517873256636
+              },
+              "source" : {
+                "source-orcid" : null,
+                "source-client-id" : {
+                  "uri" : "https://orcid.org/client/0000-0002-5982-8983",
+                  "path" : "0000-0002-5982-8983",
+                  "host" : "orcid.org"
+                },
+                "source-name" : {
+                  "value" : "Scopus - Elsevier"
+                },
+                "assertion-origin-orcid" : null,
+                "assertion-origin-client-id" : null,
+                "assertion-origin-name" : null
+              },
+              "external-id-type" : "Scopus Author ID",
+              "external-id-value" : "55224382400",
+              "external-id-url" : {
+                "value" : "http://www.scopus.com/inward/authorDetails.url?authorID=55224382400&partnerID=MN8TOARS"
+              },
+              "external-id-relationship" : "self",
+              "visibility" : "public",
+              "path" : "/0000-0002-9341-7985/external-identifiers/133347",
+              "put-code" : 133347,
+              "display-index" : 0
+            } ],
+            "path" : "/0000-0002-9341-7985/external-identifiers"
+          },
+          "path" : "/0000-0002-9341-7985/person"
+        }
+  recorded_at: 2019-07-12 08:40:40 GMT
+  recorded_with: vcr/0.2.6, webmockr/0.3.4
+- request:
+    method: get
+    uri: https://pub.orcid.org/v3.0/0000-0002-9341-7985/works
+    body:
+      encoding: ''
+      string: ''
+    headers:
+      Accept-Encoding: gzip, deflate
+      Accept: application/json
+      User-Agent: r-curl/3.3 crul/0.8.0 rOpenSci(rorcid/0.5.0.9210)
+      X-USER-AGENT: r-curl/3.3 crul/0.8.0 rOpenSci(rorcid/0.5.0.9210)
+      Authorization: Bearer <<rorcid_bearer_token>>
+  response:
+    status:
+      status_code: '200'
+      message: OK
+      explanation: Request fulfilled, document follows
+    headers:
+      status: HTTP/1.1 200 OK
+      server: nginx/1.10.0
+      date: Fri, 12 Jul 2019 08:40:51 GMT
+      content-type: application/json;charset=UTF-8
+      transfer-encoding: chunked
+      connection: keep-alive
+      access-control-allow-origin: '*'
+      cache-control: no-cache, no-store, max-age=0, must-revalidate
+      pragma: no-cache
+      expires: '0'
+      x-xss-protection: 1; mode=block
+      x-frame-options: DENY
+      x-content-type-options: nosniff
+      content-encoding: gzip
+    body:
+      encoding: UTF-8
+      string: '{"last-modified-date":{"value":1437748178734},"group":[{"last-modified-date":{"value":1437748178581},"external-ids":{"external-id":[{"external-id-type":"doi","external-id-value":"10.3233/ISU-130714","external-id-normalized":{"value":"10.3233/isu-130714","transient":true},"external-id-normalized-error":null,"external-id-url":{"value":""},"external-id-relationship":"self"},{"external-id-type":"eid","external-id-value":"2-s2.0-84889654399","external-id-normalized":{"value":"2-s2.0-84889654399","transient":true},"external-id-normalized-error":null,"external-id-url":{"value":""},"external-id-relationship":"self"}]},"work-summary":[{"put-code":15536015,"created-date":{"value":1424805081143},"last-modified-date":{"value":1437748178581},"source":{"source-orcid":null,"source-client-id":{"uri":"https://orcid.org/client/0000-0002-5982-8983","path":"0000-0002-5982-8983","host":"orcid.org"},"source-name":{"value":"Scopus
+        - Elsevier"},"assertion-origin-orcid":null,"assertion-origin-client-id":null,"assertion-origin-name":null},"title":{"title":{"value":"PeerJ
+        - A case study in improving research collaboration at the journal level"},"subtitle":null,"translated-title":null},"external-ids":{"external-id":[{"external-id-type":"doi","external-id-value":"10.3233/ISU-130714","external-id-normalized":{"value":"10.3233/isu-130714","transient":true},"external-id-normalized-error":null,"external-id-url":{"value":""},"external-id-relationship":"self"},{"external-id-type":"eid","external-id-value":"2-s2.0-84889654399","external-id-normalized":{"value":"2-s2.0-84889654399","transient":true},"external-id-normalized-error":null,"external-id-url":{"value":""},"external-id-relationship":"self"}]},"url":{"value":"http://www.scopus.com/inward/record.url?eid=2-s2.0-84889654399&partnerID=MN8TOARS"},"type":"journal-article","publication-date":{"year":{"value":"2013"},"month":null,"day":null},"journal-title":null,"visibility":"public","path":"/0000-0002-9341-7985/work/15536015","display-index":"0"}]},{"last-modified-date":{"value":1437083653456},"external-ids":{"external-id":[{"external-id-type":"doi","external-id-value":"10.1038/npre.2009.2801","external-id-normalized":{"value":"10.1038/npre.2009.2801","transient":true},"external-id-normalized-error":null,"external-id-url":{"value":""},"external-id-relationship":"self"}]},"work-summary":[{"put-code":5011717,"created-date":{"value":1362686830609},"last-modified-date":{"value":1437083653456},"source":{"source-orcid":{"uri":"https://orcid.org/0000-0002-9341-7985","path":"0000-0002-9341-7985","host":"orcid.org"},"source-client-id":null,"source-name":{"value":"Peter
+        Binfield"},"assertion-origin-orcid":null,"assertion-origin-client-id":null,"assertion-origin-name":null},"title":{"title":{"value":"Reputation,
+        authority and incentives. Or: How to get rid of the Impact Factor"},"subtitle":null,"translated-title":null},"external-ids":{"external-id":[{"external-id-type":"doi","external-id-value":"10.1038/npre.2009.2801","external-id-normalized":{"value":"10.1038/npre.2009.2801","transient":true},"external-id-normalized-error":null,"external-id-url":{"value":""},"external-id-relationship":"self"}]},"url":null,"type":"journal-article","publication-date":{"year":{"value":"2009"},"month":{"value":"01"},"day":{"value":"21"}},"journal-title":null,"visibility":"public","path":"/0000-0002-9341-7985/work/5011717","display-index":"0"}]},{"last-modified-date":{"value":1437748178615},"external-ids":{"external-id":[{"external-id-type":"eid","external-id-value":"2-s2.0-84869137070","external-id-normalized":{"value":"2-s2.0-84869137070","transient":true},"external-id-normalized-error":null,"external-id-url":{"value":""},"external-id-relationship":"self"}]},"work-summary":[{"put-code":15536016,"created-date":{"value":1424805081148},"last-modified-date":{"value":1437748178615},"source":{"source-orcid":null,"source-client-id":{"uri":"https://orcid.org/client/0000-0002-5982-8983","path":"0000-0002-5982-8983","host":"orcid.org"},"source-name":{"value":"Scopus
+        - Elsevier"},"assertion-origin-orcid":null,"assertion-origin-client-id":null,"assertion-origin-name":null},"title":{"title":{"value":"PLoS
+        ONE: Background, future development, and article-level metrics"},"subtitle":null,"translated-title":null},"external-ids":{"external-id":[{"external-id-type":"eid","external-id-value":"2-s2.0-84869137070","external-id-normalized":{"value":"2-s2.0-84869137070","transient":true},"external-id-normalized-error":null,"external-id-url":{"value":""},"external-id-relationship":"self"}]},"url":{"value":"http://www.scopus.com/inward/record.url?eid=2-s2.0-84869137070&partnerID=MN8TOARS"},"type":"conference-paper","publication-date":{"year":{"value":"2009"},"month":null,"day":null},"journal-title":null,"visibility":"public","path":"/0000-0002-9341-7985/work/15536016","display-index":"0"}]},{"last-modified-date":{"value":1437748178537},"external-ids":{"external-id":[{"external-id-type":"eid","external-id-value":"2-s2.0-67650844237","external-id-normalized":{"value":"2-s2.0-67650844237","transient":true},"external-id-normalized-error":null,"external-id-url":{"value":""},"external-id-relationship":"self"},{"external-id-type":"doi","external-id-value":"10.1080/03615260801973992","external-id-normalized":{"value":"10.1080/03615260801973992","transient":true},"external-id-normalized-error":null,"external-id-url":{"value":""},"external-id-relationship":"self"}]},"work-summary":[{"put-code":15536014,"created-date":{"value":1424805080011},"last-modified-date":{"value":1437748178537},"source":{"source-orcid":null,"source-client-id":{"uri":"https://orcid.org/client/0000-0002-5982-8983","path":"0000-0002-5982-8983","host":"orcid.org"},"source-name":{"value":"Scopus
+        - Elsevier"},"assertion-origin-orcid":null,"assertion-origin-client-id":null,"assertion-origin-name":null},"title":{"title":{"value":"Academic
+        journal publishing"},"subtitle":null,"translated-title":null},"external-ids":{"external-id":[{"external-id-type":"doi","external-id-value":"10.1080/03615260801973992","external-id-normalized":{"value":"10.1080/03615260801973992","transient":true},"external-id-normalized-error":null,"external-id-url":{"value":""},"external-id-relationship":"self"},{"external-id-type":"eid","external-id-value":"2-s2.0-67650844237","external-id-normalized":{"value":"2-s2.0-67650844237","transient":true},"external-id-normalized-error":null,"external-id-url":{"value":""},"external-id-relationship":"self"}]},"url":{"value":"http://www.scopus.com/inward/record.url?eid=2-s2.0-67650844237&partnerID=MN8TOARS"},"type":"journal-article","publication-date":{"year":{"value":"2008"},"month":null,"day":null},"journal-title":null,"visibility":"public","path":"/0000-0002-9341-7985/work/15536014","display-index":"0"}]},{"last-modified-date":{"value":1437748178502},"external-ids":{"external-id":[{"external-id-type":"doi","external-id-value":"10.1080/03615260801973414","external-id-normalized":{"value":"10.1080/03615260801973414","transient":true},"external-id-normalized-error":null,"external-id-url":{"value":""},"external-id-relationship":"self"},{"external-id-type":"eid","external-id-value":"2-s2.0-67650815254","external-id-normalized":{"value":"2-s2.0-67650815254","transient":true},"external-id-normalized-error":null,"external-id-url":{"value":""},"external-id-relationship":"self"}]},"work-summary":[{"put-code":15536013,"created-date":{"value":1424805080009},"last-modified-date":{"value":1437748178502},"source":{"source-orcid":null,"source-client-id":{"uri":"https://orcid.org/client/0000-0002-5982-8983","path":"0000-0002-5982-8983","host":"orcid.org"},"source-name":{"value":"Scopus
+        - Elsevier"},"assertion-origin-orcid":null,"assertion-origin-client-id":null,"assertion-origin-name":null},"title":{"title":{"value":"Publishing
+        101: The basics of academic publishing"},"subtitle":null,"translated-title":null},"external-ids":{"external-id":[{"external-id-type":"doi","external-id-value":"10.1080/03615260801973414","external-id-normalized":{"value":"10.1080/03615260801973414","transient":true},"external-id-normalized-error":null,"external-id-url":{"value":""},"external-id-relationship":"self"},{"external-id-type":"eid","external-id-value":"2-s2.0-67650815254","external-id-normalized":{"value":"2-s2.0-67650815254","transient":true},"external-id-normalized-error":null,"external-id-url":{"value":""},"external-id-relationship":"self"}]},"url":{"value":"http://www.scopus.com/inward/record.url?eid=2-s2.0-67650815254&partnerID=MN8TOARS"},"type":"journal-article","publication-date":{"year":{"value":"2008"},"month":null,"day":null},"journal-title":null,"visibility":"public","path":"/0000-0002-9341-7985/work/15536013","display-index":"0"}]},{"last-modified-date":{"value":1437748178656},"external-ids":{"external-id":[{"external-id-type":"eid","external-id-value":"2-s2.0-0027813935","external-id-normalized":{"value":"2-s2.0-0027813935","transient":true},"external-id-normalized-error":null,"external-id-url":{"value":""},"external-id-relationship":"self"}]},"work-summary":[{"put-code":15536017,"created-date":{"value":1424805081153},"last-modified-date":{"value":1437748178656},"source":{"source-orcid":null,"source-client-id":{"uri":"https://orcid.org/client/0000-0002-5982-8983","path":"0000-0002-5982-8983","host":"orcid.org"},"source-name":{"value":"Scopus
+        - Elsevier"},"assertion-origin-orcid":null,"assertion-origin-client-id":null,"assertion-origin-name":null},"title":{"title":{"value":"Image
+        quality factors affecting the reconstruction of laser transmission holograms:
+        interim results"},"subtitle":null,"translated-title":null},"external-ids":{"external-id":[{"external-id-type":"eid","external-id-value":"2-s2.0-0027813935","external-id-normalized":{"value":"2-s2.0-0027813935","transient":true},"external-id-normalized-error":null,"external-id-url":{"value":""},"external-id-relationship":"self"}]},"url":{"value":"http://www.scopus.com/inward/record.url?eid=2-s2.0-0027813935&partnerID=MN8TOARS"},"type":"conference-paper","publication-date":{"year":{"value":"1993"},"month":null,"day":null},"journal-title":null,"visibility":"public","path":"/0000-0002-9341-7985/work/15536017","display-index":"0"}]},{"last-modified-date":{"value":1437748178696},"external-ids":{"external-id":[{"external-id-type":"eid","external-id-value":"2-s2.0-0027639305","external-id-normalized":{"value":"2-s2.0-0027639305","transient":true},"external-id-normalized-error":null,"external-id-url":{"value":""},"external-id-relationship":"self"}]},"work-summary":[{"put-code":15536018,"created-date":{"value":1424805081158},"last-modified-date":{"value":1437748178696},"source":{"source-orcid":null,"source-client-id":{"uri":"https://orcid.org/client/0000-0002-5982-8983","path":"0000-0002-5982-8983","host":"orcid.org"},"source-name":{"value":"Scopus
+        - Elsevier"},"assertion-origin-orcid":null,"assertion-origin-client-id":null,"assertion-origin-name":null},"title":{"title":{"value":"Reciprocity
+        failure in continuous wave holography"},"subtitle":null,"translated-title":null},"external-ids":{"external-id":[{"external-id-type":"eid","external-id-value":"2-s2.0-0027639305","external-id-normalized":{"value":"2-s2.0-0027639305","transient":true},"external-id-normalized-error":null,"external-id-url":{"value":""},"external-id-relationship":"self"}]},"url":{"value":"http://www.scopus.com/inward/record.url?eid=2-s2.0-0027639305&partnerID=MN8TOARS"},"type":"journal-article","publication-date":{"year":{"value":"1993"},"month":null,"day":null},"journal-title":null,"visibility":"public","path":"/0000-0002-9341-7985/work/15536018","display-index":"0"}]},{"last-modified-date":{"value":1437748178734},"external-ids":{"external-id":[{"external-id-type":"eid","external-id-value":"2-s2.0-44049114346","external-id-normalized":{"value":"2-s2.0-44049114346","transient":true},"external-id-normalized-error":null,"external-id-url":{"value":""},"external-id-relationship":"self"}]},"work-summary":[{"put-code":15536019,"created-date":{"value":1424805081163},"last-modified-date":{"value":1437748178734},"source":{"source-orcid":null,"source-client-id":{"uri":"https://orcid.org/client/0000-0002-5982-8983","path":"0000-0002-5982-8983","host":"orcid.org"},"source-name":{"value":"Scopus
+        - Elsevier"},"assertion-origin-orcid":null,"assertion-origin-client-id":null,"assertion-origin-name":null},"title":{"title":{"value":"Modern
+        developments in holography and its materials"},"subtitle":null,"translated-title":null},"external-ids":{"external-id":[{"external-id-type":"eid","external-id-value":"2-s2.0-44049114346","external-id-normalized":{"value":"2-s2.0-44049114346","transient":true},"external-id-normalized-error":null,"external-id-url":{"value":""},"external-id-relationship":"self"}]},"url":{"value":"http://www.scopus.com/inward/record.url?eid=2-s2.0-44049114346&partnerID=MN8TOARS"},"type":"journal-article","publication-date":{"year":{"value":"1992"},"month":null,"day":null},"journal-title":null,"visibility":"public","path":"/0000-0002-9341-7985/work/15536019","display-index":"0"}]}],"path":"/0000-0002-9341-7985/works"}'
+  recorded_at: 2019-07-12 08:40:40 GMT
+  recorded_with: vcr/0.2.6, webmockr/0.3.4
+- request:
+    method: get
+    uri: https://pub.orcid.org/v3.0/0000-0002-9341-7985/works
+    body:
+      encoding: ''
+      string: ''
+    headers:
+      Accept-Encoding: gzip, deflate
+      Accept: application/json
+      User-Agent: r-curl/3.3 crul/0.8.0 rOpenSci(rorcid/0.5.0.9210)
+      X-USER-AGENT: r-curl/3.3 crul/0.8.0 rOpenSci(rorcid/0.5.0.9210)
+      Authorization: Bearer <<rorcid_bearer_token>>
+  response:
+    status:
+      status_code: '200'
+      message: OK
+      explanation: Request fulfilled, document follows
+    headers:
+      status: HTTP/1.1 200 OK
+      server: nginx/1.10.0
+      cache-control: no-cache, no-store, max-age=0, must-revalidate
+      content-type: application/json;charset=UTF-8
+      content-encoding: gzip
+      date: Fri, 12 Jul 2019 08:40:52 GMT
+      expires: '0'
+      pragma: no-cache
+      x-xss-protection: 1; mode=block
+      transfer-encoding: chunked
+      access-control-allow-origin: '*'
+      x-content-type-options: nosniff
+      connection: keep-alive
+      set-cookie: X-Mapping-fjhppofk=26484D0F5DA32D2D6AF64AA1C9DBBA16; path=/
+      x-frame-options: DENY
+    body:
+      encoding: UTF-8
+      string: '{"last-modified-date":{"value":1437748178734},"group":[{"last-modified-date":{"value":1437748178581},"external-ids":{"external-id":[{"external-id-type":"doi","external-id-value":"10.3233/ISU-130714","external-id-normalized":{"value":"10.3233/isu-130714","transient":true},"external-id-normalized-error":null,"external-id-url":{"value":""},"external-id-relationship":"self"},{"external-id-type":"eid","external-id-value":"2-s2.0-84889654399","external-id-normalized":{"value":"2-s2.0-84889654399","transient":true},"external-id-normalized-error":null,"external-id-url":{"value":""},"external-id-relationship":"self"}]},"work-summary":[{"put-code":15536015,"created-date":{"value":1424805081143},"last-modified-date":{"value":1437748178581},"source":{"source-orcid":null,"source-client-id":{"uri":"https://orcid.org/client/0000-0002-5982-8983","path":"0000-0002-5982-8983","host":"orcid.org"},"source-name":{"value":"Scopus
+        - Elsevier"},"assertion-origin-orcid":null,"assertion-origin-client-id":null,"assertion-origin-name":null},"title":{"title":{"value":"PeerJ
+        - A case study in improving research collaboration at the journal level"},"subtitle":null,"translated-title":null},"external-ids":{"external-id":[{"external-id-type":"doi","external-id-value":"10.3233/ISU-130714","external-id-normalized":{"value":"10.3233/isu-130714","transient":true},"external-id-normalized-error":null,"external-id-url":{"value":""},"external-id-relationship":"self"},{"external-id-type":"eid","external-id-value":"2-s2.0-84889654399","external-id-normalized":{"value":"2-s2.0-84889654399","transient":true},"external-id-normalized-error":null,"external-id-url":{"value":""},"external-id-relationship":"self"}]},"url":{"value":"http://www.scopus.com/inward/record.url?eid=2-s2.0-84889654399&partnerID=MN8TOARS"},"type":"journal-article","publication-date":{"year":{"value":"2013"},"month":null,"day":null},"journal-title":null,"visibility":"public","path":"/0000-0002-9341-7985/work/15536015","display-index":"0"}]},{"last-modified-date":{"value":1437083653456},"external-ids":{"external-id":[{"external-id-type":"doi","external-id-value":"10.1038/npre.2009.2801","external-id-normalized":{"value":"10.1038/npre.2009.2801","transient":true},"external-id-normalized-error":null,"external-id-url":{"value":""},"external-id-relationship":"self"}]},"work-summary":[{"put-code":5011717,"created-date":{"value":1362686830609},"last-modified-date":{"value":1437083653456},"source":{"source-orcid":{"uri":"https://orcid.org/0000-0002-9341-7985","path":"0000-0002-9341-7985","host":"orcid.org"},"source-client-id":null,"source-name":{"value":"Peter
+        Binfield"},"assertion-origin-orcid":null,"assertion-origin-client-id":null,"assertion-origin-name":null},"title":{"title":{"value":"Reputation,
+        authority and incentives. Or: How to get rid of the Impact Factor"},"subtitle":null,"translated-title":null},"external-ids":{"external-id":[{"external-id-type":"doi","external-id-value":"10.1038/npre.2009.2801","external-id-normalized":{"value":"10.1038/npre.2009.2801","transient":true},"external-id-normalized-error":null,"external-id-url":{"value":""},"external-id-relationship":"self"}]},"url":null,"type":"journal-article","publication-date":{"year":{"value":"2009"},"month":{"value":"01"},"day":{"value":"21"}},"journal-title":null,"visibility":"public","path":"/0000-0002-9341-7985/work/5011717","display-index":"0"}]},{"last-modified-date":{"value":1437748178615},"external-ids":{"external-id":[{"external-id-type":"eid","external-id-value":"2-s2.0-84869137070","external-id-normalized":{"value":"2-s2.0-84869137070","transient":true},"external-id-normalized-error":null,"external-id-url":{"value":""},"external-id-relationship":"self"}]},"work-summary":[{"put-code":15536016,"created-date":{"value":1424805081148},"last-modified-date":{"value":1437748178615},"source":{"source-orcid":null,"source-client-id":{"uri":"https://orcid.org/client/0000-0002-5982-8983","path":"0000-0002-5982-8983","host":"orcid.org"},"source-name":{"value":"Scopus
+        - Elsevier"},"assertion-origin-orcid":null,"assertion-origin-client-id":null,"assertion-origin-name":null},"title":{"title":{"value":"PLoS
+        ONE: Background, future development, and article-level metrics"},"subtitle":null,"translated-title":null},"external-ids":{"external-id":[{"external-id-type":"eid","external-id-value":"2-s2.0-84869137070","external-id-normalized":{"value":"2-s2.0-84869137070","transient":true},"external-id-normalized-error":null,"external-id-url":{"value":""},"external-id-relationship":"self"}]},"url":{"value":"http://www.scopus.com/inward/record.url?eid=2-s2.0-84869137070&partnerID=MN8TOARS"},"type":"conference-paper","publication-date":{"year":{"value":"2009"},"month":null,"day":null},"journal-title":null,"visibility":"public","path":"/0000-0002-9341-7985/work/15536016","display-index":"0"}]},{"last-modified-date":{"value":1437748178537},"external-ids":{"external-id":[{"external-id-type":"eid","external-id-value":"2-s2.0-67650844237","external-id-normalized":{"value":"2-s2.0-67650844237","transient":true},"external-id-normalized-error":null,"external-id-url":{"value":""},"external-id-relationship":"self"},{"external-id-type":"doi","external-id-value":"10.1080/03615260801973992","external-id-normalized":{"value":"10.1080/03615260801973992","transient":true},"external-id-normalized-error":null,"external-id-url":{"value":""},"external-id-relationship":"self"}]},"work-summary":[{"put-code":15536014,"created-date":{"value":1424805080011},"last-modified-date":{"value":1437748178537},"source":{"source-orcid":null,"source-client-id":{"uri":"https://orcid.org/client/0000-0002-5982-8983","path":"0000-0002-5982-8983","host":"orcid.org"},"source-name":{"value":"Scopus
+        - Elsevier"},"assertion-origin-orcid":null,"assertion-origin-client-id":null,"assertion-origin-name":null},"title":{"title":{"value":"Academic
+        journal publishing"},"subtitle":null,"translated-title":null},"external-ids":{"external-id":[{"external-id-type":"doi","external-id-value":"10.1080/03615260801973992","external-id-normalized":{"value":"10.1080/03615260801973992","transient":true},"external-id-normalized-error":null,"external-id-url":{"value":""},"external-id-relationship":"self"},{"external-id-type":"eid","external-id-value":"2-s2.0-67650844237","external-id-normalized":{"value":"2-s2.0-67650844237","transient":true},"external-id-normalized-error":null,"external-id-url":{"value":""},"external-id-relationship":"self"}]},"url":{"value":"http://www.scopus.com/inward/record.url?eid=2-s2.0-67650844237&partnerID=MN8TOARS"},"type":"journal-article","publication-date":{"year":{"value":"2008"},"month":null,"day":null},"journal-title":null,"visibility":"public","path":"/0000-0002-9341-7985/work/15536014","display-index":"0"}]},{"last-modified-date":{"value":1437748178502},"external-ids":{"external-id":[{"external-id-type":"doi","external-id-value":"10.1080/03615260801973414","external-id-normalized":{"value":"10.1080/03615260801973414","transient":true},"external-id-normalized-error":null,"external-id-url":{"value":""},"external-id-relationship":"self"},{"external-id-type":"eid","external-id-value":"2-s2.0-67650815254","external-id-normalized":{"value":"2-s2.0-67650815254","transient":true},"external-id-normalized-error":null,"external-id-url":{"value":""},"external-id-relationship":"self"}]},"work-summary":[{"put-code":15536013,"created-date":{"value":1424805080009},"last-modified-date":{"value":1437748178502},"source":{"source-orcid":null,"source-client-id":{"uri":"https://orcid.org/client/0000-0002-5982-8983","path":"0000-0002-5982-8983","host":"orcid.org"},"source-name":{"value":"Scopus
+        - Elsevier"},"assertion-origin-orcid":null,"assertion-origin-client-id":null,"assertion-origin-name":null},"title":{"title":{"value":"Publishing
+        101: The basics of academic publishing"},"subtitle":null,"translated-title":null},"external-ids":{"external-id":[{"external-id-type":"doi","external-id-value":"10.1080/03615260801973414","external-id-normalized":{"value":"10.1080/03615260801973414","transient":true},"external-id-normalized-error":null,"external-id-url":{"value":""},"external-id-relationship":"self"},{"external-id-type":"eid","external-id-value":"2-s2.0-67650815254","external-id-normalized":{"value":"2-s2.0-67650815254","transient":true},"external-id-normalized-error":null,"external-id-url":{"value":""},"external-id-relationship":"self"}]},"url":{"value":"http://www.scopus.com/inward/record.url?eid=2-s2.0-67650815254&partnerID=MN8TOARS"},"type":"journal-article","publication-date":{"year":{"value":"2008"},"month":null,"day":null},"journal-title":null,"visibility":"public","path":"/0000-0002-9341-7985/work/15536013","display-index":"0"}]},{"last-modified-date":{"value":1437748178656},"external-ids":{"external-id":[{"external-id-type":"eid","external-id-value":"2-s2.0-0027813935","external-id-normalized":{"value":"2-s2.0-0027813935","transient":true},"external-id-normalized-error":null,"external-id-url":{"value":""},"external-id-relationship":"self"}]},"work-summary":[{"put-code":15536017,"created-date":{"value":1424805081153},"last-modified-date":{"value":1437748178656},"source":{"source-orcid":null,"source-client-id":{"uri":"https://orcid.org/client/0000-0002-5982-8983","path":"0000-0002-5982-8983","host":"orcid.org"},"source-name":{"value":"Scopus
+        - Elsevier"},"assertion-origin-orcid":null,"assertion-origin-client-id":null,"assertion-origin-name":null},"title":{"title":{"value":"Image
+        quality factors affecting the reconstruction of laser transmission holograms:
+        interim results"},"subtitle":null,"translated-title":null},"external-ids":{"external-id":[{"external-id-type":"eid","external-id-value":"2-s2.0-0027813935","external-id-normalized":{"value":"2-s2.0-0027813935","transient":true},"external-id-normalized-error":null,"external-id-url":{"value":""},"external-id-relationship":"self"}]},"url":{"value":"http://www.scopus.com/inward/record.url?eid=2-s2.0-0027813935&partnerID=MN8TOARS"},"type":"conference-paper","publication-date":{"year":{"value":"1993"},"month":null,"day":null},"journal-title":null,"visibility":"public","path":"/0000-0002-9341-7985/work/15536017","display-index":"0"}]},{"last-modified-date":{"value":1437748178696},"external-ids":{"external-id":[{"external-id-type":"eid","external-id-value":"2-s2.0-0027639305","external-id-normalized":{"value":"2-s2.0-0027639305","transient":true},"external-id-normalized-error":null,"external-id-url":{"value":""},"external-id-relationship":"self"}]},"work-summary":[{"put-code":15536018,"created-date":{"value":1424805081158},"last-modified-date":{"value":1437748178696},"source":{"source-orcid":null,"source-client-id":{"uri":"https://orcid.org/client/0000-0002-5982-8983","path":"0000-0002-5982-8983","host":"orcid.org"},"source-name":{"value":"Scopus
+        - Elsevier"},"assertion-origin-orcid":null,"assertion-origin-client-id":null,"assertion-origin-name":null},"title":{"title":{"value":"Reciprocity
+        failure in continuous wave holography"},"subtitle":null,"translated-title":null},"external-ids":{"external-id":[{"external-id-type":"eid","external-id-value":"2-s2.0-0027639305","external-id-normalized":{"value":"2-s2.0-0027639305","transient":true},"external-id-normalized-error":null,"external-id-url":{"value":""},"external-id-relationship":"self"}]},"url":{"value":"http://www.scopus.com/inward/record.url?eid=2-s2.0-0027639305&partnerID=MN8TOARS"},"type":"journal-article","publication-date":{"year":{"value":"1993"},"month":null,"day":null},"journal-title":null,"visibility":"public","path":"/0000-0002-9341-7985/work/15536018","display-index":"0"}]},{"last-modified-date":{"value":1437748178734},"external-ids":{"external-id":[{"external-id-type":"eid","external-id-value":"2-s2.0-44049114346","external-id-normalized":{"value":"2-s2.0-44049114346","transient":true},"external-id-normalized-error":null,"external-id-url":{"value":""},"external-id-relationship":"self"}]},"work-summary":[{"put-code":15536019,"created-date":{"value":1424805081163},"last-modified-date":{"value":1437748178734},"source":{"source-orcid":null,"source-client-id":{"uri":"https://orcid.org/client/0000-0002-5982-8983","path":"0000-0002-5982-8983","host":"orcid.org"},"source-name":{"value":"Scopus
+        - Elsevier"},"assertion-origin-orcid":null,"assertion-origin-client-id":null,"assertion-origin-name":null},"title":{"title":{"value":"Modern
+        developments in holography and its materials"},"subtitle":null,"translated-title":null},"external-ids":{"external-id":[{"external-id-type":"eid","external-id-value":"2-s2.0-44049114346","external-id-normalized":{"value":"2-s2.0-44049114346","transient":true},"external-id-normalized-error":null,"external-id-url":{"value":""},"external-id-relationship":"self"}]},"url":{"value":"http://www.scopus.com/inward/record.url?eid=2-s2.0-44049114346&partnerID=MN8TOARS"},"type":"journal-article","publication-date":{"year":{"value":"1992"},"month":null,"day":null},"journal-title":null,"visibility":"public","path":"/0000-0002-9341-7985/work/15536019","display-index":"0"}]}],"path":"/0000-0002-9341-7985/works"}'
+  recorded_at: 2019-07-12 08:40:40 GMT
+  recorded_with: vcr/0.2.6, webmockr/0.3.4
+- request:
+    method: get
+    uri: https://pub.orcid.org/v3.0/0000-0002-9341-7985/works
+    body:
+      encoding: ''
+      string: ''
+    headers:
+      Accept-Encoding: gzip, deflate
+      Accept: application/json
+      User-Agent: r-curl/3.3 crul/0.8.0 rOpenSci(rorcid/0.5.0.9210)
+      X-USER-AGENT: r-curl/3.3 crul/0.8.0 rOpenSci(rorcid/0.5.0.9210)
+      Authorization: Bearer <<rorcid_bearer_token>>
+  response:
+    status:
+      status_code: '200'
+      message: OK
+      explanation: Request fulfilled, document follows
+    headers:
+      status: HTTP/1.1 200 OK
+      server: nginx/1.10.0
+      date: Fri, 12 Jul 2019 08:40:52 GMT
+      content-type: application/json;charset=UTF-8
+      transfer-encoding: chunked
+      connection: keep-alive
+      access-control-allow-origin: '*'
+      cache-control: no-cache, no-store, max-age=0, must-revalidate
+      pragma: no-cache
+      expires: '0'
+      x-xss-protection: 1; mode=block
+      x-frame-options: DENY
+      x-content-type-options: nosniff
+      content-encoding: gzip
+    body:
+      encoding: UTF-8
+      string: '{"last-modified-date":{"value":1437748178734},"group":[{"last-modified-date":{"value":1437748178581},"external-ids":{"external-id":[{"external-id-type":"doi","external-id-value":"10.3233/ISU-130714","external-id-normalized":{"value":"10.3233/isu-130714","transient":true},"external-id-normalized-error":null,"external-id-url":{"value":""},"external-id-relationship":"self"},{"external-id-type":"eid","external-id-value":"2-s2.0-84889654399","external-id-normalized":{"value":"2-s2.0-84889654399","transient":true},"external-id-normalized-error":null,"external-id-url":{"value":""},"external-id-relationship":"self"}]},"work-summary":[{"put-code":15536015,"created-date":{"value":1424805081143},"last-modified-date":{"value":1437748178581},"source":{"source-orcid":null,"source-client-id":{"uri":"https://orcid.org/client/0000-0002-5982-8983","path":"0000-0002-5982-8983","host":"orcid.org"},"source-name":{"value":"Scopus
+        - Elsevier"},"assertion-origin-orcid":null,"assertion-origin-client-id":null,"assertion-origin-name":null},"title":{"title":{"value":"PeerJ
+        - A case study in improving research collaboration at the journal level"},"subtitle":null,"translated-title":null},"external-ids":{"external-id":[{"external-id-type":"doi","external-id-value":"10.3233/ISU-130714","external-id-normalized":{"value":"10.3233/isu-130714","transient":true},"external-id-normalized-error":null,"external-id-url":{"value":""},"external-id-relationship":"self"},{"external-id-type":"eid","external-id-value":"2-s2.0-84889654399","external-id-normalized":{"value":"2-s2.0-84889654399","transient":true},"external-id-normalized-error":null,"external-id-url":{"value":""},"external-id-relationship":"self"}]},"url":{"value":"http://www.scopus.com/inward/record.url?eid=2-s2.0-84889654399&partnerID=MN8TOARS"},"type":"journal-article","publication-date":{"year":{"value":"2013"},"month":null,"day":null},"journal-title":null,"visibility":"public","path":"/0000-0002-9341-7985/work/15536015","display-index":"0"}]},{"last-modified-date":{"value":1437083653456},"external-ids":{"external-id":[{"external-id-type":"doi","external-id-value":"10.1038/npre.2009.2801","external-id-normalized":{"value":"10.1038/npre.2009.2801","transient":true},"external-id-normalized-error":null,"external-id-url":{"value":""},"external-id-relationship":"self"}]},"work-summary":[{"put-code":5011717,"created-date":{"value":1362686830609},"last-modified-date":{"value":1437083653456},"source":{"source-orcid":{"uri":"https://orcid.org/0000-0002-9341-7985","path":"0000-0002-9341-7985","host":"orcid.org"},"source-client-id":null,"source-name":{"value":"Peter
+        Binfield"},"assertion-origin-orcid":null,"assertion-origin-client-id":null,"assertion-origin-name":null},"title":{"title":{"value":"Reputation,
+        authority and incentives. Or: How to get rid of the Impact Factor"},"subtitle":null,"translated-title":null},"external-ids":{"external-id":[{"external-id-type":"doi","external-id-value":"10.1038/npre.2009.2801","external-id-normalized":{"value":"10.1038/npre.2009.2801","transient":true},"external-id-normalized-error":null,"external-id-url":{"value":""},"external-id-relationship":"self"}]},"url":null,"type":"journal-article","publication-date":{"year":{"value":"2009"},"month":{"value":"01"},"day":{"value":"21"}},"journal-title":null,"visibility":"public","path":"/0000-0002-9341-7985/work/5011717","display-index":"0"}]},{"last-modified-date":{"value":1437748178615},"external-ids":{"external-id":[{"external-id-type":"eid","external-id-value":"2-s2.0-84869137070","external-id-normalized":{"value":"2-s2.0-84869137070","transient":true},"external-id-normalized-error":null,"external-id-url":{"value":""},"external-id-relationship":"self"}]},"work-summary":[{"put-code":15536016,"created-date":{"value":1424805081148},"last-modified-date":{"value":1437748178615},"source":{"source-orcid":null,"source-client-id":{"uri":"https://orcid.org/client/0000-0002-5982-8983","path":"0000-0002-5982-8983","host":"orcid.org"},"source-name":{"value":"Scopus
+        - Elsevier"},"assertion-origin-orcid":null,"assertion-origin-client-id":null,"assertion-origin-name":null},"title":{"title":{"value":"PLoS
+        ONE: Background, future development, and article-level metrics"},"subtitle":null,"translated-title":null},"external-ids":{"external-id":[{"external-id-type":"eid","external-id-value":"2-s2.0-84869137070","external-id-normalized":{"value":"2-s2.0-84869137070","transient":true},"external-id-normalized-error":null,"external-id-url":{"value":""},"external-id-relationship":"self"}]},"url":{"value":"http://www.scopus.com/inward/record.url?eid=2-s2.0-84869137070&partnerID=MN8TOARS"},"type":"conference-paper","publication-date":{"year":{"value":"2009"},"month":null,"day":null},"journal-title":null,"visibility":"public","path":"/0000-0002-9341-7985/work/15536016","display-index":"0"}]},{"last-modified-date":{"value":1437748178537},"external-ids":{"external-id":[{"external-id-type":"eid","external-id-value":"2-s2.0-67650844237","external-id-normalized":{"value":"2-s2.0-67650844237","transient":true},"external-id-normalized-error":null,"external-id-url":{"value":""},"external-id-relationship":"self"},{"external-id-type":"doi","external-id-value":"10.1080/03615260801973992","external-id-normalized":{"value":"10.1080/03615260801973992","transient":true},"external-id-normalized-error":null,"external-id-url":{"value":""},"external-id-relationship":"self"}]},"work-summary":[{"put-code":15536014,"created-date":{"value":1424805080011},"last-modified-date":{"value":1437748178537},"source":{"source-orcid":null,"source-client-id":{"uri":"https://orcid.org/client/0000-0002-5982-8983","path":"0000-0002-5982-8983","host":"orcid.org"},"source-name":{"value":"Scopus
+        - Elsevier"},"assertion-origin-orcid":null,"assertion-origin-client-id":null,"assertion-origin-name":null},"title":{"title":{"value":"Academic
+        journal publishing"},"subtitle":null,"translated-title":null},"external-ids":{"external-id":[{"external-id-type":"doi","external-id-value":"10.1080/03615260801973992","external-id-normalized":{"value":"10.1080/03615260801973992","transient":true},"external-id-normalized-error":null,"external-id-url":{"value":""},"external-id-relationship":"self"},{"external-id-type":"eid","external-id-value":"2-s2.0-67650844237","external-id-normalized":{"value":"2-s2.0-67650844237","transient":true},"external-id-normalized-error":null,"external-id-url":{"value":""},"external-id-relationship":"self"}]},"url":{"value":"http://www.scopus.com/inward/record.url?eid=2-s2.0-67650844237&partnerID=MN8TOARS"},"type":"journal-article","publication-date":{"year":{"value":"2008"},"month":null,"day":null},"journal-title":null,"visibility":"public","path":"/0000-0002-9341-7985/work/15536014","display-index":"0"}]},{"last-modified-date":{"value":1437748178502},"external-ids":{"external-id":[{"external-id-type":"doi","external-id-value":"10.1080/03615260801973414","external-id-normalized":{"value":"10.1080/03615260801973414","transient":true},"external-id-normalized-error":null,"external-id-url":{"value":""},"external-id-relationship":"self"},{"external-id-type":"eid","external-id-value":"2-s2.0-67650815254","external-id-normalized":{"value":"2-s2.0-67650815254","transient":true},"external-id-normalized-error":null,"external-id-url":{"value":""},"external-id-relationship":"self"}]},"work-summary":[{"put-code":15536013,"created-date":{"value":1424805080009},"last-modified-date":{"value":1437748178502},"source":{"source-orcid":null,"source-client-id":{"uri":"https://orcid.org/client/0000-0002-5982-8983","path":"0000-0002-5982-8983","host":"orcid.org"},"source-name":{"value":"Scopus
+        - Elsevier"},"assertion-origin-orcid":null,"assertion-origin-client-id":null,"assertion-origin-name":null},"title":{"title":{"value":"Publishing
+        101: The basics of academic publishing"},"subtitle":null,"translated-title":null},"external-ids":{"external-id":[{"external-id-type":"doi","external-id-value":"10.1080/03615260801973414","external-id-normalized":{"value":"10.1080/03615260801973414","transient":true},"external-id-normalized-error":null,"external-id-url":{"value":""},"external-id-relationship":"self"},{"external-id-type":"eid","external-id-value":"2-s2.0-67650815254","external-id-normalized":{"value":"2-s2.0-67650815254","transient":true},"external-id-normalized-error":null,"external-id-url":{"value":""},"external-id-relationship":"self"}]},"url":{"value":"http://www.scopus.com/inward/record.url?eid=2-s2.0-67650815254&partnerID=MN8TOARS"},"type":"journal-article","publication-date":{"year":{"value":"2008"},"month":null,"day":null},"journal-title":null,"visibility":"public","path":"/0000-0002-9341-7985/work/15536013","display-index":"0"}]},{"last-modified-date":{"value":1437748178656},"external-ids":{"external-id":[{"external-id-type":"eid","external-id-value":"2-s2.0-0027813935","external-id-normalized":{"value":"2-s2.0-0027813935","transient":true},"external-id-normalized-error":null,"external-id-url":{"value":""},"external-id-relationship":"self"}]},"work-summary":[{"put-code":15536017,"created-date":{"value":1424805081153},"last-modified-date":{"value":1437748178656},"source":{"source-orcid":null,"source-client-id":{"uri":"https://orcid.org/client/0000-0002-5982-8983","path":"0000-0002-5982-8983","host":"orcid.org"},"source-name":{"value":"Scopus
+        - Elsevier"},"assertion-origin-orcid":null,"assertion-origin-client-id":null,"assertion-origin-name":null},"title":{"title":{"value":"Image
+        quality factors affecting the reconstruction of laser transmission holograms:
+        interim results"},"subtitle":null,"translated-title":null},"external-ids":{"external-id":[{"external-id-type":"eid","external-id-value":"2-s2.0-0027813935","external-id-normalized":{"value":"2-s2.0-0027813935","transient":true},"external-id-normalized-error":null,"external-id-url":{"value":""},"external-id-relationship":"self"}]},"url":{"value":"http://www.scopus.com/inward/record.url?eid=2-s2.0-0027813935&partnerID=MN8TOARS"},"type":"conference-paper","publication-date":{"year":{"value":"1993"},"month":null,"day":null},"journal-title":null,"visibility":"public","path":"/0000-0002-9341-7985/work/15536017","display-index":"0"}]},{"last-modified-date":{"value":1437748178696},"external-ids":{"external-id":[{"external-id-type":"eid","external-id-value":"2-s2.0-0027639305","external-id-normalized":{"value":"2-s2.0-0027639305","transient":true},"external-id-normalized-error":null,"external-id-url":{"value":""},"external-id-relationship":"self"}]},"work-summary":[{"put-code":15536018,"created-date":{"value":1424805081158},"last-modified-date":{"value":1437748178696},"source":{"source-orcid":null,"source-client-id":{"uri":"https://orcid.org/client/0000-0002-5982-8983","path":"0000-0002-5982-8983","host":"orcid.org"},"source-name":{"value":"Scopus
+        - Elsevier"},"assertion-origin-orcid":null,"assertion-origin-client-id":null,"assertion-origin-name":null},"title":{"title":{"value":"Reciprocity
+        failure in continuous wave holography"},"subtitle":null,"translated-title":null},"external-ids":{"external-id":[{"external-id-type":"eid","external-id-value":"2-s2.0-0027639305","external-id-normalized":{"value":"2-s2.0-0027639305","transient":true},"external-id-normalized-error":null,"external-id-url":{"value":""},"external-id-relationship":"self"}]},"url":{"value":"http://www.scopus.com/inward/record.url?eid=2-s2.0-0027639305&partnerID=MN8TOARS"},"type":"journal-article","publication-date":{"year":{"value":"1993"},"month":null,"day":null},"journal-title":null,"visibility":"public","path":"/0000-0002-9341-7985/work/15536018","display-index":"0"}]},{"last-modified-date":{"value":1437748178734},"external-ids":{"external-id":[{"external-id-type":"eid","external-id-value":"2-s2.0-44049114346","external-id-normalized":{"value":"2-s2.0-44049114346","transient":true},"external-id-normalized-error":null,"external-id-url":{"value":""},"external-id-relationship":"self"}]},"work-summary":[{"put-code":15536019,"created-date":{"value":1424805081163},"last-modified-date":{"value":1437748178734},"source":{"source-orcid":null,"source-client-id":{"uri":"https://orcid.org/client/0000-0002-5982-8983","path":"0000-0002-5982-8983","host":"orcid.org"},"source-name":{"value":"Scopus
+        - Elsevier"},"assertion-origin-orcid":null,"assertion-origin-client-id":null,"assertion-origin-name":null},"title":{"title":{"value":"Modern
+        developments in holography and its materials"},"subtitle":null,"translated-title":null},"external-ids":{"external-id":[{"external-id-type":"eid","external-id-value":"2-s2.0-44049114346","external-id-normalized":{"value":"2-s2.0-44049114346","transient":true},"external-id-normalized-error":null,"external-id-url":{"value":""},"external-id-relationship":"self"}]},"url":{"value":"http://www.scopus.com/inward/record.url?eid=2-s2.0-44049114346&partnerID=MN8TOARS"},"type":"journal-article","publication-date":{"year":{"value":"1992"},"month":null,"day":null},"journal-title":null,"visibility":"public","path":"/0000-0002-9341-7985/work/15536019","display-index":"0"}]}],"path":"/0000-0002-9341-7985/works"}'
+  recorded_at: 2019-07-12 08:40:40 GMT
+  recorded_with: vcr/0.2.6, webmockr/0.3.4

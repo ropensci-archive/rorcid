@@ -1,9 +1,9 @@
-context("as.orcid")
-
-test_that("as.orcid basic functionality works", {
+test_that("as.orcid", {
   skip_on_cran()
   
-  aa <- as.orcid("0000-0002-1642-628X")
+  vcr::use_cassette("as_orcid", {
+    aa <- as.orcid("0000-0002-1642-628X")
+  })
   
   expect_is(aa, "or_cid")
   expect_is(aa[[1]], "list")
@@ -13,8 +13,10 @@ test_that("as.orcid basic functionality works", {
 test_that("as.orcid accepts itself, or_cid class", {
   skip_on_cran()
   
-  tmp <- as.orcid("0000-0002-1642-628X")
-  bb <- as.orcid(tmp)
+  vcr::use_cassette("as_orcid_accepts_self_or_or_cid_class", {
+    tmp <- as.orcid("0000-0002-1642-628X")
+    bb <- as.orcid(tmp)
+  })
   
   expect_is(bb, "or_cid")
   expect_is(bb[[1]], "list")
@@ -29,5 +31,7 @@ test_that("as.orcid fails well", {
   expect_error(as.orcid(list(a = 6)), "no 'as.orcid' method for numeric")
   
   # ok input class, but but ORCID
-  expect_error(as.orcid("adfafadf"))
+  vcr::use_cassette("as_orcid_invalid_orcid_id", {
+    expect_error(as.orcid("adfafadf"), class = "error")
+  })
 })

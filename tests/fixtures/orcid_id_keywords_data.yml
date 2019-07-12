@@ -1,0 +1,362 @@
+http_interactions:
+- request:
+    method: get
+    uri: https://pub.orcid.org/v3.0/0000-0002-1642-628X/person
+    body:
+      encoding: ''
+      string: ''
+    headers:
+      Accept-Encoding: gzip, deflate
+      Accept: application/vnd.orcid+json; qs=4
+      User-Agent: r-curl/3.3 crul/0.8.0 rOpenSci(rorcid/0.5.0.9210)
+      X-USER-AGENT: r-curl/3.3 crul/0.8.0 rOpenSci(rorcid/0.5.0.9210)
+      Authorization: Bearer <<rorcid_bearer_token>>
+  response:
+    status:
+      status_code: '200'
+      message: OK
+      explanation: Request fulfilled, document follows
+    headers:
+      status: HTTP/1.1 200 OK
+      server: nginx/1.10.0
+      date: Fri, 12 Jul 2019 08:41:03 GMT
+      content-type: application/vnd.orcid+json; qs=4;charset=UTF-8
+      transfer-encoding: chunked
+      connection: keep-alive
+      access-control-allow-origin: '*'
+      cache-control: no-cache, no-store, max-age=0, must-revalidate
+      pragma: no-cache
+      expires: '0'
+      x-xss-protection: 1; mode=block
+      x-frame-options: DENY
+      x-content-type-options: nosniff
+      content-encoding: gzip
+    body:
+      encoding: UTF-8
+      string: |-
+        {
+          "last-modified-date" : {
+            "value" : 1543525783951
+          },
+          "name" : {
+            "created-date" : {
+              "value" : 1460757498848
+            },
+            "last-modified-date" : {
+              "value" : 1460757498848
+            },
+            "given-names" : {
+              "value" : "Carl"
+            },
+            "family-name" : {
+              "value" : "Boettiger"
+            },
+            "credit-name" : null,
+            "source" : null,
+            "visibility" : "public",
+            "path" : "0000-0002-1642-628X"
+          },
+          "other-names" : {
+            "last-modified-date" : null,
+            "other-name" : [ ],
+            "path" : "/0000-0002-1642-628X/other-names"
+          },
+          "biography" : {
+            "created-date" : {
+              "value" : 1460757498851
+            },
+            "last-modified-date" : {
+              "value" : 1460757498851
+            },
+            "content" : "http://carlboettiger.info",
+            "visibility" : "public",
+            "path" : "/0000-0002-1642-628X/biography"
+          },
+          "researcher-urls" : {
+            "last-modified-date" : {
+              "value" : 1543525783951
+            },
+            "researcher-url" : [ {
+              "created-date" : {
+                "value" : 1406074318793
+              },
+              "last-modified-date" : {
+                "value" : 1543525783951
+              },
+              "source" : {
+                "source-orcid" : {
+                  "uri" : "https://orcid.org/0000-0002-1642-628X",
+                  "path" : "0000-0002-1642-628X",
+                  "host" : "orcid.org"
+                },
+                "source-client-id" : null,
+                "source-name" : {
+                  "value" : "Carl Boettiger"
+                },
+                "assertion-origin-orcid" : null,
+                "assertion-origin-client-id" : null,
+                "assertion-origin-name" : null
+              },
+              "url-name" : "carlboettiger.info",
+              "url" : {
+                "value" : "http://www.carlboettiger.info"
+              },
+              "visibility" : "public",
+              "path" : "/0000-0002-1642-628X/researcher-urls/325168",
+              "put-code" : 325168,
+              "display-index" : 5
+            }, {
+              "created-date" : {
+                "value" : 1543525764169
+              },
+              "last-modified-date" : {
+                "value" : 1543525783951
+              },
+              "source" : {
+                "source-orcid" : {
+                  "uri" : "https://orcid.org/0000-0002-1642-628X",
+                  "path" : "0000-0002-1642-628X",
+                  "host" : "orcid.org"
+                },
+                "source-client-id" : null,
+                "source-name" : {
+                  "value" : "Carl Boettiger"
+                },
+                "assertion-origin-orcid" : null,
+                "assertion-origin-client-id" : null,
+                "assertion-origin-name" : null
+              },
+              "url-name" : "twitter",
+              "url" : {
+                "value" : "https://twitter.com/cboettig"
+              },
+              "visibility" : "public",
+              "path" : "/0000-0002-1642-628X/researcher-urls/1604421",
+              "put-code" : 1604421,
+              "display-index" : 4
+            }, {
+              "created-date" : {
+                "value" : 1543525764172
+              },
+              "last-modified-date" : {
+                "value" : 1543525783951
+              },
+              "source" : {
+                "source-orcid" : {
+                  "uri" : "https://orcid.org/0000-0002-1642-628X",
+                  "path" : "0000-0002-1642-628X",
+                  "host" : "orcid.org"
+                },
+                "source-client-id" : null,
+                "source-name" : {
+                  "value" : "Carl Boettiger"
+                },
+                "assertion-origin-orcid" : null,
+                "assertion-origin-client-id" : null,
+                "assertion-origin-name" : null
+              },
+              "url-name" : "GitHub",
+              "url" : {
+                "value" : "https://github.com/cboettig"
+              },
+              "visibility" : "public",
+              "path" : "/0000-0002-1642-628X/researcher-urls/1604422",
+              "put-code" : 1604422,
+              "display-index" : 3
+            }, {
+              "created-date" : {
+                "value" : 1543525764173
+              },
+              "last-modified-date" : {
+                "value" : 1543525783951
+              },
+              "source" : {
+                "source-orcid" : {
+                  "uri" : "https://orcid.org/0000-0002-1642-628X",
+                  "path" : "0000-0002-1642-628X",
+                  "host" : "orcid.org"
+                },
+                "source-client-id" : null,
+                "source-name" : {
+                  "value" : "Carl Boettiger"
+                },
+                "assertion-origin-orcid" : null,
+                "assertion-origin-client-id" : null,
+                "assertion-origin-name" : null
+              },
+              "url-name" : "keybase.io",
+              "url" : {
+                "value" : "https://keybase.io/cboettig"
+              },
+              "visibility" : "public",
+              "path" : "/0000-0002-1642-628X/researcher-urls/1604423",
+              "put-code" : 1604423,
+              "display-index" : 2
+            } ],
+            "path" : "/0000-0002-1642-628X/researcher-urls"
+          },
+          "emails" : {
+            "last-modified-date" : {
+              "value" : 1487791036773
+            },
+            "email" : [ {
+              "created-date" : {
+                "value" : 1487791003677
+              },
+              "last-modified-date" : {
+                "value" : 1487791036773
+              },
+              "source" : {
+                "source-orcid" : {
+                  "uri" : "https://orcid.org/0000-0002-1642-628X",
+                  "path" : "0000-0002-1642-628X",
+                  "host" : "orcid.org"
+                },
+                "source-client-id" : null,
+                "source-name" : {
+                  "value" : "Carl Boettiger"
+                },
+                "assertion-origin-orcid" : null,
+                "assertion-origin-client-id" : null,
+                "assertion-origin-name" : null
+              },
+              "email" : "cboettig@berkeley.edu",
+              "path" : null,
+              "visibility" : "public",
+              "verified" : true,
+              "primary" : false,
+              "put-code" : null
+            }, {
+              "created-date" : {
+                "value" : 1375202246105
+              },
+              "last-modified-date" : {
+                "value" : 1375202246105
+              },
+              "source" : {
+                "source-orcid" : null,
+                "source-client-id" : null,
+                "source-name" : null,
+                "assertion-origin-orcid" : null,
+                "assertion-origin-client-id" : null,
+                "assertion-origin-name" : null
+              },
+              "email" : "cboettig@gmail.com",
+              "path" : null,
+              "visibility" : "public",
+              "verified" : true,
+              "primary" : true,
+              "put-code" : null
+            } ],
+            "path" : "/0000-0002-1642-628X/email"
+          },
+          "addresses" : {
+            "last-modified-date" : {
+              "value" : 1465226976952
+            },
+            "address" : [ {
+              "created-date" : {
+                "value" : 1453660122035
+              },
+              "last-modified-date" : {
+                "value" : 1465226976952
+              },
+              "source" : {
+                "source-orcid" : {
+                  "uri" : "https://orcid.org/0000-0002-1642-628X",
+                  "path" : "0000-0002-1642-628X",
+                  "host" : "orcid.org"
+                },
+                "source-client-id" : null,
+                "source-name" : {
+                  "value" : "Carl Boettiger"
+                },
+                "assertion-origin-orcid" : null,
+                "assertion-origin-client-id" : null,
+                "assertion-origin-name" : null
+              },
+              "country" : {
+                "value" : "US"
+              },
+              "visibility" : "public",
+              "path" : "/0000-0002-1642-628X/address/288064",
+              "put-code" : 288064,
+              "display-index" : 0
+            } ],
+            "path" : "/0000-0002-1642-628X/address"
+          },
+          "keywords" : {
+            "last-modified-date" : {
+              "value" : 1379697231254
+            },
+            "keyword" : [ {
+              "created-date" : {
+                "value" : 1379697231254
+              },
+              "last-modified-date" : {
+                "value" : 1379697231254
+              },
+              "source" : {
+                "source-orcid" : {
+                  "uri" : "https://orcid.org/0000-0002-1642-628X",
+                  "path" : "0000-0002-1642-628X",
+                  "host" : "orcid.org"
+                },
+                "source-client-id" : null,
+                "source-name" : {
+                  "value" : "Carl Boettiger"
+                },
+                "assertion-origin-orcid" : null,
+                "assertion-origin-client-id" : null,
+                "assertion-origin-name" : null
+              },
+              "content" : "Ecology, Evolution, Regime Shifts, Stochastic Dynamics",
+              "visibility" : "public",
+              "path" : "/0000-0002-1642-628X/keywords/31202",
+              "put-code" : 31202,
+              "display-index" : 0
+            } ],
+            "path" : "/0000-0002-1642-628X/keywords"
+          },
+          "external-identifiers" : {
+            "last-modified-date" : {
+              "value" : 1517873256636
+            },
+            "external-identifier" : [ {
+              "created-date" : {
+                "value" : 1375202246105
+              },
+              "last-modified-date" : {
+                "value" : 1517873256636
+              },
+              "source" : {
+                "source-orcid" : null,
+                "source-client-id" : {
+                  "uri" : "https://orcid.org/client/0000-0002-5982-8983",
+                  "path" : "0000-0002-5982-8983",
+                  "host" : "orcid.org"
+                },
+                "source-name" : {
+                  "value" : "Scopus - Elsevier"
+                },
+                "assertion-origin-orcid" : null,
+                "assertion-origin-client-id" : null,
+                "assertion-origin-name" : null
+              },
+              "external-id-type" : "Scopus Author ID",
+              "external-id-value" : "15753693500",
+              "external-id-url" : {
+                "value" : "http://www.scopus.com/inward/authorDetails.url?authorID=15753693500&partnerID=MN8TOARS"
+              },
+              "external-id-relationship" : "self",
+              "visibility" : "public",
+              "path" : "/0000-0002-1642-628X/external-identifiers/141736",
+              "put-code" : 141736,
+              "display-index" : 0
+            } ],
+            "path" : "/0000-0002-1642-628X/external-identifiers"
+          },
+          "path" : "/0000-0002-1642-628X/person"
+        }
+  recorded_at: 2019-07-12 08:40:51 GMT
+  recorded_with: vcr/0.2.6, webmockr/0.3.4

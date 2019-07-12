@@ -34,7 +34,8 @@ Suggests:
     knitr,
     rcrossref,
     handlr,
-    httpuv
+    httpuv,
+    vcr
 RoxygenNote: 6.1.1
 VignetteBuilder: knitr
 X-schema.org-applicationCategory: Literature

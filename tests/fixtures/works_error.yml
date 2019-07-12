@@ -1,0 +1,45 @@
+http_interactions:
+- request:
+    method: get
+    uri: https://pub.orcid.org/v3.0/Asfaf/person
+    body:
+      encoding: ''
+      string: ''
+    headers:
+      Accept-Encoding: gzip, deflate
+      Accept: application/vnd.orcid+json; qs=4
+      User-Agent: r-curl/3.3 crul/0.8.0 rOpenSci(rorcid/0.5.0.9210)
+      X-USER-AGENT: r-curl/3.3 crul/0.8.0 rOpenSci(rorcid/0.5.0.9210)
+      Authorization: Bearer <<rorcid_bearer_token>>
+  response:
+    status:
+      status_code: '404'
+      message: Not Found
+      explanation: Nothing matches the given URI
+    headers:
+      status: HTTP/1.1 404 Not Found
+      server: nginx/1.10.0
+      date: Fri, 12 Jul 2019 08:41:18 GMT
+      content-type: application/vnd.orcid+json; qs=4;charset=UTF-8
+      transfer-encoding: chunked
+      connection: keep-alive
+      access-control-allow-origin: '*'
+      cache-control: no-cache, no-store, max-age=0, must-revalidate
+      pragma: no-cache
+      expires: '0'
+      x-xss-protection: 1; mode=block
+      x-frame-options: DENY
+      x-content-type-options: nosniff
+      content-encoding: gzip
+    body:
+      encoding: UTF-8
+      string: |-
+        {
+          "response-code" : 404,
+          "developer-message" : "404 Not Found: The resource was not found. Full validation error: ORCID iD Asfaf not found",
+          "user-message" : "The resource was not found.",
+          "error-code" : 9016,
+          "more-info" : "https://members.orcid.org/api/resources/troubleshooting"
+        }
+  recorded_at: 2019-07-12 08:41:06 GMT
+  recorded_with: vcr/0.2.6, webmockr/0.3.4
