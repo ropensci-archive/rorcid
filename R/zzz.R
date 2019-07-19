@@ -18,7 +18,7 @@ orc_GET <- function(url, args = list(), ctype = ojson, ...) {
   )
   res <- cli$get(query = args)
   errs(res)
-  res$parse("UTF-8") 
+  res$parse("UTF-8")
 }
 
 check_key <- function() {
@@ -110,12 +110,12 @@ orcid_prof_helper <- function(x, path, ctype = ojson, parse = TRUE, ...) {
 switch_parser <- function(ctype, x) {
   switch(
     ctype,
-    `application/vnd.orcid+xml; qs=5` = px(x), 
-    `application/orcid+xml; qs=3` = px(x), 
-    `application/xml` = px(x), 
-    `application/vnd.orcid+json; qs=4` = pj(x), 
-    `application/orcid+json; qs=2` = pj(x), 
-    `application/json` = pj(x), 
+    `application/vnd.orcid+xml; qs=5` = px(x),
+    `application/orcid+xml; qs=3` = px(x),
+    `application/xml` = px(x),
+    `application/vnd.orcid+json; qs=4` = pj(x),
+    `application/orcid+json; qs=2` = pj(x),
+    `application/json` = pj(x),
     `application/vnd.citationstyles.csl+json` = pj(x),
     stop("no parser found for ", ctype)
   )
@@ -133,7 +133,7 @@ orcid_putcode_helper <- function(path, orcid, put_code, format, ...) {
   pth <- if (is.null(put_code)) path else file.path(path, put_code)
   if (length(pth) > 1) {
     stats::setNames(
-      Map(function(z) orcid_prof_helper(orcid, z, ctype = format), pth), 
+      Map(function(z) orcid_prof_helper(orcid, z, ctype = format), pth),
       put_code)
   } else {
     nmd <- if (!is.null(put_code)) put_code else orcid
@@ -159,4 +159,84 @@ path_picker <- function(put_code, summary, pth_single) {
     }
     file.path(pth_single, "summary")
   }
+}
+
+#'##extract BibTeX from ORCID string if available
+#'@param x the output of `cite_put()`
+#'
+#'@return Function returns a formated BibTeX record, if nothing
+#'was found or the BibTeX record is invalid, the input is passed
+#'through without modifying it
+#'@md
+#'@nord
+extract_BibTeX <- function(x) {
+  ##do we have a BibTeX entry? if not do nothing
+  if (grepl(pattern = "\"citation-type\" : \"bibtex\"",
+            x = x,
+            fixed = TRUE)) {
+
+
+    ##remove all line breaks, they cause too many problems
+    x <- gsub("\\n", replacement = "", x, fixed = TRUE, useBytes = TRUE)
+    x <- gsub("\n", replacement = "", x, fixed = TRUE, useBytes = TRUE)
+
+    ##this string extraction might be fragile ... on verra
+    bib <- substr(
+      x = x,
+      start = regexpr("@[a-z]+\\{", x, perl = TRUE, useBytes = FALSE),
+      stop =  regexpr(
+        "\\}[^a-z\\}]+\\}\\,[^a-z\\}]+(?=\\\"type\\\")",
+        x,
+        perl = TRUE,
+        useBytes = FALSE
+      )
+    )
+
+    ##make sure we do not break the function
+    ##and if we find no valid BibTeX entry we show where
+    if(bib == ""){
+      pc <- strsplit(
+        unlist(
+          regmatches(x, gregexpr("put-code\"\\s\\:\\s[0-9]+", x), invert = FALSE)),
+        " : ", fixed = TRUE)[[1]][2]
+      warning(paste0("BibTeX record not valid for record with put-code: ", pc), call. = FALSE)
+      return(x)
+    }
+
+    ##houskeeping to avoid BibTeX format problems
+    ##>> check for double backslash, there are probably wrong
+    bib <- gsub("\\\\", replacement = "\\", bib, fixed = TRUE)
+
+    ##>> extract BibTeX entries
+    bib_type <- regmatches(bib, regexpr("@[a-z]+", bib, perl = TRUE))
+    bib_keywords <- unlist(regmatches(bib, gregexpr("[a-z]+(?=\\s*?=)", bib, perl = TRUE)))
+    bib_entries <- trimws(unlist(strsplit(bib, split = "[a-z]+\\s*?="))[-1])
+    names(bib_entries) <- bib_keywords
+
+    #>> missing or wrong cite keys cause all kind of trouble, we reset them
+    if(any(c("author", "year") %in% bib_keywords)){
+      cite_key <- trimws(strsplit(bib_entries["author"], "and", fixed = TRUE)[[1]][1])
+      cite_key <- strsplit(cite_key, ",", fixed = TRUE)[[1]][1]
+      cite_key <- regmatches(cite_key, gregexpr("[[:alpha:]]+", cite_key))[[1]]
+      cite_key <- paste0(
+        cite_key, "_",
+        regmatches( bib_entries["year"], gregexpr("[[:digit:]]+", bib_entries["year"]))[[1]][1],
+        paste(sample(letters, 3, TRUE), collapse = ""))
+
+    }else{
+      cite_key <- paste(sample(letters, 12, replace = TRUE), collapse = "")
+
+    }
+
+    ##>> glue everything together and add line breaks and tabs
+    x <-  paste0(paste0(bib_type, "{", cite_key, ",\n"),
+                 paste(paste0("\t", bib_keywords, " = ", bib_entries),
+                       collapse = "\n"))
+
+    ##>> fix last bracket to have a nice record entry
+    x <- paste0(strtrim(x, nchar(x) - 1), "\n}")
+
+  }
+
+  return(x)
 }
