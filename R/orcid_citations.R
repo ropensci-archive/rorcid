@@ -222,9 +222,9 @@ do_all <- function(m, orcid, put_code, cr_format, cr_style, cr_locale, ...) {
 
     ##try to extract BibTeX, if this fails use the conventional way
     citation <- try(
-      extract_BibTeX(cite_put(orcid, pc, ctype = "application/vnd.orcid+json; qs=4")))
+      extract_bibtex(cite_put(orcid, pc, ctype = "application/vnd.orcid+json; qs=4")))
 
-    if(class(citation) == "try-error")
+    if (inherits(citation, "try-error"))
       citation <- cite_put(orcid, pc)
 
     list(put = pc, ids = zzz$`external-id-value`,
