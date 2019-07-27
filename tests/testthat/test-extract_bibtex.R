@@ -25,11 +25,11 @@ test_that("extract_bibtex - basic functionality test", {
 
   ## (3) - the citekey does not exist
   aa_missing_citekey <- jsonlite::fromJSON(aa)
-  aa_missin_citekey$citation$`citation-value` <-
+  aa_missing_citekey$citation$`citation-value` <-
     sub(
       pattern = "@article{Kreutzer:2012ty",
       replacement = "@article{",
-      x = aa_missin_citekey$citation$`citation-value`,
+      x = aa_missing_citekey$citation$`citation-value`,
       fixed = TRUE
     )
   aa_missing_citekey <- jsonlite::toJSON(aa_missing_citekey)
