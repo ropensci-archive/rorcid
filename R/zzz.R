@@ -161,47 +161,39 @@ path_picker <- function(put_code, summary, pth_single) {
   }
 }
 
-#'##extract BibTeX from ORCID string if available
-#'@param x the output of `cite_put()`
+#'@title extract BibTeX record from ORCID JSON sring if available
+#'
+#'@description Helper function to extract BibTeX records which may be
+#'available in the string returned from ORCID. The function is exported.
+#'
+#'@param x (**required**): the output of `cite_put()`
 #'
 #'@return Function returns a formated BibTeX record, if nothing
 #'was found or the BibTeX record is invalid, the input is passed
 #'through without modifying it
+#'
+#'@seealso [jsonlite::fromJSON], [cite_put]
+#'
 #'@md
 #'@nord
-extract_BibTeX <- function(x) {
-  ##do we have a BibTeX entry? if not do nothing
-  if (grepl(pattern = "\"citation-type\" : \"bibtex\"",
-            x = x,
-            fixed = TRUE)) {
+extract_bibtex <- function(x) {
 
+  ##parse jsonlite input (this was what we expect)
+  bib <- jsonlite::fromJSON(x)
 
-    ##remove all line breaks, they cause too many problems
-    x <- gsub("\\n", replacement = "", x, fixed = TRUE, useBytes = TRUE)
-    x <- gsub("\n", replacement = "", x, fixed = TRUE, useBytes = TRUE)
-
-    ##this string extraction might be fragile ... on verra
-    bib <- substr(
-      x = x,
-      start = regexpr("@[a-z]+\\{", x, perl = TRUE, useBytes = FALSE),
-      stop =  regexpr(
-        "\\}[^a-z\\}]+\\}\\,[^a-z\\}]+(?=\\\"type\\\")",
-        x,
-        perl = TRUE,
-        useBytes = FALSE
-      )
-    )
-
-    ##make sure we do not break the function
-    ##and if we find no valid BibTeX entry we show where
-    if(bib == ""){
-      pc <- strsplit(
-        unlist(
-          regmatches(x, gregexpr("put-code\"\\s\\:\\s[0-9]+", x), invert = FALSE)),
-        " : ", fixed = TRUE)[[1]][2]
-      warning(paste0("BibTeX record not valid for record with put-code: ", pc), call. = FALSE)
+  ##Does any citation string exist?
+  if (any("citation" %in% names(bib))) {
+    ##check whether we have a BibTeX record
+    if (bib$citation$`citation-type` != "bibtex") {
+      pc <- bib$`put-code`
+      warning(paste0("No BibTeX record found for record with put-code: ", pc),
+              call. = FALSE)
       return(x)
     }
+
+    ##remove all line breaks, they cause too many problems
+    bib <- gsub("\\n", replacement = "", bib$citation$`citation-value`, fixed = TRUE, useBytes = TRUE)
+    bib <- gsub("\n", replacement = "", bib, fixed = TRUE, useBytes = TRUE)
 
     ##houskeeping to avoid BibTeX format problems
     ##>> check for double backslash, there are probably wrong
@@ -213,19 +205,17 @@ extract_BibTeX <- function(x) {
     bib_entries <- trimws(unlist(strsplit(bib, split = "[a-z]+\\s*?="))[-1])
     names(bib_entries) <- bib_keywords
 
-    #>> missing or wrong cite keys cause all kind of trouble, we reset them
-    if(any(c("author", "year") %in% bib_keywords)){
+    ##>> missing or wrong cite keys cause all kind of trouble, we reset them
+    if (any(c("author", "year") %in% bib_keywords)) {
       cite_key <- trimws(strsplit(bib_entries["author"], "and", fixed = TRUE)[[1]][1])
       cite_key <- strsplit(cite_key, ",", fixed = TRUE)[[1]][1]
       cite_key <- regmatches(cite_key, gregexpr("[[:alpha:]]+", cite_key))[[1]]
       cite_key <- paste0(
         cite_key, "_",
-        regmatches( bib_entries["year"], gregexpr("[[:digit:]]+", bib_entries["year"]))[[1]][1],
+        regmatches(bib_entries["year"], gregexpr("[[:digit:]]+", bib_entries["year"]))[[1]][1],
         paste(sample(letters, 3, TRUE), collapse = ""))
-
-    }else{
+    } else {
       cite_key <- paste(sample(letters, 12, replace = TRUE), collapse = "")
-
     }
 
     ##>> glue everything together and add line breaks and tabs
@@ -235,8 +225,6 @@ extract_BibTeX <- function(x) {
 
     ##>> fix last bracket to have a nice record entry
     x <- paste0(strtrim(x, nchar(x) - 1), "\n}")
-
   }
-
   return(x)
 }
