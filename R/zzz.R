@@ -172,7 +172,7 @@ path_picker <- function(put_code, summary, pth_single) {
 #'was found or the BibTeX record is invalid, the input is passed
 #'through without modifying it
 #'
-#'@seealso [jsonlite::fromJSON], [cite_put]
+#'@seealso [jsonlite::fromJSON], `cite_put`
 #'
 #'@md
 #'@nord
