@@ -21,3 +21,13 @@ test_that("orcid_search fails well", {
     )
   })
 })
+
+test_that("orcid_search no results gives empty data.frame", {
+  skip_on_cran()
+  
+  vcr::use_cassette("orcid_search_no_results", {
+    aa <- orcid_search(family_name = 'iakovakis', past_inst = 'Houston')
+  })
+  
+  expect_equal(NROW(aa), 0)
+})
