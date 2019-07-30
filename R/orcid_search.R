@@ -25,6 +25,9 @@
 #' - last: family name
 #' - orcid: ORCID identifier
 #' 
+#' If no results are found, an empty (0 rows) data.frame 
+#' is returned
+#' 
 #' @details The goal of this function is to make a human friendly
 #' way to search ORCID. 
 #' 
@@ -66,6 +69,7 @@ orcid_search <- function(given_name = NULL, family_name = NULL,
   query <- paste(names(query), unname(query), sep = ":", collapse = " AND ")
 
   tt <- orcid(query = query, rows = rows, start = start, ...)
+  if (!"orcid-identifier.path" %in% names(tt)) return(tibble::tibble())
   as_dt(lapply(tt$`orcid-identifier.path`, function(w) {
     rr <- orcid_id(w)
     data.frame(

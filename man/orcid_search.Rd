@@ -52,6 +52,9 @@ a \code{data.frame} with three columns:
 \item last: family name
 \item orcid: ORCID identifier
 }
+
+If no results are found, an empty (0 rows) data.frame
+is returned
 }
 \description{
 Orcid search - more user friendly than \code{\link[=orcid]{orcid()}}
