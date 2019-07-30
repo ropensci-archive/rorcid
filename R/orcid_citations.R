@@ -232,5 +232,5 @@ do_all <- function(m, orcid, put_code, cr_format, cr_style, cr_locale, ...) {
          citation = citation)
 
   })
-  as_dt(c(with_doi_citations, without_doi_citations))
+  suppressWarnings(as_dt(c(with_doi_citations, without_doi_citations)))
 }
