@@ -1,9 +1,8 @@
-test_that("extract_bibtex - basic functionality test", {
+test_that("extract_bibtex_basic_test", {
   skip_on_cran()
 
   vcr::use_cassette("extract_bibtex", {
     aa <- cite_put(orcid = "0000-0002-0734-2199", pc = "40038622", ctype = "application/vnd.orcid+json; qs=4")
-
   })
 
   ## in order to test everything, we have to modify the string a little bit
@@ -46,5 +45,4 @@ test_that("extract_bibtex - basic functionality test", {
 
   ## (3) - missing citekey, if it works it passes
   expect_is(extract_bibtex(aa_missing_citekey), "character")
-
 })
