@@ -5,10 +5,11 @@
 \title{Orcid search - more user friendly than \code{\link[=orcid]{orcid()}}}
 \usage{
 orcid_search(given_name = NULL, family_name = NULL, past_inst = NULL,
-  current_prim_inst = NULL, current_inst = NULL, credit_name = NULL,
-  other_name = NULL, email = NULL, digital_object_ids = NULL,
-  work_title = NULL, grant_number = NULL, patent_number = NULL,
-  keywords = NULL, text = NULL, rows = 10, start = NULL, ...)
+  current_prim_inst = NULL, current_inst = NULL,
+  affiliation_org = NULL, credit_name = NULL, other_name = NULL,
+  email = NULL, digital_object_ids = NULL, work_title = NULL,
+  grant_number = NULL, patent_number = NULL, keywords = NULL,
+  text = NULL, rows = 10, start = NULL, ...)
 }
 \arguments{
 \item{given_name}{(character) given name}
@@ -20,6 +21,8 @@ orcid_search(given_name = NULL, family_name = NULL, past_inst = NULL,
 \item{current_prim_inst}{(character) current primary institution}
 
 \item{current_inst}{(character) current institution}
+
+\item{affiliation_org}{(character) affiliation organization name}
 
 \item{credit_name}{(character) credit name}
 
@@ -66,6 +69,9 @@ way to search ORCID.
 Thus, internally we map the parameters given to this function
 to the actual parameters that ORCID wants that are not
 so human friendly.
+
+We don't include all possible fields you could search against
+here - for that use \code{\link[=orcid]{orcid()}}
 }
 \section{How parameters are combined}{
 
@@ -83,6 +89,9 @@ orcid_search(given_name = "carl", rows = 2)
 
 orcid_search(given_name = "carl", verbose = TRUE)
 }
+}
+\references{
+\url{https://members.orcid.org/api/tutorial/search-orcid-registry}
 }
 \seealso{
 \code{\link[=orcid]{orcid()}}
