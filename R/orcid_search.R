@@ -14,7 +14,8 @@
 #' @param work_title (character) work title
 #' @param grant_number (character) grant number
 #' @param patent_number (character) patent number
-#' @param keywords (character) keywords to search
+#' @param keywords (character) keywords to search. character vector, one
+#' or more keywords
 #' @param text (character) text to search
 #' @param rows (integer) number of records to return
 #' @param start (integer) record number to start at
@@ -51,6 +52,8 @@
 #' 
 #' orcid_search(given_name = "carl", rows = 2)
 #' 
+#' orcid_search(keywords = c("birds", "turtles"))
+#' 
 #' orcid_search(given_name = "carl", verbose = TRUE)
 #' }
 orcid_search <- function(given_name = NULL, family_name = NULL, 
@@ -66,9 +69,15 @@ orcid_search <- function(given_name = NULL, family_name = NULL,
     credit_name = credit_name, other_name = other_name, email = email, 
     digital_object_ids = digital_object_ids, work_title = work_title, 
     grant_number = grant_number, patent_number = patent_number, 
-    keywords = keywords, text = text))
-  if (length(query) == 0) stop("must pass at least one param")
+    text = text))
+  if (length(query) == 0 && is.null(keywords))
+    stop("must pass at least one param")
   names(query) <- vapply(names(query), function(z) field_match_list[[z]], "")
+  if (!is.null(keywords)) {
+    query <- c(query,
+      as.list(stats::setNames(keywords, rep("keyword", length(keywords))))
+    )
+  }
 
   # by default, combine with 'AND'
   query <- paste(names(query), unname(query), sep = ":", collapse = " AND ")
@@ -101,6 +110,5 @@ field_match_list <- list(
   work_title = 'work-titles',
   grant_number = 'grant-numbers',
   patent_number = 'patent-numbers',
-  keywords = 'keywords',
   text = 'text'
 )

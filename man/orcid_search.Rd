@@ -38,7 +38,8 @@ orcid_search(given_name = NULL, family_name = NULL, past_inst = NULL,
 
 \item{patent_number}{(character) patent number}
 
-\item{keywords}{(character) keywords to search}
+\item{keywords}{(character) keywords to search. character vector, one
+or more keywords}
 
 \item{text}{(character) text to search}
 
@@ -86,6 +87,8 @@ orcid_search(given_name = "carl", family_name = "boettiger")
 orcid_search(given_name = "carl")
 
 orcid_search(given_name = "carl", rows = 2)
+
+orcid_search(keywords = c("birds", "turtles"))
 
 orcid_search(given_name = "carl", verbose = TRUE)
 }

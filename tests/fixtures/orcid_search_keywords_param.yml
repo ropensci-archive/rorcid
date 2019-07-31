@@ -1,0 +1,399 @@
+http_interactions:
+- request:
+    method: get
+    uri: https://pub.orcid.org/v3.0/search?q=keyword%3Abirds%20AND%20keyword%3Aturtles&rows=10
+    body:
+      encoding: ''
+      string: ''
+    headers:
+      Accept-Encoding: gzip, deflate
+      Accept: application/vnd.orcid+json; qs=4
+      User-Agent: r-curl/4.0 crul/0.8.1.9123 rOpenSci(rorcid/0.5.0.9213)
+      X-USER-AGENT: r-curl/4.0 crul/0.8.1.9123 rOpenSci(rorcid/0.5.0.9213)
+      Authorization: Bearer <<rorcid_bearer_token>>
+  response:
+    status:
+      status_code: '200'
+      message: OK
+      explanation: Request fulfilled, document follows
+    headers:
+      status: HTTP/1.1 200 OK
+      server: nginx/1.10.0
+      date: Wed, 31 Jul 2019 16:14:06 GMT
+      content-type: application/vnd.orcid+json; qs=4;charset=UTF-8
+      transfer-encoding: chunked
+      connection: keep-alive
+      access-control-allow-origin: '*'
+      cache-control: no-cache, no-store, max-age=0, must-revalidate
+      pragma: no-cache
+      expires: '0'
+      x-xss-protection: 1; mode=block
+      x-frame-options: DENY
+      x-content-type-options: nosniff
+      content-encoding: gzip
+    body:
+      encoding: UTF-8
+      string: |-
+        {
+          "result" : [ {
+            "orcid-identifier" : {
+              "uri" : "https://orcid.org/0000-0003-0705-8136",
+              "path" : "0000-0003-0705-8136",
+              "host" : "orcid.org"
+            }
+          }, {
+            "orcid-identifier" : {
+              "uri" : "https://orcid.org/0000-0002-9907-3466",
+              "path" : "0000-0002-9907-3466",
+              "host" : "orcid.org"
+            }
+          } ],
+          "num-found" : 2
+        }
+  recorded_at: 2019-07-31 16:14:07 GMT
+  recorded_with: vcr/0.2.6, webmockr/0.3.4
+- request:
+    method: get
+    uri: https://pub.orcid.org/v3.0/0000-0003-0705-8136/person
+    body:
+      encoding: ''
+      string: ''
+    headers:
+      Accept-Encoding: gzip, deflate
+      Accept: application/vnd.orcid+json; qs=4
+      User-Agent: r-curl/4.0 crul/0.8.1.9123 rOpenSci(rorcid/0.5.0.9213)
+      X-USER-AGENT: r-curl/4.0 crul/0.8.1.9123 rOpenSci(rorcid/0.5.0.9213)
+      Authorization: Bearer <<rorcid_bearer_token>>
+  response:
+    status:
+      status_code: '200'
+      message: OK
+      explanation: Request fulfilled, document follows
+    headers:
+      status: HTTP/1.1 200 OK
+      server: nginx/1.10.0
+      date: Wed, 31 Jul 2019 16:14:07 GMT
+      content-type: application/vnd.orcid+json; qs=4;charset=UTF-8
+      transfer-encoding: chunked
+      connection: keep-alive
+      access-control-allow-origin: '*'
+      cache-control: no-cache, no-store, max-age=0, must-revalidate
+      pragma: no-cache
+      expires: '0'
+      x-xss-protection: 1; mode=block
+      x-frame-options: DENY
+      x-content-type-options: nosniff
+      content-encoding: gzip
+    body:
+      encoding: UTF-8
+      string: |-
+        {
+          "last-modified-date" : {
+            "value" : 1464801001220
+          },
+          "name" : {
+            "created-date" : {
+              "value" : 1461765441141
+            },
+            "last-modified-date" : {
+              "value" : 1461766000131
+            },
+            "given-names" : {
+              "value" : "Isabela"
+            },
+            "family-name" : {
+              "value" : "Domiciano"
+            },
+            "credit-name" : null,
+            "source" : null,
+            "visibility" : "public",
+            "path" : "0000-0003-0705-8136"
+          },
+          "other-names" : {
+            "last-modified-date" : null,
+            "other-name" : [ ],
+            "path" : "/0000-0003-0705-8136/other-names"
+          },
+          "biography" : null,
+          "researcher-urls" : {
+            "last-modified-date" : null,
+            "researcher-url" : [ ],
+            "path" : "/0000-0003-0705-8136/researcher-urls"
+          },
+          "emails" : {
+            "last-modified-date" : null,
+            "email" : [ ],
+            "path" : "/0000-0003-0705-8136/email"
+          },
+          "addresses" : {
+            "last-modified-date" : {
+              "value" : 1464801001220
+            },
+            "address" : [ {
+              "created-date" : {
+                "value" : 1461765656334
+              },
+              "last-modified-date" : {
+                "value" : 1464801001220
+              },
+              "source" : {
+                "source-orcid" : {
+                  "uri" : "https://orcid.org/0000-0003-0705-8136",
+                  "path" : "0000-0003-0705-8136",
+                  "host" : "orcid.org"
+                },
+                "source-client-id" : null,
+                "source-name" : {
+                  "value" : "Isabela Domiciano"
+                },
+                "assertion-origin-orcid" : null,
+                "assertion-origin-client-id" : null,
+                "assertion-origin-name" : null
+              },
+              "country" : {
+                "value" : "BR"
+              },
+              "visibility" : "public",
+              "path" : "/0000-0003-0705-8136/address/462558",
+              "put-code" : 462558,
+              "display-index" : 0
+            } ],
+            "path" : "/0000-0003-0705-8136/address"
+          },
+          "keywords" : {
+            "last-modified-date" : {
+              "value" : 1461765915651
+            },
+            "keyword" : [ {
+              "created-date" : {
+                "value" : 1461765915651
+              },
+              "last-modified-date" : {
+                "value" : 1461765915651
+              },
+              "source" : {
+                "source-orcid" : {
+                  "uri" : "https://orcid.org/0000-0003-0705-8136",
+                  "path" : "0000-0003-0705-8136",
+                  "host" : "orcid.org"
+                },
+                "source-client-id" : null,
+                "source-name" : {
+                  "value" : "Isabela Domiciano"
+                },
+                "assertion-origin-orcid" : null,
+                "assertion-origin-client-id" : null,
+                "assertion-origin-name" : null
+              },
+              "content" : "sea turtles, marine mammals, sea birds, health, conservation",
+              "visibility" : "public",
+              "path" : "/0000-0003-0705-8136/keywords/428592",
+              "put-code" : 428592,
+              "display-index" : 0
+            } ],
+            "path" : "/0000-0003-0705-8136/keywords"
+          },
+          "external-identifiers" : {
+            "last-modified-date" : {
+              "value" : 1461765915647
+            },
+            "external-identifier" : [ {
+              "created-date" : {
+                "value" : 1461765915647
+              },
+              "last-modified-date" : {
+                "value" : 1461765915647
+              },
+              "source" : {
+                "source-orcid" : null,
+                "source-client-id" : {
+                  "uri" : "https://orcid.org/client/0000-0002-5982-8983",
+                  "path" : "0000-0002-5982-8983",
+                  "host" : "orcid.org"
+                },
+                "source-name" : {
+                  "value" : "Scopus - Elsevier"
+                },
+                "assertion-origin-orcid" : null,
+                "assertion-origin-client-id" : null,
+                "assertion-origin-name" : null
+              },
+              "external-id-type" : "Scopus Author ID",
+              "external-id-value" : "56215384700",
+              "external-id-url" : {
+                "value" : "http://www.scopus.com/inward/authorDetails.url?authorID=56215384700&partnerID=MN8TOARS"
+              },
+              "external-id-relationship" : "self",
+              "visibility" : "public",
+              "path" : "/0000-0003-0705-8136/external-identifiers/469118",
+              "put-code" : 469118,
+              "display-index" : 0
+            } ],
+            "path" : "/0000-0003-0705-8136/external-identifiers"
+          },
+          "path" : "/0000-0003-0705-8136/person"
+        }
+  recorded_at: 2019-07-31 16:14:07 GMT
+  recorded_with: vcr/0.2.6, webmockr/0.3.4
+- request:
+    method: get
+    uri: https://pub.orcid.org/v3.0/0000-0002-9907-3466/person
+    body:
+      encoding: ''
+      string: ''
+    headers:
+      Accept-Encoding: gzip, deflate
+      Accept: application/vnd.orcid+json; qs=4
+      User-Agent: r-curl/4.0 crul/0.8.1.9123 rOpenSci(rorcid/0.5.0.9213)
+      X-USER-AGENT: r-curl/4.0 crul/0.8.1.9123 rOpenSci(rorcid/0.5.0.9213)
+      Authorization: Bearer <<rorcid_bearer_token>>
+  response:
+    status:
+      status_code: '200'
+      message: OK
+      explanation: Request fulfilled, document follows
+    headers:
+      status: HTTP/1.1 200 OK
+      server: nginx/1.10.0
+      date: Wed, 31 Jul 2019 16:14:07 GMT
+      content-type: application/vnd.orcid+json; qs=4;charset=UTF-8
+      transfer-encoding: chunked
+      connection: keep-alive
+      access-control-allow-origin: '*'
+      cache-control: no-cache, no-store, max-age=0, must-revalidate
+      pragma: no-cache
+      expires: '0'
+      x-xss-protection: 1; mode=block
+      x-frame-options: DENY
+      x-content-type-options: nosniff
+      content-encoding: gzip
+    body:
+      encoding: UTF-8
+      string: |-
+        {
+          "last-modified-date" : {
+            "value" : 1465226976952
+          },
+          "name" : {
+            "created-date" : {
+              "value" : 1460762748554
+            },
+            "last-modified-date" : {
+              "value" : 1460762748554
+            },
+            "given-names" : {
+              "value" : "James"
+            },
+            "family-name" : {
+              "value" : "Anderson"
+            },
+            "credit-name" : {
+              "value" : "James T. Anderson"
+            },
+            "source" : null,
+            "visibility" : "public",
+            "path" : "0000-0002-9907-3466"
+          },
+          "other-names" : {
+            "last-modified-date" : null,
+            "other-name" : [ ],
+            "path" : "/0000-0002-9907-3466/other-names"
+          },
+          "biography" : {
+            "created-date" : {
+              "value" : 1460762748557
+            },
+            "last-modified-date" : {
+              "value" : 1460762748557
+            },
+            "content" : "James T. (Jim) Anderson, Ph.D. is the Davis-Michael Professor of Forestry and Natural Resources, a professor of wildlife ecology and management, and the director of the Environmental Research Center at West Virginia University (WVU).  He earned a B.S. in wildlife from the University of Wisconsin-Stevens Point, an M.S. in range and wildlife management through the Caesar Kleberg Wildlife Research Institute at Texas A&M University-Kingsville, and a Ph.D. in wildlife science from Texas Tech University.  He has been at WVU since 1999 and has been a Certified Wildlife Biologist since 2003.   \r\n\r\nDr. Anderson’s research primarily emphasizes wetland and riparian ecology, restoration ecology, and wildlife–habitat relations. He has published on birds, mammals, reptiles, amphibians, plants, and insects but his primary interest is on birds, turtles, and amphibians.  Much of his wetland research is focused on improving wetland mitigation and creation techniques.    \r\n",
+            "visibility" : "public",
+            "path" : "/0000-0002-9907-3466/biography"
+          },
+          "researcher-urls" : {
+            "last-modified-date" : null,
+            "researcher-url" : [ ],
+            "path" : "/0000-0002-9907-3466/researcher-urls"
+          },
+          "emails" : {
+            "last-modified-date" : null,
+            "email" : [ ],
+            "path" : "/0000-0002-9907-3466/email"
+          },
+          "addresses" : {
+            "last-modified-date" : {
+              "value" : 1465226976952
+            },
+            "address" : [ {
+              "created-date" : {
+                "value" : 1453659908736
+              },
+              "last-modified-date" : {
+                "value" : 1465226976952
+              },
+              "source" : {
+                "source-orcid" : {
+                  "uri" : "https://orcid.org/0000-0002-9907-3466",
+                  "path" : "0000-0002-9907-3466",
+                  "host" : "orcid.org"
+                },
+                "source-client-id" : null,
+                "source-name" : {
+                  "value" : "James T. Anderson"
+                },
+                "assertion-origin-orcid" : null,
+                "assertion-origin-client-id" : null,
+                "assertion-origin-name" : null
+              },
+              "country" : {
+                "value" : "US"
+              },
+              "visibility" : "public",
+              "path" : "/0000-0002-9907-3466/address/248103",
+              "put-code" : 248103,
+              "display-index" : 0
+            } ],
+            "path" : "/0000-0002-9907-3466/address"
+          },
+          "keywords" : {
+            "last-modified-date" : {
+              "value" : 1362696182522
+            },
+            "keyword" : [ {
+              "created-date" : {
+                "value" : 1362696182522
+              },
+              "last-modified-date" : {
+                "value" : 1362696182522
+              },
+              "source" : {
+                "source-orcid" : {
+                  "uri" : "https://orcid.org/0000-0002-9907-3466",
+                  "path" : "0000-0002-9907-3466",
+                  "host" : "orcid.org"
+                },
+                "source-client-id" : null,
+                "source-name" : {
+                  "value" : "James T. Anderson"
+                },
+                "assertion-origin-orcid" : null,
+                "assertion-origin-client-id" : null,
+                "assertion-origin-name" : null
+              },
+              "content" : "amphibians, aquatic invertebrates, birds, environmental science, frogs, turtles, wetlands, wildlife",
+              "visibility" : "public",
+              "path" : "/0000-0002-9907-3466/keywords/5429",
+              "put-code" : 5429,
+              "display-index" : 0
+            } ],
+            "path" : "/0000-0002-9907-3466/keywords"
+          },
+          "external-identifiers" : {
+            "last-modified-date" : null,
+            "external-identifier" : [ ],
+            "path" : "/0000-0002-9907-3466/external-identifiers"
+          },
+          "path" : "/0000-0002-9907-3466/person"
+        }
+  recorded_at: 2019-07-31 16:14:07 GMT
+  recorded_with: vcr/0.2.6, webmockr/0.3.4

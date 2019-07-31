@@ -31,3 +31,14 @@ test_that("orcid_search no results gives empty data.frame", {
   
   expect_equal(NROW(aa), 0)
 })
+
+test_that("orcid_search keywords param is handled correctly", {
+  skip_on_cran()
+  
+  vcr::use_cassette("orcid_search_keywords_param", {
+    aa <- orcid_search(keywords = c("birds", "turtles"))
+  })
+  
+  expect_gt(NROW(aa), 0)
+})
+
