@@ -49,6 +49,7 @@
 <![endif]-->
 
 
+
   </head>
 
   <body>
@@ -65,7 +66,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">rorcid</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.5.0.9100</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.5.1.9100</span>
       </span>
     </div>
 
@@ -102,6 +103,7 @@
 </div><!--/.navbar -->
 
       
+
       </header>
 
 <div class="row">
@@ -119,10 +121,11 @@
     </div>
 
     <pre class="usage"><span class='fu'>orcid_search</span>(<span class='kw'>given_name</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='kw'>family_name</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='kw'>past_inst</span> <span class='kw'>=</span> <span class='kw'>NULL</span>,
-  <span class='kw'>current_prim_inst</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='kw'>current_inst</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='kw'>credit_name</span> <span class='kw'>=</span> <span class='kw'>NULL</span>,
-  <span class='kw'>other_name</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='kw'>email</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='kw'>digital_object_ids</span> <span class='kw'>=</span> <span class='kw'>NULL</span>,
-  <span class='kw'>work_title</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='kw'>grant_number</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='kw'>patent_number</span> <span class='kw'>=</span> <span class='kw'>NULL</span>,
-  <span class='kw'>keywords</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='kw'>text</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='kw'>rows</span> <span class='kw'>=</span> <span class='fl'>10</span>, <span class='kw'>start</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='no'>...</span>)</pre>
+  <span class='kw'>current_prim_inst</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='kw'>current_inst</span> <span class='kw'>=</span> <span class='kw'>NULL</span>,
+  <span class='kw'>affiliation_org</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='kw'>credit_name</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='kw'>other_name</span> <span class='kw'>=</span> <span class='kw'>NULL</span>,
+  <span class='kw'>email</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='kw'>digital_object_ids</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='kw'>work_title</span> <span class='kw'>=</span> <span class='kw'>NULL</span>,
+  <span class='kw'>grant_number</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='kw'>patent_number</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='kw'>keywords</span> <span class='kw'>=</span> <span class='kw'>NULL</span>,
+  <span class='kw'>text</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='kw'>rows</span> <span class='kw'>=</span> <span class='fl'>10</span>, <span class='kw'>start</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='no'>...</span>)</pre>
     
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
@@ -146,6 +149,10 @@
     <tr>
       <th>current_inst</th>
       <td><p>(character) current institution</p></td>
+    </tr>
+    <tr>
+      <th>affiliation_org</th>
+      <td><p>(character) affiliation organization name</p></td>
     </tr>
     <tr>
       <th>credit_name</th>
@@ -177,7 +184,8 @@
     </tr>
     <tr>
       <th>keywords</th>
-      <td><p>(character) keywords to search</p></td>
+      <td><p>(character) keywords to search. character vector, one
+or more keywords</p></td>
     </tr>
     <tr>
       <th>text</th>
@@ -205,6 +213,8 @@
 <li><p>orcid: ORCID identifier</p></li>
 </ul>
 
+<p>If no results are found, an empty (0 rows) data.frame
+is returned</p>
     
     <h2 class="hasAnchor" id="details"><a class="anchor" href="#details"></a>Details</h2>
 
@@ -213,13 +223,20 @@ way to search ORCID.</p>
 <p>Thus, internally we map the parameters given to this function
 to the actual parameters that ORCID wants that are not
 so human friendly.</p>
+<p>We don't include all possible fields you could search against
+here - for that use <code><a href='orcid.html'>orcid()</a></code></p>
     
     <h2 class="hasAnchor" id="how-parameters-are-combined"><a class="anchor" href="#how-parameters-are-combined"></a>How parameters are combined</h2>
 
     
-    <p>We combine multiple parameters with <code>AND</code>, such that
+
+<p>We combine multiple parameters with <code>AND</code>, such that
 e.g., <code>given_name="Jane"</code> and <code>family_name="Doe"</code> gets passed
 to ORCID as <code>given-names:Jane AND family-name:Doe</code></p>
+    
+    <h2 class="hasAnchor" id="references"><a class="anchor" href="#references"></a>References</h2>
+
+    <p><a href='https://members.orcid.org/api/tutorial/search-orcid-registry'>https://members.orcid.org/api/tutorial/search-orcid-registry</a></p>
     
     <h2 class="hasAnchor" id="see-also"><a class="anchor" href="#see-also"></a>See also</h2>
 
@@ -232,6 +249,8 @@ to ORCID as <code>given-names:Jane AND family-name:Doe</code></p>
 <span class='fu'>orcid_search</span>(<span class='kw'>given_name</span> <span class='kw'>=</span> <span class='st'>"carl"</span>)
 
 <span class='fu'>orcid_search</span>(<span class='kw'>given_name</span> <span class='kw'>=</span> <span class='st'>"carl"</span>, <span class='kw'>rows</span> <span class='kw'>=</span> <span class='fl'>2</span>)
+
+<span class='fu'>orcid_search</span>(<span class='kw'>keywords</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='st'>"birds"</span>, <span class='st'>"turtles"</span>))
 
 <span class='fu'>orcid_search</span>(<span class='kw'>given_name</span> <span class='kw'>=</span> <span class='st'>"carl"</span>, <span class='kw'>verbose</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>)
 <span class='co'># }</span></pre>
@@ -247,6 +266,8 @@ to ORCID as <code>given-names:Jane AND family-name:Doe</code></p>
 
       <li><a href="#how-parameters-are-combined">How parameters are combined</a></li>
 
+      <li><a href="#references">References</a></li>
+
       <li><a href="#see-also">See also</a></li>
       
       <li><a href="#examples">Examples</a></li>
@@ -254,6 +275,7 @@ to ORCID as <code>given-names:Jane AND family-name:Doe</code></p>
 
   </div>
 </div>
+
 
       <footer>
       <div class="copyright">
@@ -263,11 +285,14 @@ to ORCID as <code>given-names:Jane AND family-name:Doe</code></p>
 <div class="pkgdown">
   <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.3.0.9100.</p>
 </div>
+
       </footer>
    </div>
 
   
 
+
   </body>
 </html>
+
 

@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>A programmatic R interface the Orcid.org API — rorcid-package • rorcid</title>
+<title>extract BibTeX record from ORCID JSON sring if available — extract_bibtex • rorcid</title>
 
 <!-- jquery -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
@@ -32,24 +32,10 @@
 
 
 
-<meta property="og:title" content="A programmatic R interface the Orcid.org API — rorcid-package" />
+<meta property="og:title" content="extract BibTeX record from ORCID JSON sring if available — extract_bibtex" />
 
-<meta property="og:description" content="A R interface to the Orcid public API. rorcid is not a product
-developed or distributed by ORCID.
-ORCID website: https://orcid.org/
-Orcid API docs: http://members.orcid.org/api
-Some key rorcid function:
-as.orcid() - coerce various inputs to ORCID class
-browse() - browse to a profile in your default browser
-check_dois() - check that strings are likely to be DOIs
-identifiers() - grab identifiers out of various objects
-orcid() and orcid_search() - Search for ORCID id's
-orcid_doi() - Search by DOI
-orcid_id() - Search by ORCID id, and get either bio,
-profile, or works
-works() - Parse out works from various objects
-
-" />
+<meta property="og:description" content="Helper function to extract BibTeX records which may be
+available in the string returned from ORCID. The function is exported." />
 <meta name="twitter:card" content="summary" />
 
 
@@ -124,82 +110,51 @@ works() - Parse out works from various objects
 <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-    <h1>A programmatic R interface the Orcid.org API</h1>
-    <small class="dont-index">Source: <a href='https://github.com/ropensci/rorcid/blob/master/R/rorcid-package.R'><code>R/rorcid-package.R</code></a></small>
-    <div class="hidden name"><code>rorcid-package.Rd</code></div>
+    <h1>extract BibTeX record from ORCID JSON sring if available</h1>
+    <small class="dont-index">Source: <a href='https://github.com/ropensci/rorcid/blob/master/R/zzz.R'><code>R/zzz.R</code></a></small>
+    <div class="hidden name"><code>extract_bibtex.Rd</code></div>
     </div>
 
     <div class="ref-description">
     
-    <p>A R interface to the Orcid public API. <span class="pkg">rorcid</span> is not a product
-developed or distributed by ORCID.</p>
-<p>ORCID website: https://orcid.org/</p>
-<p>Orcid API docs: http://members.orcid.org/api</p>
-<p>Some key <span class="pkg">rorcid</span> function:</p><ul>
-<li><p><code><a href='as.orcid.html'>as.orcid()</a></code> - coerce various inputs to ORCID class</p></li>
-<li><p><code><a href='browse.html'>browse()</a></code> - browse to a profile in your default browser</p></li>
-<li><p><code><a href='check_dois.html'>check_dois()</a></code> - check that strings are likely to be DOIs</p></li>
-<li><p><code><a href='identifiers.html'>identifiers()</a></code> - grab identifiers out of various objects</p></li>
-<li><p><code><a href='orcid.html'>orcid()</a></code> and <code><a href='orcid_search.html'>orcid_search()</a></code> - Search for ORCID id's</p></li>
-<li><p><code><a href='orcid_doi.html'>orcid_doi()</a></code> - Search by DOI</p></li>
-<li><p><code><a href='orcid_id.html'>orcid_id()</a></code> - Search by ORCID id, and get either bio,
-profile, or works</p></li>
-<li><p><code><a href='works.html'>works()</a></code> - Parse out works from various objects</p></li>
-</ul>
-
+    <p>Helper function to extract BibTeX records which may be
+available in the string returned from ORCID. The function is exported.</p>
     
     </div>
 
-        
-    <h2 class="hasAnchor" id="api-routes-not-implemented"><a class="anchor" href="#api-routes-not-implemented"></a>API routes not implemented</h2>
-
+    <pre class="usage"><span class='fu'>extract_bibtex</span>(<span class='no'>x</span>)</pre>
     
-
-
-<p>Not quite sure what these do so haven't messed with them.</p><ul>
-<li><p><code>/{orcid}/notification-permission/{id}</code></p></li>
-<li><p><code>/client/{client_id}</code></p></li>
-<li><p><code>/group-id-record</code></p></li>
-<li><p><code>/group-id-record/{putCode}</code></p></li>
-</ul>
-
+    <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
+    <table class="ref-arguments">
+    <colgroup><col class="name" /><col class="desc" /></colgroup>
+    <tr>
+      <th>x</th>
+      <td><p>(<strong>required</strong>): the output of <code>cite_put()</code></p></td>
+    </tr>
+    </table>
     
-    <h2 class="hasAnchor" id="rate-limits"><a class="anchor" href="#rate-limits"></a>Rate Limits</h2>
+    <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
 
-    
-
-<p>Definitions:</p><ul>
-<li><p>Request a second - Number of request that can be made a second.
-Value: 8 per second (24 with API v2rc+) - Haven't been able to find up
-to date values for API v3 (so assume they are the same I guess)</p></li>
-<li><p>Burst - Number of request we will allow to be queued before rejecting.
-The request in the queue are slowed down at the request a second rate.
-Value: 40 (same with API v2rc+) - Haven't been able to find up to date
-values for API v3 (so assume they are the same I guess)</p></li>
-</ul>
-
-<p>If you exceed the burst, you'll get a 503 responses. Developers should do
-their best to avoid approaching those limits.</p>
+    <p>Function returns a formated BibTeX record, if nothing
+was found or the BibTeX record is invalid, the input is passed
+through without modifying it</p>
     
     <h2 class="hasAnchor" id="see-also"><a class="anchor" href="#see-also"></a>See also</h2>
 
-    <div class='dont-index'><p><a href='orcid_auth.html'>rorcid-auth</a> for Authentication information</p></div>
+    <div class='dont-index'><p><a href='https://rdrr.io/pkg/jsonlite/man/fromJSON.html'>jsonlite::fromJSON</a>, <code>cite_put</code></p></div>
     
 
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
     <h2>Contents</h2>
     <ul class="nav nav-pills nav-stacked">
+      <li><a href="#arguments">Arguments</a></li>
       
-      <li><a href="#api-routes-not-implemented">API routes not implemented</a></li>
-
-      <li><a href="#rate-limits">Rate Limits</a></li>
+      <li><a href="#value">Value</a></li>
 
       <li><a href="#see-also">See also</a></li>
           </ul>
 
-    <h2>Author</h2>
-    <p>Scott Chamberlain <a href='mailto:myrmecocystus@gmail.com'>myrmecocystus@gmail.com</a></p>
   </div>
 </div>
 

@@ -49,6 +49,7 @@
 <![endif]-->
 
 
+
   </head>
 
   <body>
@@ -65,7 +66,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">rorcid</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.5.0.9100</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.5.1.9100</span>
       </span>
     </div>
 
@@ -102,6 +103,7 @@
 </div><!--/.navbar -->
 
       
+
       </header>
 
 <div class="row">
@@ -163,7 +165,8 @@ in a hidden file in whatever working directory you're in. If you delete
 that file, or run the code from a new working directory, then we
 re-authorize.</p></li>
 </ul>
-    <p>We recommend the former option. That is, get a token and store it as an
+
+<p>We recommend the former option. That is, get a token and store it as an
 environment variable.</p>
 <p>If both options above fail, we proceed without using authentication.
 ORCID does not require authentication at this point, but may in the future -
@@ -172,12 +175,14 @@ this prepares you for when that happens :)</p>
     <h2 class="hasAnchor" id="orcid-oauth-scopes"><a class="anchor" href="#orcid-oauth-scopes"></a>ORCID OAuth Scopes</h2>
 
     
-    <p>See <a href='https://members.orcid.org/api/orcid-scopes'>https://members.orcid.org/api/orcid-scopes</a> for more</p>
+
+<p>See <a href='https://members.orcid.org/api/orcid-scopes'>https://members.orcid.org/api/orcid-scopes</a> for more</p>
     
     <h2 class="hasAnchor" id="computing-environments-without-browsers"><a class="anchor" href="#computing-environments-without-browsers"></a>Computing environments without browsers</h2>
 
     
-    <p>One pitfall is when you are using rorcid on a server, and you're ssh'ed
+
+<p>One pitfall is when you are using rorcid on a server, and you're ssh'ed
 in, so that there's no way to open a browser to do the OAuth browser
 flow. Similarly for any other situation in which a browser can not be
 opened. In this case, run <code>orcid_auth()</code> on another machine in which you do
@@ -211,6 +216,7 @@ from <code>orcid_auth()</code> and store it as an environment variable (see abov
   </div>
 </div>
 
+
       <footer>
       <div class="copyright">
   <p>Developed by Scott Chamberlain, rOpenSci.</p>
@@ -219,11 +225,14 @@ from <code>orcid_auth()</code> and store it as an environment variable (see abov
 <div class="pkgdown">
   <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.3.0.9100.</p>
 </div>
+
       </footer>
    </div>
 
   
 
+
   </body>
 </html>
+
 
