@@ -1,0 +1,99 @@
+http_interactions:
+- request:
+    method: get
+    uri: https://pub.orcid.org/v3.0/0000-0002-0734-2199/work/40038622
+    body:
+      encoding: ''
+      string: ''
+    headers:
+      Accept-Encoding: gzip, deflate
+      Accept: application/vnd.orcid+json; qs=4
+      User-Agent: r-curl/4.0 crul/0.8.0 rOpenSci(rorcid/0.5.1.9100)
+      X-USER-AGENT: r-curl/4.0 crul/0.8.0 rOpenSci(rorcid/0.5.1.9100)
+      Authorization: Bearer <<rorcid_bearer_token>>
+  response:
+    status:
+      status_code: '200'
+      message: OK
+      explanation: Request fulfilled, document follows
+    headers:
+      status: HTTP/1.1 200 OK
+      server: nginx/1.10.0
+      date: Thu, 01 Aug 2019 20:16:50 GMT
+      content-type: application/vnd.orcid+json; qs=4;charset=UTF-8
+      transfer-encoding: chunked
+      connection: keep-alive
+      access-control-allow-origin: '*'
+      cache-control: no-cache, no-store, max-age=0, must-revalidate
+      pragma: no-cache
+      expires: '0'
+      x-xss-protection: 1; mode=block
+      x-frame-options: DENY
+      x-content-type-options: nosniff
+      content-encoding: gzip
+    body:
+      encoding: UTF-8
+      string: |-
+        {
+          "created-date" : {
+            "value" : 1514544074236
+          },
+          "last-modified-date" : {
+            "value" : 1526896135938
+          },
+          "source" : {
+            "source-orcid" : {
+              "uri" : "https://orcid.org/0000-0002-0734-2199",
+              "path" : "0000-0002-0734-2199",
+              "host" : "orcid.org"
+            },
+            "source-client-id" : null,
+            "source-name" : {
+              "value" : "Sebastian Kreutzer"
+            },
+            "assertion-origin-orcid" : null,
+            "assertion-origin-client-id" : null,
+            "assertion-origin-name" : null
+          },
+          "put-code" : 40038622,
+          "path" : "/0000-0002-0734-2199/work/40038622",
+          "title" : {
+            "title" : {
+              "value" : "Introducing an R package for luminescence dating analysis "
+            },
+            "subtitle" : null,
+            "translated-title" : null
+          },
+          "journal-title" : {
+            "value" : "Ancient TL"
+          },
+          "short-description" : null,
+          "citation" : {
+            "citation-type" : "bibtex",
+            "citation-value" : "@article{Kreutzer:2012ty, author= {Kreutzer, Sebastian and Schmidt, Christoph and Fuchs, Margret C and Dietze, Michael and Fischer, Manfred and Fuchs, Markus}, title= {{Introducing an R package for luminescence dating analysis }}, journal= {Ancient TL}, year= {2012}, volume= {30}, number= {1}, pages= {1--8}}\n\n"
+          },
+          "type" : "journal-article",
+          "publication-date" : {
+            "year" : {
+              "value" : "2012"
+            },
+            "month" : null,
+            "day" : null
+          },
+          "external-ids" : {
+            "external-id" : null
+          },
+          "url" : {
+            "value" : "http://www.ecu.edu/cs-cas/physics/Ancient-Timeline/upload/ATL_30-1-Kreutzer.pdf"
+          },
+          "contributors" : {
+            "contributor" : [ ]
+          },
+          "language-code" : "en",
+          "country" : {
+            "value" : "GB"
+          },
+          "visibility" : "public"
+        }
+  recorded_at: 2019-08-01 20:16:50 GMT
+  recorded_with: vcr/0.2.6, webmockr/0.3.4
