@@ -10,14 +10,14 @@
   "codeRepository": "https://github.com/ropensci/rorcid",
   "issueTracker": "https://github.com/ropensci/rorcid/issues",
   "license": "https://spdx.org/licenses/MIT",
-  "version": "0.5.0",
+  "version": "0.5.1.9100",
   "programmingLanguage": {
     "@type": "ComputerLanguage",
     "name": "R",
-    "version": "3.6.0",
+    "version": "3.6.1",
     "url": "https://r-project.org"
   },
-  "runtimePlatform": "R version 3.6.0 Patched (2019-04-30 r76446)",
+  "runtimePlatform": "R version 3.6.1 Patched (2019-07-17 r76848)",
   "provider": {
     "@id": "https://cran.r-project.org",
     "@type": "Organization",
@@ -102,6 +102,18 @@
         "url": "https://cran.r-project.org"
       },
       "sameAs": "https://CRAN.R-project.org/package=httpuv"
+    },
+    {
+      "@type": "SoftwareApplication",
+      "identifier": "vcr",
+      "name": "vcr",
+      "provider": {
+        "@id": "https://cran.r-project.org",
+        "@type": "Organization",
+        "name": "Comprehensive R Archive Network (CRAN)",
+        "url": "https://cran.r-project.org"
+      },
+      "sameAs": "https://CRAN.R-project.org/package=vcr"
     }
   ],
   "softwareRequirements": [
@@ -204,7 +216,7 @@
   "contIntegration": "https://travis-ci.org/ropensci/rorcid",
   "releaseNotes": "https://github.com/ropensci/rorcid/blob/master/NEWS.md",
   "readme": "https://github.com/ropensci/rorcid/blob/master/README.md",
-  "fileSize": "850.932KB",
+  "fileSize": "892.471KB",
   "applicationCategory": "Literature",
   "isPartOf": "https://ropensci.org",
   "keywords": ["identifiers", "literature", "publications", "citations", "scholarly", "people", "api-wrapper", "orcid", "doi", "scholarly-metadata", "rstats", "r", "orcid-api", "r-package"],
