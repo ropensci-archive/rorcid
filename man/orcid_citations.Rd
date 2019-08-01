@@ -74,7 +74,7 @@ format. DOI.org supports this but not ORCID.
 ## a single put code
 (a <- orcid_citations(orcid = "0000-0002-9341-7985", put_code = 5011717))
 ## many put codes
-(b <- orcid_citations(orcid = "0000-0002-9341-7985", 
+(b <- orcid_citations(orcid = "0000-0002-9341-7985",
    put_code = c(5011717, 15536016)))
 
 # request other formats, Crossref only
