@@ -6,10 +6,11 @@
 \usage{
 orcid_search(given_name = NULL, family_name = NULL, past_inst = NULL,
   current_prim_inst = NULL, current_inst = NULL,
-  affiliation_org = NULL, credit_name = NULL, other_name = NULL,
-  email = NULL, digital_object_ids = NULL, work_title = NULL,
-  grant_number = NULL, patent_number = NULL, keywords = NULL,
-  text = NULL, rows = 10, start = NULL, ...)
+  affiliation_org = NULL, ringgold_org_id = NULL, grid_org_id = NULL,
+  credit_name = NULL, other_name = NULL, email = NULL,
+  digital_object_ids = NULL, work_title = NULL, grant_number = NULL,
+  patent_number = NULL, keywords = NULL, text = NULL, rows = 10,
+  start = NULL, ...)
 }
 \arguments{
 \item{given_name}{(character) given name}
@@ -23,6 +24,10 @@ orcid_search(given_name = NULL, family_name = NULL, past_inst = NULL,
 \item{current_inst}{(character) current institution}
 
 \item{affiliation_org}{(character) affiliation organization name}
+
+\item{ringgold_org_id}{(character) ringgold organization id}
+
+\item{grid_org_id}{(character) grid organization id}
 
 \item{credit_name}{(character) credit name}
 
@@ -85,11 +90,11 @@ to ORCID as \code{given-names:Jane AND family-name:Doe}
 \dontrun{
 orcid_search(given_name = "carl", family_name = "boettiger")
 orcid_search(given_name = "carl")
-
 orcid_search(given_name = "carl", rows = 2)
-
 orcid_search(keywords = c("birds", "turtles"))
-
+orcid_search(affiliation_org = '("Boston University" OR BU)')
+orcid_search(ringgold_org_id = '1438')
+orcid_search(grid_org_id = 'grid.5509.9')
 orcid_search(given_name = "carl", verbose = TRUE)
 }
 }

@@ -1,5 +1,5 @@
 #' Orcid search - more user friendly than [orcid()]
-#' 
+#'
 #' @export
 #' @param given_name (character) given name
 #' @param family_name (character) family name
@@ -7,6 +7,8 @@
 #' @param current_prim_inst (character) current primary institution
 #' @param current_inst (character) current institution
 #' @param affiliation_org (character) affiliation organization name
+#' @param ringgold_org_id (character) ringgold organization id
+#' @param grid_org_id (character) grid organization id
 #' @param credit_name (character) credit name
 #' @param other_name (character) other name
 #' @param email (character) email
@@ -22,53 +24,55 @@
 #' @param ... curl options passed on to [crul::HttpClient]
 #' @seealso [orcid()]
 #' @references <https://members.orcid.org/api/tutorial/search-orcid-registry>
-#' @return a `data.frame` with three columns: 
-#' 
+#' @return a `data.frame` with three columns:
+#'
 #' - first: given name
 #' - last: family name
 #' - orcid: ORCID identifier
-#' 
-#' If no results are found, an empty (0 rows) data.frame 
+#'
+#' If no results are found, an empty (0 rows) data.frame
 #' is returned
-#' 
+#'
 #' @details The goal of this function is to make a human friendly
-#' way to search ORCID. 
-#' 
-#' Thus, internally we map the parameters given to this function 
-#' to the actual parameters that ORCID wants that are not 
+#' way to search ORCID.
+#'
+#' Thus, internally we map the parameters given to this function
+#' to the actual parameters that ORCID wants that are not
 #' so human friendly.
-#' 
+#'
 #' We don't include all possible fields you could search against
 #' here - for that use [orcid()]
-#' 
+#'
 #' @section How parameters are combined:
-#' We combine multiple parameters with `AND`, such that 
-#' e.g., `given_name="Jane"` and `family_name="Doe"` gets passed 
+#' We combine multiple parameters with `AND`, such that
+#' e.g., `given_name="Jane"` and `family_name="Doe"` gets passed
 #' to ORCID as `given-names:Jane AND family-name:Doe`
-#' 
+#'
 #' @examples \dontrun{
 #' orcid_search(given_name = "carl", family_name = "boettiger")
 #' orcid_search(given_name = "carl")
-#' 
 #' orcid_search(given_name = "carl", rows = 2)
-#' 
 #' orcid_search(keywords = c("birds", "turtles"))
-#' 
+#' orcid_search(affiliation_org = '("Boston University" OR BU)')
+#' orcid_search(ringgold_org_id = '1438')
+#' orcid_search(grid_org_id = 'grid.5509.9')
 #' orcid_search(given_name = "carl", verbose = TRUE)
 #' }
-orcid_search <- function(given_name = NULL, family_name = NULL, 
-    past_inst = NULL, current_prim_inst = NULL, current_inst = NULL, 
-    affiliation_org = NULL, credit_name = NULL, other_name = NULL,
+orcid_search <- function(given_name = NULL, family_name = NULL,
+    past_inst = NULL, current_prim_inst = NULL, current_inst = NULL,
+    affiliation_org = NULL, ringgold_org_id = NULL, grid_org_id = NULL,
+    credit_name = NULL, other_name = NULL,
     email = NULL, digital_object_ids = NULL, work_title = NULL,
     grant_number = NULL, patent_number = NULL, keywords = NULL,
     text = NULL, rows = 10, start = NULL, ...) {
 
-  query <- ocom(list(given_name = given_name, family_name = family_name, 
-    past_inst = past_inst, current_prim_inst = current_prim_inst, 
+  query <- ocom(list(given_name = given_name, family_name = family_name,
+    past_inst = past_inst, current_prim_inst = current_prim_inst,
     current_inst = current_inst, affiliation_org = affiliation_org,
-    credit_name = credit_name, other_name = other_name, email = email, 
-    digital_object_ids = digital_object_ids, work_title = work_title, 
-    grant_number = grant_number, patent_number = patent_number, 
+    ringgold_org_id = ringgold_org_id, grid_org_id = grid_org_id,
+    credit_name = credit_name, other_name = other_name, email = email,
+    digital_object_ids = digital_object_ids, work_title = work_title,
+    grant_number = grant_number, patent_number = patent_number,
     text = text))
   if (length(query) == 0 && is.null(keywords))
     stop("must pass at least one param")
@@ -103,6 +107,8 @@ field_match_list <- list(
   current_prim_inst = 'current-primary-institution-affiliation-name',
   current_inst = 'current-institution-affiliation-name',
   affiliation_org = 'affiliation-org-name',
+  ringgold_org_id = 'ringgold-org-id',
+  grid_org_id = 'grid-org-id',
   credit_name = 'credit-name',
   other_name = 'other-names',
   email = 'email',
