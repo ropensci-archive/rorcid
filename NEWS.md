@@ -1,3 +1,11 @@
+rorcid 0.5.2
+============
+
+### DEPLOYMENT
+
+* Switched from using TravisCI and Appveyor to using only GitHub Actions for
+  _R_.
+
 rorcid 0.5.0
 ============
 
