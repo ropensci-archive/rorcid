@@ -30,7 +30,7 @@ for citeproc-json from Crossref, then converts it into bibtex format
 using \link[handlr:HandlrClient]{handlr::HandlrClient}}
 
 \item{cr_style}{Used in Crossref queries only. A CSL style (for text
-format only). See ‘get_styles()’ for options. Default: apa.
+format only). See 'get_styles()' for options. Default: apa.
 passed to \code{rcrossref::cr_cn}}
 
 \item{cr_locale}{Used in Crossref queries only. Language locale.

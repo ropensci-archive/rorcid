@@ -175,7 +175,7 @@ path_picker <- function(put_code, summary, pth_single) {
 #'@seealso [jsonlite::fromJSON], `cite_put`
 #'
 #'@md
-#'@nord
+#'@noRd
 extract_bibtex <- function(x) {
 
   ##parse jsonlite input (this was what we expect)
