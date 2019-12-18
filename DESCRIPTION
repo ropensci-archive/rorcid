@@ -36,7 +36,7 @@ Suggests:
     handlr,
     httpuv,
     vcr
-RoxygenNote: 6.1.1
+RoxygenNote: 7.0.2
 VignetteBuilder: knitr
 X-schema.org-applicationCategory: Literature
 X-schema.org-keywords: identifiers, literature, publications, citations, scholarly, people

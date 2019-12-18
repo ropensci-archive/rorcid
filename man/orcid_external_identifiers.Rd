@@ -4,8 +4,12 @@
 \alias{orcid_external_identifiers}
 \title{Get education information for a person}
 \usage{
-orcid_external_identifiers(orcid, put_code = NULL,
-  format = "application/json", ...)
+orcid_external_identifiers(
+  orcid,
+  put_code = NULL,
+  format = "application/json",
+  ...
+)
 }
 \arguments{
 \item{orcid}{(character) Orcid identifier(s), of the form

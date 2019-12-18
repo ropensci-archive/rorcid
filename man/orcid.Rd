@@ -4,11 +4,31 @@
 \alias{orcid}
 \title{Search for ORCID ID's.}
 \usage{
-orcid(query = NULL, start = NULL, rows = NULL, recursive = FALSE,
-  defType = NULL, q.alt = NULL, qf = NULL, mm = NULL, qs = NULL,
-  pf = NULL, ps = NULL, pf2 = NULL, ps2 = NULL, pf3 = NULL,
-  ps3 = NULL, tie = NULL, bq = NULL, bf = NULL, boost = NULL,
-  uf = NULL, lowercaseOperators = NULL, fuzzy = FALSE, ...)
+orcid(
+  query = NULL,
+  start = NULL,
+  rows = NULL,
+  recursive = FALSE,
+  defType = NULL,
+  q.alt = NULL,
+  qf = NULL,
+  mm = NULL,
+  qs = NULL,
+  pf = NULL,
+  ps = NULL,
+  pf2 = NULL,
+  ps2 = NULL,
+  pf3 = NULL,
+  ps3 = NULL,
+  tie = NULL,
+  bq = NULL,
+  bf = NULL,
+  boost = NULL,
+  uf = NULL,
+  lowercaseOperators = NULL,
+  fuzzy = FALSE,
+  ...
+)
 }
 \arguments{
 \item{query}{Search terms. You can do quite complicated queries using the
@@ -123,8 +143,8 @@ See the documentation on the web here:
 Note that when constructing queries, you don't need to use syntax like
 \code{+}, etc., \code{crul}, the http client we use internally, will do that
 for you. For example, instead of writing \code{johnson+cardiology}, just
-write \code{johnson cardiology}, and instead of writing
-\code{johnson+AND+cardiology}, write \code{johnson AND cardiology}. Though,
+write \verb{johnson cardiology}, and instead of writing
+\code{johnson+AND+cardiology}, write \verb{johnson AND cardiology}. Though,
 you still need to use \code{AND}, \code{OR}, etc. to join term/queries
 together.
 }

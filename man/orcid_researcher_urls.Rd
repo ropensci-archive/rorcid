@@ -4,8 +4,7 @@
 \alias{orcid_researcher_urls}
 \title{Get researcher urls for a person}
 \usage{
-orcid_researcher_urls(orcid, put_code = NULL,
-  format = "application/json", ...)
+orcid_researcher_urls(orcid, put_code = NULL, format = "application/json", ...)
 }
 \arguments{
 \item{orcid}{(character) Orcid identifier(s), of the form

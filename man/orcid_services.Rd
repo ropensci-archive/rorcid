@@ -4,8 +4,13 @@
 \alias{orcid_services}
 \title{Get services}
 \usage{
-orcid_services(orcid, put_code = NULL, format = "application/json",
-  summary = FALSE, ...)
+orcid_services(
+  orcid,
+  put_code = NULL,
+  format = "application/json",
+  summary = FALSE,
+  ...
+)
 }
 \arguments{
 \item{orcid}{(character) Orcid identifier(s), of the form

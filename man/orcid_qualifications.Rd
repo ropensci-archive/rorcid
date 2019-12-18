@@ -4,8 +4,13 @@
 \alias{orcid_qualifications}
 \title{Get qualifications for a person}
 \usage{
-orcid_qualifications(orcid, put_code = NULL,
-  format = "application/json", summary = FALSE, ...)
+orcid_qualifications(
+  orcid,
+  put_code = NULL,
+  format = "application/json",
+  summary = FALSE,
+  ...
+)
 }
 \arguments{
 \item{orcid}{(character) Orcid identifier(s), of the form

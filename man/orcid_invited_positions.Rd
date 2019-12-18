@@ -4,8 +4,13 @@
 \alias{orcid_invited_positions}
 \title{Get invited positions for a person}
 \usage{
-orcid_invited_positions(orcid, put_code = NULL,
-  format = "application/json", summary = FALSE, ...)
+orcid_invited_positions(
+  orcid,
+  put_code = NULL,
+  format = "application/json",
+  summary = FALSE,
+  ...
+)
 }
 \arguments{
 \item{orcid}{(character) Orcid identifier(s), of the form

@@ -30,10 +30,10 @@ profile, or works
 
 Not quite sure what these do so haven't messed with them.
 \itemize{
-\item \code{/{orcid}/notification-permission/{id}}
-\item \code{/client/{client_id}}
-\item \code{/group-id-record}
-\item \code{/group-id-record/{putCode}}
+\item \verb{/\{orcid\}/notification-permission/\{id\}}
+\item \verb{/client/\{client_id\}}
+\item \verb{/group-id-record}
+\item \verb{/group-id-record/\{putCode\}}
 }
 }
 

@@ -4,8 +4,14 @@
 \alias{orcid_citations}
 \title{Get citations}
 \usage{
-orcid_citations(orcid, put_code = NULL, cr_format = "bibtex",
-  cr_style = "apa", cr_locale = "en-US", ...)
+orcid_citations(
+  orcid,
+  put_code = NULL,
+  cr_format = "bibtex",
+  cr_style = "apa",
+  cr_locale = "en-US",
+  ...
+)
 }
 \arguments{
 \item{orcid}{(character) Orcid identifier(s) of the form

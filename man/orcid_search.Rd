@@ -4,13 +4,28 @@
 \alias{orcid_search}
 \title{Orcid search - more user friendly than \code{\link[=orcid]{orcid()}}}
 \usage{
-orcid_search(given_name = NULL, family_name = NULL, past_inst = NULL,
-  current_prim_inst = NULL, current_inst = NULL,
-  affiliation_org = NULL, ringgold_org_id = NULL, grid_org_id = NULL,
-  credit_name = NULL, other_name = NULL, email = NULL,
-  digital_object_ids = NULL, work_title = NULL, grant_number = NULL,
-  patent_number = NULL, keywords = NULL, text = NULL, rows = 10,
-  start = NULL, ...)
+orcid_search(
+  given_name = NULL,
+  family_name = NULL,
+  past_inst = NULL,
+  current_prim_inst = NULL,
+  current_inst = NULL,
+  affiliation_org = NULL,
+  ringgold_org_id = NULL,
+  grid_org_id = NULL,
+  credit_name = NULL,
+  other_name = NULL,
+  email = NULL,
+  digital_object_ids = NULL,
+  work_title = NULL,
+  grant_number = NULL,
+  patent_number = NULL,
+  keywords = NULL,
+  text = NULL,
+  rows = 10,
+  start = NULL,
+  ...
+)
 }
 \arguments{
 \item{given_name}{(character) given name}
@@ -83,7 +98,7 @@ here - for that use \code{\link[=orcid]{orcid()}}
 
 We combine multiple parameters with \code{AND}, such that
 e.g., \code{given_name="Jane"} and \code{family_name="Doe"} gets passed
-to ORCID as \code{given-names:Jane AND family-name:Doe}
+to ORCID as \verb{given-names:Jane AND family-name:Doe}
 }
 
 \examples{

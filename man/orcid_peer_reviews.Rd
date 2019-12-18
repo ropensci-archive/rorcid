@@ -4,8 +4,13 @@
 \alias{orcid_peer_reviews}
 \title{Get peer review information for a person}
 \usage{
-orcid_peer_reviews(orcid, put_code = NULL, format = "application/json",
-  summary = FALSE, ...)
+orcid_peer_reviews(
+  orcid,
+  put_code = NULL,
+  format = "application/json",
+  summary = FALSE,
+  ...
+)
 }
 \arguments{
 \item{orcid}{(character) Orcid identifier(s), of the form

@@ -4,8 +4,13 @@
 \alias{orcid_research_resources}
 \title{Get research resources for a person}
 \usage{
-orcid_research_resources(orcid, put_code = NULL,
-  format = "application/json", summary = FALSE, ...)
+orcid_research_resources(
+  orcid,
+  put_code = NULL,
+  format = "application/json",
+  summary = FALSE,
+  ...
+)
 }
 \arguments{
 \item{orcid}{(character) Orcid identifier(s), of the form

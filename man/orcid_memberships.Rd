@@ -4,8 +4,13 @@
 \alias{orcid_memberships}
 \title{Get memberships for a person}
 \usage{
-orcid_memberships(orcid, put_code = NULL, format = "application/json",
-  summary = FALSE, ...)
+orcid_memberships(
+  orcid,
+  put_code = NULL,
+  format = "application/json",
+  summary = FALSE,
+  ...
+)
 }
 \arguments{
 \item{orcid}{(character) Orcid identifier(s), of the form

@@ -4,8 +4,13 @@
 \alias{orcid_employments}
 \title{Get employment information for a person}
 \usage{
-orcid_employments(orcid, put_code = NULL, format = "application/json",
-  summary = FALSE, ...)
+orcid_employments(
+  orcid,
+  put_code = NULL,
+  format = "application/json",
+  summary = FALSE,
+  ...
+)
 }
 \arguments{
 \item{orcid}{(character) Orcid identifier(s), of the form

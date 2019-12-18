@@ -4,8 +4,13 @@
 \alias{orcid_distinctions}
 \title{Get distinction for a person}
 \usage{
-orcid_distinctions(orcid, put_code = NULL, format = "application/json",
-  summary = FALSE, ...)
+orcid_distinctions(
+  orcid,
+  put_code = NULL,
+  format = "application/json",
+  summary = FALSE,
+  ...
+)
 }
 \arguments{
 \item{orcid}{(character) Orcid identifier(s), of the form
