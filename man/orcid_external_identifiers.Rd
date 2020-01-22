@@ -2,7 +2,7 @@
 % Please edit documentation in R/orcid_external_identifiers.R
 \name{orcid_external_identifiers}
 \alias{orcid_external_identifiers}
-\title{Get education information for a person}
+\title{Get external identifiers for a person}
 \usage{
 orcid_external_identifiers(
   orcid,
@@ -31,7 +31,7 @@ A list of results for each Orcid ID passed in, with each element
 named by the Orcid ID
 }
 \description{
-Get education information for a person
+Get external identifiers for a person
 }
 \details{
 This function is vectorized, so you can pass in many ORCID's, and
