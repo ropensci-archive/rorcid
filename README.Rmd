@@ -14,15 +14,15 @@ knitr::opts_chunk$set(
 [![R build status](https://github.com/ropensci/rorcid/workflows/R-CMD-check/badge.svg)](https://github.com/ropensci/rorcid/actions?workflow=R-CMD-check)
 [![cran checks](https://cranchecks.info/badges/worst/rorcid)](https://cranchecks.info/pkgs/rorcid)
 [![codecov.io](https://codecov.io/github/ropensci/rorcid/coverage.svg?branch=master)](https://codecov.io/github/ropensci/rorcid?branch=master)
-[![rstudio mirror downloads](http://cranlogs.r-pkg.org/badges/rorcid?color=2ED968)](https://github.com/metacran/cranlogs.app)
-[![cran version](http://www.r-pkg.org/badges/version/rorcid)](https://cran.r-project.org/package=rorcid)
+[![rstudio mirror downloads](https://cranlogs.r-pkg.org/badges/rorcid?color=2ED968)](https://github.com/metacran/cranlogs.app)
+[![cran version](https://www.r-pkg.org/badges/version/rorcid)](https://cran.r-project.org/package=rorcid)
 <!-- badges: end -->
 
 `rorcid` is an R programmatic interface to the Orcid public API. `rorcid` is not a product developed or distributed by ORCID®.
 
 Orcid API docs:
 
-* Public API docs: http://members.orcid.org/api
+* Public API docs: https://members.orcid.org/api
 * Swagger docs: https://pub.orcid.org/v3.0/#/Development_Public_API_v3.0
 
 The package now works with the `v3.0` ORCID API. It's too complicated to allow users to work with different versions of the API, so it's hard-coded to `v3.0`.
@@ -67,12 +67,6 @@ opened. In this case, run `orcid_auth()` on another machine in which you do
 have the ability to open a browser, then collect the info that's ouptput
 from `orcid_auth()` and store it as an environment variable (see above).
 
-## Package API
-
-```{r echo=FALSE, comment=NA, results='asis'}
-cat(paste(" -", paste(sprintf("`%s`", getNamespaceExports("rorcid")), collapse = "\n - ")))
-```
-
 ## Installation
 
 Stable version
@@ -84,8 +78,7 @@ install.packages("rorcid")
 Development version
 
 ```{r eval=FALSE}
-install.packages("devtools")
-devtools::install_github("ropensci/rorcid")
+remotes::install_github("ropensci/rorcid")
 ```
 
 ```{r}

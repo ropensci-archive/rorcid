@@ -3,7 +3,7 @@ Title: Interface to the 'Orcid.org' API
 Description: Client for the 'Orcid.org' API (<https://orcid.org/>).
     Functions included for searching for people, searching by 'DOI',
     and searching by 'Orcid' 'ID'.
-Version: 0.5.2.9210
+Version: 0.5.9.91
 Authors@R: 
     c(person(given = "Scott",
              family = "Chamberlain",
@@ -14,7 +14,8 @@ Authors@R:
              role = "fnd",
              comment = "https://ropensci.org/"))
 License: MIT + file LICENSE
-URL: https://docs.ropensci.org/rorcid, https://github.com/ropensci/rorcid
+URL: https://github.com/ropensci/rorcid (devel),
+    https://docs.ropensci.org/rorcid (docs)
 BugReports: https://github.com/ropensci/rorcid/issues
 LazyLoad: yes
 LazyData: true
