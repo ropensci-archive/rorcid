@@ -1,3 +1,24 @@
+rorcid 0.6.0
+============
+
+### NEW FEATURES
+
+* `orcid_citations()` gains new internal function `extract_bibtex` to attempt to better parse bibtex (#74) thanks @RLumSK
+* `orcid_search()` gains new parameter `affiliation_org` to search by affiliation organization name, and parses `affiliation_org` output (#75)
+* `orcid_search()` gains new parameters `ringgold_org_id` and `grid_org_id`, as well as parsing those outputs if present (#76)
+
+### MINOR IMPROVEMENTS
+
+* clarify names of variables to store the ORCID API token (#71) thanks @fmichonneau
+* dont run tests if ORCID token not found (#79)
+
+### BUG FIXES 
+
+* fix to `orcid_search()`: parsing issues were fixed by giving default NA's when no results found for certain result sections (#72)
+* tests now using cached requests/responses via vcr (#73)
+* `orcid_search()` fix: `orcid-identifier.path` was not returned when no results found; now we check for that in the results, and return an empty tibble if not found (#75)
+* in `orcid_search()`, keywords have to be passed as multiple instances of `keyword` rather than as `keywords`; fixed now; user facing still just uses `keywords` as the input param (#77)
+
 rorcid 0.5.2
 ============
 

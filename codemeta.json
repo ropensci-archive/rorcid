@@ -10,14 +10,14 @@
   "codeRepository": "https://github.com/ropensci/rorcid",
   "issueTracker": "https://github.com/ropensci/rorcid/issues",
   "license": "https://spdx.org/licenses/MIT",
-  "version": "0.5.1.9100",
+  "version": "0.6.0",
   "programmingLanguage": {
     "@type": "ComputerLanguage",
     "name": "R",
-    "version": "3.6.1",
+    "version": "3.6.2",
     "url": "https://r-project.org"
   },
-  "runtimePlatform": "R version 3.6.1 Patched (2019-07-17 r76848)",
+  "runtimePlatform": "R version 3.6.2 Patched (2019-12-12 r77564)",
   "provider": {
     "@id": "https://cran.r-project.org",
     "@type": "Organization",
@@ -114,6 +114,18 @@
         "url": "https://cran.r-project.org"
       },
       "sameAs": "https://CRAN.R-project.org/package=vcr"
+    },
+    {
+      "@type": "SoftwareApplication",
+      "identifier": "covr",
+      "name": "covr",
+      "provider": {
+        "@id": "https://cran.r-project.org",
+        "@type": "Organization",
+        "name": "Comprehensive R Archive Network (CRAN)",
+        "url": "https://cran.r-project.org"
+      },
+      "sameAs": "https://CRAN.R-project.org/package=covr"
     }
   ],
   "softwareRequirements": [
@@ -213,10 +225,10 @@
       "sameAs": "https://CRAN.R-project.org/package=data.table"
     }
   ],
-  "contIntegration": "https://travis-ci.org/ropensci/rorcid",
+  "contIntegration": "https://codecov.io/github/ropensci/rorcid?branch=master",
   "releaseNotes": "https://github.com/ropensci/rorcid/blob/master/NEWS.md",
   "readme": "https://github.com/ropensci/rorcid/blob/master/README.md",
-  "fileSize": "892.471KB",
+  "fileSize": "893.238KB",
   "applicationCategory": "Literature",
   "isPartOf": "https://ropensci.org",
   "keywords": ["identifiers", "literature", "publications", "citations", "scholarly", "people", "api-wrapper", "orcid", "doi", "scholarly-metadata", "rstats", "r", "orcid-api", "r-package"],
@@ -227,5 +239,6 @@
       "@type": "Organization",
       "name": "rOpenSci"
     }
-  ]
+  ],
+  "relatedLink": "https://docs.ropensci.org/rorcid"
 }
