@@ -14,7 +14,7 @@
 
 ---
 
-This version xxxx.
+This version fixes some bugs, improves data parsing in one function, adds some new parameters in another function.
 
 Thanks!
 Scott Chamberlain
