@@ -14,7 +14,7 @@
 
 ---
 
-This version fixes some bugs, improves data parsing in one function, adds some new parameters in another function.
+This version fixes some bugs, improves data parsing in one function, adds some new parameters in another function. This is a re-submission after fixing a broken link in the README.
 
 Thanks!
 Scott Chamberlain
