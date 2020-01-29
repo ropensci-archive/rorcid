@@ -75,7 +75,9 @@
 #' You can use any of the following within the query statement:
 #' given-names, family-name, credit-name, other-names, email, grant-number, 
 #' patent-number, keyword, worktitle, digital-objectids, current-institution, 
-#' affiliation-name, current-primary-institution, text, or past-institution. 
+#' affiliation-name, current-primary-institution, text, past-institution,
+#' peer-review-type, peer-review-role, peer-review-group-id, biography,
+#' external-id-type-and-value
 #' 		
 #' For more complicated queries the ORCID API supports using ExtendedDisMax.
 #' See the documentation on the web here: 
@@ -105,6 +107,9 @@
 #' 
 #' # You can string together many search terms
 #' orcid(query="johnson cardiology houston")
+#' 
+#' # peer review group id
+#' orcid("peer-review-group-id:1996-3068")
 #' 
 #' # And use boolean operators
 #' orcid("johnson AND(caltech OR 'California Institute of Technology')")

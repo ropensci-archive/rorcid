@@ -8,7 +8,6 @@ orcid_search(
   given_name = NULL,
   family_name = NULL,
   past_inst = NULL,
-  current_prim_inst = NULL,
   current_inst = NULL,
   affiliation_org = NULL,
   ringgold_org_id = NULL,
@@ -19,7 +18,6 @@ orcid_search(
   digital_object_ids = NULL,
   work_title = NULL,
   grant_number = NULL,
-  patent_number = NULL,
   keywords = NULL,
   text = NULL,
   rows = 10,
@@ -33,8 +31,6 @@ orcid_search(
 \item{family_name}{(character) family name}
 
 \item{past_inst}{(character) past institution}
-
-\item{current_prim_inst}{(character) current primary institution}
 
 \item{current_inst}{(character) current institution}
 
@@ -55,8 +51,6 @@ orcid_search(
 \item{work_title}{(character) work title}
 
 \item{grant_number}{(character) grant number}
-
-\item{patent_number}{(character) patent number}
 
 \item{keywords}{(character) keywords to search. character vector, one
 or more keywords}
@@ -94,6 +88,10 @@ so human friendly.
 We don't include all possible fields you could search against
 here - for that use \code{\link[=orcid]{orcid()}}
 }
+\note{
+\code{current_prim_inst} and \code{patent_number} parameters have been
+removed as ORCID has removed them
+}
 \section{How parameters are combined}{
 
 We combine multiple parameters with \code{AND}, such that
@@ -110,6 +108,8 @@ orcid_search(keywords = c("birds", "turtles"))
 orcid_search(affiliation_org = '("Boston University" OR BU)')
 orcid_search(ringgold_org_id = '1438')
 orcid_search(grid_org_id = 'grid.5509.9')
+orcid_search(current_inst = '')
+orcid_search(email = '*@orcid.org')
 orcid_search(given_name = "carl", verbose = TRUE)
 }
 }
