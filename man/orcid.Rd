@@ -8,7 +8,6 @@ orcid(
   query = NULL,
   start = NULL,
   rows = NULL,
-  recursive = FALSE,
   defType = NULL,
   q.alt = NULL,
   qf = NULL,
@@ -27,6 +26,7 @@ orcid(
   uf = NULL,
   lowercaseOperators = NULL,
   fuzzy = FALSE,
+  recursive = FALSE,
   ...
 )
 }
@@ -39,10 +39,6 @@ SOLR syntax. See examples below. For all possible fields to query, do
 Default: 0}
 
 \item{rows}{Numer of results to return. Default: 10. Max: 200}
-
-\item{recursive}{Keep drilling down until all records are retrieved for the
-given query, default FALSE (logical). If \code{recursive=TRUE}, rows and
-start parameters are ignored.}
 
 \item{defType}{Query syntax. One of edismax or X. See Details for more.}
 
@@ -113,6 +109,8 @@ Set &lowercaseOperators=true to allow this. Default is "false".}
 \item{fuzzy}{Use fuzzy matching on input DOIs. Defaults to FALSE. If FALSE,
 we stick "digital-object-ids" before the DOI so that the search sent to
 ORCID is for that exact DOI. If TRUE, we use some regex to find the DOI.}
+
+\item{recursive}{DEFUNCT}
 
 \item{...}{Curl options passed on to \code{\link[crul:HttpClient]{crul::HttpClient()}}}
 }
@@ -200,16 +198,16 @@ orcid('pmc:PMC3901677')
 
 # Use the qf parameter to "boost" query fields so they are ranked higher
 # 	See how it is different than the second query without using "qf"
-orcid(defType = "edismax", query = "Raymond", 
+orcid(defType = "edismax", query = "Raymond",
    qf = "given-names^1.0 family-name^2.0", start = 0, rows = 10)
 orcid(query = "Raymond", start = 0, rows = 10)
 
-# Use other SOLR parameters as well, here mm. Using the "mm" param, 1 and 
-# 2 word queries require that all of the optional clauses match, but for 
+# Use other SOLR parameters as well, here mm. Using the "mm" param, 1 and
+# 2 word queries require that all of the optional clauses match, but for
 # queries with three or more clauses one missing clause is allowed...
 # See for more: http://bit.ly/1uyMLDQ
-orcid(defType = "edismax", 
-      query="keyword:ecology OR evolution OR conservation", 
+orcid(defType = "edismax",
+      query="keyword:ecology OR evolution OR conservation",
       mm = 2, rows = 20)
 }
 }

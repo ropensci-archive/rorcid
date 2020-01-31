@@ -57,8 +57,9 @@ test_that("orcid qf param works", {
 })
 
 test_that("orcid fails well", {
-  skip_on_cran()
+  expect_error(orcid(query="xxxxx", recursive = TRUE), "removed")
 
+  skip_on_cran()
   vcr::use_cassette("orcid_error", {
     expect_error(orcid(start = "adsf"), class = "error")
     expect_error(orcid(rows = "er"), class = "error")
