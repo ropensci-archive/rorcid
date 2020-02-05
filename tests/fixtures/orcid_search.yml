@@ -8,8 +8,8 @@ http_interactions:
     headers:
       Accept-Encoding: gzip, deflate
       Accept: application/vnd.orcid+json; qs=4
-      User-Agent: r-curl/3.3 crul/0.8.0 rOpenSci(rorcid/0.5.0.9210)
-      X-USER-AGENT: r-curl/3.3 crul/0.8.0 rOpenSci(rorcid/0.5.0.9210)
+      User-Agent: r-curl/4.3 crul/0.9.0 rOpenSci(rorcid/0.6.3.91)
+      X-USER-AGENT: r-curl/4.3 crul/0.9.0 rOpenSci(rorcid/0.6.3.91)
       Authorization: Bearer <<rorcid_bearer_token>>
   response:
     status:
@@ -18,8 +18,8 @@ http_interactions:
       explanation: Request fulfilled, document follows
     headers:
       status: HTTP/1.1 200 OK
-      server: nginx/1.10.0
-      date: Fri, 12 Jul 2019 08:41:04 GMT
+      server: nginx/1.16.1
+      date: Wed, 05 Feb 2020 22:24:20 GMT
       content-type: application/vnd.orcid+json; qs=4;charset=UTF-8
       transfer-encoding: chunked
       connection: keep-alive
@@ -33,84 +33,85 @@ http_interactions:
       content-encoding: gzip
     body:
       encoding: UTF-8
+      file: no
       string: |-
         {
           "result" : [ {
             "orcid-identifier" : {
-              "uri" : "https://orcid.org/0000-0001-6373-9943",
-              "path" : "0000-0001-6373-9943",
+              "uri" : "https://orcid.org/0000-0002-5377-2624",
+              "path" : "0000-0002-5377-2624",
               "host" : "orcid.org"
             }
           }, {
             "orcid-identifier" : {
-              "uri" : "https://orcid.org/0000-0002-7348-9324",
-              "path" : "0000-0002-7348-9324",
+              "uri" : "https://orcid.org/0000-0002-0646-0388",
+              "path" : "0000-0002-0646-0388",
               "host" : "orcid.org"
             }
           }, {
             "orcid-identifier" : {
-              "uri" : "https://orcid.org/0000-0002-9552-2789",
-              "path" : "0000-0002-9552-2789",
+              "uri" : "https://orcid.org/0000-0002-3141-3057",
+              "path" : "0000-0002-3141-3057",
               "host" : "orcid.org"
             }
           }, {
             "orcid-identifier" : {
-              "uri" : "https://orcid.org/0000-0001-6538-4082",
-              "path" : "0000-0001-6538-4082",
+              "uri" : "https://orcid.org/0000-0003-4575-321X",
+              "path" : "0000-0003-4575-321X",
               "host" : "orcid.org"
             }
           }, {
             "orcid-identifier" : {
-              "uri" : "https://orcid.org/0000-0003-0474-5862",
-              "path" : "0000-0003-0474-5862",
+              "uri" : "https://orcid.org/0000-0002-3743-6823",
+              "path" : "0000-0002-3743-6823",
               "host" : "orcid.org"
             }
           }, {
             "orcid-identifier" : {
-              "uri" : "https://orcid.org/0000-0002-8206-2357",
-              "path" : "0000-0002-8206-2357",
+              "uri" : "https://orcid.org/0000-0001-7187-7633",
+              "path" : "0000-0001-7187-7633",
               "host" : "orcid.org"
             }
           }, {
             "orcid-identifier" : {
-              "uri" : "https://orcid.org/0000-0002-1059-3060",
-              "path" : "0000-0002-1059-3060",
+              "uri" : "https://orcid.org/0000-0003-0723-0581",
+              "path" : "0000-0003-0723-0581",
               "host" : "orcid.org"
             }
           }, {
             "orcid-identifier" : {
-              "uri" : "https://orcid.org/0000-0001-8554-3669",
-              "path" : "0000-0001-8554-3669",
+              "uri" : "https://orcid.org/0000-0001-6101-5802",
+              "path" : "0000-0001-6101-5802",
               "host" : "orcid.org"
             }
           }, {
             "orcid-identifier" : {
-              "uri" : "https://orcid.org/0000-0002-0941-2509",
-              "path" : "0000-0002-0941-2509",
+              "uri" : "https://orcid.org/0000-0003-2026-0443",
+              "path" : "0000-0003-2026-0443",
               "host" : "orcid.org"
             }
           }, {
             "orcid-identifier" : {
-              "uri" : "https://orcid.org/0000-0003-1388-4477",
-              "path" : "0000-0003-1388-4477",
+              "uri" : "https://orcid.org/0000-0001-8913-3245",
+              "path" : "0000-0001-8913-3245",
               "host" : "orcid.org"
             }
           } ],
-          "num-found" : 1655
+          "num-found" : 1840
         }
-  recorded_at: 2019-07-12 08:40:59 GMT
-  recorded_with: vcr/0.2.6, webmockr/0.3.4
+  recorded_at: 2020-02-05 22:24:23 GMT
+  recorded_with: vcr/0.4.0, webmockr/0.5.0
 - request:
     method: get
-    uri: https://pub.orcid.org/v3.0/0000-0001-6373-9943/person
+    uri: https://pub.orcid.org/v3.0/0000-0002-5377-2624/person
     body:
       encoding: ''
       string: ''
     headers:
       Accept-Encoding: gzip, deflate
       Accept: application/vnd.orcid+json; qs=4
-      User-Agent: r-curl/3.3 crul/0.8.0 rOpenSci(rorcid/0.5.0.9210)
-      X-USER-AGENT: r-curl/3.3 crul/0.8.0 rOpenSci(rorcid/0.5.0.9210)
+      User-Agent: r-curl/4.3 crul/0.9.0 rOpenSci(rorcid/0.6.3.91)
+      X-USER-AGENT: r-curl/4.3 crul/0.9.0 rOpenSci(rorcid/0.6.3.91)
       Authorization: Bearer <<rorcid_bearer_token>>
   response:
     status:
@@ -119,8 +120,8 @@ http_interactions:
       explanation: Request fulfilled, document follows
     headers:
       status: HTTP/1.1 200 OK
-      server: nginx/1.10.0
-      date: Fri, 12 Jul 2019 08:41:05 GMT
+      server: nginx/1.16.1
+      date: Wed, 05 Feb 2020 22:24:21 GMT
       content-type: application/vnd.orcid+json; qs=4;charset=UTF-8
       transfer-encoding: chunked
       connection: keep-alive
@@ -134,907 +135,204 @@ http_interactions:
       content-encoding: gzip
     body:
       encoding: UTF-8
-      string: |-
-        {
-          "last-modified-date" : null,
-          "name" : {
-            "created-date" : {
-              "value" : 1534847071746
-            },
-            "last-modified-date" : {
-              "value" : 1534847071968
-            },
-            "given-names" : {
-              "value" : "Carl"
-            },
-            "family-name" : {
-              "value" : "Lockey"
-            },
-            "credit-name" : null,
-            "source" : null,
-            "visibility" : "public",
-            "path" : "0000-0001-6373-9943"
-          },
-          "other-names" : {
-            "last-modified-date" : null,
-            "other-name" : [ ],
-            "path" : "/0000-0001-6373-9943/other-names"
-          },
-          "biography" : null,
-          "researcher-urls" : {
-            "last-modified-date" : null,
-            "researcher-url" : [ ],
-            "path" : "/0000-0001-6373-9943/researcher-urls"
-          },
-          "emails" : {
-            "last-modified-date" : null,
-            "email" : [ ],
-            "path" : "/0000-0001-6373-9943/email"
-          },
-          "addresses" : {
-            "last-modified-date" : null,
-            "address" : [ ],
-            "path" : "/0000-0001-6373-9943/address"
-          },
-          "keywords" : {
-            "last-modified-date" : null,
-            "keyword" : [ ],
-            "path" : "/0000-0001-6373-9943/keywords"
-          },
-          "external-identifiers" : {
-            "last-modified-date" : null,
-            "external-identifier" : [ ],
-            "path" : "/0000-0001-6373-9943/external-identifiers"
-          },
-          "path" : "/0000-0001-6373-9943/person"
-        }
-  recorded_at: 2019-07-12 08:40:59 GMT
-  recorded_with: vcr/0.2.6, webmockr/0.3.4
-- request:
-    method: get
-    uri: https://pub.orcid.org/v3.0/0000-0002-7348-9324/person
-    body:
-      encoding: ''
-      string: ''
-    headers:
-      Accept-Encoding: gzip, deflate
-      Accept: application/vnd.orcid+json; qs=4
-      User-Agent: r-curl/3.3 crul/0.8.0 rOpenSci(rorcid/0.5.0.9210)
-      X-USER-AGENT: r-curl/3.3 crul/0.8.0 rOpenSci(rorcid/0.5.0.9210)
-      Authorization: Bearer <<rorcid_bearer_token>>
-  response:
-    status:
-      status_code: '200'
-      message: OK
-      explanation: Request fulfilled, document follows
-    headers:
-      status: HTTP/1.1 200 OK
-      server: nginx/1.10.0
-      date: Fri, 12 Jul 2019 08:41:06 GMT
-      content-type: application/vnd.orcid+json; qs=4;charset=UTF-8
-      transfer-encoding: chunked
-      connection: keep-alive
-      access-control-allow-origin: '*'
-      cache-control: no-cache, no-store, max-age=0, must-revalidate
-      pragma: no-cache
-      expires: '0'
-      x-xss-protection: 1; mode=block
-      x-frame-options: DENY
-      x-content-type-options: nosniff
-      content-encoding: gzip
-    body:
-      encoding: UTF-8
-      string: |-
-        {
-          "last-modified-date" : null,
-          "name" : {
-            "created-date" : {
-              "value" : 1477946155366
-            },
-            "last-modified-date" : {
-              "value" : 1477946155366
-            },
-            "given-names" : {
-              "value" : "Carl"
-            },
-            "family-name" : {
-              "value" : "Brophy"
-            },
-            "credit-name" : null,
-            "source" : null,
-            "visibility" : "public",
-            "path" : "0000-0002-7348-9324"
-          },
-          "other-names" : {
-            "last-modified-date" : null,
-            "other-name" : [ ],
-            "path" : "/0000-0002-7348-9324/other-names"
-          },
-          "biography" : null,
-          "researcher-urls" : {
-            "last-modified-date" : null,
-            "researcher-url" : [ ],
-            "path" : "/0000-0002-7348-9324/researcher-urls"
-          },
-          "emails" : {
-            "last-modified-date" : null,
-            "email" : [ ],
-            "path" : "/0000-0002-7348-9324/email"
-          },
-          "addresses" : {
-            "last-modified-date" : null,
-            "address" : [ ],
-            "path" : "/0000-0002-7348-9324/address"
-          },
-          "keywords" : {
-            "last-modified-date" : null,
-            "keyword" : [ ],
-            "path" : "/0000-0002-7348-9324/keywords"
-          },
-          "external-identifiers" : {
-            "last-modified-date" : null,
-            "external-identifier" : [ ],
-            "path" : "/0000-0002-7348-9324/external-identifiers"
-          },
-          "path" : "/0000-0002-7348-9324/person"
-        }
-  recorded_at: 2019-07-12 08:40:59 GMT
-  recorded_with: vcr/0.2.6, webmockr/0.3.4
-- request:
-    method: get
-    uri: https://pub.orcid.org/v3.0/0000-0002-9552-2789/person
-    body:
-      encoding: ''
-      string: ''
-    headers:
-      Accept-Encoding: gzip, deflate
-      Accept: application/vnd.orcid+json; qs=4
-      User-Agent: r-curl/3.3 crul/0.8.0 rOpenSci(rorcid/0.5.0.9210)
-      X-USER-AGENT: r-curl/3.3 crul/0.8.0 rOpenSci(rorcid/0.5.0.9210)
-      Authorization: Bearer <<rorcid_bearer_token>>
-  response:
-    status:
-      status_code: '200'
-      message: OK
-      explanation: Request fulfilled, document follows
-    headers:
-      status: HTTP/1.1 200 OK
-      server: nginx/1.10.0
-      date: Fri, 12 Jul 2019 08:41:06 GMT
-      content-type: application/vnd.orcid+json; qs=4;charset=UTF-8
-      transfer-encoding: chunked
-      connection: keep-alive
-      access-control-allow-origin: '*'
-      cache-control: no-cache, no-store, max-age=0, must-revalidate
-      pragma: no-cache
-      expires: '0'
-      x-xss-protection: 1; mode=block
-      x-frame-options: DENY
-      x-content-type-options: nosniff
-      content-encoding: gzip
-    body:
-      encoding: UTF-8
-      string: |-
-        {
-          "last-modified-date" : null,
-          "name" : {
-            "created-date" : {
-              "value" : 1488076065453
-            },
-            "last-modified-date" : {
-              "value" : 1488076065671
-            },
-            "given-names" : {
-              "value" : "carl"
-            },
-            "family-name" : {
-              "value" : "zhou"
-            },
-            "credit-name" : null,
-            "source" : null,
-            "visibility" : "public",
-            "path" : "0000-0002-9552-2789"
-          },
-          "other-names" : {
-            "last-modified-date" : null,
-            "other-name" : [ ],
-            "path" : "/0000-0002-9552-2789/other-names"
-          },
-          "biography" : null,
-          "researcher-urls" : {
-            "last-modified-date" : null,
-            "researcher-url" : [ ],
-            "path" : "/0000-0002-9552-2789/researcher-urls"
-          },
-          "emails" : {
-            "last-modified-date" : null,
-            "email" : [ ],
-            "path" : "/0000-0002-9552-2789/email"
-          },
-          "addresses" : {
-            "last-modified-date" : null,
-            "address" : [ ],
-            "path" : "/0000-0002-9552-2789/address"
-          },
-          "keywords" : {
-            "last-modified-date" : null,
-            "keyword" : [ ],
-            "path" : "/0000-0002-9552-2789/keywords"
-          },
-          "external-identifiers" : {
-            "last-modified-date" : null,
-            "external-identifier" : [ ],
-            "path" : "/0000-0002-9552-2789/external-identifiers"
-          },
-          "path" : "/0000-0002-9552-2789/person"
-        }
-  recorded_at: 2019-07-12 08:40:59 GMT
-  recorded_with: vcr/0.2.6, webmockr/0.3.4
-- request:
-    method: get
-    uri: https://pub.orcid.org/v3.0/0000-0001-6538-4082/person
-    body:
-      encoding: ''
-      string: ''
-    headers:
-      Accept-Encoding: gzip, deflate
-      Accept: application/vnd.orcid+json; qs=4
-      User-Agent: r-curl/3.3 crul/0.8.0 rOpenSci(rorcid/0.5.0.9210)
-      X-USER-AGENT: r-curl/3.3 crul/0.8.0 rOpenSci(rorcid/0.5.0.9210)
-      Authorization: Bearer <<rorcid_bearer_token>>
-  response:
-    status:
-      status_code: '200'
-      message: OK
-      explanation: Request fulfilled, document follows
-    headers:
-      status: HTTP/1.1 200 OK
-      server: nginx/1.10.0
-      date: Fri, 12 Jul 2019 08:41:07 GMT
-      content-type: application/vnd.orcid+json; qs=4;charset=UTF-8
-      transfer-encoding: chunked
-      connection: keep-alive
-      access-control-allow-origin: '*'
-      cache-control: no-cache, no-store, max-age=0, must-revalidate
-      pragma: no-cache
-      expires: '0'
-      x-xss-protection: 1; mode=block
-      x-frame-options: DENY
-      x-content-type-options: nosniff
-      content-encoding: gzip
-    body:
-      encoding: UTF-8
-      string: |-
-        {
-          "last-modified-date" : null,
-          "name" : {
-            "created-date" : {
-              "value" : 1520356525408
-            },
-            "last-modified-date" : {
-              "value" : 1520356525641
-            },
-            "given-names" : {
-              "value" : "carl"
-            },
-            "family-name" : {
-              "value" : "wellman"
-            },
-            "credit-name" : null,
-            "source" : null,
-            "visibility" : "public",
-            "path" : "0000-0001-6538-4082"
-          },
-          "other-names" : {
-            "last-modified-date" : null,
-            "other-name" : [ ],
-            "path" : "/0000-0001-6538-4082/other-names"
-          },
-          "biography" : null,
-          "researcher-urls" : {
-            "last-modified-date" : null,
-            "researcher-url" : [ ],
-            "path" : "/0000-0001-6538-4082/researcher-urls"
-          },
-          "emails" : {
-            "last-modified-date" : null,
-            "email" : [ ],
-            "path" : "/0000-0001-6538-4082/email"
-          },
-          "addresses" : {
-            "last-modified-date" : null,
-            "address" : [ ],
-            "path" : "/0000-0001-6538-4082/address"
-          },
-          "keywords" : {
-            "last-modified-date" : null,
-            "keyword" : [ ],
-            "path" : "/0000-0001-6538-4082/keywords"
-          },
-          "external-identifiers" : {
-            "last-modified-date" : null,
-            "external-identifier" : [ ],
-            "path" : "/0000-0001-6538-4082/external-identifiers"
-          },
-          "path" : "/0000-0001-6538-4082/person"
-        }
-  recorded_at: 2019-07-12 08:40:59 GMT
-  recorded_with: vcr/0.2.6, webmockr/0.3.4
-- request:
-    method: get
-    uri: https://pub.orcid.org/v3.0/0000-0003-0474-5862/person
-    body:
-      encoding: ''
-      string: ''
-    headers:
-      Accept-Encoding: gzip, deflate
-      Accept: application/vnd.orcid+json; qs=4
-      User-Agent: r-curl/3.3 crul/0.8.0 rOpenSci(rorcid/0.5.0.9210)
-      X-USER-AGENT: r-curl/3.3 crul/0.8.0 rOpenSci(rorcid/0.5.0.9210)
-      Authorization: Bearer <<rorcid_bearer_token>>
-  response:
-    status:
-      status_code: '200'
-      message: OK
-      explanation: Request fulfilled, document follows
-    headers:
-      status: HTTP/1.1 200 OK
-      server: nginx/1.10.0
-      date: Fri, 12 Jul 2019 08:41:08 GMT
-      content-type: application/vnd.orcid+json; qs=4;charset=UTF-8
-      transfer-encoding: chunked
-      connection: keep-alive
-      access-control-allow-origin: '*'
-      cache-control: no-cache, no-store, max-age=0, must-revalidate
-      pragma: no-cache
-      expires: '0'
-      x-xss-protection: 1; mode=block
-      x-frame-options: DENY
-      x-content-type-options: nosniff
-      content-encoding: gzip
-    body:
-      encoding: UTF-8
-      string: |-
-        {
-          "last-modified-date" : null,
-          "name" : {
-            "created-date" : {
-              "value" : 1521780691243
-            },
-            "last-modified-date" : {
-              "value" : 1521780691549
-            },
-            "given-names" : {
-              "value" : "Carl"
-            },
-            "family-name" : {
-              "value" : "Mentesana"
-            },
-            "credit-name" : null,
-            "source" : null,
-            "visibility" : "public",
-            "path" : "0000-0003-0474-5862"
-          },
-          "other-names" : {
-            "last-modified-date" : null,
-            "other-name" : [ ],
-            "path" : "/0000-0003-0474-5862/other-names"
-          },
-          "biography" : null,
-          "researcher-urls" : {
-            "last-modified-date" : null,
-            "researcher-url" : [ ],
-            "path" : "/0000-0003-0474-5862/researcher-urls"
-          },
-          "emails" : {
-            "last-modified-date" : null,
-            "email" : [ ],
-            "path" : "/0000-0003-0474-5862/email"
-          },
-          "addresses" : {
-            "last-modified-date" : null,
-            "address" : [ ],
-            "path" : "/0000-0003-0474-5862/address"
-          },
-          "keywords" : {
-            "last-modified-date" : null,
-            "keyword" : [ ],
-            "path" : "/0000-0003-0474-5862/keywords"
-          },
-          "external-identifiers" : {
-            "last-modified-date" : null,
-            "external-identifier" : [ ],
-            "path" : "/0000-0003-0474-5862/external-identifiers"
-          },
-          "path" : "/0000-0003-0474-5862/person"
-        }
-  recorded_at: 2019-07-12 08:40:59 GMT
-  recorded_with: vcr/0.2.6, webmockr/0.3.4
-- request:
-    method: get
-    uri: https://pub.orcid.org/v3.0/0000-0002-8206-2357/person
-    body:
-      encoding: ''
-      string: ''
-    headers:
-      Accept-Encoding: gzip, deflate
-      Accept: application/vnd.orcid+json; qs=4
-      User-Agent: r-curl/3.3 crul/0.8.0 rOpenSci(rorcid/0.5.0.9210)
-      X-USER-AGENT: r-curl/3.3 crul/0.8.0 rOpenSci(rorcid/0.5.0.9210)
-      Authorization: Bearer <<rorcid_bearer_token>>
-  response:
-    status:
-      status_code: '200'
-      message: OK
-      explanation: Request fulfilled, document follows
-    headers:
-      status: HTTP/1.1 200 OK
-      server: nginx/1.10.0
-      date: Fri, 12 Jul 2019 08:41:09 GMT
-      content-type: application/vnd.orcid+json; qs=4;charset=UTF-8
-      transfer-encoding: chunked
-      connection: keep-alive
-      access-control-allow-origin: '*'
-      cache-control: no-cache, no-store, max-age=0, must-revalidate
-      pragma: no-cache
-      expires: '0'
-      x-xss-protection: 1; mode=block
-      x-frame-options: DENY
-      x-content-type-options: nosniff
-      content-encoding: gzip
-    body:
-      encoding: UTF-8
+      file: no
       string: |-
         {
           "last-modified-date" : {
-            "value" : 1522169209807
+            "value" : 1568395432647
           },
           "name" : {
             "created-date" : {
-              "value" : 1475168177903
+              "value" : 1460760007316
             },
             "last-modified-date" : {
-              "value" : 1475168177903
+              "value" : 1460760007316
             },
             "given-names" : {
               "value" : "Carl"
             },
             "family-name" : {
-              "value" : "Fraser"
+              "value" : "Beringer"
             },
             "credit-name" : null,
             "source" : null,
             "visibility" : "public",
-            "path" : "0000-0002-8206-2357"
+            "path" : "0000-0002-5377-2624"
           },
           "other-names" : {
-            "last-modified-date" : null,
-            "other-name" : [ ],
-            "path" : "/0000-0002-8206-2357/other-names"
-          },
-          "biography" : null,
-          "researcher-urls" : {
             "last-modified-date" : {
-              "value" : 1522168972321
+              "value" : 1502887568402
             },
-            "researcher-url" : [ {
+            "other-name" : [ {
               "created-date" : {
-                "value" : 1522168972321
+                "value" : 1502887568402
               },
               "last-modified-date" : {
-                "value" : 1522168972321
+                "value" : 1502887568402
               },
               "source" : {
                 "source-orcid" : {
-                  "uri" : "https://orcid.org/0000-0002-8206-2357",
-                  "path" : "0000-0002-8206-2357",
+                  "uri" : "https://orcid.org/0000-0002-5377-2624",
+                  "path" : "0000-0002-5377-2624",
                   "host" : "orcid.org"
                 },
                 "source-client-id" : null,
                 "source-name" : {
-                  "value" : "Carl Fraser"
+                  "value" : "Carl Beringer"
                 },
                 "assertion-origin-orcid" : null,
                 "assertion-origin-client-id" : null,
                 "assertion-origin-name" : null
               },
-              "url-name" : "Blog",
-              "url" : {
-                "value" : "https://situationarchitecture.com/"
-              },
+              "content" : "Carl R. Beringer III",
               "visibility" : "public",
-              "path" : "/0000-0002-8206-2357/researcher-urls/1396683",
-              "put-code" : 1396683,
+              "path" : "/0000-0002-5377-2624/other-names/984495",
+              "put-code" : 984495,
               "display-index" : 1
             } ],
-            "path" : "/0000-0002-8206-2357/researcher-urls"
+            "path" : "/0000-0002-5377-2624/other-names"
+          },
+          "biography" : null,
+          "researcher-urls" : {
+            "last-modified-date" : null,
+            "researcher-url" : [ ],
+            "path" : "/0000-0002-5377-2624/researcher-urls"
           },
           "emails" : {
             "last-modified-date" : null,
             "email" : [ ],
-            "path" : "/0000-0002-8206-2357/email"
+            "path" : "/0000-0002-5377-2624/email"
           },
           "addresses" : {
             "last-modified-date" : {
-              "value" : 1522169209807
+              "value" : 1502887578265
             },
             "address" : [ {
               "created-date" : {
-                "value" : 1522169209807
+                "value" : 1502887578264
               },
               "last-modified-date" : {
-                "value" : 1522169209807
+                "value" : 1502887578265
               },
               "source" : {
                 "source-orcid" : {
-                  "uri" : "https://orcid.org/0000-0002-8206-2357",
-                  "path" : "0000-0002-8206-2357",
+                  "uri" : "https://orcid.org/0000-0002-5377-2624",
+                  "path" : "0000-0002-5377-2624",
                   "host" : "orcid.org"
                 },
                 "source-client-id" : null,
                 "source-name" : {
-                  "value" : "Carl Fraser"
+                  "value" : "Carl Beringer"
                 },
                 "assertion-origin-orcid" : null,
                 "assertion-origin-client-id" : null,
                 "assertion-origin-name" : null
               },
               "country" : {
-                "value" : "GB"
+                "value" : "US"
               },
               "visibility" : "public",
-              "path" : "/0000-0002-8206-2357/address/932866",
-              "put-code" : 932866,
+              "path" : "/0000-0002-5377-2624/address/764545",
+              "put-code" : 764545,
               "display-index" : 1
             } ],
-            "path" : "/0000-0002-8206-2357/address"
-          },
-          "keywords" : {
-            "last-modified-date" : {
-              "value" : 1522169196781
-            },
-            "keyword" : [ {
-              "created-date" : {
-                "value" : 1522169160446
-              },
-              "last-modified-date" : {
-                "value" : 1522169196781
-              },
-              "source" : {
-                "source-orcid" : {
-                  "uri" : "https://orcid.org/0000-0002-8206-2357",
-                  "path" : "0000-0002-8206-2357",
-                  "host" : "orcid.org"
-                },
-                "source-client-id" : null,
-                "source-name" : {
-                  "value" : "Carl Fraser"
-                },
-                "assertion-origin-orcid" : null,
-                "assertion-origin-client-id" : null,
-                "assertion-origin-name" : null
-              },
-              "content" : "Public Space",
-              "visibility" : "public",
-              "path" : "/0000-0002-8206-2357/keywords/939960",
-              "put-code" : 939960,
-              "display-index" : 4
-            }, {
-              "created-date" : {
-                "value" : 1522169196774
-              },
-              "last-modified-date" : {
-                "value" : 1522169196774
-              },
-              "source" : {
-                "source-orcid" : {
-                  "uri" : "https://orcid.org/0000-0002-8206-2357",
-                  "path" : "0000-0002-8206-2357",
-                  "host" : "orcid.org"
-                },
-                "source-client-id" : null,
-                "source-name" : {
-                  "value" : "Carl Fraser"
-                },
-                "assertion-origin-orcid" : null,
-                "assertion-origin-client-id" : null,
-                "assertion-origin-name" : null
-              },
-              "content" : "Protest",
-              "visibility" : "public",
-              "path" : "/0000-0002-8206-2357/keywords/939961",
-              "put-code" : 939961,
-              "display-index" : 3
-            }, {
-              "created-date" : {
-                "value" : 1522169196776
-              },
-              "last-modified-date" : {
-                "value" : 1522169196776
-              },
-              "source" : {
-                "source-orcid" : {
-                  "uri" : "https://orcid.org/0000-0002-8206-2357",
-                  "path" : "0000-0002-8206-2357",
-                  "host" : "orcid.org"
-                },
-                "source-client-id" : null,
-                "source-name" : {
-                  "value" : "Carl Fraser"
-                },
-                "assertion-origin-orcid" : null,
-                "assertion-origin-client-id" : null,
-                "assertion-origin-name" : null
-              },
-              "content" : "Democracy",
-              "visibility" : "public",
-              "path" : "/0000-0002-8206-2357/keywords/939962",
-              "put-code" : 939962,
-              "display-index" : 2
-            }, {
-              "created-date" : {
-                "value" : 1522169196779
-              },
-              "last-modified-date" : {
-                "value" : 1522169196779
-              },
-              "source" : {
-                "source-orcid" : {
-                  "uri" : "https://orcid.org/0000-0002-8206-2357",
-                  "path" : "0000-0002-8206-2357",
-                  "host" : "orcid.org"
-                },
-                "source-client-id" : null,
-                "source-name" : {
-                  "value" : "Carl Fraser"
-                },
-                "assertion-origin-orcid" : null,
-                "assertion-origin-client-id" : null,
-                "assertion-origin-name" : null
-              },
-              "content" : "Countermapping",
-              "visibility" : "public",
-              "path" : "/0000-0002-8206-2357/keywords/939963",
-              "put-code" : 939963,
-              "display-index" : 1
-            } ],
-            "path" : "/0000-0002-8206-2357/keywords"
-          },
-          "external-identifiers" : {
-            "last-modified-date" : null,
-            "external-identifier" : [ ],
-            "path" : "/0000-0002-8206-2357/external-identifiers"
-          },
-          "path" : "/0000-0002-8206-2357/person"
-        }
-  recorded_at: 2019-07-12 08:40:59 GMT
-  recorded_with: vcr/0.2.6, webmockr/0.3.4
-- request:
-    method: get
-    uri: https://pub.orcid.org/v3.0/0000-0002-1059-3060/person
-    body:
-      encoding: ''
-      string: ''
-    headers:
-      Accept-Encoding: gzip, deflate
-      Accept: application/vnd.orcid+json; qs=4
-      User-Agent: r-curl/3.3 crul/0.8.0 rOpenSci(rorcid/0.5.0.9210)
-      X-USER-AGENT: r-curl/3.3 crul/0.8.0 rOpenSci(rorcid/0.5.0.9210)
-      Authorization: Bearer <<rorcid_bearer_token>>
-  response:
-    status:
-      status_code: '200'
-      message: OK
-      explanation: Request fulfilled, document follows
-    headers:
-      status: HTTP/1.1 200 OK
-      server: nginx/1.10.0
-      date: Fri, 12 Jul 2019 08:41:10 GMT
-      content-type: application/vnd.orcid+json; qs=4;charset=UTF-8
-      transfer-encoding: chunked
-      connection: keep-alive
-      access-control-allow-origin: '*'
-      cache-control: no-cache, no-store, max-age=0, must-revalidate
-      pragma: no-cache
-      expires: '0'
-      x-xss-protection: 1; mode=block
-      x-frame-options: DENY
-      x-content-type-options: nosniff
-      content-encoding: gzip
-    body:
-      encoding: UTF-8
-      string: |-
-        {
-          "last-modified-date" : null,
-          "name" : {
-            "created-date" : {
-              "value" : 1536159544714
-            },
-            "last-modified-date" : {
-              "value" : 1536159544947
-            },
-            "given-names" : {
-              "value" : "carl"
-            },
-            "family-name" : {
-              "value" : "dutton"
-            },
-            "credit-name" : null,
-            "source" : null,
-            "visibility" : "public",
-            "path" : "0000-0002-1059-3060"
-          },
-          "other-names" : {
-            "last-modified-date" : null,
-            "other-name" : [ ],
-            "path" : "/0000-0002-1059-3060/other-names"
-          },
-          "biography" : null,
-          "researcher-urls" : {
-            "last-modified-date" : null,
-            "researcher-url" : [ ],
-            "path" : "/0000-0002-1059-3060/researcher-urls"
-          },
-          "emails" : {
-            "last-modified-date" : null,
-            "email" : [ ],
-            "path" : "/0000-0002-1059-3060/email"
-          },
-          "addresses" : {
-            "last-modified-date" : null,
-            "address" : [ ],
-            "path" : "/0000-0002-1059-3060/address"
+            "path" : "/0000-0002-5377-2624/address"
           },
           "keywords" : {
             "last-modified-date" : null,
             "keyword" : [ ],
-            "path" : "/0000-0002-1059-3060/keywords"
+            "path" : "/0000-0002-5377-2624/keywords"
           },
           "external-identifiers" : {
-            "last-modified-date" : null,
-            "external-identifier" : [ ],
-            "path" : "/0000-0002-1059-3060/external-identifiers"
-          },
-          "path" : "/0000-0002-1059-3060/person"
-        }
-  recorded_at: 2019-07-12 08:40:59 GMT
-  recorded_with: vcr/0.2.6, webmockr/0.3.4
-- request:
-    method: get
-    uri: https://pub.orcid.org/v3.0/0000-0001-8554-3669/person
-    body:
-      encoding: ''
-      string: ''
-    headers:
-      Accept-Encoding: gzip, deflate
-      Accept: application/vnd.orcid+json; qs=4
-      User-Agent: r-curl/3.3 crul/0.8.0 rOpenSci(rorcid/0.5.0.9210)
-      X-USER-AGENT: r-curl/3.3 crul/0.8.0 rOpenSci(rorcid/0.5.0.9210)
-      Authorization: Bearer <<rorcid_bearer_token>>
-  response:
-    status:
-      status_code: '200'
-      message: OK
-      explanation: Request fulfilled, document follows
-    headers:
-      status: HTTP/1.1 200 OK
-      server: nginx/1.10.0
-      date: Fri, 12 Jul 2019 08:41:10 GMT
-      content-type: application/vnd.orcid+json; qs=4;charset=UTF-8
-      transfer-encoding: chunked
-      connection: keep-alive
-      access-control-allow-origin: '*'
-      cache-control: no-cache, no-store, max-age=0, must-revalidate
-      pragma: no-cache
-      expires: '0'
-      x-xss-protection: 1; mode=block
-      x-frame-options: DENY
-      x-content-type-options: nosniff
-      content-encoding: gzip
-    body:
-      encoding: UTF-8
-      string: |-
-        {
-          "last-modified-date" : {
-            "value" : 1472637494245
-          },
-          "name" : {
-            "created-date" : {
-              "value" : 1472207195638
-            },
             "last-modified-date" : {
-              "value" : 1472637494248
+              "value" : 1568395432647
             },
-            "given-names" : {
-              "value" : "Carl"
-            },
-            "family-name" : {
-              "value" : "Pidgeon"
-            },
-            "credit-name" : {
-              "value" : "Carl Pidgeon"
-            },
-            "source" : null,
-            "visibility" : "public",
-            "path" : "0000-0001-8554-3669"
-          },
-          "other-names" : {
-            "last-modified-date" : null,
-            "other-name" : [ ],
-            "path" : "/0000-0001-8554-3669/other-names"
-          },
-          "biography" : null,
-          "researcher-urls" : {
-            "last-modified-date" : {
-              "value" : 1472637494245
-            },
-            "researcher-url" : [ {
+            "external-identifier" : [ {
               "created-date" : {
-                "value" : 1472637494245
+                "value" : 1442241008432
               },
               "last-modified-date" : {
-                "value" : 1472637494245
+                "value" : 1442241008432
               },
               "source" : {
                 "source-orcid" : null,
                 "source-client-id" : {
-                  "uri" : "https://orcid.org/client/APP-G7QN73B3OLI30QKW",
-                  "path" : "APP-G7QN73B3OLI30QKW",
+                  "uri" : "https://orcid.org/client/APP-LBV5EQ8U9CUC0XII",
+                  "path" : "APP-LBV5EQ8U9CUC0XII",
                   "host" : "orcid.org"
                 },
                 "source-name" : {
-                  "value" : "Heriot-Watt University"
+                  "value" : "University of Pittsburgh"
                 },
                 "assertion-origin-orcid" : null,
                 "assertion-origin-client-id" : null,
                 "assertion-origin-name" : null
               },
-              "url-name" : "Heriot-Watt University profile page",
-              "url" : {
-                "value" : "https://pureapps2.hw.ac.uk/portal/en/persons/carl-pidgeon(82b3acbd-b56b-4e86-a77a-2c6c7c0675b2).html"
+              "external-id-type" : "Pitt ID",
+              "external-id-value" : "crb99",
+              "external-id-url" : {
+                "value" : "https://orcid.pitt.edu/find?id=crb99"
               },
+              "external-id-relationship" : "self",
               "visibility" : "public",
-              "path" : "/0000-0001-8554-3669/researcher-urls/798756",
-              "put-code" : 798756,
+              "path" : "/0000-0002-5377-2624/external-identifiers/332344",
+              "put-code" : 332344,
+              "display-index" : 0
+            }, {
+              "created-date" : {
+                "value" : 1568395432646
+              },
+              "last-modified-date" : {
+                "value" : 1568395432647
+              },
+              "source" : {
+                "source-orcid" : null,
+                "source-client-id" : {
+                  "uri" : "https://orcid.org/client/0000-0002-5982-8983",
+                  "path" : "0000-0002-5982-8983",
+                  "host" : "orcid.org"
+                },
+                "source-name" : {
+                  "value" : "Scopus - Elsevier"
+                },
+                "assertion-origin-orcid" : {
+                  "uri" : "https://orcid.org/0000-0002-5377-2624",
+                  "path" : "0000-0002-5377-2624",
+                  "host" : "orcid.org"
+                },
+                "assertion-origin-client-id" : null,
+                "assertion-origin-name" : {
+                  "value" : "Carl Beringer"
+                }
+              },
+              "external-id-type" : "Scopus Author ID",
+              "external-id-value" : "55915298200",
+              "external-id-url" : {
+                "value" : "http://www.scopus.com/inward/authorDetails.url?authorID=55915298200&partnerID=MN8TOARS"
+              },
+              "external-id-relationship" : "self",
+              "visibility" : "public",
+              "path" : "/0000-0002-5377-2624/external-identifiers/1465681",
+              "put-code" : 1465681,
               "display-index" : 0
             } ],
-            "path" : "/0000-0001-8554-3669/researcher-urls"
+            "path" : "/0000-0002-5377-2624/external-identifiers"
           },
-          "emails" : {
-            "last-modified-date" : null,
-            "email" : [ ],
-            "path" : "/0000-0001-8554-3669/email"
-          },
-          "addresses" : {
-            "last-modified-date" : null,
-            "address" : [ ],
-            "path" : "/0000-0001-8554-3669/address"
-          },
-          "keywords" : {
-            "last-modified-date" : null,
-            "keyword" : [ ],
-            "path" : "/0000-0001-8554-3669/keywords"
-          },
-          "external-identifiers" : {
-            "last-modified-date" : null,
-            "external-identifier" : [ ],
-            "path" : "/0000-0001-8554-3669/external-identifiers"
-          },
-          "path" : "/0000-0001-8554-3669/person"
+          "path" : "/0000-0002-5377-2624/person"
         }
-  recorded_at: 2019-07-12 08:40:59 GMT
-  recorded_with: vcr/0.2.6, webmockr/0.3.4
+  recorded_at: 2020-02-05 22:24:23 GMT
+  recorded_with: vcr/0.4.0, webmockr/0.5.0
 - request:
     method: get
-    uri: https://pub.orcid.org/v3.0/0000-0002-0941-2509/person
+    uri: https://pub.orcid.org/v3.0/0000-0002-0646-0388/person
     body:
       encoding: ''
       string: ''
     headers:
       Accept-Encoding: gzip, deflate
       Accept: application/vnd.orcid+json; qs=4
-      User-Agent: r-curl/3.3 crul/0.8.0 rOpenSci(rorcid/0.5.0.9210)
-      X-USER-AGENT: r-curl/3.3 crul/0.8.0 rOpenSci(rorcid/0.5.0.9210)
+      User-Agent: r-curl/4.3 crul/0.9.0 rOpenSci(rorcid/0.6.3.91)
+      X-USER-AGENT: r-curl/4.3 crul/0.9.0 rOpenSci(rorcid/0.6.3.91)
       Authorization: Bearer <<rorcid_bearer_token>>
   response:
     status:
@@ -1043,8 +341,8 @@ http_interactions:
       explanation: Request fulfilled, document follows
     headers:
       status: HTTP/1.1 200 OK
-      server: nginx/1.10.0
-      date: Fri, 12 Jul 2019 08:41:11 GMT
+      server: nginx/1.16.1
+      date: Wed, 05 Feb 2020 22:24:21 GMT
       content-type: application/vnd.orcid+json; qs=4;charset=UTF-8
       transfer-encoding: chunked
       connection: keep-alive
@@ -1058,73 +356,106 @@ http_interactions:
       content-encoding: gzip
     body:
       encoding: UTF-8
+      file: no
       string: |-
         {
-          "last-modified-date" : null,
+          "last-modified-date" : {
+            "value" : 1568967127444
+          },
           "name" : {
             "created-date" : {
-              "value" : 1473446465785
+              "value" : 1568966911903
             },
             "last-modified-date" : {
-              "value" : 1473446465785
+              "value" : 1568966911903
             },
             "given-names" : {
               "value" : "Carl"
             },
             "family-name" : {
-              "value" : "Malmgren"
+              "value" : "Westin"
             },
             "credit-name" : null,
             "source" : null,
             "visibility" : "public",
-            "path" : "0000-0002-0941-2509"
+            "path" : "0000-0002-0646-0388"
           },
           "other-names" : {
             "last-modified-date" : null,
             "other-name" : [ ],
-            "path" : "/0000-0002-0941-2509/other-names"
+            "path" : "/0000-0002-0646-0388/other-names"
           },
           "biography" : null,
           "researcher-urls" : {
             "last-modified-date" : null,
             "researcher-url" : [ ],
-            "path" : "/0000-0002-0941-2509/researcher-urls"
+            "path" : "/0000-0002-0646-0388/researcher-urls"
           },
           "emails" : {
             "last-modified-date" : null,
             "email" : [ ],
-            "path" : "/0000-0002-0941-2509/email"
+            "path" : "/0000-0002-0646-0388/email"
           },
           "addresses" : {
-            "last-modified-date" : null,
-            "address" : [ ],
-            "path" : "/0000-0002-0941-2509/address"
+            "last-modified-date" : {
+              "value" : 1568967127444
+            },
+            "address" : [ {
+              "created-date" : {
+                "value" : 1568967127444
+              },
+              "last-modified-date" : {
+                "value" : 1568967127444
+              },
+              "source" : {
+                "source-orcid" : {
+                  "uri" : "https://orcid.org/0000-0002-0646-0388",
+                  "path" : "0000-0002-0646-0388",
+                  "host" : "orcid.org"
+                },
+                "source-client-id" : null,
+                "source-name" : {
+                  "value" : "Carl Westin"
+                },
+                "assertion-origin-orcid" : null,
+                "assertion-origin-client-id" : null,
+                "assertion-origin-name" : null
+              },
+              "country" : {
+                "value" : "SE"
+              },
+              "visibility" : "public",
+              "path" : "/0000-0002-0646-0388/address/1372053",
+              "put-code" : 1372053,
+              "display-index" : 1
+            } ],
+            "path" : "/0000-0002-0646-0388/address"
           },
           "keywords" : {
             "last-modified-date" : null,
             "keyword" : [ ],
-            "path" : "/0000-0002-0941-2509/keywords"
+            "path" : "/0000-0002-0646-0388/keywords"
           },
           "external-identifiers" : {
             "last-modified-date" : null,
             "external-identifier" : [ ],
-            "path" : "/0000-0002-0941-2509/external-identifiers"
+            "path" : "/0000-0002-0646-0388/external-identifiers"
           },
-          "path" : "/0000-0002-0941-2509/person"
+          "path" : "/0000-0002-0646-0388/person"
         }
-  recorded_at: 2019-07-12 08:40:59 GMT
-  recorded_with: vcr/0.2.6, webmockr/0.3.4
+  recorded_at: 2020-02-05 22:24:23 GMT
+  recorded_with: vcr/0.4.0, webmockr/0.5.0
 - request:
     method: get
-    uri: https://pub.orcid.org/v3.0/0000-0003-1388-4477/person
+    uri: https://pub.orcid.org/v3.0/0000-0002-3141-3057/person
     body:
       encoding: ''
       string: ''
     headers:
       Accept-Encoding: gzip, deflate
       Accept: application/vnd.orcid+json; qs=4
-      User-Agent: r-curl/3.3 crul/0.8.0 rOpenSci(rorcid/0.5.0.9210)
-      X-USER-AGENT: r-curl/3.3 crul/0.8.0 rOpenSci(rorcid/0.5.0.9210)
+      User-Agent: r-curl/4.3 crul/0.9.0 rOpenSci(rorcid/0.6.3.91)
+      X-USER-AGENT: r-curl/4.3 crul/0.9.0 rOpenSci(rorcid/0.6.3.91)
       Authorization: Bearer <<rorcid_bearer_token>>
   response:
     status:
@@ -1133,8 +464,8 @@ http_interactions:
       explanation: Request fulfilled, document follows
     headers:
       status: HTTP/1.1 200 OK
-      server: nginx/1.10.0
-      date: Fri, 12 Jul 2019 08:41:11 GMT
+      server: nginx/1.16.1
+      date: Wed, 05 Feb 2020 22:24:21 GMT
       content-type: application/vnd.orcid+json; qs=4;charset=UTF-8
       transfer-encoding: chunked
       connection: keep-alive
@@ -1148,59 +479,795 @@ http_interactions:
       content-encoding: gzip
     body:
       encoding: UTF-8
+      file: no
       string: |-
         {
           "last-modified-date" : null,
           "name" : {
             "created-date" : {
-              "value" : 1475309706243
+              "value" : 1460758450014
             },
             "last-modified-date" : {
-              "value" : 1475309706243
+              "value" : 1460758450014
             },
             "given-names" : {
-              "value" : "carl"
+              "value" : "Carl"
             },
             "family-name" : {
-              "value" : "clerens"
+              "value" : "Liebersohn"
             },
-            "credit-name" : null,
+            "credit-name" : {
+              "value" : "Carl Jacob Liebersohn"
+            },
             "source" : null,
             "visibility" : "public",
-            "path" : "0000-0003-1388-4477"
+            "path" : "0000-0002-3141-3057"
           },
           "other-names" : {
             "last-modified-date" : null,
             "other-name" : [ ],
-            "path" : "/0000-0003-1388-4477/other-names"
+            "path" : "/0000-0002-3141-3057/other-names"
           },
           "biography" : null,
           "researcher-urls" : {
             "last-modified-date" : null,
             "researcher-url" : [ ],
-            "path" : "/0000-0003-1388-4477/researcher-urls"
+            "path" : "/0000-0002-3141-3057/researcher-urls"
           },
           "emails" : {
             "last-modified-date" : null,
             "email" : [ ],
-            "path" : "/0000-0003-1388-4477/email"
+            "path" : "/0000-0002-3141-3057/email"
           },
           "addresses" : {
             "last-modified-date" : null,
             "address" : [ ],
-            "path" : "/0000-0003-1388-4477/address"
+            "path" : "/0000-0002-3141-3057/address"
           },
           "keywords" : {
             "last-modified-date" : null,
             "keyword" : [ ],
-            "path" : "/0000-0003-1388-4477/keywords"
+            "path" : "/0000-0002-3141-3057/keywords"
           },
           "external-identifiers" : {
             "last-modified-date" : null,
             "external-identifier" : [ ],
-            "path" : "/0000-0003-1388-4477/external-identifiers"
+            "path" : "/0000-0002-3141-3057/external-identifiers"
           },
-          "path" : "/0000-0003-1388-4477/person"
+          "path" : "/0000-0002-3141-3057/person"
         }
-  recorded_at: 2019-07-12 08:40:59 GMT
-  recorded_with: vcr/0.2.6, webmockr/0.3.4
+  recorded_at: 2020-02-05 22:24:23 GMT
+  recorded_with: vcr/0.4.0, webmockr/0.5.0
+- request:
+    method: get
+    uri: https://pub.orcid.org/v3.0/0000-0003-4575-321X/person
+    body:
+      encoding: ''
+      string: ''
+    headers:
+      Accept-Encoding: gzip, deflate
+      Accept: application/vnd.orcid+json; qs=4
+      User-Agent: r-curl/4.3 crul/0.9.0 rOpenSci(rorcid/0.6.3.91)
+      X-USER-AGENT: r-curl/4.3 crul/0.9.0 rOpenSci(rorcid/0.6.3.91)
+      Authorization: Bearer <<rorcid_bearer_token>>
+  response:
+    status:
+      status_code: '200'
+      message: OK
+      explanation: Request fulfilled, document follows
+    headers:
+      status: HTTP/1.1 200 OK
+      server: nginx/1.16.1
+      date: Wed, 05 Feb 2020 22:24:21 GMT
+      content-type: application/vnd.orcid+json; qs=4;charset=UTF-8
+      transfer-encoding: chunked
+      connection: keep-alive
+      access-control-allow-origin: '*'
+      cache-control: no-cache, no-store, max-age=0, must-revalidate
+      pragma: no-cache
+      expires: '0'
+      x-xss-protection: 1; mode=block
+      x-frame-options: DENY
+      x-content-type-options: nosniff
+      content-encoding: gzip
+    body:
+      encoding: UTF-8
+      file: no
+      string: |-
+        {
+          "last-modified-date" : null,
+          "name" : {
+            "created-date" : {
+              "value" : 1460766331358
+            },
+            "last-modified-date" : {
+              "value" : 1460766331358
+            },
+            "given-names" : {
+              "value" : "CARL"
+            },
+            "family-name" : {
+              "value" : "HIMPSEL"
+            },
+            "credit-name" : null,
+            "source" : null,
+            "visibility" : "public",
+            "path" : "0000-0003-4575-321X"
+          },
+          "other-names" : {
+            "last-modified-date" : null,
+            "other-name" : [ ],
+            "path" : "/0000-0003-4575-321X/other-names"
+          },
+          "biography" : null,
+          "researcher-urls" : {
+            "last-modified-date" : null,
+            "researcher-url" : [ ],
+            "path" : "/0000-0003-4575-321X/researcher-urls"
+          },
+          "emails" : {
+            "last-modified-date" : null,
+            "email" : [ ],
+            "path" : "/0000-0003-4575-321X/email"
+          },
+          "addresses" : {
+            "last-modified-date" : null,
+            "address" : [ ],
+            "path" : "/0000-0003-4575-321X/address"
+          },
+          "keywords" : {
+            "last-modified-date" : null,
+            "keyword" : [ ],
+            "path" : "/0000-0003-4575-321X/keywords"
+          },
+          "external-identifiers" : {
+            "last-modified-date" : null,
+            "external-identifier" : [ ],
+            "path" : "/0000-0003-4575-321X/external-identifiers"
+          },
+          "path" : "/0000-0003-4575-321X/person"
+        }
+  recorded_at: 2020-02-05 22:24:23 GMT
+  recorded_with: vcr/0.4.0, webmockr/0.5.0
+- request:
+    method: get
+    uri: https://pub.orcid.org/v3.0/0000-0002-3743-6823/person
+    body:
+      encoding: ''
+      string: ''
+    headers:
+      Accept-Encoding: gzip, deflate
+      Accept: application/vnd.orcid+json; qs=4
+      User-Agent: r-curl/4.3 crul/0.9.0 rOpenSci(rorcid/0.6.3.91)
+      X-USER-AGENT: r-curl/4.3 crul/0.9.0 rOpenSci(rorcid/0.6.3.91)
+      Authorization: Bearer <<rorcid_bearer_token>>
+  response:
+    status:
+      status_code: '200'
+      message: OK
+      explanation: Request fulfilled, document follows
+    headers:
+      status: HTTP/1.1 200 OK
+      server: nginx/1.16.1
+      date: Wed, 05 Feb 2020 22:24:21 GMT
+      content-type: application/vnd.orcid+json; qs=4;charset=UTF-8
+      transfer-encoding: chunked
+      connection: keep-alive
+      access-control-allow-origin: '*'
+      cache-control: no-cache, no-store, max-age=0, must-revalidate
+      pragma: no-cache
+      expires: '0'
+      x-xss-protection: 1; mode=block
+      x-frame-options: DENY
+      x-content-type-options: nosniff
+      content-encoding: gzip
+    body:
+      encoding: UTF-8
+      file: no
+      string: |-
+        {
+          "last-modified-date" : {
+            "value" : 1405884316273
+          },
+          "name" : {
+            "created-date" : {
+              "value" : 1460758809766
+            },
+            "last-modified-date" : {
+              "value" : 1460758809766
+            },
+            "given-names" : {
+              "value" : "Carl"
+            },
+            "family-name" : {
+              "value" : "Sheperis"
+            },
+            "credit-name" : {
+              "value" : "Carl Sheperis"
+            },
+            "source" : null,
+            "visibility" : "public",
+            "path" : "0000-0002-3743-6823"
+          },
+          "other-names" : {
+            "last-modified-date" : null,
+            "other-name" : [ ],
+            "path" : "/0000-0002-3743-6823/other-names"
+          },
+          "biography" : {
+            "created-date" : {
+              "value" : 1460758809769
+            },
+            "last-modified-date" : {
+              "value" : 1460758809769
+            },
+            "content" : "Carl Sheperis’ professional life has spanned more than 20 years. He has published numerous journal articles and textbooks.  Dr. Sheperis has provided service to numerous professional organizations. He is President of the Association for Research and Assessment in Counseling, Associate Editor of the Journal of Counseling and Development, and a member of the ACA Publications Committee. He has worked with the American Counseling Association as the chair of the Research & Knowledge Committee and has served as the Editor of the Journal of Counseling Research and Practice. \r\n\r\nCarl Sheperis has contributed articles and entries to the Journal of Counseling & Development; The Family Journal; The Journal of Mental Health Counseling; The Clinical Supervisor; The Journal of Professional Counseling, Practice, Theory, and Research; the ACA Encyclopedia; ACA Best Practice Briefs; and elsewhere. He is a frequent speaker and presenter at professional conferences.",
+            "visibility" : "public",
+            "path" : "/0000-0002-3743-6823/biography"
+          },
+          "researcher-urls" : {
+            "last-modified-date" : {
+              "value" : 1405884316273
+            },
+            "researcher-url" : [ {
+              "created-date" : {
+                "value" : 1405884316273
+              },
+              "last-modified-date" : {
+                "value" : 1405884316273
+              },
+              "source" : {
+                "source-orcid" : {
+                  "uri" : "https://orcid.org/0000-0002-3743-6823",
+                  "path" : "0000-0002-3743-6823",
+                  "host" : "orcid.org"
+                },
+                "source-client-id" : null,
+                "source-name" : {
+                  "value" : "Carl Sheperis"
+                },
+                "assertion-origin-orcid" : null,
+                "assertion-origin-client-id" : null,
+                "assertion-origin-name" : null
+              },
+              "url-name" : "Lamar University Department Site",
+              "url" : {
+                "value" : "http://dept.lamar.edu/counseling/"
+              },
+              "visibility" : "public",
+              "path" : "/0000-0002-3743-6823/researcher-urls/300773",
+              "put-code" : 300773,
+              "display-index" : 0
+            } ],
+            "path" : "/0000-0002-3743-6823/researcher-urls"
+          },
+          "emails" : {
+            "last-modified-date" : {
+              "value" : 1363381837755
+            },
+            "email" : [ {
+              "created-date" : {
+                "value" : 1363381837755
+              },
+              "last-modified-date" : {
+                "value" : 1363381837755
+              },
+              "source" : {
+                "source-orcid" : null,
+                "source-client-id" : null,
+                "source-name" : null,
+                "assertion-origin-orcid" : null,
+                "assertion-origin-client-id" : null,
+                "assertion-origin-name" : null
+              },
+              "email" : "csheperis@lamar.edu",
+              "path" : null,
+              "visibility" : "public",
+              "verified" : true,
+              "primary" : true,
+              "put-code" : null
+            } ],
+            "path" : "/0000-0002-3743-6823/email"
+          },
+          "addresses" : {
+            "last-modified-date" : null,
+            "address" : [ ],
+            "path" : "/0000-0002-3743-6823/address"
+          },
+          "keywords" : {
+            "last-modified-date" : {
+              "value" : 1363381837755
+            },
+            "keyword" : [ {
+              "created-date" : {
+                "value" : 1363381837755
+              },
+              "last-modified-date" : {
+                "value" : 1363381837755
+              },
+              "source" : {
+                "source-orcid" : {
+                  "uri" : "https://orcid.org/0000-0002-3743-6823",
+                  "path" : "0000-0002-3743-6823",
+                  "host" : "orcid.org"
+                },
+                "source-client-id" : null,
+                "source-name" : {
+                  "value" : "Carl Sheperis"
+                },
+                "assertion-origin-orcid" : null,
+                "assertion-origin-client-id" : null,
+                "assertion-origin-name" : null
+              },
+              "content" : "research, assessment, behavioral, sheperis, children, parenting",
+              "visibility" : "public",
+              "path" : "/0000-0002-3743-6823/keywords/10367",
+              "put-code" : 10367,
+              "display-index" : 0
+            } ],
+            "path" : "/0000-0002-3743-6823/keywords"
+          },
+          "external-identifiers" : {
+            "last-modified-date" : null,
+            "external-identifier" : [ ],
+            "path" : "/0000-0002-3743-6823/external-identifiers"
+          },
+          "path" : "/0000-0002-3743-6823/person"
+        }
+  recorded_at: 2020-02-05 22:24:23 GMT
+  recorded_with: vcr/0.4.0, webmockr/0.5.0
+- request:
+    method: get
+    uri: https://pub.orcid.org/v3.0/0000-0001-7187-7633/person
+    body:
+      encoding: ''
+      string: ''
+    headers:
+      Accept-Encoding: gzip, deflate
+      Accept: application/vnd.orcid+json; qs=4
+      User-Agent: r-curl/4.3 crul/0.9.0 rOpenSci(rorcid/0.6.3.91)
+      X-USER-AGENT: r-curl/4.3 crul/0.9.0 rOpenSci(rorcid/0.6.3.91)
+      Authorization: Bearer <<rorcid_bearer_token>>
+  response:
+    status:
+      status_code: '200'
+      message: OK
+      explanation: Request fulfilled, document follows
+    headers:
+      status: HTTP/1.1 200 OK
+      server: nginx/1.16.1
+      date: Wed, 05 Feb 2020 22:24:22 GMT
+      content-type: application/vnd.orcid+json; qs=4;charset=UTF-8
+      transfer-encoding: chunked
+      connection: keep-alive
+      access-control-allow-origin: '*'
+      cache-control: no-cache, no-store, max-age=0, must-revalidate
+      pragma: no-cache
+      expires: '0'
+      x-xss-protection: 1; mode=block
+      x-frame-options: DENY
+      x-content-type-options: nosniff
+      content-encoding: gzip
+    body:
+      encoding: UTF-8
+      file: no
+      string: |-
+        {
+          "last-modified-date" : null,
+          "name" : {
+            "created-date" : {
+              "value" : 1460754639295
+            },
+            "last-modified-date" : {
+              "value" : 1460754639295
+            },
+            "given-names" : {
+              "value" : "Carl"
+            },
+            "family-name" : {
+              "value" : "McGowan"
+            },
+            "credit-name" : null,
+            "source" : null,
+            "visibility" : "public",
+            "path" : "0000-0001-7187-7633"
+          },
+          "other-names" : {
+            "last-modified-date" : null,
+            "other-name" : [ ],
+            "path" : "/0000-0001-7187-7633/other-names"
+          },
+          "biography" : null,
+          "researcher-urls" : {
+            "last-modified-date" : null,
+            "researcher-url" : [ ],
+            "path" : "/0000-0001-7187-7633/researcher-urls"
+          },
+          "emails" : {
+            "last-modified-date" : null,
+            "email" : [ ],
+            "path" : "/0000-0001-7187-7633/email"
+          },
+          "addresses" : {
+            "last-modified-date" : null,
+            "address" : [ ],
+            "path" : "/0000-0001-7187-7633/address"
+          },
+          "keywords" : {
+            "last-modified-date" : null,
+            "keyword" : [ ],
+            "path" : "/0000-0001-7187-7633/keywords"
+          },
+          "external-identifiers" : {
+            "last-modified-date" : null,
+            "external-identifier" : [ ],
+            "path" : "/0000-0001-7187-7633/external-identifiers"
+          },
+          "path" : "/0000-0001-7187-7633/person"
+        }
+  recorded_at: 2020-02-05 22:24:23 GMT
+  recorded_with: vcr/0.4.0, webmockr/0.5.0
+- request:
+    method: get
+    uri: https://pub.orcid.org/v3.0/0000-0003-0723-0581/person
+    body:
+      encoding: ''
+      string: ''
+    headers:
+      Accept-Encoding: gzip, deflate
+      Accept: application/vnd.orcid+json; qs=4
+      User-Agent: r-curl/4.3 crul/0.9.0 rOpenSci(rorcid/0.6.3.91)
+      X-USER-AGENT: r-curl/4.3 crul/0.9.0 rOpenSci(rorcid/0.6.3.91)
+      Authorization: Bearer <<rorcid_bearer_token>>
+  response:
+    status:
+      status_code: '200'
+      message: OK
+      explanation: Request fulfilled, document follows
+    headers:
+      status: HTTP/1.1 200 OK
+      server: nginx/1.16.1
+      date: Wed, 05 Feb 2020 22:24:22 GMT
+      content-type: application/vnd.orcid+json; qs=4;charset=UTF-8
+      transfer-encoding: chunked
+      connection: keep-alive
+      access-control-allow-origin: '*'
+      cache-control: no-cache, no-store, max-age=0, must-revalidate
+      pragma: no-cache
+      expires: '0'
+      x-xss-protection: 1; mode=block
+      x-frame-options: DENY
+      x-content-type-options: nosniff
+      content-encoding: gzip
+    body:
+      encoding: UTF-8
+      file: no
+      string: |-
+        {
+          "last-modified-date" : null,
+          "name" : {
+            "created-date" : {
+              "value" : 1460763229004
+            },
+            "last-modified-date" : {
+              "value" : 1460763229004
+            },
+            "given-names" : {
+              "value" : "carl"
+            },
+            "family-name" : {
+              "value" : "mattacola"
+            },
+            "credit-name" : null,
+            "source" : null,
+            "visibility" : "public",
+            "path" : "0000-0003-0723-0581"
+          },
+          "other-names" : {
+            "last-modified-date" : null,
+            "other-name" : [ ],
+            "path" : "/0000-0003-0723-0581/other-names"
+          },
+          "biography" : null,
+          "researcher-urls" : {
+            "last-modified-date" : null,
+            "researcher-url" : [ ],
+            "path" : "/0000-0003-0723-0581/researcher-urls"
+          },
+          "emails" : {
+            "last-modified-date" : null,
+            "email" : [ ],
+            "path" : "/0000-0003-0723-0581/email"
+          },
+          "addresses" : {
+            "last-modified-date" : null,
+            "address" : [ ],
+            "path" : "/0000-0003-0723-0581/address"
+          },
+          "keywords" : {
+            "last-modified-date" : null,
+            "keyword" : [ ],
+            "path" : "/0000-0003-0723-0581/keywords"
+          },
+          "external-identifiers" : {
+            "last-modified-date" : null,
+            "external-identifier" : [ ],
+            "path" : "/0000-0003-0723-0581/external-identifiers"
+          },
+          "path" : "/0000-0003-0723-0581/person"
+        }
+  recorded_at: 2020-02-05 22:24:23 GMT
+  recorded_with: vcr/0.4.0, webmockr/0.5.0
+- request:
+    method: get
+    uri: https://pub.orcid.org/v3.0/0000-0001-6101-5802/person
+    body:
+      encoding: ''
+      string: ''
+    headers:
+      Accept-Encoding: gzip, deflate
+      Accept: application/vnd.orcid+json; qs=4
+      User-Agent: r-curl/4.3 crul/0.9.0 rOpenSci(rorcid/0.6.3.91)
+      X-USER-AGENT: r-curl/4.3 crul/0.9.0 rOpenSci(rorcid/0.6.3.91)
+      Authorization: Bearer <<rorcid_bearer_token>>
+  response:
+    status:
+      status_code: '200'
+      message: OK
+      explanation: Request fulfilled, document follows
+    headers:
+      status: HTTP/1.1 200 OK
+      server: nginx/1.16.1
+      date: Wed, 05 Feb 2020 22:24:22 GMT
+      content-type: application/vnd.orcid+json; qs=4;charset=UTF-8
+      transfer-encoding: chunked
+      connection: keep-alive
+      access-control-allow-origin: '*'
+      cache-control: no-cache, no-store, max-age=0, must-revalidate
+      pragma: no-cache
+      expires: '0'
+      x-xss-protection: 1; mode=block
+      x-frame-options: DENY
+      x-content-type-options: nosniff
+      content-encoding: gzip
+    body:
+      encoding: UTF-8
+      file: no
+      string: |-
+        {
+          "last-modified-date" : null,
+          "name" : {
+            "created-date" : {
+              "value" : 1460753926537
+            },
+            "last-modified-date" : {
+              "value" : 1460753926537
+            },
+            "given-names" : {
+              "value" : "Carl"
+            },
+            "family-name" : {
+              "value" : "Andrews"
+            },
+            "credit-name" : null,
+            "source" : null,
+            "visibility" : "public",
+            "path" : "0000-0001-6101-5802"
+          },
+          "other-names" : {
+            "last-modified-date" : null,
+            "other-name" : [ ],
+            "path" : "/0000-0001-6101-5802/other-names"
+          },
+          "biography" : null,
+          "researcher-urls" : {
+            "last-modified-date" : null,
+            "researcher-url" : [ ],
+            "path" : "/0000-0001-6101-5802/researcher-urls"
+          },
+          "emails" : {
+            "last-modified-date" : null,
+            "email" : [ ],
+            "path" : "/0000-0001-6101-5802/email"
+          },
+          "addresses" : {
+            "last-modified-date" : null,
+            "address" : [ ],
+            "path" : "/0000-0001-6101-5802/address"
+          },
+          "keywords" : {
+            "last-modified-date" : null,
+            "keyword" : [ ],
+            "path" : "/0000-0001-6101-5802/keywords"
+          },
+          "external-identifiers" : {
+            "last-modified-date" : null,
+            "external-identifier" : [ ],
+            "path" : "/0000-0001-6101-5802/external-identifiers"
+          },
+          "path" : "/0000-0001-6101-5802/person"
+        }
+  recorded_at: 2020-02-05 22:24:23 GMT
+  recorded_with: vcr/0.4.0, webmockr/0.5.0
+- request:
+    method: get
+    uri: https://pub.orcid.org/v3.0/0000-0003-2026-0443/person
+    body:
+      encoding: ''
+      string: ''
+    headers:
+      Accept-Encoding: gzip, deflate
+      Accept: application/vnd.orcid+json; qs=4
+      User-Agent: r-curl/4.3 crul/0.9.0 rOpenSci(rorcid/0.6.3.91)
+      X-USER-AGENT: r-curl/4.3 crul/0.9.0 rOpenSci(rorcid/0.6.3.91)
+      Authorization: Bearer <<rorcid_bearer_token>>
+  response:
+    status:
+      status_code: '200'
+      message: OK
+      explanation: Request fulfilled, document follows
+    headers:
+      status: HTTP/1.1 200 OK
+      server: nginx/1.16.1
+      date: Wed, 05 Feb 2020 22:24:22 GMT
+      content-type: application/vnd.orcid+json; qs=4;charset=UTF-8
+      transfer-encoding: chunked
+      connection: keep-alive
+      access-control-allow-origin: '*'
+      cache-control: no-cache, no-store, max-age=0, must-revalidate
+      pragma: no-cache
+      expires: '0'
+      x-xss-protection: 1; mode=block
+      x-frame-options: DENY
+      x-content-type-options: nosniff
+      content-encoding: gzip
+    body:
+      encoding: UTF-8
+      file: no
+      string: |-
+        {
+          "last-modified-date" : null,
+          "name" : {
+            "created-date" : {
+              "value" : 1460764054136
+            },
+            "last-modified-date" : {
+              "value" : 1460764054136
+            },
+            "given-names" : {
+              "value" : "Carl"
+            },
+            "family-name" : {
+              "value" : "Wierks "
+            },
+            "credit-name" : null,
+            "source" : null,
+            "visibility" : "public",
+            "path" : "0000-0003-2026-0443"
+          },
+          "other-names" : {
+            "last-modified-date" : null,
+            "other-name" : [ ],
+            "path" : "/0000-0003-2026-0443/other-names"
+          },
+          "biography" : null,
+          "researcher-urls" : {
+            "last-modified-date" : null,
+            "researcher-url" : [ ],
+            "path" : "/0000-0003-2026-0443/researcher-urls"
+          },
+          "emails" : {
+            "last-modified-date" : null,
+            "email" : [ ],
+            "path" : "/0000-0003-2026-0443/email"
+          },
+          "addresses" : {
+            "last-modified-date" : null,
+            "address" : [ ],
+            "path" : "/0000-0003-2026-0443/address"
+          },
+          "keywords" : {
+            "last-modified-date" : null,
+            "keyword" : [ ],
+            "path" : "/0000-0003-2026-0443/keywords"
+          },
+          "external-identifiers" : {
+            "last-modified-date" : null,
+            "external-identifier" : [ ],
+            "path" : "/0000-0003-2026-0443/external-identifiers"
+          },
+          "path" : "/0000-0003-2026-0443/person"
+        }
+  recorded_at: 2020-02-05 22:24:23 GMT
+  recorded_with: vcr/0.4.0, webmockr/0.5.0
+- request:
+    method: get
+    uri: https://pub.orcid.org/v3.0/0000-0001-8913-3245/person
+    body:
+      encoding: ''
+      string: ''
+    headers:
+      Accept-Encoding: gzip, deflate
+      Accept: application/vnd.orcid+json; qs=4
+      User-Agent: r-curl/4.3 crul/0.9.0 rOpenSci(rorcid/0.6.3.91)
+      X-USER-AGENT: r-curl/4.3 crul/0.9.0 rOpenSci(rorcid/0.6.3.91)
+      Authorization: Bearer <<rorcid_bearer_token>>
+  response:
+    status:
+      status_code: '200'
+      message: OK
+      explanation: Request fulfilled, document follows
+    headers:
+      status: HTTP/1.1 200 OK
+      server: nginx/1.16.1
+      date: Wed, 05 Feb 2020 22:24:22 GMT
+      content-type: application/vnd.orcid+json; qs=4;charset=UTF-8
+      transfer-encoding: chunked
+      connection: keep-alive
+      access-control-allow-origin: '*'
+      cache-control: no-cache, no-store, max-age=0, must-revalidate
+      pragma: no-cache
+      expires: '0'
+      x-xss-protection: 1; mode=block
+      x-frame-options: DENY
+      x-content-type-options: nosniff
+      content-encoding: gzip
+    body:
+      encoding: UTF-8
+      file: no
+      string: |-
+        {
+          "last-modified-date" : null,
+          "name" : {
+            "created-date" : {
+              "value" : 1460755800336
+            },
+            "last-modified-date" : {
+              "value" : 1460755800336
+            },
+            "given-names" : {
+              "value" : "Carl"
+            },
+            "family-name" : {
+              "value" : "Phillips"
+            },
+            "credit-name" : null,
+            "source" : null,
+            "visibility" : "public",
+            "path" : "0000-0001-8913-3245"
+          },
+          "other-names" : {
+            "last-modified-date" : null,
+            "other-name" : [ ],
+            "path" : "/0000-0001-8913-3245/other-names"
+          },
+          "biography" : null,
+          "researcher-urls" : {
+            "last-modified-date" : null,
+            "researcher-url" : [ ],
+            "path" : "/0000-0001-8913-3245/researcher-urls"
+          },
+          "emails" : {
+            "last-modified-date" : null,
+            "email" : [ ],
+            "path" : "/0000-0001-8913-3245/email"
+          },
+          "addresses" : {
+            "last-modified-date" : null,
+            "address" : [ ],
+            "path" : "/0000-0001-8913-3245/address"
+          },
+          "keywords" : {
+            "last-modified-date" : null,
+            "keyword" : [ ],
+            "path" : "/0000-0001-8913-3245/keywords"
+          },
+          "external-identifiers" : {
+            "last-modified-date" : null,
+            "external-identifier" : [ ],
+            "path" : "/0000-0001-8913-3245/external-identifiers"
+          },
+          "path" : "/0000-0001-8913-3245/person"
+        }
+  recorded_at: 2020-02-05 22:24:23 GMT
+  recorded_with: vcr/0.4.0, webmockr/0.5.0

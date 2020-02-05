@@ -8,8 +8,8 @@ http_interactions:
     headers:
       Accept-Encoding: gzip, deflate
       Accept: application/vnd.orcid+json; qs=4
-      User-Agent: r-curl/3.3 crul/0.8.0 rOpenSci(rorcid/0.5.0.9210)
-      X-USER-AGENT: r-curl/3.3 crul/0.8.0 rOpenSci(rorcid/0.5.0.9210)
+      User-Agent: r-curl/4.3 crul/0.9.0 rOpenSci(rorcid/0.6.3.91)
+      X-USER-AGENT: r-curl/4.3 crul/0.9.0 rOpenSci(rorcid/0.6.3.91)
       Authorization: Bearer <<rorcid_bearer_token>>
   response:
     status:
@@ -18,10 +18,10 @@ http_interactions:
       explanation: Server got itself in trouble
     headers:
       status: HTTP/1.1 500 Internal Server Error
-      server: nginx/1.10.0
+      server: nginx/1.16.1
       cache-control: no-cache, no-store, max-age=0, must-revalidate
       content-type: application/vnd.orcid+json; qs=4;charset=UTF-8
-      date: Fri, 12 Jul 2019 08:40:28 GMT
+      date: Wed, 05 Feb 2020 22:21:35 GMT
       expires: '0'
       pragma: no-cache
       x-xss-protection: 1; mode=block
@@ -32,16 +32,17 @@ http_interactions:
       x-frame-options: DENY
     body:
       encoding: UTF-8
+      file: no
       string: |-
         {
           "response-code" : 500,
-          "developer-message" : "org.apache.solr.client.solrj.impl.HttpSolrServer.RemoteSolrException Full validation error: For input string: \"adsf\"",
+          "developer-message" : "org.apache.solr.client.solrj.impl.HttpSolrClient.RemoteSolrException Full validation error: Error from server at http://solr-8-loc.orcid.org:8983/solr/profile: For input string: \"adsf\"",
           "user-message" : "Something went wrong in ORCID.",
           "error-code" : 9008,
           "more-info" : "https://members.orcid.org/api/resources/troubleshooting"
         }
-  recorded_at: 2019-07-12 08:40:17 GMT
-  recorded_with: vcr/0.2.6, webmockr/0.3.4
+  recorded_at: 2020-02-05 22:21:36 GMT
+  recorded_with: vcr/0.4.0, webmockr/0.5.0
 - request:
     method: get
     uri: https://pub.orcid.org/v3.0/search?rows=er
@@ -51,8 +52,8 @@ http_interactions:
     headers:
       Accept-Encoding: gzip, deflate
       Accept: application/vnd.orcid+json; qs=4
-      User-Agent: r-curl/3.3 crul/0.8.0 rOpenSci(rorcid/0.5.0.9210)
-      X-USER-AGENT: r-curl/3.3 crul/0.8.0 rOpenSci(rorcid/0.5.0.9210)
+      User-Agent: r-curl/4.3 crul/0.9.0 rOpenSci(rorcid/0.6.3.91)
+      X-USER-AGENT: r-curl/4.3 crul/0.9.0 rOpenSci(rorcid/0.6.3.91)
       Authorization: Bearer <<rorcid_bearer_token>>
   response:
     status:
@@ -61,10 +62,10 @@ http_interactions:
       explanation: Bad request syntax or unsupported method
     headers:
       status: HTTP/1.1 400 Bad Request
-      server: nginx/1.10.0
+      server: nginx/1.16.1
       cache-control: no-cache, no-store, max-age=0, must-revalidate
       content-type: application/vnd.orcid+json; qs=4;charset=UTF-8
-      date: Fri, 12 Jul 2019 08:40:29 GMT
+      date: Wed, 05 Feb 2020 22:21:35 GMT
       expires: '0'
       pragma: no-cache
       x-xss-protection: 1; mode=block
@@ -75,6 +76,7 @@ http_interactions:
       x-frame-options: DENY
     body:
       encoding: UTF-8
+      file: no
       string: |-
         {
           "response-code" : 400,
@@ -83,5 +85,5 @@ http_interactions:
           "error-code" : 9012,
           "more-info" : "https://members.orcid.org/api/resources/troubleshooting"
         }
-  recorded_at: 2019-07-12 08:40:17 GMT
-  recorded_with: vcr/0.2.6, webmockr/0.3.4
+  recorded_at: 2020-02-05 22:21:36 GMT
+  recorded_with: vcr/0.4.0, webmockr/0.5.0

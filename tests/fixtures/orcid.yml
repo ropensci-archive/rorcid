@@ -8,8 +8,8 @@ http_interactions:
     headers:
       Accept-Encoding: gzip, deflate
       Accept: application/vnd.orcid+json; qs=4
-      User-Agent: r-curl/3.3 crul/0.8.0 rOpenSci(rorcid/0.5.0.9210)
-      X-USER-AGENT: r-curl/3.3 crul/0.8.0 rOpenSci(rorcid/0.5.0.9210)
+      User-Agent: r-curl/4.3 crul/0.9.0 rOpenSci(rorcid/0.6.3.91)
+      X-USER-AGENT: r-curl/4.3 crul/0.9.0 rOpenSci(rorcid/0.6.3.91)
       Authorization: Bearer <<rorcid_bearer_token>>
   response:
     status:
@@ -18,8 +18,8 @@ http_interactions:
       explanation: Request fulfilled, document follows
     headers:
       status: HTTP/1.1 200 OK
-      server: nginx/1.10.0
-      date: Fri, 12 Jul 2019 08:40:22 GMT
+      server: nginx/1.16.1
+      date: Wed, 05 Feb 2020 22:21:32 GMT
       content-type: application/vnd.orcid+json; qs=4;charset=UTF-8
       transfer-encoding: chunked
       connection: keep-alive
@@ -33,13 +33,14 @@ http_interactions:
       content-encoding: gzip
     body:
       encoding: UTF-8
+      file: no
       string: |-
         {
           "result" : null,
           "num-found" : 0
         }
-  recorded_at: 2019-07-12 08:40:12 GMT
-  recorded_with: vcr/0.2.6, webmockr/0.3.4
+  recorded_at: 2020-02-05 22:21:33 GMT
+  recorded_with: vcr/0.4.0, webmockr/0.5.0
 - request:
     method: get
     uri: https://pub.orcid.org/v3.0/search?q=keyword%3Aecology
@@ -49,8 +50,8 @@ http_interactions:
     headers:
       Accept-Encoding: gzip, deflate
       Accept: application/vnd.orcid+json; qs=4
-      User-Agent: r-curl/3.3 crul/0.8.0 rOpenSci(rorcid/0.5.0.9210)
-      X-USER-AGENT: r-curl/3.3 crul/0.8.0 rOpenSci(rorcid/0.5.0.9210)
+      User-Agent: r-curl/4.3 crul/0.9.0 rOpenSci(rorcid/0.6.3.91)
+      X-USER-AGENT: r-curl/4.3 crul/0.9.0 rOpenSci(rorcid/0.6.3.91)
       Authorization: Bearer <<rorcid_bearer_token>>
   response:
     status:
@@ -59,8 +60,8 @@ http_interactions:
       explanation: Request fulfilled, document follows
     headers:
       status: HTTP/1.1 200 OK
-      server: nginx/1.10.0
-      date: Fri, 12 Jul 2019 08:40:24 GMT
+      server: nginx/1.16.1
+      date: Wed, 05 Feb 2020 22:21:33 GMT
       content-type: application/vnd.orcid+json; qs=4;charset=UTF-8
       transfer-encoding: chunked
       connection: keep-alive
@@ -74,384 +75,19 @@ http_interactions:
       content-encoding: gzip
     body:
       encoding: UTF-8
+      file: no
       string: |-
         {
           "result" : [ {
             "orcid-identifier" : {
-              "uri" : "https://orcid.org/0000-0001-9398-4026",
-              "path" : "0000-0001-9398-4026",
+              "uri" : "https://orcid.org/0000-0002-8289-1497",
+              "path" : "0000-0002-8289-1497",
               "host" : "orcid.org"
             }
           }, {
             "orcid-identifier" : {
-              "uri" : "https://orcid.org/0000-0001-8466-2420",
-              "path" : "0000-0001-8466-2420",
-              "host" : "orcid.org"
-            }
-          }, {
-            "orcid-identifier" : {
-              "uri" : "https://orcid.org/0000-0002-6767-0282",
-              "path" : "0000-0002-6767-0282",
-              "host" : "orcid.org"
-            }
-          }, {
-            "orcid-identifier" : {
-              "uri" : "https://orcid.org/0000-0002-3937-2886",
-              "path" : "0000-0002-3937-2886",
-              "host" : "orcid.org"
-            }
-          }, {
-            "orcid-identifier" : {
-              "uri" : "https://orcid.org/0000-0002-6072-687X",
-              "path" : "0000-0002-6072-687X",
-              "host" : "orcid.org"
-            }
-          }, {
-            "orcid-identifier" : {
-              "uri" : "https://orcid.org/0000-0002-2053-3766",
-              "path" : "0000-0002-2053-3766",
-              "host" : "orcid.org"
-            }
-          }, {
-            "orcid-identifier" : {
-              "uri" : "https://orcid.org/0000-0003-0402-6876",
-              "path" : "0000-0003-0402-6876",
-              "host" : "orcid.org"
-            }
-          }, {
-            "orcid-identifier" : {
-              "uri" : "https://orcid.org/0000-0003-0368-9686",
-              "path" : "0000-0003-0368-9686",
-              "host" : "orcid.org"
-            }
-          }, {
-            "orcid-identifier" : {
-              "uri" : "https://orcid.org/0000-0003-3160-6614",
-              "path" : "0000-0003-3160-6614",
-              "host" : "orcid.org"
-            }
-          }, {
-            "orcid-identifier" : {
-              "uri" : "https://orcid.org/0000-0001-9918-1806",
-              "path" : "0000-0001-9918-1806",
-              "host" : "orcid.org"
-            }
-          }, {
-            "orcid-identifier" : {
-              "uri" : "https://orcid.org/0000-0002-0380-2899",
-              "path" : "0000-0002-0380-2899",
-              "host" : "orcid.org"
-            }
-          }, {
-            "orcid-identifier" : {
-              "uri" : "https://orcid.org/0000-0002-6753-0757",
-              "path" : "0000-0002-6753-0757",
-              "host" : "orcid.org"
-            }
-          }, {
-            "orcid-identifier" : {
-              "uri" : "https://orcid.org/0000-0001-6051-6365",
-              "path" : "0000-0001-6051-6365",
-              "host" : "orcid.org"
-            }
-          }, {
-            "orcid-identifier" : {
-              "uri" : "https://orcid.org/0000-0002-2604-7267",
-              "path" : "0000-0002-2604-7267",
-              "host" : "orcid.org"
-            }
-          }, {
-            "orcid-identifier" : {
-              "uri" : "https://orcid.org/0000-0003-3905-1078",
-              "path" : "0000-0003-3905-1078",
-              "host" : "orcid.org"
-            }
-          }, {
-            "orcid-identifier" : {
-              "uri" : "https://orcid.org/0000-0002-9349-6548",
-              "path" : "0000-0002-9349-6548",
-              "host" : "orcid.org"
-            }
-          }, {
-            "orcid-identifier" : {
-              "uri" : "https://orcid.org/0000-0002-8936-6556",
-              "path" : "0000-0002-8936-6556",
-              "host" : "orcid.org"
-            }
-          }, {
-            "orcid-identifier" : {
-              "uri" : "https://orcid.org/0000-0002-7207-1145",
-              "path" : "0000-0002-7207-1145",
-              "host" : "orcid.org"
-            }
-          }, {
-            "orcid-identifier" : {
-              "uri" : "https://orcid.org/0000-0002-8371-9154",
-              "path" : "0000-0002-8371-9154",
-              "host" : "orcid.org"
-            }
-          }, {
-            "orcid-identifier" : {
-              "uri" : "https://orcid.org/0000-0003-4802-8961",
-              "path" : "0000-0003-4802-8961",
-              "host" : "orcid.org"
-            }
-          }, {
-            "orcid-identifier" : {
-              "uri" : "https://orcid.org/0000-0001-7941-5134",
-              "path" : "0000-0001-7941-5134",
-              "host" : "orcid.org"
-            }
-          }, {
-            "orcid-identifier" : {
-              "uri" : "https://orcid.org/0000-0003-1504-1035",
-              "path" : "0000-0003-1504-1035",
-              "host" : "orcid.org"
-            }
-          }, {
-            "orcid-identifier" : {
-              "uri" : "https://orcid.org/0000-0001-6117-2437",
-              "path" : "0000-0001-6117-2437",
-              "host" : "orcid.org"
-            }
-          }, {
-            "orcid-identifier" : {
-              "uri" : "https://orcid.org/0000-0002-6588-6485",
-              "path" : "0000-0002-6588-6485",
-              "host" : "orcid.org"
-            }
-          }, {
-            "orcid-identifier" : {
-              "uri" : "https://orcid.org/0000-0001-8710-4141",
-              "path" : "0000-0001-8710-4141",
-              "host" : "orcid.org"
-            }
-          }, {
-            "orcid-identifier" : {
-              "uri" : "https://orcid.org/0000-0001-5835-7529",
-              "path" : "0000-0001-5835-7529",
-              "host" : "orcid.org"
-            }
-          }, {
-            "orcid-identifier" : {
-              "uri" : "https://orcid.org/0000-0001-6252-6890",
-              "path" : "0000-0001-6252-6890",
-              "host" : "orcid.org"
-            }
-          }, {
-            "orcid-identifier" : {
-              "uri" : "https://orcid.org/0000-0002-0529-9553",
-              "path" : "0000-0002-0529-9553",
-              "host" : "orcid.org"
-            }
-          }, {
-            "orcid-identifier" : {
-              "uri" : "https://orcid.org/0000-0002-4041-0384",
-              "path" : "0000-0002-4041-0384",
-              "host" : "orcid.org"
-            }
-          }, {
-            "orcid-identifier" : {
-              "uri" : "https://orcid.org/0000-0002-9760-5713",
-              "path" : "0000-0002-9760-5713",
-              "host" : "orcid.org"
-            }
-          }, {
-            "orcid-identifier" : {
-              "uri" : "https://orcid.org/0000-0003-0487-4592",
-              "path" : "0000-0003-0487-4592",
-              "host" : "orcid.org"
-            }
-          }, {
-            "orcid-identifier" : {
-              "uri" : "https://orcid.org/0000-0002-0675-4933",
-              "path" : "0000-0002-0675-4933",
-              "host" : "orcid.org"
-            }
-          }, {
-            "orcid-identifier" : {
-              "uri" : "https://orcid.org/0000-0001-6072-8464",
-              "path" : "0000-0001-6072-8464",
-              "host" : "orcid.org"
-            }
-          }, {
-            "orcid-identifier" : {
-              "uri" : "https://orcid.org/0000-0002-0551-6896",
-              "path" : "0000-0002-0551-6896",
-              "host" : "orcid.org"
-            }
-          }, {
-            "orcid-identifier" : {
-              "uri" : "https://orcid.org/0000-0002-4489-6836",
-              "path" : "0000-0002-4489-6836",
-              "host" : "orcid.org"
-            }
-          }, {
-            "orcid-identifier" : {
-              "uri" : "https://orcid.org/0000-0002-8266-2432",
-              "path" : "0000-0002-8266-2432",
-              "host" : "orcid.org"
-            }
-          }, {
-            "orcid-identifier" : {
-              "uri" : "https://orcid.org/0000-0001-7619-3425",
-              "path" : "0000-0001-7619-3425",
-              "host" : "orcid.org"
-            }
-          }, {
-            "orcid-identifier" : {
-              "uri" : "https://orcid.org/0000-0002-4436-9008",
-              "path" : "0000-0002-4436-9008",
-              "host" : "orcid.org"
-            }
-          }, {
-            "orcid-identifier" : {
-              "uri" : "https://orcid.org/0000-0002-8963-1153",
-              "path" : "0000-0002-8963-1153",
-              "host" : "orcid.org"
-            }
-          }, {
-            "orcid-identifier" : {
-              "uri" : "https://orcid.org/0000-0002-1168-4407",
-              "path" : "0000-0002-1168-4407",
-              "host" : "orcid.org"
-            }
-          }, {
-            "orcid-identifier" : {
-              "uri" : "https://orcid.org/0000-0003-0301-3942",
-              "path" : "0000-0003-0301-3942",
-              "host" : "orcid.org"
-            }
-          }, {
-            "orcid-identifier" : {
-              "uri" : "https://orcid.org/0000-0002-1564-0671",
-              "path" : "0000-0002-1564-0671",
-              "host" : "orcid.org"
-            }
-          }, {
-            "orcid-identifier" : {
-              "uri" : "https://orcid.org/0000-0003-2054-7719",
-              "path" : "0000-0003-2054-7719",
-              "host" : "orcid.org"
-            }
-          }, {
-            "orcid-identifier" : {
-              "uri" : "https://orcid.org/0000-0002-5965-9868",
-              "path" : "0000-0002-5965-9868",
-              "host" : "orcid.org"
-            }
-          }, {
-            "orcid-identifier" : {
-              "uri" : "https://orcid.org/0000-0002-1452-9939",
-              "path" : "0000-0002-1452-9939",
-              "host" : "orcid.org"
-            }
-          }, {
-            "orcid-identifier" : {
-              "uri" : "https://orcid.org/0000-0002-7769-1255",
-              "path" : "0000-0002-7769-1255",
-              "host" : "orcid.org"
-            }
-          }, {
-            "orcid-identifier" : {
-              "uri" : "https://orcid.org/0000-0001-5114-7123",
-              "path" : "0000-0001-5114-7123",
-              "host" : "orcid.org"
-            }
-          }, {
-            "orcid-identifier" : {
-              "uri" : "https://orcid.org/0000-0002-5266-2722",
-              "path" : "0000-0002-5266-2722",
-              "host" : "orcid.org"
-            }
-          }, {
-            "orcid-identifier" : {
-              "uri" : "https://orcid.org/0000-0002-1279-4739",
-              "path" : "0000-0002-1279-4739",
-              "host" : "orcid.org"
-            }
-          }, {
-            "orcid-identifier" : {
-              "uri" : "https://orcid.org/0000-0002-4670-7031",
-              "path" : "0000-0002-4670-7031",
-              "host" : "orcid.org"
-            }
-          }, {
-            "orcid-identifier" : {
-              "uri" : "https://orcid.org/0000-0002-3203-4382",
-              "path" : "0000-0002-3203-4382",
-              "host" : "orcid.org"
-            }
-          }, {
-            "orcid-identifier" : {
-              "uri" : "https://orcid.org/0000-0003-3857-9794",
-              "path" : "0000-0003-3857-9794",
-              "host" : "orcid.org"
-            }
-          }, {
-            "orcid-identifier" : {
-              "uri" : "https://orcid.org/0000-0002-1399-3596",
-              "path" : "0000-0002-1399-3596",
-              "host" : "orcid.org"
-            }
-          }, {
-            "orcid-identifier" : {
-              "uri" : "https://orcid.org/0000-0002-2929-5231",
-              "path" : "0000-0002-2929-5231",
-              "host" : "orcid.org"
-            }
-          }, {
-            "orcid-identifier" : {
-              "uri" : "https://orcid.org/0000-0003-0301-5585",
-              "path" : "0000-0003-0301-5585",
-              "host" : "orcid.org"
-            }
-          }, {
-            "orcid-identifier" : {
-              "uri" : "https://orcid.org/0000-0001-5502-1026",
-              "path" : "0000-0001-5502-1026",
-              "host" : "orcid.org"
-            }
-          }, {
-            "orcid-identifier" : {
-              "uri" : "https://orcid.org/0000-0001-7389-5528",
-              "path" : "0000-0001-7389-5528",
-              "host" : "orcid.org"
-            }
-          }, {
-            "orcid-identifier" : {
-              "uri" : "https://orcid.org/0000-0003-2042-5068",
-              "path" : "0000-0003-2042-5068",
-              "host" : "orcid.org"
-            }
-          }, {
-            "orcid-identifier" : {
-              "uri" : "https://orcid.org/0000-0002-7830-5424",
-              "path" : "0000-0002-7830-5424",
-              "host" : "orcid.org"
-            }
-          }, {
-            "orcid-identifier" : {
-              "uri" : "https://orcid.org/0000-0003-2149-2027",
-              "path" : "0000-0003-2149-2027",
-              "host" : "orcid.org"
-            }
-          }, {
-            "orcid-identifier" : {
-              "uri" : "https://orcid.org/0000-0001-6368-6933",
-              "path" : "0000-0001-6368-6933",
-              "host" : "orcid.org"
-            }
-          }, {
-            "orcid-identifier" : {
-              "uri" : "https://orcid.org/0000-0003-2341-4700",
-              "path" : "0000-0003-2341-4700",
-              "host" : "orcid.org"
-            }
-          }, {
-            "orcid-identifier" : {
-              "uri" : "https://orcid.org/0000-0002-7174-5005",
-              "path" : "0000-0002-7174-5005",
+              "uri" : "https://orcid.org/0000-0002-3855-0919",
+              "path" : "0000-0002-3855-0919",
               "host" : "orcid.org"
             }
           }, {
@@ -462,32 +98,38 @@ http_interactions:
             }
           }, {
             "orcid-identifier" : {
-              "uri" : "https://orcid.org/0000-0001-6866-1030",
-              "path" : "0000-0001-6866-1030",
+              "uri" : "https://orcid.org/0000-0002-5870-4786",
+              "path" : "0000-0002-5870-4786",
               "host" : "orcid.org"
             }
           }, {
             "orcid-identifier" : {
-              "uri" : "https://orcid.org/0000-0002-1308-9396",
-              "path" : "0000-0002-1308-9396",
+              "uri" : "https://orcid.org/0000-0002-7174-5005",
+              "path" : "0000-0002-7174-5005",
               "host" : "orcid.org"
             }
           }, {
             "orcid-identifier" : {
-              "uri" : "https://orcid.org/0000-0002-9679-2465",
-              "path" : "0000-0002-9679-2465",
+              "uri" : "https://orcid.org/0000-0002-2572-3809",
+              "path" : "0000-0002-2572-3809",
               "host" : "orcid.org"
             }
           }, {
             "orcid-identifier" : {
-              "uri" : "https://orcid.org/0000-0002-9352-8554",
-              "path" : "0000-0002-9352-8554",
+              "uri" : "https://orcid.org/0000-0001-9406-0693",
+              "path" : "0000-0001-9406-0693",
               "host" : "orcid.org"
             }
           }, {
             "orcid-identifier" : {
-              "uri" : "https://orcid.org/0000-0002-4718-413X",
-              "path" : "0000-0002-4718-413X",
+              "uri" : "https://orcid.org/0000-0002-4315-7986",
+              "path" : "0000-0002-4315-7986",
+              "host" : "orcid.org"
+            }
+          }, {
+            "orcid-identifier" : {
+              "uri" : "https://orcid.org/0000-0002-4473-1636",
+              "path" : "0000-0002-4473-1636",
               "host" : "orcid.org"
             }
           }, {
@@ -498,8 +140,338 @@ http_interactions:
             }
           }, {
             "orcid-identifier" : {
-              "uri" : "https://orcid.org/0000-0002-0727-5774",
-              "path" : "0000-0002-0727-5774",
+              "uri" : "https://orcid.org/0000-0002-4071-3342",
+              "path" : "0000-0002-4071-3342",
+              "host" : "orcid.org"
+            }
+          }, {
+            "orcid-identifier" : {
+              "uri" : "https://orcid.org/0000-0002-1381-6645",
+              "path" : "0000-0002-1381-6645",
+              "host" : "orcid.org"
+            }
+          }, {
+            "orcid-identifier" : {
+              "uri" : "https://orcid.org/0000-0001-6821-4476",
+              "path" : "0000-0001-6821-4476",
+              "host" : "orcid.org"
+            }
+          }, {
+            "orcid-identifier" : {
+              "uri" : "https://orcid.org/0000-0002-3413-0511",
+              "path" : "0000-0002-3413-0511",
+              "host" : "orcid.org"
+            }
+          }, {
+            "orcid-identifier" : {
+              "uri" : "https://orcid.org/0000-0001-9682-7296",
+              "path" : "0000-0001-9682-7296",
+              "host" : "orcid.org"
+            }
+          }, {
+            "orcid-identifier" : {
+              "uri" : "https://orcid.org/0000-0001-5597-1902",
+              "path" : "0000-0001-5597-1902",
+              "host" : "orcid.org"
+            }
+          }, {
+            "orcid-identifier" : {
+              "uri" : "https://orcid.org/0000-0002-9250-6767",
+              "path" : "0000-0002-9250-6767",
+              "host" : "orcid.org"
+            }
+          }, {
+            "orcid-identifier" : {
+              "uri" : "https://orcid.org/0000-0002-6143-0413",
+              "path" : "0000-0002-6143-0413",
+              "host" : "orcid.org"
+            }
+          }, {
+            "orcid-identifier" : {
+              "uri" : "https://orcid.org/0000-0002-2363-7106",
+              "path" : "0000-0002-2363-7106",
+              "host" : "orcid.org"
+            }
+          }, {
+            "orcid-identifier" : {
+              "uri" : "https://orcid.org/0000-0002-1799-2822",
+              "path" : "0000-0002-1799-2822",
+              "host" : "orcid.org"
+            }
+          }, {
+            "orcid-identifier" : {
+              "uri" : "https://orcid.org/0000-0002-3389-2581",
+              "path" : "0000-0002-3389-2581",
+              "host" : "orcid.org"
+            }
+          }, {
+            "orcid-identifier" : {
+              "uri" : "https://orcid.org/0000-0003-2787-6451",
+              "path" : "0000-0003-2787-6451",
+              "host" : "orcid.org"
+            }
+          }, {
+            "orcid-identifier" : {
+              "uri" : "https://orcid.org/0000-0002-2848-9413",
+              "path" : "0000-0002-2848-9413",
+              "host" : "orcid.org"
+            }
+          }, {
+            "orcid-identifier" : {
+              "uri" : "https://orcid.org/0000-0002-1022-6623",
+              "path" : "0000-0002-1022-6623",
+              "host" : "orcid.org"
+            }
+          }, {
+            "orcid-identifier" : {
+              "uri" : "https://orcid.org/0000-0002-7136-5088",
+              "path" : "0000-0002-7136-5088",
+              "host" : "orcid.org"
+            }
+          }, {
+            "orcid-identifier" : {
+              "uri" : "https://orcid.org/0000-0003-3055-6483",
+              "path" : "0000-0003-3055-6483",
+              "host" : "orcid.org"
+            }
+          }, {
+            "orcid-identifier" : {
+              "uri" : "https://orcid.org/0000-0003-2127-0811",
+              "path" : "0000-0003-2127-0811",
+              "host" : "orcid.org"
+            }
+          }, {
+            "orcid-identifier" : {
+              "uri" : "https://orcid.org/0000-0002-9290-7181",
+              "path" : "0000-0002-9290-7181",
+              "host" : "orcid.org"
+            }
+          }, {
+            "orcid-identifier" : {
+              "uri" : "https://orcid.org/0000-0002-8517-9999",
+              "path" : "0000-0002-8517-9999",
+              "host" : "orcid.org"
+            }
+          }, {
+            "orcid-identifier" : {
+              "uri" : "https://orcid.org/0000-0002-8307-2573",
+              "path" : "0000-0002-8307-2573",
+              "host" : "orcid.org"
+            }
+          }, {
+            "orcid-identifier" : {
+              "uri" : "https://orcid.org/0000-0003-1488-4719",
+              "path" : "0000-0003-1488-4719",
+              "host" : "orcid.org"
+            }
+          }, {
+            "orcid-identifier" : {
+              "uri" : "https://orcid.org/0000-0002-4707-9444",
+              "path" : "0000-0002-4707-9444",
+              "host" : "orcid.org"
+            }
+          }, {
+            "orcid-identifier" : {
+              "uri" : "https://orcid.org/0000-0002-8371-7984",
+              "path" : "0000-0002-8371-7984",
+              "host" : "orcid.org"
+            }
+          }, {
+            "orcid-identifier" : {
+              "uri" : "https://orcid.org/0000-0001-5822-0610",
+              "path" : "0000-0001-5822-0610",
+              "host" : "orcid.org"
+            }
+          }, {
+            "orcid-identifier" : {
+              "uri" : "https://orcid.org/0000-0002-7557-7627",
+              "path" : "0000-0002-7557-7627",
+              "host" : "orcid.org"
+            }
+          }, {
+            "orcid-identifier" : {
+              "uri" : "https://orcid.org/0000-0001-9461-9215",
+              "path" : "0000-0001-9461-9215",
+              "host" : "orcid.org"
+            }
+          }, {
+            "orcid-identifier" : {
+              "uri" : "https://orcid.org/0000-0002-5901-0911",
+              "path" : "0000-0002-5901-0911",
+              "host" : "orcid.org"
+            }
+          }, {
+            "orcid-identifier" : {
+              "uri" : "https://orcid.org/0000-0001-8774-0738",
+              "path" : "0000-0001-8774-0738",
+              "host" : "orcid.org"
+            }
+          }, {
+            "orcid-identifier" : {
+              "uri" : "https://orcid.org/0000-0002-3537-2977",
+              "path" : "0000-0002-3537-2977",
+              "host" : "orcid.org"
+            }
+          }, {
+            "orcid-identifier" : {
+              "uri" : "https://orcid.org/0000-0001-6728-7745",
+              "path" : "0000-0001-6728-7745",
+              "host" : "orcid.org"
+            }
+          }, {
+            "orcid-identifier" : {
+              "uri" : "https://orcid.org/0000-0001-8171-0407",
+              "path" : "0000-0001-8171-0407",
+              "host" : "orcid.org"
+            }
+          }, {
+            "orcid-identifier" : {
+              "uri" : "https://orcid.org/0000-0003-2521-2045",
+              "path" : "0000-0003-2521-2045",
+              "host" : "orcid.org"
+            }
+          }, {
+            "orcid-identifier" : {
+              "uri" : "https://orcid.org/0000-0001-5085-634X",
+              "path" : "0000-0001-5085-634X",
+              "host" : "orcid.org"
+            }
+          }, {
+            "orcid-identifier" : {
+              "uri" : "https://orcid.org/0000-0002-3956-7210",
+              "path" : "0000-0002-3956-7210",
+              "host" : "orcid.org"
+            }
+          }, {
+            "orcid-identifier" : {
+              "uri" : "https://orcid.org/0000-0001-6048-7007",
+              "path" : "0000-0001-6048-7007",
+              "host" : "orcid.org"
+            }
+          }, {
+            "orcid-identifier" : {
+              "uri" : "https://orcid.org/0000-0001-9190-1733",
+              "path" : "0000-0001-9190-1733",
+              "host" : "orcid.org"
+            }
+          }, {
+            "orcid-identifier" : {
+              "uri" : "https://orcid.org/0000-0003-0034-1801",
+              "path" : "0000-0003-0034-1801",
+              "host" : "orcid.org"
+            }
+          }, {
+            "orcid-identifier" : {
+              "uri" : "https://orcid.org/0000-0002-7724-9715",
+              "path" : "0000-0002-7724-9715",
+              "host" : "orcid.org"
+            }
+          }, {
+            "orcid-identifier" : {
+              "uri" : "https://orcid.org/0000-0001-8538-4338",
+              "path" : "0000-0001-8538-4338",
+              "host" : "orcid.org"
+            }
+          }, {
+            "orcid-identifier" : {
+              "uri" : "https://orcid.org/0000-0002-2783-0210",
+              "path" : "0000-0002-2783-0210",
+              "host" : "orcid.org"
+            }
+          }, {
+            "orcid-identifier" : {
+              "uri" : "https://orcid.org/0000-0002-1542-3589",
+              "path" : "0000-0002-1542-3589",
+              "host" : "orcid.org"
+            }
+          }, {
+            "orcid-identifier" : {
+              "uri" : "https://orcid.org/0000-0002-2155-4438",
+              "path" : "0000-0002-2155-4438",
+              "host" : "orcid.org"
+            }
+          }, {
+            "orcid-identifier" : {
+              "uri" : "https://orcid.org/0000-0002-1944-319X",
+              "path" : "0000-0002-1944-319X",
+              "host" : "orcid.org"
+            }
+          }, {
+            "orcid-identifier" : {
+              "uri" : "https://orcid.org/0000-0003-4023-2001",
+              "path" : "0000-0003-4023-2001",
+              "host" : "orcid.org"
+            }
+          }, {
+            "orcid-identifier" : {
+              "uri" : "https://orcid.org/0000-0001-5825-0983",
+              "path" : "0000-0001-5825-0983",
+              "host" : "orcid.org"
+            }
+          }, {
+            "orcid-identifier" : {
+              "uri" : "https://orcid.org/0000-0002-1371-3486",
+              "path" : "0000-0002-1371-3486",
+              "host" : "orcid.org"
+            }
+          }, {
+            "orcid-identifier" : {
+              "uri" : "https://orcid.org/0000-0002-8365-6974",
+              "path" : "0000-0002-8365-6974",
+              "host" : "orcid.org"
+            }
+          }, {
+            "orcid-identifier" : {
+              "uri" : "https://orcid.org/0000-0002-6832-674X",
+              "path" : "0000-0002-6832-674X",
+              "host" : "orcid.org"
+            }
+          }, {
+            "orcid-identifier" : {
+              "uri" : "https://orcid.org/0000-0001-5051-2221",
+              "path" : "0000-0001-5051-2221",
+              "host" : "orcid.org"
+            }
+          }, {
+            "orcid-identifier" : {
+              "uri" : "https://orcid.org/0000-0003-2457-5688",
+              "path" : "0000-0003-2457-5688",
+              "host" : "orcid.org"
+            }
+          }, {
+            "orcid-identifier" : {
+              "uri" : "https://orcid.org/0000-0002-6234-1017",
+              "path" : "0000-0002-6234-1017",
+              "host" : "orcid.org"
+            }
+          }, {
+            "orcid-identifier" : {
+              "uri" : "https://orcid.org/0000-0001-6870-6278",
+              "path" : "0000-0001-6870-6278",
+              "host" : "orcid.org"
+            }
+          }, {
+            "orcid-identifier" : {
+              "uri" : "https://orcid.org/0000-0003-1236-8374",
+              "path" : "0000-0003-1236-8374",
+              "host" : "orcid.org"
+            }
+          }, {
+            "orcid-identifier" : {
+              "uri" : "https://orcid.org/0000-0002-1308-9396",
+              "path" : "0000-0002-1308-9396",
+              "host" : "orcid.org"
+            }
+          }, {
+            "orcid-identifier" : {
+              "uri" : "https://orcid.org/0000-0002-6203-069X",
+              "path" : "0000-0002-6203-069X",
+              "host" : "orcid.org"
+            }
+          }, {
+            "orcid-identifier" : {
+              "uri" : "https://orcid.org/0000-0002-4718-413X",
+              "path" : "0000-0002-4718-413X",
               "host" : "orcid.org"
             }
           }, {
@@ -510,20 +482,32 @@ http_interactions:
             }
           }, {
             "orcid-identifier" : {
-              "uri" : "https://orcid.org/0000-0001-9287-0019",
-              "path" : "0000-0001-9287-0019",
-              "host" : "orcid.org"
-            }
-          }, {
-            "orcid-identifier" : {
-              "uri" : "https://orcid.org/0000-0002-6495-4335",
-              "path" : "0000-0002-6495-4335",
-              "host" : "orcid.org"
-            }
-          }, {
-            "orcid-identifier" : {
               "uri" : "https://orcid.org/0000-0003-0915-4922",
               "path" : "0000-0003-0915-4922",
+              "host" : "orcid.org"
+            }
+          }, {
+            "orcid-identifier" : {
+              "uri" : "https://orcid.org/0000-0001-7707-5068",
+              "path" : "0000-0001-7707-5068",
+              "host" : "orcid.org"
+            }
+          }, {
+            "orcid-identifier" : {
+              "uri" : "https://orcid.org/0000-0002-5002-6554",
+              "path" : "0000-0002-5002-6554",
+              "host" : "orcid.org"
+            }
+          }, {
+            "orcid-identifier" : {
+              "uri" : "https://orcid.org/0000-0002-9352-8554",
+              "path" : "0000-0002-9352-8554",
+              "host" : "orcid.org"
+            }
+          }, {
+            "orcid-identifier" : {
+              "uri" : "https://orcid.org/0000-0002-5584-0096",
+              "path" : "0000-0002-5584-0096",
               "host" : "orcid.org"
             }
           }, {
@@ -534,8 +518,32 @@ http_interactions:
             }
           }, {
             "orcid-identifier" : {
-              "uri" : "https://orcid.org/0000-0001-5947-3118",
-              "path" : "0000-0001-5947-3118",
+              "uri" : "https://orcid.org/0000-0002-0439-5666",
+              "path" : "0000-0002-0439-5666",
+              "host" : "orcid.org"
+            }
+          }, {
+            "orcid-identifier" : {
+              "uri" : "https://orcid.org/0000-0002-2419-4925",
+              "path" : "0000-0002-2419-4925",
+              "host" : "orcid.org"
+            }
+          }, {
+            "orcid-identifier" : {
+              "uri" : "https://orcid.org/0000-0003-3903-8260",
+              "path" : "0000-0003-3903-8260",
+              "host" : "orcid.org"
+            }
+          }, {
+            "orcid-identifier" : {
+              "uri" : "https://orcid.org/0000-0002-6495-4335",
+              "path" : "0000-0002-6495-4335",
+              "host" : "orcid.org"
+            }
+          }, {
+            "orcid-identifier" : {
+              "uri" : "https://orcid.org/0000-0002-9679-2465",
+              "path" : "0000-0002-9679-2465",
               "host" : "orcid.org"
             }
           }, {
@@ -546,8 +554,92 @@ http_interactions:
             }
           }, {
             "orcid-identifier" : {
+              "uri" : "https://orcid.org/0000-0002-8466-3885",
+              "path" : "0000-0002-8466-3885",
+              "host" : "orcid.org"
+            }
+          }, {
+            "orcid-identifier" : {
+              "uri" : "https://orcid.org/0000-0002-4251-6617",
+              "path" : "0000-0002-4251-6617",
+              "host" : "orcid.org"
+            }
+          }, {
+            "orcid-identifier" : {
               "uri" : "https://orcid.org/0000-0002-7124-4649",
               "path" : "0000-0002-7124-4649",
+              "host" : "orcid.org"
+            }
+          }, {
+            "orcid-identifier" : {
+              "uri" : "https://orcid.org/0000-0001-9806-2119",
+              "path" : "0000-0001-9806-2119",
+              "host" : "orcid.org"
+            }
+          }, {
+            "orcid-identifier" : {
+              "uri" : "https://orcid.org/0000-0001-9777-4886",
+              "path" : "0000-0001-9777-4886",
+              "host" : "orcid.org"
+            }
+          }, {
+            "orcid-identifier" : {
+              "uri" : "https://orcid.org/0000-0002-1732-6491",
+              "path" : "0000-0002-1732-6491",
+              "host" : "orcid.org"
+            }
+          }, {
+            "orcid-identifier" : {
+              "uri" : "https://orcid.org/0000-0001-6866-1030",
+              "path" : "0000-0001-6866-1030",
+              "host" : "orcid.org"
+            }
+          }, {
+            "orcid-identifier" : {
+              "uri" : "https://orcid.org/0000-0002-0727-5774",
+              "path" : "0000-0002-0727-5774",
+              "host" : "orcid.org"
+            }
+          }, {
+            "orcid-identifier" : {
+              "uri" : "https://orcid.org/0000-0002-8053-7099",
+              "path" : "0000-0002-8053-7099",
+              "host" : "orcid.org"
+            }
+          }, {
+            "orcid-identifier" : {
+              "uri" : "https://orcid.org/0000-0002-3166-3793",
+              "path" : "0000-0002-3166-3793",
+              "host" : "orcid.org"
+            }
+          }, {
+            "orcid-identifier" : {
+              "uri" : "https://orcid.org/0000-0003-0507-2401",
+              "path" : "0000-0003-0507-2401",
+              "host" : "orcid.org"
+            }
+          }, {
+            "orcid-identifier" : {
+              "uri" : "https://orcid.org/0000-0002-4798-0208",
+              "path" : "0000-0002-4798-0208",
+              "host" : "orcid.org"
+            }
+          }, {
+            "orcid-identifier" : {
+              "uri" : "https://orcid.org/0000-0001-9287-0019",
+              "path" : "0000-0001-9287-0019",
+              "host" : "orcid.org"
+            }
+          }, {
+            "orcid-identifier" : {
+              "uri" : "https://orcid.org/0000-0003-4747-1857",
+              "path" : "0000-0003-4747-1857",
+              "host" : "orcid.org"
+            }
+          }, {
+            "orcid-identifier" : {
+              "uri" : "https://orcid.org/0000-0001-5947-3118",
+              "path" : "0000-0001-5947-3118",
               "host" : "orcid.org"
             }
           }, {
@@ -564,102 +656,6 @@ http_interactions:
             }
           }, {
             "orcid-identifier" : {
-              "uri" : "https://orcid.org/0000-0001-7707-5068",
-              "path" : "0000-0001-7707-5068",
-              "host" : "orcid.org"
-            }
-          }, {
-            "orcid-identifier" : {
-              "uri" : "https://orcid.org/0000-0001-9806-2119",
-              "path" : "0000-0001-9806-2119",
-              "host" : "orcid.org"
-            }
-          }, {
-            "orcid-identifier" : {
-              "uri" : "https://orcid.org/0000-0001-7663-3291",
-              "path" : "0000-0001-7663-3291",
-              "host" : "orcid.org"
-            }
-          }, {
-            "orcid-identifier" : {
-              "uri" : "https://orcid.org/0000-0002-6203-069X",
-              "path" : "0000-0002-6203-069X",
-              "host" : "orcid.org"
-            }
-          }, {
-            "orcid-identifier" : {
-              "uri" : "https://orcid.org/0000-0002-4798-0208",
-              "path" : "0000-0002-4798-0208",
-              "host" : "orcid.org"
-            }
-          }, {
-            "orcid-identifier" : {
-              "uri" : "https://orcid.org/0000-0002-4071-3342",
-              "path" : "0000-0002-4071-3342",
-              "host" : "orcid.org"
-            }
-          }, {
-            "orcid-identifier" : {
-              "uri" : "https://orcid.org/0000-0002-2136-0000",
-              "path" : "0000-0002-2136-0000",
-              "host" : "orcid.org"
-            }
-          }, {
-            "orcid-identifier" : {
-              "uri" : "https://orcid.org/0000-0002-1732-6491",
-              "path" : "0000-0002-1732-6491",
-              "host" : "orcid.org"
-            }
-          }, {
-            "orcid-identifier" : {
-              "uri" : "https://orcid.org/0000-0002-8053-7099",
-              "path" : "0000-0002-8053-7099",
-              "host" : "orcid.org"
-            }
-          }, {
-            "orcid-identifier" : {
-              "uri" : "https://orcid.org/0000-0002-5002-6554",
-              "path" : "0000-0002-5002-6554",
-              "host" : "orcid.org"
-            }
-          }, {
-            "orcid-identifier" : {
-              "uri" : "https://orcid.org/0000-0002-8466-3885",
-              "path" : "0000-0002-8466-3885",
-              "host" : "orcid.org"
-            }
-          }, {
-            "orcid-identifier" : {
-              "uri" : "https://orcid.org/0000-0002-1381-6645",
-              "path" : "0000-0002-1381-6645",
-              "host" : "orcid.org"
-            }
-          }, {
-            "orcid-identifier" : {
-              "uri" : "https://orcid.org/0000-0002-0439-5666",
-              "path" : "0000-0002-0439-5666",
-              "host" : "orcid.org"
-            }
-          }, {
-            "orcid-identifier" : {
-              "uri" : "https://orcid.org/0000-0003-0507-2401",
-              "path" : "0000-0003-0507-2401",
-              "host" : "orcid.org"
-            }
-          }, {
-            "orcid-identifier" : {
-              "uri" : "https://orcid.org/0000-0002-3166-3793",
-              "path" : "0000-0002-3166-3793",
-              "host" : "orcid.org"
-            }
-          }, {
-            "orcid-identifier" : {
-              "uri" : "https://orcid.org/0000-0002-5584-0096",
-              "path" : "0000-0002-5584-0096",
-              "host" : "orcid.org"
-            }
-          }, {
-            "orcid-identifier" : {
               "uri" : "https://orcid.org/0000-0002-3841-0342",
               "path" : "0000-0002-3841-0342",
               "host" : "orcid.org"
@@ -672,12 +668,18 @@ http_interactions:
             }
           }, {
             "orcid-identifier" : {
-              "uri" : "https://orcid.org/0000-0003-2253-6415",
-              "path" : "0000-0003-2253-6415",
+              "uri" : "https://orcid.org/0000-0001-7663-3291",
+              "path" : "0000-0001-7663-3291",
+              "host" : "orcid.org"
+            }
+          }, {
+            "orcid-identifier" : {
+              "uri" : "https://orcid.org/0000-0002-2136-0000",
+              "path" : "0000-0002-2136-0000",
               "host" : "orcid.org"
             }
           } ],
-          "num-found" : 9270
+          "num-found" : 10242
         }
-  recorded_at: 2019-07-12 08:40:12 GMT
-  recorded_with: vcr/0.2.6, webmockr/0.3.4
+  recorded_at: 2020-02-05 22:21:33 GMT
+  recorded_with: vcr/0.4.0, webmockr/0.5.0

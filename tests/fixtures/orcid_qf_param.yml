@@ -8,8 +8,8 @@ http_interactions:
     headers:
       Accept-Encoding: gzip, deflate
       Accept: application/vnd.orcid+json; qs=4
-      User-Agent: r-curl/3.3 crul/0.8.0 rOpenSci(rorcid/0.5.0.9210)
-      X-USER-AGENT: r-curl/3.3 crul/0.8.0 rOpenSci(rorcid/0.5.0.9210)
+      User-Agent: r-curl/4.3 crul/0.9.0 rOpenSci(rorcid/0.6.3.91)
+      X-USER-AGENT: r-curl/4.3 crul/0.9.0 rOpenSci(rorcid/0.6.3.91)
       Authorization: Bearer <<rorcid_bearer_token>>
   response:
     status:
@@ -18,8 +18,8 @@ http_interactions:
       explanation: Request fulfilled, document follows
     headers:
       status: HTTP/1.1 200 OK
-      server: nginx/1.10.0
-      date: Fri, 12 Jul 2019 08:40:26 GMT
+      server: nginx/1.16.1
+      date: Wed, 05 Feb 2020 22:21:34 GMT
       content-type: application/vnd.orcid+json; qs=4;charset=UTF-8
       transfer-encoding: chunked
       connection: keep-alive
@@ -33,9 +33,16 @@ http_interactions:
       content-encoding: gzip
     body:
       encoding: UTF-8
+      file: no
       string: |-
         {
           "result" : [ {
+            "orcid-identifier" : {
+              "uri" : "https://orcid.org/0000-0001-5615-6854",
+              "path" : "0000-0001-5615-6854",
+              "host" : "orcid.org"
+            }
+          }, {
             "orcid-identifier" : {
               "uri" : "https://orcid.org/0000-0002-3414-450X",
               "path" : "0000-0002-3414-450X",
@@ -43,21 +50,15 @@ http_interactions:
             }
           }, {
             "orcid-identifier" : {
-              "uri" : "https://orcid.org/0000-0002-5927-8950",
-              "path" : "0000-0002-5927-8950",
-              "host" : "orcid.org"
-            }
-          }, {
-            "orcid-identifier" : {
-              "uri" : "https://orcid.org/0000-0002-6716-1576",
-              "path" : "0000-0002-6716-1576",
+              "uri" : "https://orcid.org/0000-0003-1083-5530",
+              "path" : "0000-0003-1083-5530",
               "host" : "orcid.org"
             }
           } ],
-          "num-found" : 2255
+          "num-found" : 2621
         }
-  recorded_at: 2019-07-12 08:40:14 GMT
-  recorded_with: vcr/0.2.6, webmockr/0.3.4
+  recorded_at: 2020-02-05 22:21:34 GMT
+  recorded_with: vcr/0.4.0, webmockr/0.5.0
 - request:
     method: get
     uri: https://pub.orcid.org/v3.0/search?q=Raymond&rows=3&defType=edismax&qf=family-name%5E2.0
@@ -67,8 +68,8 @@ http_interactions:
     headers:
       Accept-Encoding: gzip, deflate
       Accept: application/vnd.orcid+json; qs=4
-      User-Agent: r-curl/3.3 crul/0.8.0 rOpenSci(rorcid/0.5.0.9210)
-      X-USER-AGENT: r-curl/3.3 crul/0.8.0 rOpenSci(rorcid/0.5.0.9210)
+      User-Agent: r-curl/4.3 crul/0.9.0 rOpenSci(rorcid/0.6.3.91)
+      X-USER-AGENT: r-curl/4.3 crul/0.9.0 rOpenSci(rorcid/0.6.3.91)
       Authorization: Bearer <<rorcid_bearer_token>>
   response:
     status:
@@ -77,8 +78,8 @@ http_interactions:
       explanation: Request fulfilled, document follows
     headers:
       status: HTTP/1.1 200 OK
-      server: nginx/1.10.0
-      date: Fri, 12 Jul 2019 08:40:26 GMT
+      server: nginx/1.16.1
+      date: Wed, 05 Feb 2020 22:21:34 GMT
       content-type: application/vnd.orcid+json; qs=4;charset=UTF-8
       transfer-encoding: chunked
       connection: keep-alive
@@ -92,31 +93,32 @@ http_interactions:
       content-encoding: gzip
     body:
       encoding: UTF-8
+      file: no
       string: |-
         {
           "result" : [ {
             "orcid-identifier" : {
-              "uri" : "https://orcid.org/0000-0002-2465-5138",
-              "path" : "0000-0002-2465-5138",
+              "uri" : "https://orcid.org/0000-0002-7359-8109",
+              "path" : "0000-0002-7359-8109",
               "host" : "orcid.org"
             }
           }, {
             "orcid-identifier" : {
-              "uri" : "https://orcid.org/0000-0001-8661-4342",
-              "path" : "0000-0001-8661-4342",
+              "uri" : "https://orcid.org/0000-0001-8408-8377",
+              "path" : "0000-0001-8408-8377",
               "host" : "orcid.org"
             }
           }, {
             "orcid-identifier" : {
-              "uri" : "https://orcid.org/0000-0002-7794-4689",
-              "path" : "0000-0002-7794-4689",
+              "uri" : "https://orcid.org/0000-0003-3773-6428",
+              "path" : "0000-0003-3773-6428",
               "host" : "orcid.org"
             }
           } ],
-          "num-found" : 264
+          "num-found" : 303
         }
-  recorded_at: 2019-07-12 08:40:14 GMT
-  recorded_with: vcr/0.2.6, webmockr/0.3.4
+  recorded_at: 2020-02-05 22:21:34 GMT
+  recorded_with: vcr/0.4.0, webmockr/0.5.0
 - request:
     method: get
     uri: https://pub.orcid.org/v3.0/search?q=Raymond&rows=3&defType=edismax&qf=given-names%5E3.0
@@ -126,8 +128,8 @@ http_interactions:
     headers:
       Accept-Encoding: gzip, deflate
       Accept: application/vnd.orcid+json; qs=4
-      User-Agent: r-curl/3.3 crul/0.8.0 rOpenSci(rorcid/0.5.0.9210)
-      X-USER-AGENT: r-curl/3.3 crul/0.8.0 rOpenSci(rorcid/0.5.0.9210)
+      User-Agent: r-curl/4.3 crul/0.9.0 rOpenSci(rorcid/0.6.3.91)
+      X-USER-AGENT: r-curl/4.3 crul/0.9.0 rOpenSci(rorcid/0.6.3.91)
       Authorization: Bearer <<rorcid_bearer_token>>
   response:
     status:
@@ -136,8 +138,8 @@ http_interactions:
       explanation: Request fulfilled, document follows
     headers:
       status: HTTP/1.1 200 OK
-      server: nginx/1.10.0
-      date: Fri, 12 Jul 2019 08:40:27 GMT
+      server: nginx/1.16.1
+      date: Wed, 05 Feb 2020 22:21:34 GMT
       content-type: application/vnd.orcid+json; qs=4;charset=UTF-8
       transfer-encoding: chunked
       connection: keep-alive
@@ -151,28 +153,29 @@ http_interactions:
       content-encoding: gzip
     body:
       encoding: UTF-8
+      file: no
       string: |-
         {
           "result" : [ {
             "orcid-identifier" : {
-              "uri" : "https://orcid.org/0000-0002-9497-4353",
-              "path" : "0000-0002-9497-4353",
+              "uri" : "https://orcid.org/0000-0001-7888-5150",
+              "path" : "0000-0001-7888-5150",
               "host" : "orcid.org"
             }
           }, {
             "orcid-identifier" : {
-              "uri" : "https://orcid.org/0000-0001-8532-8301",
-              "path" : "0000-0001-8532-8301",
+              "uri" : "https://orcid.org/0000-0002-7156-6402",
+              "path" : "0000-0002-7156-6402",
               "host" : "orcid.org"
             }
           }, {
             "orcid-identifier" : {
-              "uri" : "https://orcid.org/0000-0001-7911-4710",
-              "path" : "0000-0001-7911-4710",
+              "uri" : "https://orcid.org/0000-0002-9893-4842",
+              "path" : "0000-0002-9893-4842",
               "host" : "orcid.org"
             }
           } ],
-          "num-found" : 1492
+          "num-found" : 1677
         }
-  recorded_at: 2019-07-12 08:40:14 GMT
-  recorded_with: vcr/0.2.6, webmockr/0.3.4
+  recorded_at: 2020-02-05 22:21:34 GMT
+  recorded_with: vcr/0.4.0, webmockr/0.5.0
