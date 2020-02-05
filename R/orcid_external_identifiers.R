@@ -1,4 +1,4 @@
-#' Get education information for a person
+#' Get external identifiers for a person
 #'
 #' @export
 #' @inheritParams orcid_works 
