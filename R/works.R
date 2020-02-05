@@ -3,7 +3,6 @@
 #' @export
 #' @param x Anything that can be coerced via [as.orcid()], see 
 #' [as.orcid()] for help
-#' @param ... curl options passed on to [crul::HttpClient]
 #' @return A tibble (data.frame)
 #' @details This function gets works using the function [orcid_works]
 #' and packages up the data in a data.frame for easier processing

@@ -9,8 +9,6 @@ works(x)
 \arguments{
 \item{x}{Anything that can be coerced via \code{\link[=as.orcid]{as.orcid()}}, see
 \code{\link[=as.orcid]{as.orcid()}} for help}
-
-\item{...}{curl options passed on to \link[crul:HttpClient]{crul::HttpClient}}
 }
 \value{
 A tibble (data.frame)
