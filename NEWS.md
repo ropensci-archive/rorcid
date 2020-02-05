@@ -1,3 +1,17 @@
+rorcid 0.6.4
+============
+
+### MINOR IMPROVEMENTS
+
+* removed `recursive` parameter in `orcid()` function as it wasn't used internally (#65)
+* fix doc title for `orcid_external_identifiers()` (#81)
+* in `orcid_search()` removed parameters `current_prim_inst` and `patent_number` as those have been removed from ORCID; added additional fields to query on in the `orcid()` function: `peer-review-type`, `peer-review-role`, `peer-review-group-id`, `biography`, and `external-id-type-and-value` (#82)
+
+### BUG FIXES 
+
+* remove unused param definition for `...` in `works()` - via R-devel checks  (#84)
+
+
 rorcid 0.6.0
 ============
 

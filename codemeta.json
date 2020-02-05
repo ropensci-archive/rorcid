@@ -10,7 +10,7 @@
   "codeRepository": "https://github.com/ropensci/rorcid",
   "issueTracker": "https://github.com/ropensci/rorcid/issues",
   "license": "https://spdx.org/licenses/MIT",
-  "version": "0.6.0",
+  "version": "0.6.4",
   "programmingLanguage": {
     "@type": "ComputerLanguage",
     "name": "R",
@@ -228,7 +228,7 @@
   "contIntegration": "https://codecov.io/github/ropensci/rorcid?branch=master",
   "releaseNotes": "https://github.com/ropensci/rorcid/blob/master/NEWS.md",
   "readme": "https://github.com/ropensci/rorcid/blob/master/README.md",
-  "fileSize": "893.241KB",
+  "fileSize": "894.478KB",
   "applicationCategory": "Literature",
   "isPartOf": "https://ropensci.org",
   "keywords": ["identifiers", "literature", "publications", "citations", "scholarly", "people", "api-wrapper", "orcid", "doi", "scholarly-metadata", "rstats", "r", "orcid-api", "r-package"],
