@@ -142,10 +142,13 @@ orcid_putcode_helper <- function(path, orcid, put_code, format, ...) {
   }
 }
 
-as_dt <- function(x, tibble = TRUE) {
+as_dt <- function(x, tibble = TRUE, att = NULL) {
   z <- data.table::setDF(
     data.table::rbindlist(x, use.names = TRUE, fill = TRUE)
   )
+  if (!is.null(att)) {
+    for (i in seq_along(att)) attr(z, names(att)[i]) <- att[[i]]
+  }
   if (tibble) z <- tibble::as_tibble(z)
   return(z)
 }

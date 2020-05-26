@@ -87,6 +87,13 @@ so human friendly.
 
 We don't include all possible fields you could search against
 here - for that use \code{\link[=orcid]{orcid()}}
+
+Importantly, we return the first 10 results, following the default
+setting for the \code{rows} parameter in \code{\link[=orcid]{orcid()}}. You can set the rows
+parameter in this function to a max of 200. The maximum is an
+upper bound set by the ORCID API. You can get the number of results
+found programatically by fetching the \code{found} attribute on the ouput
+of this function, e.g., \code{attr(x, "found")}.
 }
 \note{
 \code{current_prim_inst} and \code{patent_number} parameters have been
@@ -111,6 +118,9 @@ orcid_search(grid_org_id = 'grid.5509.9')
 orcid_search(current_inst = '')
 orcid_search(email = '*@orcid.org')
 orcid_search(given_name = "carl", verbose = TRUE)
+# get number of results found
+x <- orcid_search(ringgold_org_id = '1438')
+attr(x, "found")
 }
 }
 \references{

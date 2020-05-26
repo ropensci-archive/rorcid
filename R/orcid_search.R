@@ -43,6 +43,13 @@
 #'
 #' We don't include all possible fields you could search against
 #' here - for that use [orcid()]
+#' 
+#' Importantly, we return the first 10 results, following the default 
+#' setting for the `rows` parameter in [orcid()]. You can set the rows
+#' parameter in this function to a max of 200. The maximum is an 
+#' upper bound set by the ORCID API. You can get the number of results
+#' found programatically by fetching the `found` attribute on the ouput
+#' of this function, e.g., `attr(x, "found")`.
 #'
 #' @section How parameters are combined:
 #' We combine multiple parameters with `AND`, such that
@@ -60,6 +67,9 @@
 #' orcid_search(current_inst = '')
 #' orcid_search(email = '*@orcid.org')
 #' orcid_search(given_name = "carl", verbose = TRUE)
+#' # get number of results found
+#' x <- orcid_search(ringgold_org_id = '1438')
+#' attr(x, "found")
 #' }
 orcid_search <- function(given_name = NULL, family_name = NULL,
     past_inst = NULL, current_inst = NULL,
@@ -99,7 +109,7 @@ orcid_search <- function(given_name = NULL, family_name = NULL,
       orcid = w,
       stringsAsFactors = FALSE
     )
-  }))
+  }), att = list(found = attr(tt, "found")))
 }
 
 field_match_list <- list(
