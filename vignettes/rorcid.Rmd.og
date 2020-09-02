@@ -1,15 +1,20 @@
-<!--
-%\VignetteEngine{knitr::knitr}
-%\VignetteIndexEntry{Introduction to the rorcid package}
-%\VignetteEncoding{UTF-8}
--->
+---
+title: rorcid introduction
+author: Scott Chamberlain
+date: "`r Sys.Date()`"
+output: rmarkdown::html_vignette
+vignette: >
+    %\VignetteIndexEntry{rorcid introduction}
+    %\VignetteEngine{knitr::rmarkdown}
+    %\VignetteEncoding{UTF-8}
+---
 
 ```{r echo=FALSE}
 knitr::opts_chunk$set(
-	comment = "#>",
-	collapse = TRUE,
-	warning = FALSE,
-	message = FALSE
+  comment = "#>",
+  collapse = TRUE,
+  warning = FALSE,
+  message = FALSE
 )
 ```
 
@@ -19,28 +24,8 @@ Orcid API docs: http://members.orcid.org/api
 
 The package now works with the `v3.0` ORCID API. It's too complicated to allow users to work with different versions of the API, so it's hard-coded to `v3.0`.
 
-## Package API
 
-```{r echo=FALSE, comment=NA, results='asis'}
-cat(paste(" -", paste(sprintf("`%s`", getNamespaceExports("rorcid")), collapse = "\n - ")))
-```
-
-
-## Installation
-
-Install from CRAN
-
-```{r eval=FALSE}
-install.packages("rorcid")
-```
-
-Or install the development version from GitHub
-
-```{r eval=FALSE}
-devtools::install_github("ropensci/rorcid")
-```
-
-Load rorcid
+## Load rorcid
 
 ```{r}
 library("rorcid")

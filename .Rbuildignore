@@ -20,4 +20,5 @@ inst/vign/cache
 .circleci/config.yml
 ^docs$
 vignettes/mycache/*
+vignettes/cache/*
 vignettes/test.Rmd
