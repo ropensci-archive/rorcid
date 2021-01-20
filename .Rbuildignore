@@ -9,6 +9,7 @@ inst/extra
 ^.*\.Rproj$
 ^\.Rproj\.user$
 README.Rmd
+README.md
 cran-comments.md
 ^CODE_OF_CONDUCT\.md$
 ^cran-comments\.md$
@@ -19,6 +20,4 @@ inst/vign/cache
 ^revdep$
 .circleci/config.yml
 ^docs$
-vignettes/mycache/*
-vignettes/cache/*
-vignettes/test.Rmd
+vignettes/
