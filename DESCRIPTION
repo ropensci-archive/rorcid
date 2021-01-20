@@ -38,7 +38,6 @@ Suggests:
     httpuv,
     vcr
 RoxygenNote: 7.1.1
-VignetteBuilder: knitr
 X-schema.org-applicationCategory: Literature
 X-schema.org-keywords: identifiers, literature, publications, citations, scholarly, people
 X-schema.org-isPartOf: https://ropensci.org
