@@ -18,7 +18,7 @@ rorcid docs: <https://docs.ropensci.org/rorcid/>
 Orcid API docs:
 
 * Public API docs: <https://members.orcid.org/api>
-* Swagger docs: <https://pub.orcid.org/v3.0/#/Development_Public_API_v3.0>
+* Swagger docs: https://pub.orcid.org/v3.0/#/Development_Public_API_v3.0
 
 The package now works with the `v3.0` ORCID API. It's too complicated to allow users to work with different versions of the API, so it's hard-coded to `v3.0`.
 

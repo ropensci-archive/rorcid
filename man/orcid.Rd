@@ -51,8 +51,7 @@ collection-wise faceting counts.}
 \item{qf}{(Query Fields) List of fields and the "boosts" to associate with
 each of them when building DisjunctionMaxQueries from the user's query}
 
-\item{mm}{(Minimum 'Should' Match) See the wiki here
-\url{http://wiki.apache.org/solr/ExtendedDisMax#mm_.28Minimum_.27Should.27_Match.29}}
+\item{mm}{(Minimum 'Should' Match).}
 
 \item{qs}{(Query Phrase Slop) Amount of slop on phrase queries explicitly
 included in the user's query string (in qf fields; affects matching).}
@@ -60,8 +59,7 @@ included in the user's query string (in qf fields; affects matching).}
 \item{pf}{(Phrase Fields) Once the list of matching documents has been
 identified using the "fq" and "qf" params, the "pf" param can be used to
 "boost" the score of documents in cases where all of the terms in the "q"
-param appear in close proximity. Read more here
-\url{http://wiki.apache.org/solr/ExtendedDisMax#pf_.28Phrase_Fields.29}}
+param appear in close proximity}
 
 \item{ps}{(Phrase Slop) Default amount of slop on phrase queries built with
 "pf", "pf2" and/or "pf3" fields (affects boosting).}
@@ -81,26 +79,21 @@ tri-grams, e.g. "the brown fox jumped" is queried as "the brown fox"
 for 'pf3'. If not specified, 'ps' will be used.}
 
 \item{tie}{(Tie breaker) Float value to use as tiebreaker in
-DisjunctionMaxQueries (should be something much less than 1). Read more here
-\url{http://wiki.apache.org/solr/ExtendedDisMax#tie_.28Tie_breaker.29}}
+DisjunctionMaxQueries (should be something much less than 1)}
 
 \item{bq}{(Boost Query) A raw query string (in the SolrQuerySyntax) that will
-be included with the user's query to influence the score. Read more here
-\url{http://wiki.apache.org/solr/ExtendedDisMax#bq_.28Boost_Query.29}}
+be included with the user's query to influence the score. See references}
 
 \item{bf}{(Boost Function, additive) Functions (with optional boosts) that
 will be included in the user's query to influence the score. Any function
 supported natively by Solr can be used, along with a boost value, e.g.:
-recip(rord(myfield),1,2,3)^1.5.  Read more here
-\url{http://wiki.apache.org/solr/ExtendedDisMax#bf_.28Boost_Function.2C_additive.29}}
+recip(rord(myfield),1,2,3)^1.5}
 
 \item{boost}{(Boost Function, multiplicative) As for 'bf' but multiplies the
 boost into the  score}
 
 \item{uf}{(User Fields) Specifies which schema fields the end user shall be
-allowed to query for explicitly. This parameter supports wildcards. Read
-more here
-\url{http://wiki.apache.org/solr/ExtendedDisMax#uf_.28User_Fields.29}}
+allowed to query for explicitly. This parameter supports wildcards.}
 
 \item{lowercaseOperators}{This param controls whether to try to interpret
 lowercase words as boolean operators such as "and", "not" and "or".
@@ -125,7 +118,7 @@ Search for ORCID ID's.
 }
 \details{
 All query syntaxes available in SOLR 3.6 (
-\url{https://cwiki.apache.org/confluence/display/solr/The+Standard+Query+Parser})
+\url{https://lucene.apache.org/solr/guide/8_7/the-standard-query-parser.html})
 are supported, including Lucene with Solr extensions (default), DisMax,
 and Extended Dismax.
 
@@ -138,7 +131,7 @@ external-id-type-and-value
 
 For more complicated queries the ORCID API supports using ExtendedDisMax.
 See the documentation on the web here:
-\url{http://wiki.apache.org/solr/ExtendedDisMax}
+\url{https://lucene.apache.org/solr/guide/8_7/the-extended-dismax-query-parser.html}
 
 Note that when constructing queries, you don't need to use syntax like
 \code{+}, etc., \code{crul}, the http client we use internally, will do that
@@ -213,6 +206,7 @@ orcid(defType = "edismax",
 }
 \references{
 \url{https://members.orcid.org/api/tutorial/search-orcid-registry}
+\url{https://lucene.apache.org/solr/guide/8_7/the-extended-dismax-query-parser.html}
 }
 \seealso{
 \code{\link[=orcid_doi]{orcid_doi()}} \code{\link[=orcid_id]{orcid_id()}} \code{\link[=orcid_search]{orcid_search()}}

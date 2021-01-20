@@ -71,7 +71,7 @@ This function is used within \pkg{rorcid} to get/do authentication.
 }
 \section{ORCID OAuth Scopes}{
 
-See \url{https://members.orcid.org/api/orcid-scopes} for more
+https://info.orcid.org/faq/what-is-an-oauth-scope-and-which-scopes-does-orcid-support/
 }
 
 \section{Computing environments without browsers}{

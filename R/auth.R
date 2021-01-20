@@ -60,7 +60,7 @@ two_legged_oauth <- function(client_id, client_secret) {
 #' for when that happens :)
 #'
 #' @section ORCID OAuth Scopes:
-#' See <https://members.orcid.org/api/orcid-scopes> for more
+#' https://info.orcid.org/faq/what-is-an-oauth-scope-and-which-scopes-does-orcid-support/
 #'
 #' @section Computing environments without browsers:
 #' One pitfall is when you are using rorcid on a server, and you're ssh'ed

@@ -16,15 +16,13 @@
 #' collection-wise faceting counts.
 #' @param qf (Query Fields) List of fields and the "boosts" to associate with
 #' each of them when building DisjunctionMaxQueries from the user's query
-#' @param mm (Minimum 'Should' Match) See the wiki here
-#' <http://wiki.apache.org/solr/ExtendedDisMax#mm_.28Minimum_.27Should.27_Match.29>
+#' @param mm (Minimum 'Should' Match).
 #' @param qs (Query Phrase Slop) Amount of slop on phrase queries explicitly
 #' included in the user's query string (in qf fields; affects matching).
 #' @param pf (Phrase Fields) Once the list of matching documents has been
 #' identified using the "fq" and "qf" params, the "pf" param can be used to
 #' "boost" the score of documents in cases where all of the terms in the "q"
-#' param appear in close proximity. Read more here
-#' <http://wiki.apache.org/solr/ExtendedDisMax#pf_.28Phrase_Fields.29>
+#' param appear in close proximity
 #' @param ps (Phrase Slop) Default amount of slop on phrase queries built with
 #' "pf", "pf2" and/or "pf3" fields (affects boosting).
 #' @param pf2 (Phrase bigram fields) As with 'pf' but chops the input into
@@ -38,22 +36,17 @@
 #' @param ps3 (Phrase trigram slop) As with 'ps' but sets default slop factor
 #' for 'pf3'. If not specified, 'ps' will be used.
 #' @param tie (Tie breaker) Float value to use as tiebreaker in
-#' DisjunctionMaxQueries (should be something much less than 1). Read more here
-#' <http://wiki.apache.org/solr/ExtendedDisMax#tie_.28Tie_breaker.29>
+#' DisjunctionMaxQueries (should be something much less than 1)
 #' @param bq (Boost Query) A raw query string (in the SolrQuerySyntax) that will
-#' be included with the user's query to influence the score. Read more here
-#' <http://wiki.apache.org/solr/ExtendedDisMax#bq_.28Boost_Query.29>
+#' be included with the user's query to influence the score. See references
 #' @param bf (Boost Function, additive) Functions (with optional boosts) that
 #' will be included in the user's query to influence the score. Any function
 #' supported natively by Solr can be used, along with a boost value, e.g.:
-#' recip(rord(myfield),1,2,3)^1.5.  Read more here
-#' <http://wiki.apache.org/solr/ExtendedDisMax#bf_.28Boost_Function.2C_additive.29>
+#' recip(rord(myfield),1,2,3)^1.5
 #' @param boost (Boost Function, multiplicative) As for 'bf' but multiplies the
 #' boost into the  score
 #' @param uf (User Fields) Specifies which schema fields the end user shall be
-#' allowed to query for explicitly. This parameter supports wildcards. Read
-#' more here
-#' <http://wiki.apache.org/solr/ExtendedDisMax#uf_.28User_Fields.29>
+#' allowed to query for explicitly. This parameter supports wildcards.
 #' @param lowercaseOperators This param controls whether to try to interpret
 #' lowercase words as boolean operators such as "and", "not" and "or".
 #' Set &lowercaseOperators=true to allow this. Default is "false".
@@ -64,9 +57,10 @@
 #' @param recursive DEFUNCT
 #'
 #' @references <https://members.orcid.org/api/tutorial/search-orcid-registry>
+#' <https://lucene.apache.org/solr/guide/8_7/the-extended-dismax-query-parser.html>
 #'
 #' @details All query syntaxes available in SOLR 3.6 (
-#' <https://cwiki.apache.org/confluence/display/solr/The+Standard+Query+Parser>)
+#' <https://lucene.apache.org/solr/guide/8_7/the-standard-query-parser.html>)
 #' are supported, including Lucene with Solr extensions (default), DisMax,
 #' and Extended Dismax.
 #'
@@ -79,7 +73,7 @@
 #'
 #' For more complicated queries the ORCID API supports using ExtendedDisMax.
 #' See the documentation on the web here:
-#' <http://wiki.apache.org/solr/ExtendedDisMax>
+#' <https://lucene.apache.org/solr/guide/8_7/the-extended-dismax-query-parser.html>
 #'
 #' Note that when constructing queries, you don't need to use syntax like
 #' `+`, etc., `crul`, the http client we use internally, will do that
