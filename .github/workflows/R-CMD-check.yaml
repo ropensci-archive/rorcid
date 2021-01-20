@@ -43,6 +43,12 @@ jobs:
           install.packages("pak", repos = "https://r-lib.github.io/p/pak/dev/")
         shell: Rscript {0}
 
+      - name: install macOS system dependencies
+        if: runner.os == 'macOS'
+        continue-on-error: true
+        run: |
+          brew install udunits
+
       - name: Install system dependencies
         if: runner.os == 'Linux'
         env:
