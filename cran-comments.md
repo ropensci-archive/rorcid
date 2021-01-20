@@ -1,7 +1,7 @@
 ## Test environments
 
-* local OS X install, R 3.6.2 Patched
-* ubuntu 16.04 (on travis-ci), R 3.6.2
+* local OS X install, R 4.0.3 Patched
+* ubuntu 16.04 (on GitHub Actions), R 4.0.3
 * win-builder (devel and release)
 
 ## R CMD check results
@@ -14,7 +14,7 @@
 
 ---
 
-This version fixes documentation, adds and removes some parameters, and fixes a R devel check on CRAN about a ellipsis (...) param definition that wasn't used in the fxn definition.
+This version makes minor improvements, including improved documentation on authentication.
 
 Thanks!
 Scott Chamberlain
