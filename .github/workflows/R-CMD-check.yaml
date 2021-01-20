@@ -47,7 +47,7 @@ jobs:
         if: runner.os == 'macOS'
         continue-on-error: true
         run: |
-          brew install udunits
+          brew install udunits protobuf
 
       - name: Install system dependencies
         if: runner.os == 'Linux'
