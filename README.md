@@ -7,7 +7,7 @@ rorcid
 [![R build status](https://github.com/ropensci/rorcid/workflows/R-CMD-check/badge.svg)](https://github.com/ropensci/rorcid/actions)
 [![cran checks](https://cranchecks.info/badges/worst/rorcid)](https://cranchecks.info/pkgs/rorcid)
 [![codecov.io](https://codecov.io/github/ropensci/rorcid/coverage.svg?branch=master)](https://codecov.io/github/ropensci/rorcid?branch=master)
-[![rstudio mirror downloads](https://cranlogs.r-pkg.org/badges/rorcid?color=2ED968)](https://github.com/metacran/cranlogs.app)
+[![rstudio mirror downloads](https://cranlogs.r-pkg.org/badges/rorcid?color=2ED968)](https://github.com/r-hub/cranlogs.app)
 [![cran version](https://www.r-pkg.org/badges/version/rorcid)](https://cran.r-project.org/package=rorcid)
 <!-- badges: end -->
 
@@ -17,8 +17,8 @@ rorcid docs: <https://docs.ropensci.org/rorcid/>
 
 Orcid API docs:
 
-* Public API docs: https://members.orcid.org/api
-* Swagger docs: https://pub.orcid.org/v3.0/#/Development_Public_API_v3.0
+* Public API docs: <https://members.orcid.org/api>
+* Swagger docs: <https://pub.orcid.org/v3.0/#/Development_Public_API_v3.0>
 
 The package now works with the `v3.0` ORCID API. It's too complicated to allow users to work with different versions of the API, so it's hard-coded to `v3.0`.
 
@@ -50,7 +50,7 @@ If both options above fail, we proceed without using authentication.
 ORCID does not require authentication at this point, but may in the future -
 this prepares you for when that happens :)
 
-See https://members.orcid.org/api/oauth/orcid-scopes for more about ORCID 
+See <https://members.orcid.org/api/oauth/orcid-scopes> for more about ORCID 
 OAuth Scopes.
 
 ## Computing environments without browsers
@@ -93,5 +93,3 @@ Get started with rorcid at <https://docs.ropensci.org/rorcid/>
 * License: MIT
 * Get citation information for `rorcid` in R doing `citation(package = 'rorcid')`
 * Please note that this package is released with a [Contributor Code of Conduct](https://ropensci.org/code-of-conduct/). By contributing to this project, you agree to abide by its terms.
-
-[![ropensci_footer](https://ropensci.org/public_images/github_footer.png)](https://ropensci.org)
