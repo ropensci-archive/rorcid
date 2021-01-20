@@ -1,7 +1,7 @@
 ---
 title: rorcid introduction
 author: Scott Chamberlain
-date: "2020-09-02"
+date: "2021-01-20"
 output: rmarkdown::html_vignette
 vignette: >
     %\VignetteIndexEntry{rorcid introduction}
@@ -111,15 +111,15 @@ orcid(query = "carl boettiger")
 #>    `orcid-identifier.uri`            `orcid-identifier.pa… `orcid-identifier.ho…
 #>  * <chr>                             <chr>                 <chr>                
 #>  1 https://orcid.org/0000-0002-1642… 0000-0002-1642-628X   orcid.org            
-#>  2 https://orcid.org/0000-0002-3554… 0000-0002-3554-5196   orcid.org            
-#>  3 https://orcid.org/0000-0003-1853… 0000-0003-1853-1574   orcid.org            
-#>  4 https://orcid.org/0000-0002-5951… 0000-0002-5951-4503   orcid.org            
+#>  2 https://orcid.org/0000-0002-5951… 0000-0002-5951-4503   orcid.org            
+#>  3 https://orcid.org/0000-0002-3554… 0000-0002-3554-5196   orcid.org            
+#>  4 https://orcid.org/0000-0003-1853… 0000-0003-1853-1574   orcid.org            
 #>  5 https://orcid.org/0000-0002-7462… 0000-0002-7462-1956   orcid.org            
 #>  6 https://orcid.org/0000-0002-7790… 0000-0002-7790-5102   orcid.org            
 #>  7 https://orcid.org/0000-0003-1021… 0000-0003-1021-5374   orcid.org            
 #>  8 https://orcid.org/0000-0001-8899… 0000-0001-8899-7850   orcid.org            
 #>  9 https://orcid.org/0000-0001-7084… 0000-0001-7084-5402   orcid.org            
-#> 10 https://orcid.org/0000-0001-9705… 0000-0001-9705-4766   orcid.org            
+#> 10 https://orcid.org/0000-0003-0241… 0000-0003-0241-3557   orcid.org            
 #> # … with 990 more rows
 ```
 
@@ -133,14 +133,14 @@ orcid(query = "johnson cardiology houston")
 #>  * <chr>                             <chr>                 <chr>                
 #>  1 https://orcid.org/0000-0002-0897… 0000-0002-0897-2301   orcid.org            
 #>  2 https://orcid.org/0000-0002-5281… 0000-0002-5281-4466   orcid.org            
-#>  3 https://orcid.org/0000-0002-2862… 0000-0002-2862-4160   orcid.org            
-#>  4 https://orcid.org/0000-0001-8188… 0000-0001-8188-0078   orcid.org            
+#>  3 https://orcid.org/0000-0001-8188… 0000-0001-8188-0078   orcid.org            
+#>  4 https://orcid.org/0000-0002-2862… 0000-0002-2862-4160   orcid.org            
 #>  5 https://orcid.org/0000-0002-0682… 0000-0002-0682-9982   orcid.org            
 #>  6 https://orcid.org/0000-0002-4334… 0000-0002-4334-4001   orcid.org            
 #>  7 https://orcid.org/0000-0002-6401… 0000-0002-6401-4597   orcid.org            
-#>  8 https://orcid.org/0000-0001-9667… 0000-0001-9667-1615   orcid.org            
-#>  9 https://orcid.org/0000-0003-0945… 0000-0003-0945-6138   orcid.org            
-#> 10 https://orcid.org/0000-0003-4792… 0000-0003-4792-0149   orcid.org            
+#>  8 https://orcid.org/0000-0003-4792… 0000-0003-4792-0149   orcid.org            
+#>  9 https://orcid.org/0000-0001-9667… 0000-0001-9667-1615   orcid.org            
+#> 10 https://orcid.org/0000-0003-0945… 0000-0003-0945-6138   orcid.org            
 #> # … with 990 more rows
 ```
 
@@ -152,8 +152,8 @@ orcid("johnson cardiology houston", start = 2, rows = 3)
 #> # A tibble: 3 x 3
 #>   `orcid-identifier.uri`            `orcid-identifier.pat… `orcid-identifier.ho…
 #> * <chr>                             <chr>                  <chr>                
-#> 1 https://orcid.org/0000-0002-2862… 0000-0002-2862-4160    orcid.org            
-#> 2 https://orcid.org/0000-0001-8188… 0000-0001-8188-0078    orcid.org            
+#> 1 https://orcid.org/0000-0001-8188… 0000-0001-8188-0078    orcid.org            
+#> 2 https://orcid.org/0000-0002-2862… 0000-0002-2862-4160    orcid.org            
 #> 3 https://orcid.org/0000-0002-0682… 0000-0002-0682-9982    orcid.org
 ```
 
@@ -227,7 +227,7 @@ Basic search
 ```r
 orcid_doi(dois = "10.1087/20120404")
 #> [[1]]
-#> # A tibble: 14 x 3
+#> # A tibble: 13 x 3
 #>    `orcid-identifier.uri`            `orcid-identifier.pa… `orcid-identifier.ho…
 #>  * <chr>                             <chr>                 <chr>                
 #>  1 https://orcid.org/0000-0002-3181… 0000-0002-3181-3456   orcid.org            
@@ -235,15 +235,14 @@ orcid_doi(dois = "10.1087/20120404")
 #>  3 https://orcid.org/0000-0001-7343… 0000-0001-7343-9784   orcid.org            
 #>  4 https://orcid.org/0000-0003-3738… 0000-0003-3738-1487   orcid.org            
 #>  5 https://orcid.org/0000-0001-5727… 0000-0001-5727-2427   orcid.org            
-#>  6 https://orcid.org/0000-0003-0187… 0000-0003-0187-9064   orcid.org            
-#>  7 https://orcid.org/0000-0003-1603… 0000-0003-1603-8743   orcid.org            
-#>  8 https://orcid.org/0000-0002-2123… 0000-0002-2123-6317   orcid.org            
-#>  9 https://orcid.org/0000-0002-0860… 0000-0002-0860-8606   orcid.org            
-#> 10 https://orcid.org/0000-0003-0493… 0000-0003-0493-0128   orcid.org            
-#> 11 https://orcid.org/0000-0003-3188… 0000-0003-3188-6273   orcid.org            
-#> 12 https://orcid.org/0000-0002-5993… 0000-0002-5993-8592   orcid.org            
-#> 13 https://orcid.org/0000-0003-1419… 0000-0003-1419-2405   orcid.org            
-#> 14 https://orcid.org/0000-0001-5109… 0000-0001-5109-3700   orcid.org            
+#>  6 https://orcid.org/0000-0003-1603… 0000-0003-1603-8743   orcid.org            
+#>  7 https://orcid.org/0000-0002-2123… 0000-0002-2123-6317   orcid.org            
+#>  8 https://orcid.org/0000-0002-0860… 0000-0002-0860-8606   orcid.org            
+#>  9 https://orcid.org/0000-0003-0493… 0000-0003-0493-0128   orcid.org            
+#> 10 https://orcid.org/0000-0003-3188… 0000-0003-3188-6273   orcid.org            
+#> 11 https://orcid.org/0000-0002-5993… 0000-0002-5993-8592   orcid.org            
+#> 12 https://orcid.org/0000-0003-1419… 0000-0003-1419-2405   orcid.org            
+#> 13 https://orcid.org/0000-0001-5109… 0000-0001-5109-3700   orcid.org            
 #> 
 #> attr(,"class")
 #> [1] "orcid_doi"
@@ -284,11 +283,11 @@ res[[1]]
 #>  3 https://orcid.org/0000-0001-6577… 0000-0001-6577-5526   orcid.org            
 #>  4 https://orcid.org/0000-0001-9637… 0000-0001-9637-4127   orcid.org            
 #>  5 https://orcid.org/0000-0002-3461… 0000-0002-3461-9990   orcid.org            
-#>  6 https://orcid.org/0000-0002-7407… 0000-0002-7407-9642   orcid.org            
-#>  7 https://orcid.org/0000-0002-5591… 0000-0002-5591-5721   orcid.org            
-#>  8 https://orcid.org/0000-0003-4410… 0000-0003-4410-6539   orcid.org            
+#>  6 https://orcid.org/0000-0002-0153… 0000-0002-0153-9708   orcid.org            
+#>  7 https://orcid.org/0000-0003-1403… 0000-0003-1403-7093   orcid.org            
+#>  8 https://orcid.org/0000-0002-5591… 0000-0002-5591-5721   orcid.org            
 #>  9 https://orcid.org/0000-0003-0551… 0000-0003-0551-2550   orcid.org            
-#> 10 https://orcid.org/0000-0002-8643… 0000-0002-8643-2343   orcid.org            
+#> 10 https://orcid.org/0000-0003-4410… 0000-0003-4410-6539   orcid.org            
 #> # … with 990 more rows
 ```
 
