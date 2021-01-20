@@ -43,12 +43,6 @@ jobs:
           install.packages("pak", repos = "https://r-lib.github.io/p/pak/dev/")
         shell: Rscript {0}
 
-      - name: install macOS system dependencies
-        if: runner.os == 'macOS'
-        continue-on-error: true
-        run: |
-          brew install udunits protobuf
-
       - name: Install system dependencies
         if: runner.os == 'Linux'
         env:
@@ -62,7 +56,7 @@ jobs:
       - name: Install dependencies
         run: |
           pak::local_install_dev_deps()
-          pak::pkg_install(c("rcmdcheck", "sf", "maps", "scales", "colorspace", "raster", "protolite"))
+          pak::pkg_install("rcmdcheck")
         shell: Rscript {0}
 
       - name: Session info
