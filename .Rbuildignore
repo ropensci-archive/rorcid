@@ -21,3 +21,4 @@ inst/vign/cache
 .circleci/config.yml
 ^docs$
 vignettes/
+^LICENSE\.md$
