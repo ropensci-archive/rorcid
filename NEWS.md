@@ -50,12 +50,12 @@ rorcid 0.5.0
 
 * with ORCID v3 API, new functions added: `orcid_distinctions()`, `orcid_invited_positions()`, `orcid_memberships()`, `orcid_qualifications()`, `orcid_research_resources()`, and `orcid_services()`
 * gains new fxn `orcid_citations()` for getting citations for an ORCID ID in user specified formats - leverages `rcrossref` and `handlr` packages (#51) (#69)
-* new function added `orcid_search()`, a wrapper around `orcid()` function as an easier interface than `orcid()` - see https://github.com/ropensci/codemetar/issues/83 for discussion (#54)
+* new function added `orcid_search()`, a wrapper around `orcid()` function as an easier interface than `orcid()` - see ropensci/codemetar issue 83 for discussion (#54)
 * requires R 3.5 or greater
 
 ### MINOR IMPROVEMENTS
 
-* dataset added to the package `issn_title`, a named vector, with values as journal names and names as their ISSN values (sourced from Crossref; see https://github.com/ropensci/rorcid/blob/master/inst/ignore/issn_title_collect.R for script for updating this dataset if you'd like to do yourself). see `?orcid_peer_reviews` examples for an example of using the dataset to gather journal titles from jorunal ISSN's (#52)
+* dataset added to the package `issn_title`, a named vector, with values as journal names and names as their ISSN values (sourced from Crossref). see `?orcid_peer_reviews` examples for an example of using the dataset to gather journal titles from jorunal ISSN's (#52)
 * added documentation on ORCID authentication to README (#60) thanks @maelle
 * use `fauxpas::find_error_class` method instead of internal hack (#61)
 * Added more examples to the vignette (#56) thanks @bomeara
