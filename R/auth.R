@@ -15,7 +15,7 @@ two_legged_oauth <- function(client_id, client_secret) {
 #' @export
 #' @aliases rorcid-auth
 #' @param scope (character) one or more scopes. default: `"/authenticate"`.
-#' see xxx for other scope options
+#' see "ORCID OAuth Scopes" section below for other scope options
 #' @param reauth (logical) Force re-authorization? default: `FALSE`
 #' @param redirect_uri (character) a redirect URI. optional. set by passing
 #' to this parameter or using the R option `rorcid.redirect_uri`

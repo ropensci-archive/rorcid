@@ -15,7 +15,7 @@ orcid_auth(
 }
 \arguments{
 \item{scope}{(character) one or more scopes. default: \code{"/authenticate"}.
-see xxx for other scope options}
+see "ORCID OAuth Scopes" section below for other scope options}
 
 \item{reauth}{(logical) Force re-authorization? default: \code{FALSE}}
 
