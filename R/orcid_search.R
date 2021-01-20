@@ -64,7 +64,6 @@
 #' orcid_search(affiliation_org = '("Boston University" OR BU)')
 #' orcid_search(ringgold_org_id = '1438')
 #' orcid_search(grid_org_id = 'grid.5509.9')
-#' orcid_search(current_inst = '')
 #' orcid_search(email = '*@orcid.org')
 #' orcid_search(given_name = "carl", verbose = TRUE)
 #' # get number of results found
