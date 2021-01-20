@@ -14,3 +14,7 @@
 * Submit a pull request to home base at `ropensci/rorcid`
 
 ### Also, check out our [discussion forum](https://discuss.ropensci.org)
+
+### Email
+
+Do not email the maintainer - open an issue instead.
