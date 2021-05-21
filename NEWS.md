@@ -3,8 +3,9 @@ rorcid 0.7.0
 
 ### MINOR IMPROVEMENTS
 
-* `orcid_search()` changes: now returns number of records found as an attribute; get it by doing `attr(x, "found")` if `x` is the result of a call to `orcid_search()`. In addition, added an example of retreiving number of records found, as well as added more documentation to the function page on pagination. (#86)
+* `orcid_search()` changes: now returns number of records found as an attribute; get it by doing `attr(x, "found")` if `x` is the result of a call to `orcid_search()`. In addition, added an example of retrieving number of records found, as well as added more documentation to the function page on pagination. (#86)
 * Auth gains a 3rd method: 2 legged OAuth. Updated `?orcid_auth` docs on the 3 different auth methods, as well as the README and auth vignette.  (#87)
+* `orcid_citations()` produced wrongly formatted BibTeX strings under particular circumstances; fixed. 
 
 
 rorcid 0.6.4
