@@ -1,15 +1,15 @@
 http_interactions:
 - request:
     method: get
-    uri: https://pub.orcid.org/v3.0/0000-0002-0734-2199/work/40038622
+    uri: https://pub.orcid.org/v3.0/0000-0002-0734-2199/work/77226586
     body:
       encoding: ''
       string: ''
     headers:
       Accept-Encoding: gzip, deflate
       Accept: application/json
-      User-Agent: r-curl/4.3 crul/0.9.0 rOpenSci(rorcid/0.6.3.91)
-      X-USER-AGENT: r-curl/4.3 crul/0.9.0 rOpenSci(rorcid/0.6.3.91)
+      User-Agent: r-curl/4.3.1 crul/1.1.0 rOpenSci(rorcid/0.7.0)
+      X-USER-AGENT: r-curl/4.3.1 crul/1.1.0 rOpenSci(rorcid/0.7.0)
       Authorization: Bearer <<rorcid_bearer_token>>
   response:
     status:
@@ -17,44 +17,87 @@ http_interactions:
       message: OK
       explanation: Request fulfilled, document follows
     headers:
-      status: HTTP/1.1 200 OK
-      server: nginx/1.16.1
-      date: Wed, 05 Feb 2020 22:21:44 GMT
+      status: 'HTTP/2 200 '
+      date: Fri, 21 May 2021 22:29:35 GMT
       content-type: application/json;charset=UTF-8
-      transfer-encoding: chunked
-      connection: keep-alive
-      access-control-allow-origin: '*'
       cache-control: no-cache, no-store, max-age=0, must-revalidate
-      pragma: no-cache
-      expires: '0'
-      x-xss-protection: 1; mode=block
-      x-frame-options: DENY
-      x-content-type-options: nosniff
       content-encoding: gzip
+      expires: '0'
+      pragma: no-cache
+      x-xss-protection: 1; mode=block
+      access-control-allow-origin: '*'
+      x-content-type-options: nosniff
+      set-cookie: X-Mapping-fjhppofk=4842165633BFDE68C17EFF06BB2B96E5; path=/
+      x-frame-options: DENY
+      cf-cache-status: DYNAMIC
+      cf-request-id: 0a32a56b3e0000423ff485b000000001
+      expect-ct: max-age=604800, report-uri="https://report-uri.cloudflare.com/cdn-cgi/beacon/expect-ct"
+      server: cloudflare
+      cf-ray: 65313e8b98e1423f-LHR
     body:
       encoding: UTF-8
       file: no
-      string: '{"created-date":{"value":1514544074236},"last-modified-date":{"value":1526896135938},"source":{"source-orcid":{"uri":"https://orcid.org/0000-0002-0734-2199","path":"0000-0002-0734-2199","host":"orcid.org"},"source-client-id":null,"source-name":{"value":"Sebastian
-        Kreutzer"},"assertion-origin-orcid":null,"assertion-origin-client-id":null,"assertion-origin-name":null},"put-code":40038622,"path":"/0000-0002-0734-2199/work/40038622","title":{"title":{"value":"Introducing
-        an R package for luminescence dating analysis "},"subtitle":null,"translated-title":null},"journal-title":{"value":"Ancient
-        TL"},"short-description":null,"citation":{"citation-type":"bibtex","citation-value":"@article{Kreutzer:2012ty,
-        author= {Kreutzer, Sebastian and Schmidt, Christoph and Fuchs, Margret C and
-        Dietze, Michael and Fischer, Manfred and Fuchs, Markus}, title= {{Introducing
-        an R package for luminescence dating analysis }}, journal= {Ancient TL}, year=
-        {2012}, volume= {30}, number= {1}, pages= {1--8}}\n\n"},"type":"journal-article","publication-date":{"year":{"value":"2012"},"month":null,"day":null},"external-ids":{"external-id":null},"url":{"value":"http://www.ecu.edu/cs-cas/physics/Ancient-Timeline/upload/ATL_30-1-Kreutzer.pdf"},"contributors":{"contributor":[]},"language-code":"en","country":{"value":"GB"},"visibility":"public"}'
-  recorded_at: 2020-02-05 22:21:44 GMT
-  recorded_with: vcr/0.4.0, webmockr/0.5.0
+      string: '{"created-date":{"value":1594708398016},"last-modified-date":{"value":1594929481358},"source":{"source-orcid":null,"source-client-id":{"uri":"https://orcid.org/client/APP-11OP2B5GJEHAY2J7","path":"APP-11OP2B5GJEHAY2J7","host":"orcid.org"},"source-name":{"value":"Aberystwyth
+        University"},"assertion-origin-orcid":null,"assertion-origin-client-id":null,"assertion-origin-name":null},"put-code":77226586,"path":"/0000-0002-0734-2199/work/77226586","title":{"title":{"value":"Dose-Rate
+        Estimation using α-Al2O3:C Chips: Aftermath"},"subtitle":null,"translated-title":null},"journal-title":{"value":"Ancient
+        TL"},"short-description":"We present additional experiments for α-Al<sub>2</sub>O<sub>3</sub>:C
+        chips used to estimate in situ gamma-dose rates. Our contribution supplements
+        the article by Kreutzer et al.~(2018) and presents results from previously
+        announced follow-up experiments. (1) We investigate the divergent gamma-dose
+        rate results we obtained from cross-check experiments for one reference site.
+        (2) We discuss the origin of encountered large inter-aliquot scatter using
+        results from low-level background and calibration measurements. (3) We show
+        that the chip geometries vary considerably, which may partly contribute to
+        additional inter-aliquot scatter, regardless of an overall good reproducibility
+        of results. (4) We report new source-calibration results after replacing the
+        beta-source housing of our measurement system, which resulted in an increase
+        of the source dose rate at the sample position by ca 37%. GEANT4 simulations
+        show that the increased dose rate is likely caused by an unfortunate fabrication
+        tolerance of the shutter in front of the beta-source, which, in combination
+        with the chip geometry, significantly contributes to the observed inter-aliquot
+        scatter. (5) Finally, we introduce a newly developed shiny application we
+        use at the IRAMAT-CRP2A to analyse  α-Al<sub>2</sub>O<sub>3</sub>:C measurements.
+        The application is open-source and freely available.","citation":{"citation-type":"bibtex","citation-value":"@article{241a9e613cea4173bafa23dbd14e5924,\n  title     =
+        \"Dose-Rate Estimation using α-Al2O3:C Chips: Aftermath\",\n  abstract  =
+        \"We present additional experiments for α-Al2O3:C chips used to estimate in
+        situ gamma-dose rates. Our contribution supplements the article by Kreutzer
+        et al.~(2018) and presents results from previously announced follow-up experiments.
+        (1) We investigate the divergent gamma-dose rate results we obtained from
+        cross-check experiments for one reference site. (2) We discuss the origin
+        of encountered large inter-aliquot scatter using results from low-level background
+        and calibration measurements. (3) We show that the chip geometries vary considerably,
+        which may partly contribute to additional inter-aliquot scatter, regardless
+        of an overall good reproducibility of results. (4) We report new source-calibration
+        results after replacing the beta-source housing of our measurement system,
+        which resulted in an increase of the source dose rate at the sample position
+        by ca 37%. GEANT4 simulations show that the increased dose rate is likely
+        caused by an unfortunate fabrication tolerance of the shutter in front of
+        the beta-source, which, in combination with the chip geometry, significantly
+        contributes to the observed inter-aliquot scatter. (5) Finally, we introduce
+        a newly developed shiny application we use at the IRAMAT-CRP2A to analyse  α-Al2O3:C measurements.
+        The application is open-source and freely available.\",\n  keywords  = \"Dosimetry,
+        Al2O3:C, Luminescence\",\n  author    = \"Sebastian Kreutzer and Chantal Tribolo
+        and Lo{\\\"i}c Martin and Norbert Mercier\",\n  year      = \"2020\",\n  month     =
+        jun,\n  day       = \"1\",\n  language  = \"English\",\n  volume    = \"38\",\n  pages     =
+        \"1--10\",\n  journal   = \"Ancient TL\",\n  issn      = \"0735-1348\",\n  publisher
+        = \"East Carolina University\",\n  number    = \"1\",\n}"},"type":"journal-article","publication-date":{"year":{"value":"2020"},"month":{"value":"06"},"day":{"value":"01"}},"external-ids":{"external-id":[{"external-id-type":"source-work-id","external-id-value":"241a9e61-3cea-4173-bafa-23dbd14e5924","external-id-normalized":{"value":"241a9e61-3cea-4173-bafa-23dbd14e5924","transient":true},"external-id-normalized-error":null,"external-id-url":null,"external-id-relationship":"self"}]},"url":{"value":"https://pure.aber.ac.uk/portal/en/publications/doserate-estimation-using-al2o3c-chips-aftermath(241a9e61-3cea-4173-bafa-23dbd14e5924).html"},"contributors":{"contributor":[{"contributor-orcid":{"uri":"http://orcid.org/0000-0002-0734-2199","path":"0000-0002-0734-2199","host":null},"credit-name":{"value":"Sebastian
+        Kreutzer"},"contributor-email":null,"contributor-attributes":{"contributor-sequence":null,"contributor-role":"author"}},{"contributor-orcid":null,"credit-name":{"value":"Chantal
+        Tribolo"},"contributor-email":null,"contributor-attributes":{"contributor-sequence":null,"contributor-role":"author"}},{"contributor-orcid":null,"credit-name":{"value":"Loïc
+        Martin"},"contributor-email":null,"contributor-attributes":{"contributor-sequence":null,"contributor-role":"author"}},{"contributor-orcid":null,"credit-name":{"value":"Norbert
+        Mercier"},"contributor-email":null,"contributor-attributes":{"contributor-sequence":null,"contributor-role":"author"}}]},"language-code":"en","country":null,"visibility":"public"}'
+  recorded_at: 2021-05-21 22:29:35 GMT
+  recorded_with: vcr/0.6.0, webmockr/0.8.0
 - request:
     method: get
-    uri: https://pub.orcid.org/v3.0/0000-0002-0734-2199/work/40038622
+    uri: https://pub.orcid.org/v3.0/0000-0002-0734-2199/work/77226586
     body:
       encoding: ''
       string: ''
     headers:
       Accept-Encoding: gzip, deflate
       Accept: application/vnd.orcid+json; qs=4
-      User-Agent: r-curl/4.3 crul/0.9.0 rOpenSci(rorcid/0.6.3.91)
-      X-USER-AGENT: r-curl/4.3 crul/0.9.0 rOpenSci(rorcid/0.6.3.91)
+      User-Agent: r-curl/4.3.1 crul/1.1.0 rOpenSci(rorcid/0.7.0)
+      X-USER-AGENT: r-curl/4.3.1 crul/1.1.0 rOpenSci(rorcid/0.7.0)
       Authorization: Bearer <<rorcid_bearer_token>>
   response:
     status:
@@ -62,51 +105,53 @@ http_interactions:
       message: OK
       explanation: Request fulfilled, document follows
     headers:
-      status: HTTP/1.1 200 OK
-      server: nginx/1.16.1
-      cache-control: no-cache, no-store, max-age=0, must-revalidate
+      status: 'HTTP/2 200 '
+      date: Fri, 21 May 2021 22:29:35 GMT
       content-type: application/vnd.orcid+json; qs=4;charset=UTF-8
+      cache-control: no-cache, no-store, max-age=0, must-revalidate
       content-encoding: gzip
-      date: Wed, 05 Feb 2020 22:21:44 GMT
       expires: '0'
       pragma: no-cache
       x-xss-protection: 1; mode=block
-      transfer-encoding: chunked
       access-control-allow-origin: '*'
       x-content-type-options: nosniff
-      connection: keep-alive
-      set-cookie: X-Mapping-fjhppofk=26484D0F5DA32D2D6AF64AA1C9DBBA16; path=/
+      set-cookie: X-Mapping-fjhppofk=4842165633BFDE68C17EFF06BB2B96E5; path=/
       x-frame-options: DENY
+      cf-cache-status: DYNAMIC
+      cf-request-id: 0a32a56dfb0000423fa53c5000000001
+      expect-ct: max-age=604800, report-uri="https://report-uri.cloudflare.com/cdn-cgi/beacon/expect-ct"
+      server: cloudflare
+      cf-ray: 65313e8fff14423f-LHR
     body:
       encoding: UTF-8
       file: no
       string: |-
         {
           "created-date" : {
-            "value" : 1514544074236
+            "value" : 1594708398016
           },
           "last-modified-date" : {
-            "value" : 1526896135938
+            "value" : 1594929481358
           },
           "source" : {
-            "source-orcid" : {
-              "uri" : "https://orcid.org/0000-0002-0734-2199",
-              "path" : "0000-0002-0734-2199",
+            "source-orcid" : null,
+            "source-client-id" : {
+              "uri" : "https://orcid.org/client/APP-11OP2B5GJEHAY2J7",
+              "path" : "APP-11OP2B5GJEHAY2J7",
               "host" : "orcid.org"
             },
-            "source-client-id" : null,
             "source-name" : {
-              "value" : "Sebastian Kreutzer"
+              "value" : "Aberystwyth University"
             },
             "assertion-origin-orcid" : null,
             "assertion-origin-client-id" : null,
             "assertion-origin-name" : null
           },
-          "put-code" : 40038622,
-          "path" : "/0000-0002-0734-2199/work/40038622",
+          "put-code" : 77226586,
+          "path" : "/0000-0002-0734-2199/work/77226586",
           "title" : {
             "title" : {
-              "value" : "Introducing an R package for luminescence dating analysis "
+              "value" : "Dose-Rate Estimation using α-Al2O3:C Chips: Aftermath"
             },
             "subtitle" : null,
             "translated-title" : null
@@ -114,132 +159,89 @@ http_interactions:
           "journal-title" : {
             "value" : "Ancient TL"
           },
-          "short-description" : null,
+          "short-description" : "We present additional experiments for α-Al<sub>2</sub>O<sub>3</sub>:C chips used to estimate in situ gamma-dose rates. Our contribution supplements the article by Kreutzer et al.~(2018) and presents results from previously announced follow-up experiments. (1) We investigate the divergent gamma-dose rate results we obtained from cross-check experiments for one reference site. (2) We discuss the origin of encountered large inter-aliquot scatter using results from low-level background and calibration measurements. (3) We show that the chip geometries vary considerably, which may partly contribute to additional inter-aliquot scatter, regardless of an overall good reproducibility of results. (4) We report new source-calibration results after replacing the beta-source housing of our measurement system, which resulted in an increase of the source dose rate at the sample position by ca 37%. GEANT4 simulations show that the increased dose rate is likely caused by an unfortunate fabrication tolerance of the shutter in front of the beta-source, which, in combination with the chip geometry, significantly contributes to the observed inter-aliquot scatter. (5) Finally, we introduce a newly developed shiny application we use at the IRAMAT-CRP2A to analyse  α-Al<sub>2</sub>O<sub>3</sub>:C measurements. The application is open-source and freely available.",
           "citation" : {
             "citation-type" : "bibtex",
-            "citation-value" : "@article{Kreutzer:2012ty, author= {Kreutzer, Sebastian and Schmidt, Christoph and Fuchs, Margret C and Dietze, Michael and Fischer, Manfred and Fuchs, Markus}, title= {{Introducing an R package for luminescence dating analysis }}, journal= {Ancient TL}, year= {2012}, volume= {30}, number= {1}, pages= {1--8}}\n\n"
+            "citation-value" : "@article{241a9e613cea4173bafa23dbd14e5924,\n  title     = \"Dose-Rate Estimation using α-Al2O3:C Chips: Aftermath\",\n  abstract  = \"We present additional experiments for α-Al2O3:C chips used to estimate in situ gamma-dose rates. Our contribution supplements the article by Kreutzer et al.~(2018) and presents results from previously announced follow-up experiments. (1) We investigate the divergent gamma-dose rate results we obtained from cross-check experiments for one reference site. (2) We discuss the origin of encountered large inter-aliquot scatter using results from low-level background and calibration measurements. (3) We show that the chip geometries vary considerably, which may partly contribute to additional inter-aliquot scatter, regardless of an overall good reproducibility of results. (4) We report new source-calibration results after replacing the beta-source housing of our measurement system, which resulted in an increase of the source dose rate at the sample position by ca 37%. GEANT4 simulations show that the increased dose rate is likely caused by an unfortunate fabrication tolerance of the shutter in front of the beta-source, which, in combination with the chip geometry, significantly contributes to the observed inter-aliquot scatter. (5) Finally, we introduce a newly developed shiny application we use at the IRAMAT-CRP2A to analyse  α-Al2O3:C measurements. The application is open-source and freely available.\",\n  keywords  = \"Dosimetry, Al2O3:C, Luminescence\",\n  author    = \"Sebastian Kreutzer and Chantal Tribolo and Lo{\\\"i}c Martin and Norbert Mercier\",\n  year      = \"2020\",\n  month     = jun,\n  day       = \"1\",\n  language  = \"English\",\n  volume    = \"38\",\n  pages     = \"1--10\",\n  journal   = \"Ancient TL\",\n  issn      = \"0735-1348\",\n  publisher = \"East Carolina University\",\n  number    = \"1\",\n}"
           },
           "type" : "journal-article",
           "publication-date" : {
             "year" : {
-              "value" : "2012"
+              "value" : "2020"
             },
-            "month" : null,
-            "day" : null
+            "month" : {
+              "value" : "06"
+            },
+            "day" : {
+              "value" : "01"
+            }
           },
           "external-ids" : {
-            "external-id" : null
+            "external-id" : [ {
+              "external-id-type" : "source-work-id",
+              "external-id-value" : "241a9e61-3cea-4173-bafa-23dbd14e5924",
+              "external-id-normalized" : {
+                "value" : "241a9e61-3cea-4173-bafa-23dbd14e5924",
+                "transient" : true
+              },
+              "external-id-normalized-error" : null,
+              "external-id-url" : null,
+              "external-id-relationship" : "self"
+            } ]
           },
           "url" : {
-            "value" : "http://www.ecu.edu/cs-cas/physics/Ancient-Timeline/upload/ATL_30-1-Kreutzer.pdf"
+            "value" : "https://pure.aber.ac.uk/portal/en/publications/doserate-estimation-using-al2o3c-chips-aftermath(241a9e61-3cea-4173-bafa-23dbd14e5924).html"
           },
           "contributors" : {
-            "contributor" : [ ]
+            "contributor" : [ {
+              "contributor-orcid" : {
+                "uri" : "http://orcid.org/0000-0002-0734-2199",
+                "path" : "0000-0002-0734-2199",
+                "host" : null
+              },
+              "credit-name" : {
+                "value" : "Sebastian Kreutzer"
+              },
+              "contributor-email" : null,
+              "contributor-attributes" : {
+                "contributor-sequence" : null,
+                "contributor-role" : "author"
+              }
+            }, {
+              "contributor-orcid" : null,
+              "credit-name" : {
+                "value" : "Chantal Tribolo"
+              },
+              "contributor-email" : null,
+              "contributor-attributes" : {
+                "contributor-sequence" : null,
+                "contributor-role" : "author"
+              }
+            }, {
+              "contributor-orcid" : null,
+              "credit-name" : {
+                "value" : "Loïc Martin"
+              },
+              "contributor-email" : null,
+              "contributor-attributes" : {
+                "contributor-sequence" : null,
+                "contributor-role" : "author"
+              }
+            }, {
+              "contributor-orcid" : null,
+              "credit-name" : {
+                "value" : "Norbert Mercier"
+              },
+              "contributor-email" : null,
+              "contributor-attributes" : {
+                "contributor-sequence" : null,
+                "contributor-role" : "author"
+              }
+            } ]
           },
           "language-code" : "en",
-          "country" : {
-            "value" : "GB"
-          },
+          "country" : null,
           "visibility" : "public"
         }
-  recorded_at: 2020-02-05 22:21:44 GMT
-  recorded_with: vcr/0.4.0, webmockr/0.5.0
-- request:
-    method: get
-    uri: https://pub.orcid.org/v3.0/0000-0002-0734-2199/work/40038622
-    body:
-      encoding: ''
-      string: ''
-    headers:
-      Accept-Encoding: gzip, deflate
-      Accept: application/vnd.orcid+json; qs=4
-      User-Agent: r-curl/4.3 crul/0.9.0 rOpenSci(rorcid/0.6.3.91)
-      X-USER-AGENT: r-curl/4.3 crul/0.9.0 rOpenSci(rorcid/0.6.3.91)
-      Authorization: Bearer <<rorcid_bearer_token>>
-  response:
-    status:
-      status_code: '200'
-      message: OK
-      explanation: Request fulfilled, document follows
-    headers:
-      status: HTTP/1.1 200 OK
-      server: nginx/1.16.1
-      date: Wed, 05 Feb 2020 22:21:44 GMT
-      content-type: application/vnd.orcid+json; qs=4;charset=UTF-8
-      transfer-encoding: chunked
-      connection: keep-alive
-      access-control-allow-origin: '*'
-      cache-control: no-cache, no-store, max-age=0, must-revalidate
-      pragma: no-cache
-      expires: '0'
-      x-xss-protection: 1; mode=block
-      x-frame-options: DENY
-      x-content-type-options: nosniff
-      content-encoding: gzip
-    body:
-      encoding: UTF-8
-      file: no
-      string: |-
-        {
-          "created-date" : {
-            "value" : 1514544074236
-          },
-          "last-modified-date" : {
-            "value" : 1526896135938
-          },
-          "source" : {
-            "source-orcid" : {
-              "uri" : "https://orcid.org/0000-0002-0734-2199",
-              "path" : "0000-0002-0734-2199",
-              "host" : "orcid.org"
-            },
-            "source-client-id" : null,
-            "source-name" : {
-              "value" : "Sebastian Kreutzer"
-            },
-            "assertion-origin-orcid" : null,
-            "assertion-origin-client-id" : null,
-            "assertion-origin-name" : null
-          },
-          "put-code" : 40038622,
-          "path" : "/0000-0002-0734-2199/work/40038622",
-          "title" : {
-            "title" : {
-              "value" : "Introducing an R package for luminescence dating analysis "
-            },
-            "subtitle" : null,
-            "translated-title" : null
-          },
-          "journal-title" : {
-            "value" : "Ancient TL"
-          },
-          "short-description" : null,
-          "citation" : {
-            "citation-type" : "bibtex",
-            "citation-value" : "@article{Kreutzer:2012ty, author= {Kreutzer, Sebastian and Schmidt, Christoph and Fuchs, Margret C and Dietze, Michael and Fischer, Manfred and Fuchs, Markus}, title= {{Introducing an R package for luminescence dating analysis }}, journal= {Ancient TL}, year= {2012}, volume= {30}, number= {1}, pages= {1--8}}\n\n"
-          },
-          "type" : "journal-article",
-          "publication-date" : {
-            "year" : {
-              "value" : "2012"
-            },
-            "month" : null,
-            "day" : null
-          },
-          "external-ids" : {
-            "external-id" : null
-          },
-          "url" : {
-            "value" : "http://www.ecu.edu/cs-cas/physics/Ancient-Timeline/upload/ATL_30-1-Kreutzer.pdf"
-          },
-          "contributors" : {
-            "contributor" : [ ]
-          },
-          "language-code" : "en",
-          "country" : {
-            "value" : "GB"
-          },
-          "visibility" : "public"
-        }
-  recorded_at: 2020-02-05 22:21:44 GMT
-  recorded_with: vcr/0.4.0, webmockr/0.5.0
+  recorded_at: 2021-05-21 22:29:35 GMT
+  recorded_with: vcr/0.6.0, webmockr/0.8.0
