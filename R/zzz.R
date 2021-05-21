@@ -164,14 +164,14 @@ path_picker <- function(put_code, summary, pth_single) {
   }
 }
 
-#'@title extract BibTeX record from ORCID JSON sring if available
+#'@title extract BibTeX record from ORCID JSON string if available
 #'
 #'@description Helper function to extract BibTeX records which may be
 #'available in the string returned from ORCID. The function is exported.
 #'
 #'@param x (**required**): the output of `cite_put()`
 #'
-#'@return Function returns a formated BibTeX record, if nothing
+#'@return Function returns a formatted BibTeX record, if nothing
 #'was found or the BibTeX record is invalid, the input is passed
 #'through without modifying it
 #'
@@ -198,7 +198,7 @@ extract_bibtex <- function(x) {
     bib <- gsub("\\n", replacement = "", bib$citation$`citation-value`, fixed = TRUE, useBytes = TRUE)
     bib <- gsub("\n", replacement = "", bib, fixed = TRUE, useBytes = TRUE)
 
-    ##houskeeping to avoid BibTeX format problems
+    ##housekeeping to avoid BibTeX format problems
     ##>> check for double backslash, there are probably wrong
     bib <- gsub("\\\\", replacement = "\\", bib, fixed = TRUE)
 
@@ -226,8 +226,9 @@ extract_bibtex <- function(x) {
                  paste(paste0("\t", bib_keywords, " = ", bib_entries),
                        collapse = "\n"))
 
-    ##>> fix last bracket to have a nice record entry
-    x <- paste0(strtrim(x, nchar(x) - 1), "\n}")
+    ##>> fix last bracket to have a nice record entry 
+    x <- paste0(strtrim(x, nchar(x, type = "width") - 1), "\n}")
+
   }
   return(x)
 }
