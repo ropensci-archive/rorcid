@@ -6,5 +6,13 @@ test_that("orcid_citations_basic_test", {
     aa <- orcid_citations(orcid = "0000-0002-0734-2199", put_code = "77226586")
   })
 
-  expect_is(aa, "data.frame")
+  ##check output
+  ##(1) general structure
+  expect_is(aa, "tbl_df")
+  
+  ##(2) validate BibTeX
+  aa_citations <- strsplit(aa$citation[[1]], split = ",\\n")[[1]]
+  expect_length(aa_citations, n = 16)
+  expect_equal(aa_citations[16], expected = "}")
+
 })
