@@ -23,18 +23,14 @@ test_that("orcid_id fails well", {
 
   # accepts only 1 ID
   ids <- c("0000-0003-1620-1408", "0000-0002-9341-7985")
-  vcr::use_cassette("orcid_id_only_one_orcid", {
-    expect_error(orcid_id(ids), "1 is not TRUE")
-  })
+  expect_error(orcid_id(ids), "1 is not TRUE")
 })
 
 test_that("orcid_id - curl options work", {
   skip_on_cran()
   
-  vcr::use_cassette("orcid_id_timeout", {
-    expect_error(orcid_id("0000-0002-9341-7985", timeout_ms = 1), 
-                 "Timeout was reached")
-  })
+  expect_error(orcid_id("0000-0002-9341-7985", timeout_ms = 1), 
+               "Timeout was reached")
 })
 
 test_that("orcid_id - can get addresss data", {
